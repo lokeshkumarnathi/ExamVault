@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e2937 100%);
+    color: #e2e8f0;
+    min-height: 100vh;
+    line-height: 1.7;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.hero h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #a5b4fc, #e0e7ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 1.9rem;
+    margin: 2.5rem 0 1.5rem;
+    color: #c4d0ff;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background: rgba(30, 41, 59, 0.95);
+    border: 1px solid rgba(165, 180, 252, 0.2);
+    border-radius: 20px;
+    padding: 28px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+    border-color: #6366f1;
+}
+
+.back-btn {
+    color: #a5b4fc;
+    text-decoration: none;
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.notes-content {
+    background: rgba(30, 41, 59, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(165, 180, 252, 0.2);
+    min-height: 70vh;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: #64748b;
+    border-top: 1px solid rgba(165, 180, 252, 0.1);
+    margin-top: 60px;
+}

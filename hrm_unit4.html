@@ -1,0 +1,1211 @@
+
+http://127.0.0.1:5500/index.html
+<h2 class="sr-only">Complete HRM Study Notes — Unit IV: Compensation and Employee Welfare, semester exam guide</h2>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans,system-ui,sans-serif);font-size:14px;line-height:1.6;color:var(--color-text-primary);background:transparent}
+#nav-bar{display:flex;flex-wrap:wrap;gap:6px;padding:12px 0 16px;border-bottom:0.5px solid var(--color-border-tertiary);margin-bottom:20px}
+.nav-btn{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md,8px);padding:5px 11px;font-size:12px;cursor:pointer;color:var(--color-text-secondary);transition:all .15s;white-space:nowrap}
+.nav-btn:hover,.nav-btn.active{background:#185FA5;color:#fff;border-color:#185FA5}
+.section{display:none}.section.active{display:block}
+h1{font-size:22px;font-weight:500;margin-bottom:6px}
+h2{font-size:18px;font-weight:500;margin:24px 0 10px;padding-bottom:6px;border-bottom:0.5px solid var(--color-border-tertiary)}
+h3{font-size:15px;font-weight:500;margin:18px 0 8px}
+h4{font-size:12px;font-weight:500;margin:12px 0 5px;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.05em}
+p{margin-bottom:10px;font-size:14px;line-height:1.7}
+ul,ol{padding-left:20px;margin-bottom:10px}
+li{margin-bottom:4px;font-size:14px;line-height:1.6}
+strong{font-weight:500}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg,12px);padding:14px 18px;margin-bottom:14px}
+.cb{background:#E6F1FB;border-color:#B5D4F4}.ct{background:#E1F5EE;border-color:#9FE1CB}.ca{background:#FAEEDA;border-color:#FAC775}.cc{background:#FAECE7;border-color:#F5C4B3}.cp{background:#EEEDFE;border-color:#CECBF6}.cg{background:#EAF3DE;border-color:#C0DD97}.cr{background:#FCEBEB;border-color:#F7C1C1}.cgr{background:var(--color-background-secondary);border-color:var(--color-border-tertiary)}
+.def{border-left:3px solid #185FA5;padding:9px 13px;background:#E6F1FB;border-radius:0 8px 8px 0;margin-bottom:12px}
+.def .dl{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:#185FA5;margin-bottom:3px}
+.def p{margin:0;font-size:13px}
+.mn{border-left:3px solid #854F0B;padding:9px 13px;background:#FAEEDA;border-radius:0 8px 8px 0;margin-bottom:12px}
+.mn .ml{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:#854F0B;margin-bottom:3px}
+.badge{display:inline-block;font-size:11px;font-weight:500;border-radius:4px;padding:2px 8px;margin-right:4px}
+.bb{background:#E6F1FB;color:#0C447C;border:0.5px solid #B5D4F4}.ba{background:#FAEEDA;color:#633806;border:0.5px solid #FAC775}.br{background:#FCEBEB;color:#791F1F;border:0.5px solid #F7C1C1}.bg{background:#EAF3DE;color:#27500A;border:0.5px solid #C0DD97}.bp{background:#EEEDFE;color:#3C3489;border:0.5px solid #CECBF6}.bt{background:#E1F5EE;color:#085041;border:0.5px solid #9FE1CB}
+.tbl{width:100%;border-collapse:collapse;margin-bottom:14px;font-size:13px}
+.tbl th{background:var(--color-background-secondary);font-weight:500;text-align:left;padding:7px 9px;border:0.5px solid var(--color-border-tertiary);font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--color-text-secondary)}
+.tbl td{padding:7px 9px;border:0.5px solid var(--color-border-tertiary);vertical-align:top}
+.tbl tr:nth-child(even) td{background:var(--color-background-secondary)}
+.steps{counter-reset:step;list-style:none;padding:0}
+.steps li{counter-increment:step;display:flex;align-items:flex-start;gap:11px;margin-bottom:11px}
+.steps li::before{content:counter(step);min-width:25px;height:25px;background:#185FA5;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;flex-shrink:0;margin-top:1px}
+.steps li .sc{flex:1}
+.steps li .st{font-weight:500;font-size:14px}
+.steps li .sd{font-size:13px;color:var(--color-text-secondary);margin-top:2px}
+.eq{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);margin-bottom:12px;overflow:hidden}
+.eq-h{display:flex;align-items:center;gap:8px;padding:10px 13px;background:var(--color-background-secondary);cursor:pointer;user-select:none}
+.eq-h:hover{background:var(--color-background-tertiary)}
+.eq-q{flex:1;font-size:14px;font-weight:500}
+.eq-t{font-size:18px;color:var(--color-text-secondary);transition:transform .2s;line-height:1}
+.eq-t.open{transform:rotate(45deg)}
+.eq-b{display:none;padding:13px;border-top:0.5px solid var(--color-border-tertiary)}
+.eq-b.open{display:block}
+.qr{display:flex;gap:8px;align-items:flex-start;padding:5px 0;border-bottom:0.5px solid var(--color-border-tertiary)}
+.qr:last-child{border-bottom:none}
+.qrd{width:7px;height:7px;border-radius:50%;background:#185FA5;margin-top:6px;flex-shrink:0}
+.qr p{margin:0;font-size:13px}
+.nr{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 13px;margin-bottom:10px}
+.nr h4{margin-bottom:5px;color:#0C447C;font-size:12px}
+.nr ul{margin:0;padding-left:16px}
+.nr li{font-size:12px;margin-bottom:2px}
+.law{border:0.5px solid #F7C1C1;background:#FCEBEB;border-radius:var(--border-radius-lg);padding:13px 17px;margin-bottom:14px}
+.law h3{color:#791F1F;margin-top:0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+@media(max-width:520px){.two,.three{grid-template-columns:1fr}}
+@media(prefers-color-scheme:dark){
+.cb{background:rgba(24,95,165,.12);border-color:rgba(24,95,165,.3)}
+.ct{background:rgba(15,110,86,.12);border-color:rgba(15,110,86,.3)}
+.ca{background:rgba(133,79,11,.15);border-color:rgba(133,79,11,.3)}
+.cc{background:rgba(153,60,29,.15);border-color:rgba(153,60,29,.3)}
+.cp{background:rgba(83,74,183,.12);border-color:rgba(83,74,183,.3)}
+.cg{background:rgba(59,109,17,.12);border-color:rgba(59,109,17,.3)}
+.cr{background:rgba(163,45,45,.12);border-color:rgba(163,45,45,.3)}
+.def{background:rgba(24,95,165,.12)}
+.mn{background:rgba(133,79,11,.15)}
+.law{background:rgba(163,45,45,.12);border-color:rgba(163,45,45,.3)}
+.law h3{color:#F09595}
+.nr h4{color:#85B7EB}
+.bb{background:rgba(24,95,165,.2);color:#85B7EB;border-color:rgba(24,95,165,.3)}
+.ba{background:rgba(133,79,11,.2);color:#FAC775;border-color:rgba(133,79,11,.3)}
+.br{background:rgba(163,45,45,.2);color:#F09595;border-color:rgba(163,45,45,.3)}
+.bg{background:rgba(59,109,17,.2);color:#C0DD97;border-color:rgba(59,109,17,.3)}
+.bp{background:rgba(83,74,183,.2);color:#CECBF6;border-color:rgba(83,74,183,.3)}
+.bt{background:rgba(15,110,86,.2);color:#9FE1CB;border-color:rgba(15,110,86,.3)}
+}
+</style>
+
+<div style="padding:16px 0 0">
+<div style="margin-bottom:18px">
+  
+  <h1>Compensation and Employee Welfare</h1>
+  <p style="color:var(--color-text-secondary);font-size:13px">Complete exam-oriented notes · All topics · Questions + model answers · Legal acts included</p>
+</div>
+
+<div id="nav-bar">
+  <button class="nav-btn active" onclick="show('u1')">1. Compensation Basics</button>
+  <button class="nav-btn" onclick="show('u2')">2. Job Evaluation</button>
+  <button class="nav-btn" onclick="show('u3')">3. Pay Rates & Pricing</button>
+  <button class="nav-btn" onclick="show('u4')">4. Performance-Based Pay</button>
+  <button class="nav-btn" onclick="show('u5')">5. Benefits & Welfare</button>
+  <button class="nav-btn" onclick="show('u6')">6. Labour Laws</button>
+  <button class="nav-btn" onclick="show('u7')">7. Exam Questions</button>
+  <button class="nav-btn" onclick="show('u8')">8. Night Revision</button>
+</div>
+
+<!-- ===== UNIT 1 ===== -->
+<div id="u1" class="section active">
+<h2> 1 — Compensation: Foundations & Key Concepts</h2>
+
+<div class="def">
+  <div class="dl">University Exam Definition — Compensation</div>
+  <p><strong>Compensation</strong> is the total package of monetary and non-monetary rewards provided by an organisation to employees in exchange for their work, time, skills, and commitment. It includes wages, salaries, incentives, benefits, and all other forms of remuneration.</p>
+</div>
+
+<h3>Key Terms — Wage vs Salary vs Compensation vs Benefits</h3>
+<table class="tbl">
+  <tr><th>Term</th><th>Meaning</th><th>Frequency</th><th>Example</th></tr>
+  <tr><td><strong>Wage</strong></td><td>Payment calculated per hour or per day, typically for blue-collar/manual workers</td><td>Daily / Weekly</td><td>Factory worker paid ₹500/day</td></tr>
+  <tr><td><strong>Salary</strong></td><td>Fixed, regular payment per month, typically for white-collar/office workers</td><td>Monthly</td><td>Software engineer paid ₹50,000/month</td></tr>
+  <tr><td><strong>Compensation</strong></td><td>Broadest term — all monetary + non-monetary rewards combined</td><td>Total package</td><td>Salary + bonus + insurance + perks</td></tr>
+  <tr><td><strong>Benefits</strong></td><td>Non-wage rewards provided by employer in addition to salary</td><td>Ongoing</td><td>Health insurance, PF, gratuity, canteen</td></tr>
+  <tr><td><strong>Incentives</strong></td><td>Variable pay tied to individual or group performance</td><td>Periodic</td><td>Sales commission, annual bonus</td></tr>
+  <tr><td><strong>Perquisites (Perks)</strong></td><td>Special privileges given to employees, especially managers</td><td>Ongoing</td><td>Company car, club membership</td></tr>
+</table>
+
+<div class="mn">
+  <div class="ml">Mnemonic — Remember the Compensation Terms</div>
+  <p><strong>"Wise Soldiers Can Be Inspiring People"</strong><br>
+  <strong>W</strong>age · <strong>S</strong>alary · <strong>C</strong>ompensation · <strong>B</strong>enefits · <strong>I</strong>ncentives · <strong>P</strong>erks</p>
+</div>
+
+<h2>Types of Compensation</h2>
+<div class="two">
+  <div class="card cb">
+    <h4>Direct Compensation</h4>
+    <p style="font-size:13px">Financial payments made directly to employees for work performed.</p>
+    <ul>
+      <li>Basic wage / salary</li>
+      <li>Dearness Allowance (DA)</li>
+      <li>House Rent Allowance (HRA)</li>
+      <li>Overtime pay</li>
+      <li>Bonus and incentives</li>
+      <li>Commission</li>
+    </ul>
+  </div>
+  <div class="card ct">
+    <h4>Indirect Compensation (Benefits)</h4>
+    <p style="font-size:13px">Non-cash rewards and services provided to employees.</p>
+    <ul>
+      <li>Health and accident insurance</li>
+      <li>Provident Fund (PF)</li>
+      <li>Gratuity</li>
+      <li>Paid leave (casual, sick, earned)</li>
+      <li>Canteen, transport, housing</li>
+      <li>Recreational facilities</li>
+    </ul>
+  </div>
+</div>
+
+<h3>Monetary vs Non-Monetary Benefits</h3>
+<table class="tbl">
+  <tr><th>Basis</th><th>Monetary Benefits</th><th>Non-Monetary Benefits</th></tr>
+  <tr><td><strong>Nature</strong></td><td>Financial, measurable in money</td><td>Non-financial, psychological or social</td></tr>
+  <tr><td><strong>Form</strong></td><td>Cash, allowances, insurance payouts</td><td>Recognition, flexible work hours, job security</td></tr>
+  <tr><td><strong>Examples</strong></td><td>Bonus, DA, HRA, PF, Gratuity</td><td>Awards, designation, work-life balance, autonomy</td></tr>
+  <tr><td><strong>Taxability</strong></td><td>Generally taxable</td><td>May not be taxable</td></tr>
+  <tr><td><strong>Impact</strong></td><td>Addresses financial needs</td><td>Addresses esteem and self-actualisation needs</td></tr>
+</table>
+
+<h2>Basic Factors in Determining Pay Rates</h2>
+<p>Pay rates are influenced by multiple internal and external factors:</p>
+
+<div class="two">
+  <div class="card cb">
+    <h4>Internal Factors</h4>
+    <ul>
+      <li><strong>Job evaluation</strong> — relative worth of job</li>
+      <li><strong>Employee performance</strong> — merit-based pay</li>
+      <li><strong>Seniority / experience</strong> — years of service</li>
+      <li><strong>Skill and qualifications</strong> — educational level</li>
+      <li><strong>Organisation's ability to pay</strong> — profitability</li>
+      <li><strong>Company pay policy</strong> — lead, lag, or match market</li>
+      <li><strong>Trade union bargaining power</strong></li>
+    </ul>
+  </div>
+  <div class="card ct">
+    <h4>External Factors</h4>
+    <ul>
+      <li><strong>Labour market conditions</strong> — demand vs supply</li>
+      <li><strong>Cost of living / inflation</strong> — CPI index</li>
+      <li><strong>Government legislation</strong> — Minimum Wages Act</li>
+      <li><strong>Industry pay standards</strong> — market benchmarks</li>
+      <li><strong>Competitor pay levels</strong> — market surveys</li>
+      <li><strong>Economic conditions</strong> — recession, growth</li>
+      <li><strong>Collective bargaining</strong> — union agreements</li>
+    </ul>
+  </div>
+</div>
+
+<h3>Internal Equity vs External Equity</h3>
+<table class="tbl">
+  <tr><th>Basis</th><th>Internal Equity</th><th>External Equity</th></tr>
+  <tr><td><strong>Meaning</strong></td><td>Fairness in pay among different jobs within the same organisation</td><td>Fairness of pay relative to what competitors pay for similar jobs</td></tr>
+  <tr><td><strong>Focus</strong></td><td>Pay relationships between jobs internally</td><td>Pay comparison with market/industry</td></tr>
+  <tr><td><strong>Achieved through</strong></td><td>Job evaluation</td><td>Pay surveys / market benchmarking</td></tr>
+  <tr><td><strong>Goal</strong></td><td>A manager earns more than a clerk — within org</td><td>IT engineer's salary matches industry standard</td></tr>
+</table>
+
+<div class="card cgr" style="margin-top:10px">
+  <h4>Quick Revision — 1</h4>
+  <div class="qr"><div class="qrd"></div><p>Compensation = all monetary + non-monetary rewards. Broadest term.</p></div>
+  <div class="qr"><div class="qrd"></div><p>Wage = hourly/daily (blue-collar). Salary = monthly fixed (white-collar).</p></div>
+  <div class="qr"><div class="qrd"></div><p>Direct = cash payments. Indirect = benefits (PF, insurance, canteen).</p></div>
+  <div class="qr"><div class="qrd"></div><p>Internal equity = fairness within org (via job evaluation). External equity = fairness vs market (via pay surveys).</p></div>
+  <div class="qr"><div class="qrd"></div><p>Factors: internal (job, skills, performance, policy) + external (market, govt law, CPI, unions).</p></div>
+</div>
+</div>
+
+<!-- ===== UNIT 2 ===== -->
+<div id="u2" class="section">
+<h2> 2 — Job Evaluation Methods</h2>
+
+<div class="def">
+  <div class="dl">Definition — Job Evaluation</div>
+  <p><strong>Job Evaluation</strong> is a systematic process of determining the relative worth or value of jobs within an organisation in order to establish a rational, equitable, and consistent pay structure. It compares jobs, not people.</p>
+</div>
+
+<h3>Objectives of Job Evaluation</h3>
+<ul>
+  <li>Establish a fair and rational wage structure</li>
+  <li>Eliminate pay inequalities and discrimination</li>
+  <li>Provide a basis for wage negotiations with unions</li>
+  <li>Help in proper classification of jobs</li>
+  <li>Facilitate recruitment, promotion, and transfer decisions</li>
+</ul>
+
+<h2>Method 1 — Ranking Method</h2>
+<div class="card cb">
+  <div class="def" style="margin-bottom:10px">
+    <div class="dl">Definition</div>
+    <p>The Ranking Method is the simplest job evaluation method where jobs are arranged in order from highest to lowest based on overall job worth or importance, without analysing individual job factors.</p>
+  </div>
+  <h4>Process</h4>
+  <ol style="font-size:13px;padding-left:18px;margin-bottom:10px">
+    <li>Prepare job descriptions for all jobs</li>
+    <li>Evaluators study each job holistically</li>
+    <li>Jobs are ranked from most important to least important</li>
+    <li>Pay grades assigned based on rank</li>
+  </ol>
+  <div class="two">
+    <div>
+      <p style="font-size:13px;font-weight:500;color:var(--color-text-secondary)">Advantages</p>
+      <ul style="font-size:13px"><li>Simple and quick</li><li>Low cost</li><li>Easy to explain to employees</li></ul>
+    </div>
+    <div>
+      <p style="font-size:13px;font-weight:500;color:var(--color-text-secondary)">Disadvantages</p>
+      <ul style="font-size:13px"><li>Highly subjective — no scientific basis</li><li>Does not show how much one job is worth vs another</li><li>Not suitable for large organisations</li></ul>
+    </div>
+  </div>
+  <p style="font-size:13px;margin-top:8px"><strong>Example:</strong> CEO &gt; General Manager &gt; Department Manager &gt; Supervisor &gt; Clerk — jobs simply ranked in order.</p>
+</div>
+
+<h2>Method 2 — Classification / Grading Method</h2>
+<div class="card ct">
+  <div class="def" style="margin-bottom:10px">
+    <div class="dl">Definition</div>
+    <p>The Classification (Grading) Method pre-defines a set of job grades/classes with descriptions, and then each job is placed into the most appropriate grade based on how well it matches the grade description.</p>
+  </div>
+  <h4>Process</h4>
+  <ol style="font-size:13px;padding-left:18px;margin-bottom:10px">
+    <li>Define pay grades (e.g., Grade I to Grade V)</li>
+    <li>Write a description for each grade (responsibilities, skills needed)</li>
+    <li>Evaluate each job and slot it into the matching grade</li>
+    <li>Assign pay scales to each grade</li>
+  </ol>
+  <div class="two">
+    <div>
+      <p style="font-size:13px;font-weight:500;color:var(--color-text-secondary)">Advantages</p>
+      <ul style="font-size:13px"><li>More systematic than ranking</li><li>Easy to administer</li><li>Used widely in government/PSUs</li></ul>
+    </div>
+    <div>
+      <p style="font-size:13px;font-weight:500;color:var(--color-text-secondary)">Disadvantages</p>
+      <ul style="font-size:13px"><li>Grade descriptions can be vague</li><li>Fitting jobs into grades is subjective</li><li>Not suitable for highly diverse jobs</li></ul>
+    </div>
+  </div>
+  <p style="font-size:13px;margin-top:8px"><strong>Example:</strong> Indian government Pay Bands — Grade Pay ₹1,800 (peon) to ₹10,000 (IAS officer). All jobs are slotted into predefined pay bands.</p>
+</div>
+
+<h2>Method 3 — Point Rating Method</h2>
+<div class="card ca">
+  <div class="def" style="margin-bottom:10px">
+    <div class="dl">Definition</div>
+    <p>The Point Rating Method is the most widely used and scientific job evaluation method. Each job is broken down into specific factors (skill, effort, responsibility, working conditions), each factor is assigned maximum points, and jobs are scored on each factor. Total points determine job worth and pay grade.</p>
+  </div>
+  <h4>Process</h4>
+  <ol style="font-size:13px;padding-left:18px;margin-bottom:10px">
+    <li>Select compensable factors (e.g., education, experience, effort, responsibility, conditions)</li>
+    <li>Assign maximum points to each factor based on importance</li>
+    <li>Define degrees/levels within each factor (e.g., Low/Medium/High)</li>
+    <li>Score each job on every factor</li>
+    <li>Add up total points per job</li>
+    <li>Convert points to pay grades</li>
+  </ol>
+  <p style="font-size:13px"><strong>Example Factor Table:</strong></p>
+  <table class="tbl" style="margin:8px 0">
+    <tr><th>Factor</th><th>Max Points</th><th>Job A Points</th><th>Job B Points</th></tr>
+    <tr><td>Education</td><td>100</td><td>70</td><td>50</td></tr>
+    <tr><td>Experience</td><td>100</td><td>80</td><td>40</td></tr>
+    <tr><td>Responsibility</td><td>150</td><td>120</td><td>60</td></tr>
+    <tr><td>Working Conditions</td><td>50</td><td>30</td><td>45</td></tr>
+    <tr><td><strong>Total</strong></td><td><strong>400</strong></td><td><strong>300</strong></td><td><strong>195</strong></td></tr>
+  </table>
+  <div class="two">
+    <div>
+      <p style="font-size:13px;font-weight:500;color:var(--color-text-secondary)">Advantages</p>
+      <ul style="font-size:13px"><li>Most objective and scientific</li><li>Reduces bias</li><li>Easy to explain to employees</li><li>Can be applied to diverse jobs</li></ul>
+    </div>
+    <div>
+      <p style="font-size:13px;font-weight:500;color:var(--color-text-secondary)">Disadvantages</p>
+      <ul style="font-size:13px"><li>Time-consuming to develop</li><li>Factor selection can be subjective</li><li>Expensive to maintain</li></ul>
+    </div>
+  </div>
+</div>
+
+<h2>Method 4 — Factor Comparison Method</h2>
+<div class="card cp">
+  <div class="def" style="margin-bottom:10px">
+    <div class="dl">Definition</div>
+    <p>The Factor Comparison Method is a quantitative technique where a set of key benchmark jobs are evaluated factor by factor, and their current pay is distributed among the factors. All other jobs are then compared against these benchmark jobs factor by factor to determine their pay.</p>
+  </div>
+  <h4>Process</h4>
+  <ol style="font-size:13px;padding-left:18px;margin-bottom:10px">
+    <li>Select 15–20 key benchmark jobs (jobs whose pay is already accepted as fair)</li>
+    <li>Identify compensable factors (typically: mental requirements, skill, physical effort, responsibility, working conditions)</li>
+    <li>Rank each key job on each factor</li>
+    <li>Allocate current pay to each factor for each key job</li>
+    <li>Compare all other jobs against the key jobs factor by factor</li>
+    <li>Add up factor pay values to get total pay for each job</li>
+  </ol>
+  <div class="two">
+    <div>
+      <p style="font-size:13px;font-weight:500;color:var(--color-text-secondary)">Advantages</p>
+      <ul style="font-size:13px"><li>Scientific and systematic</li><li>Provides actual monetary values</li><li>Useful for diverse job families</li></ul>
+    </div>
+    <div>
+      <p style="font-size:13px;font-weight:500;color:var(--color-text-secondary)">Disadvantages</p>
+      <ul style="font-size:13px"><li>Complex and difficult to understand</li><li>Very time-consuming</li><li>If key jobs are wrongly selected, entire system fails</li></ul>
+    </div>
+  </div>
+</div>
+
+<h3>Comparison of All Four Job Evaluation Methods</h3>
+<table class="tbl">
+  <tr><th>Method</th><th>Type</th><th>Complexity</th><th>Objectivity</th><th>Best For</th></tr>
+  <tr><td>Ranking</td><td>Non-quantitative</td><td>Very simple</td><td>Low</td><td>Small orgs</td></tr>
+  <tr><td>Classification</td><td>Non-quantitative</td><td>Simple</td><td>Medium-low</td><td>Govt / PSUs</td></tr>
+  <tr><td>Point Rating</td><td>Quantitative</td><td>Moderate</td><td>High</td><td>Most organisations</td></tr>
+  <tr><td>Factor Comparison</td><td>Quantitative</td><td>Complex</td><td>Very high</td><td>Large, diverse orgs</td></tr>
+</table>
+
+<div class="mn">
+  <div class="ml">Mnemonic — Remember 4 Job Evaluation Methods</div>
+  <p><strong>"Really Cool People Fight"</strong><br>
+  <strong>R</strong>anking → <strong>C</strong>lassification → <strong>P</strong>oint Rating → <strong>F</strong>actor Comparison<br>
+  (Gets more complex and more objective as you go right)</p>
+</div>
+
+<div class="card cgr">
+  <h4>Quick Revision — Unit 2</h4>
+  <div class="qr"><div class="qrd"></div><p>Job evaluation = determining relative worth of jobs (not people) to establish a fair pay structure.</p></div>
+  <div class="qr"><div class="qrd"></div><p>Ranking = simplest, subjective, no points. Classification = predefined grades. Point Rating = most popular, scientific. Factor Comparison = most complex, uses benchmark jobs.</p></div>
+  <div class="qr"><div class="qrd"></div><p>Point Rating is most widely used in practice and most likely asked in exams.</p></div>
+</div>
+</div>
+
+<!-- ===== UNIT 3 ===== -->
+<div id="u3" class="section">
+<h2> 3 — Establishing Pay Rates & Pricing Managerial Jobs</h2>
+
+<h2>Establishing Pay Rates — Process</h2>
+<ol class="steps">
+  <li>
+    <div class="sc">
+      <div class="st">Conduct Job Analysis</div>
+      <div class="sd">Analyse each job to understand its duties, responsibilities, requirements, and working conditions. Output: Job Description + Job Specification.</div>
+    </div>
+  </li>
+  <li>
+    <div class="sc">
+      <div class="st">Perform Job Evaluation</div>
+      <div class="sd">Use one of the four methods (Ranking, Classification, Point Rating, Factor Comparison) to determine the relative worth of each job.</div>
+    </div>
+  </li>
+  <li>
+    <div class="sc">
+      <div class="st">Conduct Pay / Wage Survey</div>
+      <div class="sd">Collect data on pay rates offered by competitor organisations and the industry for similar jobs. Sources: NASSCOM surveys, Mercer surveys, Aon Hewitt reports.</div>
+    </div>
+  </li>
+  <li>
+    <div class="sc">
+      <div class="st">Determine Pay Policy</div>
+      <div class="sd">Decide whether the organisation will lead (pay above market), match (pay at market), or lag (pay below market). Also decide pay mix — how much is fixed vs variable.</div>
+    </div>
+  </li>
+  <li>
+    <div class="sc">
+      <div class="st">Group Jobs into Pay Grades</div>
+      <div class="sd">Cluster jobs of similar worth into pay grades (bands). Each grade has a minimum, midpoint, and maximum pay rate.</div>
+    </div>
+  </li>
+  <li>
+    <div class="sc">
+      <div class="st">Develop Pay Ranges (Wage Structure)</div>
+      <div class="sd">Create a wage curve or salary ranges for each pay grade. Allow for salary progression within grades based on performance or seniority.</div>
+    </div>
+  </li>
+  <li>
+    <div class="sc">
+      <div class="st">Fine-Tune and Implement</div>
+      <div class="sd">Handle red-circle (overpaid) and green-circle (underpaid) employees. Communicate the pay structure and implement. Review periodically.</div>
+    </div>
+  </li>
+</ol>
+
+<h3>Market-Based Pay Systems</h3>
+<div class="card cb">
+  <p style="font-size:13px">In a <strong>market-based pay system</strong>, salaries are set primarily by what the external labour market pays for similar jobs. The organisation regularly surveys the market and benchmarks its pay against the 25th, 50th (median), or 75th percentile of market pay data.</p>
+  <table class="tbl" style="margin-top:10px">
+    <tr><th>Strategy</th><th>Approach</th><th>When Used</th></tr>
+    <tr><td><strong>Lead the Market</strong></td><td>Pay above 75th percentile</td><td>Attract top talent; tech companies like Google, Infosys</td></tr>
+    <tr><td><strong>Match the Market</strong></td><td>Pay at 50th percentile (median)</td><td>Most organisations; standard approach</td></tr>
+    <tr><td><strong>Lag the Market</strong></td><td>Pay below 50th percentile</td><td>Cost-saving; offset with other benefits</td></tr>
+  </table>
+</div>
+
+<h2>Pricing Managerial and Professional Jobs</h2>
+<div class="def">
+  <div class="dl">Concept</div>
+  <p>Pricing managerial and professional jobs is more complex than pricing operative jobs because managerial work is less standardised, involves higher discretion, and pay must reflect the strategic value and market demand for talent. Traditional job evaluation methods are often inadequate for such roles.</p>
+</div>
+
+<h3>Special Features of Managerial Pay</h3>
+<ul>
+  <li><strong>Base salary</strong> — fixed monthly pay reflecting job level and market value</li>
+  <li><strong>Short-term incentives</strong> — annual bonus linked to company or division performance (typically 10–50% of base)</li>
+  <li><strong>Long-term incentives</strong> — stock options, ESOPs (Employee Stock Ownership Plans), RSUs (Restricted Stock Units) to align manager interest with shareholders</li>
+  <li><strong>Perquisites (Perks)</strong> — company car, club membership, driver, housing allowance, business class travel</li>
+  <li><strong>Benefits</strong> — enhanced health cover, superannuation pension, key-man insurance</li>
+</ul>
+
+<h3>Factors Specific to Managerial Pay</h3>
+<ul>
+  <li>Level in organisational hierarchy (CEO vs VP vs Manager)</li>
+  <li>Business complexity and size (revenue, team size)</li>
+  <li>Industry and market demand for that skill set</li>
+  <li>Company performance and profitability</li>
+  <li>Individual's track record, qualifications, and negotiating power</li>
+</ul>
+
+<h3>Real-World Examples</h3>
+<table class="tbl">
+  <tr><th>Role</th><th>Company</th><th>Typical Components</th></tr>
+  <tr><td>CEO</td><td>Infosys</td><td>Base salary + Annual performance bonus + ESOPs + Club membership</td></tr>
+  <tr><td>Regional Sales Manager</td><td>HUL</td><td>Base + Quarterly sales incentive + Car + Fuel allowance</td></tr>
+  <tr><td>Software Architect</td><td>TCS</td><td>Base + Variable pay + ESOPs + Health insurance</td></tr>
+  <tr><td>CFO</td><td>Tata Motors</td><td>Base + Short-term bonus + Long-term equity + Pension</td></tr>
+</table>
+
+<div class="mn">
+  <div class="ml">Mnemonic — Establishing Pay Rates Steps</div>
+  <p><strong>"Just Poor People Dance Gracefully, Forever Inspired"</strong><br>
+  Job analysis → Pay survey → Pay policy → Determine grades → Grade ranges → Fine-tune → Implement</p>
+</div>
+
+<div class="card cgr">
+  <h4>Quick Revision —  3</h4>
+  <div class="qr"><div class="qrd"></div><p>Pay rate process: Job Analysis → Job Evaluation → Pay Survey → Pay Policy → Pay Grades → Pay Ranges → Implement.</p></div>
+  <div class="qr"><div class="qrd"></div><p>Lead (above market), Match (at market), Lag (below market) are three pay positioning strategies.</p></div>
+  <div class="qr"><div class="qrd"></div><p>Managerial pay = base + short-term incentives + long-term incentives (ESOPs) + perks + benefits.</p></div>
+  <div class="qr"><div class="qrd"></div><p>Red-circle = overpaid employee (pay frozen until grade catches up). Green-circle = underpaid employee (pay raised to minimum).</p></div>
+</div>
+</div>
+
+<!-- ===== UNIT 4 ===== -->
+<div id="u4" class="section">
+<h2> 4 — Performance-Based Pay</h2>
+
+<div class="def">
+  <div class="dl">Definition — Performance-Based Pay</div>
+  <p><strong>Performance-Based Pay (PBP)</strong> is a compensation system where an employee's pay is linked directly to their individual, team, or organisational performance. Unlike fixed pay, PBP varies based on achievement of goals and targets. It is designed to motivate employees and align their efforts with organisational objectives.</p>
+</div>
+
+<h3>Objectives of Performance-Based Pay</h3>
+<ul>
+  <li>Motivate employees to achieve higher performance</li>
+  <li>Align individual goals with organisational objectives</li>
+  <li>Reward high performers differentially</li>
+  <li>Reduce fixed labour costs by making part of pay variable</li>
+  <li>Attract and retain high-performing talent</li>
+</ul>
+
+<h2>1. Incentives</h2>
+<div class="card cb">
+  <div class="def" style="margin-bottom:10px">
+    <div class="dl">Definition</div>
+    <p>Incentives are additional payments made to employees over and above their regular wages/salary to motivate them to achieve higher levels of performance.</p>
+  </div>
+  <div class="two">
+    <div>
+      <p style="font-size:13px;font-weight:500">Individual Incentives</p>
+      <ul style="font-size:13px">
+        <li><strong>Piece Rate</strong> — paid per unit produced (e.g., garment worker paid ₹20 per shirt stitched)</li>
+        <li><strong>Standard Hour Plan</strong> — bonus for completing work faster than standard time</li>
+        <li><strong>Merit Pay Increase</strong> — permanent salary increase based on performance rating</li>
+      </ul>
+    </div>
+    <div>
+      <p style="font-size:13px;font-weight:500">Group/Org Incentives</p>
+      <ul style="font-size:13px">
+        <li><strong>Team incentive</strong> — bonus shared among team for reaching group targets</li>
+        <li><strong>Gain Sharing</strong> — sharing cost savings or productivity gains with employees</li>
+        <li><strong>Profit Sharing</strong> — distributing a percentage of company profits</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<h2>2. Bonus</h2>
+<div class="card ct">
+  <div class="def" style="margin-bottom:10px">
+    <div class="dl">Definition</div>
+    <p>A bonus is a lump-sum payment made to employees in addition to their regular pay, typically as a reward for achieving specific performance targets, or as a statutory requirement (festival bonus under the Payment of Bonus Act, 1965).</p>
+  </div>
+  <ul>
+    <li><strong>Statutory / Festival Bonus</strong> — mandated by Payment of Bonus Act; minimum 8.33% of annual salary (up to ₹21,000/month basic salary eligible)</li>
+    <li><strong>Performance Bonus</strong> — tied to individual/company performance; paid annually</li>
+    <li><strong>Sign-on Bonus</strong> — paid when joining a new company to cover leaving-bonus loss</li>
+    <li><strong>Retention Bonus</strong> — paid to retain a key employee for a specific period</li>
+  </ul>
+  <p style="font-size:13px;margin-top:8px"><strong>Example:</strong> TCS pays an annual performance bonus of 10–20% of CTC to employees who achieve "A" or "B+" ratings. Infosys paid a ₹8,000 special bonus to all employees during post-COVID recovery.</p>
+</div>
+
+<h2>3. Commission</h2>
+<div class="card ca">
+  <div class="def" style="margin-bottom:10px">
+    <div class="dl">Definition</div>
+    <p>Commission is a performance-based pay where employees (typically in sales roles) earn a percentage of the sales revenue or profit they generate.</p>
+  </div>
+  <table class="tbl">
+    <tr><th>Type</th><th>Description</th><th>Example</th></tr>
+    <tr><td>Straight Commission</td><td>100% of pay is commission; no base salary</td><td>Insurance agents (₹0 base + 15% of premium)</td></tr>
+    <tr><td>Salary + Commission</td><td>Fixed base salary plus commission on sales</td><td>HUL sales rep: ₹25,000 base + 2% of sales</td></tr>
+    <tr><td>Draw Against Commission</td><td>Advance drawn from future commission earnings</td><td>Real estate agents</td></tr>
+  </table>
+</div>
+
+<h2>4. Profit Sharing</h2>
+<div class="card cp">
+  <div class="def" style="margin-bottom:10px">
+    <div class="dl">Definition</div>
+    <p>Profit Sharing is a plan under which employees receive a share of the organisation's annual profits, typically as a lump-sum payment or contribution to a retirement fund. It links employee welfare to company success.</p>
+  </div>
+  <ul>
+    <li><strong>Cash Plan</strong> — a portion of profits paid directly as cash bonus</li>
+    <li><strong>Deferred Plan</strong> — profits credited to an employee's retirement account (e.g., superannuation fund)</li>
+    <li><strong>Combination Plan</strong> — part cash + part deferred</li>
+  </ul>
+  <p style="font-size:13px;margin-top:8px"><strong>Example:</strong> Tata Group companies have historically shared profits with employees. Infosys ESOP (Employee Stock Option Plan) is a form of long-term profit sharing where employees gain from share price appreciation.</p>
+</div>
+
+<h2>5. Merit Pay</h2>
+<div class="card cg">
+  <div class="def" style="margin-bottom:10px">
+    <div class="dl">Definition</div>
+    <p>Merit Pay is a permanent increase in an employee's base salary based on their annual performance appraisal rating. Unlike a bonus (which is a one-time payment), merit pay becomes part of the employee's ongoing salary.</p>
+  </div>
+  <table class="tbl">
+    <tr><th>Performance Rating</th><th>Merit Increase (%)</th></tr>
+    <tr><td>Outstanding (5)</td><td>8–12%</td></tr>
+    <tr><td>Exceeds Expectations (4)</td><td>5–7%</td></tr>
+    <tr><td>Meets Expectations (3)</td><td>2–4%</td></tr>
+    <tr><td>Below Expectations (2)</td><td>0–1%</td></tr>
+    <tr><td>Unsatisfactory (1)</td><td>0%</td></tr>
+  </table>
+</div>
+
+<h3>Comparison of PBP Types</h3>
+<table class="tbl">
+  <tr><th>Type</th><th>Basis</th><th>Payment</th><th>Who Gets It</th><th>Example</th></tr>
+  <tr><td>Incentive</td><td>Output / production</td><td>Variable, ongoing</td><td>All levels</td><td>Piece rate, gain sharing</td></tr>
+  <tr><td>Bonus</td><td>Achievement of target / statutory</td><td>Lump sum</td><td>All levels</td><td>Annual bonus, festival bonus</td></tr>
+  <tr><td>Commission</td><td>Sales revenue generated</td><td>% of sales</td><td>Sales staff</td><td>Insurance agent, sales rep</td></tr>
+  <tr><td>Profit Sharing</td><td>Company profits</td><td>Annual share</td><td>All employees</td><td>Infosys ESOP, Tata Trust</td></tr>
+  <tr><td>Merit Pay</td><td>Appraisal rating</td><td>Permanent salary increase</td><td>All levels</td><td>Annual increment based on rating</td></tr>
+</table>
+
+<div class="mn">
+  <div class="ml">Mnemonic — 5 Types of Performance-Based Pay</div>
+  <p><strong>"I Buy Coffee, Please Mister"</strong><br>
+  <strong>I</strong>ncentives · <strong>B</strong>onus · <strong>C</strong>ommission · <strong>P</strong>rofit Sharing · <strong>M</strong>erit Pay</p>
+</div>
+
+<div class="card cgr">
+  <h4>Quick Revision — Unit 4</h4>
+  <div class="qr"><div class="qrd"></div><p>PBP = pay linked to performance. Motivates employees, aligns goals, reduces fixed costs.</p></div>
+  <div class="qr"><div class="qrd"></div><p>Bonus = lump sum, one-time. Merit Pay = permanent salary increase — key difference.</p></div>
+  <div class="qr"><div class="qrd"></div><p>Commission = % of sales; mainly for sales staff. Piece rate = per unit produced.</p></div>
+  <div class="qr"><div class="qrd"></div><p>Profit Sharing = employees share in company's annual profits (cash or deferred/ESOP).</p></div>
+</div>
+</div>
+
+<!-- ===== UNIT 5 ===== -->
+<div id="u5" class="section">
+<h2> 5 — Employee Benefits & Welfare Facilities</h2>
+
+<div class="def">
+  <div class="dl">Definition — Employee Benefits</div>
+  <p><strong>Employee Benefits</strong> are non-wage compensation elements provided to employees in addition to their regular salary. They are indirect forms of financial compensation designed to improve employee well-being, security, and quality of life.</p>
+</div>
+
+<h2>Insurance Benefits</h2>
+<div class="two">
+  <div class="card cb">
+    <h3>Health Insurance</h3>
+    <p style="font-size:13px">Covers hospitalisation, surgical, and medical expenses of employees and often their family members.</p>
+    <ul style="font-size:13px">
+      <li>Group mediclaim policy: most Indian companies provide ₹3–10 lakh annual cover</li>
+      <li>Covers in-patient (IPD) and sometimes out-patient (OPD) expenses</li>
+      <li>Pre-existing conditions may be covered after a waiting period</li>
+      <li><strong>Example:</strong> Wipro provides employees with ₹5 lakh group health insurance under Star Health</li>
+    </ul>
+  </div>
+  <div class="card ct">
+    <h3>Accident Insurance</h3>
+    <p style="font-size:13px">Provides compensation to employees or their nominees in case of death or disability due to workplace accidents.</p>
+    <ul style="font-size:13px">
+      <li>Group Personal Accident (GPA) policy</li>
+      <li>Covers: accidental death, permanent total/partial disability, temporary disability</li>
+      <li>Governed by: Employees' Compensation Act (formerly Workmen's Compensation Act)</li>
+      <li><strong>Example:</strong> Construction companies mandatorily insure workers for accidental death</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card ca">
+  <h3>Medical Benefits</h3>
+  <ul>
+    <li><strong>ESI (Employees' State Insurance)</strong> — statutory scheme covering employees earning up to ₹21,000/month; provides free medical care, sick pay, maternity benefit</li>
+    <li><strong>Company dispensary</strong> — on-site medical facility with doctor and nurse</li>
+    <li><strong>Reimbursement</strong> — employees submit medical bills for reimbursement (annual limit)</li>
+    <li><strong>Free diagnostic tests</strong> — some MNCs offer annual health checkup</li>
+  </ul>
+</div>
+
+<h2>Retirement Benefits</h2>
+<div class="three">
+  <div class="card cb" style="padding:12px">
+    <h3 style="font-size:14px">Provident Fund (PF)</h3>
+    <p style="font-size:13px">A statutory retirement savings scheme under the Employees' Provident Fund Act, 1952.</p>
+    <ul style="font-size:13px">
+      <li>Employee contributes 12% of basic salary</li>
+      <li>Employer also contributes 12% (8.33% to EPS pension, 3.67% to EPF)</li>
+      <li>Earns interest (~8.15% p.a.)</li>
+      <li>Withdrawable at retirement, resignation, or partial withdrawal for emergency</li>
+    </ul>
+  </div>
+  <div class="card ct" style="padding:12px">
+    <h3 style="font-size:14px">Gratuity</h3>
+    <p style="font-size:13px">A lump-sum payment made by employer to an employee on separation after completing 5 years of service, under the Payment of Gratuity Act, 1972.</p>
+    <ul style="font-size:13px">
+      <li>Formula: <strong>(Last basic salary × 15 × years of service) ÷ 26</strong></li>
+      <li>Maximum gratuity: ₹20 lakh (tax-exempt)</li>
+      <li>Payable on: retirement, resignation (min. 5 yrs), death, disability</li>
+      <li>Example: 20 yrs service, basic ₹30,000/month → Gratuity = (30,000 × 15 × 20)/26 = ₹3,46,153</li>
+    </ul>
+  </div>
+  <div class="card ca" style="padding:12px">
+    <h3 style="font-size:14px">Pension</h3>
+    <p style="font-size:13px">A regular monthly income provided to employees after retirement.</p>
+    <ul style="font-size:13px">
+      <li><strong>EPS (Employee Pension Scheme)</strong> — under EPF; employer contributes 8.33% to EPS; eligible for pension after 10 years service + age 58</li>
+      <li><strong>NPS (National Pension System)</strong> — market-linked pension scheme; central/state govt employees mandatorily enrolled; corporates may offer voluntarily</li>
+      <li><strong>Superannuation Fund</strong> — some companies (like LIC, banks) maintain additional pension funds for employees</li>
+    </ul>
+  </div>
+</div>
+
+<h2>Employee Welfare Facilities</h2>
+<div class="def">
+  <div class="dl">Definition — Employee Welfare</div>
+  <p><strong>Employee Welfare</strong> refers to all activities, facilities, and services provided by an employer (and sometimes the government) to improve the working and living conditions of employees and their families, beyond their regular wages. It covers both workplace welfare and community welfare.</p>
+</div>
+
+<h3>Types of Welfare Facilities</h3>
+<div class="two">
+  <div class="card cb">
+    <h4>Intra-Mural (Within the Workplace)</h4>
+    <ul>
+      <li><strong>Canteen</strong> — subsidised or free meals facility at the workplace. Mandatory under Factories Act for establishments with 250+ workers</li>
+      <li><strong>Drinking water</strong> — clean potable water facility</li>
+      <li><strong>Rest rooms and crèche</strong> — rest areas and childcare facility (mandatory for 30+ women workers)</li>
+      <li><strong>Washing and toilet facilities</strong> — clean sanitation</li>
+      <li><strong>First aid boxes</strong> — one per 150 workers</li>
+      <li><strong>Safety measures</strong> — protective equipment, fire extinguishers, safety training</li>
+      <li><strong>Ambulance facility</strong> — for factories with 500+ workers</li>
+    </ul>
+  </div>
+  <div class="card ct">
+    <h4>Extra-Mural (Outside the Workplace)</h4>
+    <ul>
+      <li><strong>Housing</strong> — company-provided or subsidised accommodation; especially in industrial townships (e.g., BHEL Bhopal, Jamshedpur Tata Steel)</li>
+      <li><strong>Transport</strong> — free or subsidised bus service for employees to/from office</li>
+      <li><strong>Educational facilities</strong> — schools/colleges for employees' children; scholarships</li>
+      <li><strong>Medical facilities</strong> — company hospitals or dispensaries for employees and family</li>
+      <li><strong>Recreational facilities</strong> — sports clubs, gymnasiums, cultural activities</li>
+      <li><strong>Consumer cooperative stores</strong> — subsidised grocery and goods for employees</li>
+      <li><strong>Holiday homes / rest houses</strong> — subsidised vacation facilities</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card ca">
+  <h3>Safety Measures in Detail</h3>
+  <ul>
+    <li>Provision of Personal Protective Equipment (PPE) — helmets, gloves, safety shoes, goggles</li>
+    <li>Regular safety training and fire drills</li>
+    <li>Machinery guards and safety valves on pressure vessels</li>
+    <li>Proper lighting and ventilation</li>
+    <li>Hazardous materials handling procedures</li>
+    <li>Emergency evacuation plans and fire exits</li>
+    <li>Accident reporting and investigation systems</li>
+    <li>Compliance with Factories Act 1948 safety provisions</li>
+  </ul>
+</div>
+
+<h3>Importance of Employee Welfare</h3>
+<ul>
+  <li>Improves employee morale, motivation, and loyalty</li>
+  <li>Reduces absenteeism and employee turnover</li>
+  <li>Improves productivity and work quality</li>
+  <li>Builds a positive employer brand for recruitment</li>
+  <li>Reduces industrial disputes and strikes</li>
+  <li>Fulfils social and legal obligations of the employer</li>
+  <li>Improves physical and mental health of workforce</li>
+</ul>
+
+<div class="card cgr">
+  <h4>Quick Revision — Unit 5</h4>
+  <div class="qr"><div class="qrd"></div><p>PF: Employee 12% + Employer 12% of basic. Governed by EPF Act, 1952.</p></div>
+  <div class="qr"><div class="qrd"></div><p>Gratuity: (Last basic × 15 × years) ÷ 26. Needs min. 5 years service. Max ₹20 lakh.</p></div>
+  <div class="qr"><div class="qrd"></div><p>ESI: covers employees earning up to ₹21,000/month. Provides free medical, sick pay, maternity benefit.</p></div>
+  <div class="qr"><div class="qrd"></div><p>Canteen: mandatory for 250+ workers. Crèche: mandatory for 30+ women workers. First aid: 1 per 150 workers.</p></div>
+  <div class="qr"><div class="qrd"></div><p>Intra-mural = within workplace. Extra-mural = outside workplace (housing, transport, schools).</p></div>
+</div>
+</div>
+
+<!-- ===== UNIT 6 ===== -->
+<div id="u6" class="section">
+<h2> 6 — Labour Laws: Workmen's Compensation Act & Minimum Wages Act</h2>
+
+<h2>Workmen's Compensation Act, 1923</h2>
+<p style="font-size:13px;color:var(--color-text-secondary)"><em>Note: Renamed "Employees' Compensation Act" in 2009; exam questions still commonly use the original name.</em></p>
+
+<div class="law">
+  <h3>Meaning and Objective</h3>
+  <div class="def" style="margin-bottom:10px">
+    <div class="dl">Definition</div>
+    <p>The Workmen's Compensation Act, 1923 is a social security legislation that makes it mandatory for employers to pay compensation to workers or their dependents in case of <strong>accidental injuries, occupational diseases, or death arising out of and in the course of employment</strong>.</p>
+  </div>
+  <h4>Objectives</h4>
+  <ul>
+    <li>Provide financial protection to workers injured at work</li>
+    <li>Compensate dependents in case of worker's death due to work accident</li>
+    <li>Place the burden of industrial injuries on the employer (employer's liability)</li>
+    <li>Eliminate need for workers to file civil suits to get compensation</li>
+  </ul>
+</div>
+
+<h3>Scope and Coverage</h3>
+<ul>
+  <li>Applies to workers in: factories, mines, plantations, construction sites, transport establishments, railways, ships, and hazardous occupations listed in Schedule II of the Act</li>
+  <li>Applies to workers earning up to ₹15,000/month (before 2009 amendment) — the wage ceiling has been revised over time</li>
+  <li>Does <strong>NOT</strong> apply to members of Armed Forces or workers covered under ESI Act (those are covered by ESI separately)</li>
+</ul>
+
+<h3>When Compensation is Payable</h3>
+<table class="tbl">
+  <tr><th>Situation</th><th>Compensation Payable?</th></tr>
+  <tr><td>Accidental injury arising out of employment</td><td>Yes</td></tr>
+  <tr><td>Death due to work accident</td><td>Yes</td></tr>
+  <tr><td>Permanent total disablement</td><td>Yes</td></tr>
+  <tr><td>Permanent partial disablement</td><td>Yes (proportionate)</td></tr>
+  <tr><td>Temporary disablement (3+ days)</td><td>Yes (daily allowance)</td></tr>
+  <tr><td>Occupational disease (Schedule III)</td><td>Yes (treated as accident)</td></tr>
+  <tr><td>Injury under influence of alcohol or drugs</td><td>No</td></tr>
+  <tr><td>Worker disobeyed safety orders</td><td>No</td></tr>
+  <tr><td>Worker wilfully removed safety guard</td><td>No</td></tr>
+</table>
+
+<h3>Compensation Calculation</h3>
+<div class="card cr">
+  <table class="tbl" style="margin:0">
+    <tr><th>Type of Injury</th><th>Compensation Formula</th></tr>
+    <tr><td><strong>Death</strong></td><td>50% of monthly wages × Relevant Factor (based on age) — minimum ₹1,20,000</td></tr>
+    <tr><td><strong>Permanent Total Disablement</strong></td><td>60% of monthly wages × Relevant Factor — minimum ₹1,40,000</td></tr>
+    <tr><td><strong>Permanent Partial Disablement</strong></td><td>Proportionate to total disablement compensation (Schedule I percentage)</td></tr>
+    <tr><td><strong>Temporary Disablement</strong></td><td>25% of monthly wages paid as half-monthly payment for duration of disability (max 5 years)</td></tr>
+  </table>
+  <p style="font-size:12px;color:var(--color-text-secondary);margin-top:8px">Note: "Relevant Factor" is an actuarial factor from Schedule IV of the Act based on age of worker.</p>
+</div>
+
+<h3>Employer's Duties / Responsibilities</h3>
+<ul>
+  <li>Pay compensation within one month of accident/death</li>
+  <li>Notify the Commissioner if a worker dies or is seriously injured at work</li>
+  <li>Maintain a register of accidents</li>
+  <li>Cannot contract out of liability (cannot make worker waive right to compensation)</li>
+</ul>
+
+<h3>Commissioner</h3>
+<ul>
+  <li>A Commissioner for Workmen's Compensation is appointed (typically a Labour Officer)</li>
+  <li>Settles disputes over compensation amount or liability</li>
+  <li>Can award interest if employer delays compensation payment</li>
+  <li>Has powers of a civil court</li>
+</ul>
+
+<div class="mn">
+  <div class="ml">Mnemonic — When Compensation is NOT Payable (3 exceptions)</div>
+  <p><strong>"ADD"</strong> — <strong>A</strong>lcohol/drugs · <strong>D</strong>isobedience of safety orders · <strong>D</strong>eliberate removal of safety guard</p>
+</div>
+
+<h2>Minimum Wages Act, 1948</h2>
+
+<div class="law">
+  <h3>Meaning and Objective</h3>
+  <div class="def" style="margin-bottom:10px">
+    <div class="dl">Definition</div>
+    <p>The Minimum Wages Act, 1948 is a legislation that empowers the Central and State Governments to fix and revise minimum wages for workers in scheduled (notified) employments to protect workers from exploitation and ensure a minimum standard of living.</p>
+  </div>
+  <h4>Objectives</h4>
+  <ul>
+    <li>Prevent exploitation of workers by paying unjustly low wages</li>
+    <li>Ensure workers receive wages sufficient to meet basic needs (food, clothing, shelter)</li>
+    <li>Reduce wage inequality across regions and industries</li>
+    <li>Provide a legal minimum floor below which no employer can pay</li>
+  </ul>
+</div>
+
+<h3>Scheduled Employments (Applies To)</h3>
+<p>The Act applies to scheduled employments listed in the Act's schedule, including:</p>
+<ul>
+  <li>Agriculture / farms</li>
+  <li>Construction work</li>
+  <li>Mining</li>
+  <li>Bidi making</li>
+  <li>Stone breaking and crushing</li>
+  <li>Road and water construction</li>
+  <li>Domestic work</li>
+  <li>Any employment notified by State or Central Government</li>
+</ul>
+
+<h3>Salient Features of the Minimum Wages Act, 1948</h3>
+<div class="card cb">
+  <ol style="font-size:13px;padding-left:18px">
+    <li style="margin-bottom:8px"><strong>Fixing Minimum Wages:</strong> Both Central and State governments can fix minimum wages for scheduled employments. Central government fixes wages for central sphere (railways, mines, ports). State governments fix for state sphere industries.</li>
+    <li style="margin-bottom:8px"><strong>Components of Minimum Wage:</strong> Includes basic rate + special allowance (dearness allowance to offset inflation). Some definitions also include the value of house accommodation or other amenities.</li>
+    <li style="margin-bottom:8px"><strong>Revision:</strong> Minimum wages must be reviewed and revised at least every 5 years. Dearness allowance may be revised more frequently based on the Consumer Price Index (CPI).</li>
+    <li style="margin-bottom:8px"><strong>Types of Minimum Wage:</strong><br>
+      — <em>Statutory Minimum Wage</em> — legally fixed floor<br>
+      — <em>Need-Based Minimum Wage</em> — based on minimum standard of living<br>
+      — <em>Fair Wage</em> — above minimum, based on capacity of industry to pay</li>
+    <li style="margin-bottom:8px"><strong>Employer's Obligation:</strong> No employer can pay below the minimum wage. An employer who pays below minimum wage is liable to pay the deficit amount plus equal penalty and can be prosecuted.</li>
+    <li style="margin-bottom:8px"><strong>Working Hours:</strong> The Act also empowers governments to fix hours of work for scheduled employment. Standard working day = 9 hours (including rest intervals). Maximum work week = 48 hours.</li>
+    <li style="margin-bottom:8px"><strong>Overtime:</strong> Any work beyond 9 hours per day or 48 hours per week must be paid at double the normal rate (overtime rate = 2× minimum wage rate).</li>
+    <li style="margin-bottom:8px"><strong>Inspectors:</strong> Government appoints Inspectors to check whether minimum wages are being paid. They can enter premises, examine records, and take samples.</li>
+    <li style="margin-bottom:8px"><strong>Penalties for Violation:</strong> Imprisonment up to 6 months, or fine up to ₹500, or both (for each offence). For repeat offence, higher penalties apply.</li>
+    <li style="margin-bottom:8px"><strong>Claim for Unpaid Wages:</strong> Workers can file a claim before the Authority within 6 months of the breach to recover unpaid difference plus compensation (up to 10× the shortfall amount).</li>
+  </ol>
+</div>
+
+<h3>Comparison: Workmen's Compensation Act vs Minimum Wages Act</h3>
+<table class="tbl">
+  <tr><th>Basis</th><th>Workmen's Compensation Act, 1923</th><th>Minimum Wages Act, 1948</th></tr>
+  <tr><td><strong>Year</strong></td><td>1923 (amended 2009)</td><td>1948</td></tr>
+  <tr><td><strong>Purpose</strong></td><td>Compensate workers for work injuries/death</td><td>Fix minimum wages to prevent exploitation</td></tr>
+  <tr><td><strong>Coverage</strong></td><td>Workers in hazardous/scheduled occupations</td><td>Workers in scheduled employments</td></tr>
+  <tr><td><strong>Benefit type</strong></td><td>Compensation after injury/death</td><td>Minimum wage during employment</td></tr>
+  <tr><td><strong>Administrator</strong></td><td>Commissioner for Workmen's Compensation</td><td>Central + State Labour Departments; Inspectors</td></tr>
+  <tr><td><strong>Penalty</strong></td><td>Compensation + interest for delay</td><td>Up to 6 months imprisonment + ₹500 fine</td></tr>
+  <tr><td><strong>Revision</strong></td><td>Wage ceiling revised periodically</td><td>Minimum wages revised at least every 5 years</td></tr>
+</table>
+
+<div class="mn">
+  <div class="ml">Mnemonic — Key Numbers to Remember</div>
+  <p><strong>WCA 1923:</strong> Min compensation death = ₹1,20,000 | PTD = ₹1,40,000 | Temp disability = 25% wages for max 5 years<br>
+  <strong>MWA 1948:</strong> Revise every 5 years | Work hours = 9/day, 48/week | Overtime = 2× rate | Penalty = 6 months jail + ₹500 fine | Claim within 6 months</p>
+</div>
+
+<div class="card cgr">
+  <h4>Quick Revision — Unit 6</h4>
+  <div class="qr"><div class="qrd"></div><p>WCA 1923 = employer pays compensation for work injuries/death. Renamed Employees' Compensation Act in 2009.</p></div>
+  <div class="qr"><div class="qrd"></div><p>3 exceptions to WCA: Alcohol/drugs, disobedience, deliberate removal of safety guard (ADD).</p></div>
+  <div class="qr"><div class="qrd"></div><p>MWA 1948 = minimum wages fixed by Central + State governments for scheduled employments.</p></div>
+  <div class="qr"><div class="qrd"></div><p>MWA: revised every 5 years; 9 hrs/day; 48 hrs/week; overtime = 2× rate; penalty = 6 months + ₹500.</p></div>
+  <div class="qr"><div class="qrd"></div><p>PF formula: Employee 12% + Employer 12% basic salary. Gratuity = (Last basic × 15 × yrs) ÷ 26.</p></div>
+</div>
+</div>
+
+<!-- ===== UNIT 7 — EXAM Q ===== -->
+<div id="u7" class="section">
+<h2>U 7 — Exam Questions & Model Answers</h2>
+<p style="color:var(--color-text-secondary);font-size:13px">Click any question to expand the model answer. Write these directly in your semester examination.</p>
+
+<h2>2-Mark Questions</h2>
+
+<div class="eq">
+  <div class="eq-h" onclick="tEq(this)"><span class="badge bb">2 marks</span><span class="eq-q">Define Compensation. Distinguish between Wage and Salary.</span><span class="eq-t">+</span></div>
+  <div class="eq-b">
+    <p><strong>Compensation</strong> is the total package of monetary and non-monetary rewards — including wages, salaries, incentives, benefits, and perks — provided by an organisation to employees in exchange for their services.</p>
+    <p><strong>Wage vs Salary:</strong> A wage is payment calculated on an hourly or daily basis, typically for manual/blue-collar workers (e.g., factory worker paid ₹500/day). A salary is a fixed, regular monthly payment for white-collar/office workers (e.g., HR manager paid ₹40,000/month). Wages are variable with hours worked; salary is fixed regardless of hours.</p>
+  </div>
+</div>
+
+<div class="eq">
+  <div class="eq-h" onclick="tEq(this)"><span class="badge bb">2 marks</span><span class="eq-q">What is Job Evaluation? What is its purpose?</span><span class="eq-t">+</span></div>
+  <div class="eq-b">
+    <p><strong>Job Evaluation</strong> is a systematic process of determining the relative worth or value of different jobs within an organisation, in order to establish an equitable and consistent pay structure. It compares jobs — not the people performing those jobs.</p>
+    <p><strong>Purpose:</strong> To eliminate pay inequalities, provide a rational basis for fixing wages, facilitate wage negotiations, and ensure internal equity (fair pay differentials between jobs).</p>
+  </div>
+</div>
+
+<div class="eq">
+  <div class="eq-h" onclick="tEq(this)"><span class="badge bb">2 marks</span><span class="eq-q">What is the Minimum Wages Act, 1948? What is its objective?</span><span class="eq-t">+</span></div>
+  <div class="eq-b">
+    <p>The <strong>Minimum Wages Act, 1948</strong> is a legislation that empowers Central and State Governments to fix and revise minimum wages for workers in scheduled employments, to prevent their exploitation and ensure they receive sufficient wages to meet basic needs.</p>
+    <p><strong>Objective:</strong> To fix a legal floor below which no employer can pay; to protect workers from underpayment; to ensure a minimum standard of living for workers in scheduled industries.</p>
+  </div>
+</div>
+
+<div class="eq">
+  <div class="eq-h" onclick="tEq(this)"><span class="badge bb">2 marks</span><span class="eq-q">Define Gratuity. What is the formula for calculating it?</span><span class="eq-t">+</span></div>
+  <div class="eq-b">
+    <p><strong>Gratuity</strong> is a lump-sum retirement benefit paid by an employer to an employee under the Payment of Gratuity Act, 1972, upon completion of at least 5 years of continuous service, as a reward for long and meritorious service.</p>
+    <p><strong>Formula: Gratuity = (Last drawn basic salary × 15 × years of service) ÷ 26</strong></p>
+    <p>Maximum gratuity payable is ₹20 lakh (tax-exempt). Example: Basic salary ₹30,000/month, 20 years service → Gratuity = (30,000 × 15 × 20) ÷ 26 = ₹3,46,153.</p>
+  </div>
+</div>
+
+<div class="eq">
+  <div class="eq-h" onclick="tEq(this)"><span class="badge bb">2 marks</span><span class="eq-q">What is Performance-Based Pay? Give two examples.</span><span class="eq-t">+</span></div>
+  <div class="eq-b">
+    <p><strong>Performance-Based Pay (PBP)</strong> is a compensation system where all or part of an employee's pay is linked to their performance — individual, team, or organisational — rather than just time worked. It motivates employees to achieve higher output and align with organisational goals.</p>
+    <p><strong>Examples:</strong> (1) Sales commission — an insurance agent earns 15% of premium collected. (2) Annual performance bonus — a TCS employee receives a bonus of 15% of salary for achieving an "A" rating in appraisal.</p>
+  </div>
+</div>
+
+<h2>5-Mark Questions</h2>
+
+<div class="eq">
+  <div class="eq-h" onclick="tEq(this)"><span class="badge ba">5 marks</span><span class="eq-q">Explain the Point Rating Method of Job Evaluation.</span><span class="eq-t">+</span></div>
+  <div class="eq-b">
+    <p><strong>Introduction:</strong> The Point Rating Method is the most widely used quantitative method of job evaluation. It analyses jobs by breaking them into specific compensable factors, assigning maximum points to each factor, and scoring each job accordingly.</p>
+    <p><strong>Process:</strong></p>
+    <ol style="font-size:13px;padding-left:18px">
+      <li><strong>Select Compensable Factors:</strong> Identify factors relevant to all jobs being evaluated — typically: education, experience, mental effort, physical effort, responsibility, and working conditions.</li>
+      <li><strong>Assign Maximum Points:</strong> Allocate maximum points to each factor based on its relative importance. Example: Responsibility = 150 pts (most important), Working Conditions = 50 pts.</li>
+      <li><strong>Define Degrees:</strong> Each factor is divided into levels (degrees) — e.g., Low, Medium, High — with specific point values for each degree.</li>
+      <li><strong>Score Each Job:</strong> For every job, rate it on each factor based on job description and specification.</li>
+      <li><strong>Total Points:</strong> Add up all factor points for each job. The total determines the job's worth.</li>
+      <li><strong>Convert to Pay Grades:</strong> Jobs with similar total points are grouped into the same pay grade with a corresponding salary range.</li>
+    </ol>
+    <p><strong>Advantages:</strong> Most objective and scientific; reduces personal bias; can be applied to diverse jobs; easy to explain to employees.</p>
+    <p><strong>Disadvantages:</strong> Time-consuming and expensive to develop; selection of factors and weights can itself be subjective; requires regular updating.</p>
+    <p><strong>Example:</strong> Hay Group's widely-used job evaluation system is based on point factor methodology, used by companies like Tata Steel and Unilever.</p>
+  </div>
+</div>
+
+<div class="eq">
+  <div class="eq-h" onclick="tEq(this)"><span class="badge ba">5 marks</span><span class="eq-q">Explain the salient features of the Workmen's Compensation Act, 1923.</span><span class="eq-t">+</span></div>
+  <div class="eq-b">
+    <p><strong>Introduction:</strong> The Workmen's Compensation Act, 1923 (renamed Employees' Compensation Act, 2009) is a landmark social security legislation that provides financial protection to workers who are injured or killed in the course of employment.</p>
+    <p><strong>Salient Features:</strong></p>
+    <ol style="font-size:13px;padding-left:18px">
+      <li><strong>Employer's Liability:</strong> The employer is liable to pay compensation when a worker suffers accidental injury or death arising out of and in the course of employment. The burden is on the employer, not the worker.</li>
+      <li><strong>Coverage:</strong> Applies to workers in factories, mines, construction sites, transport, railways, ships, and all scheduled hazardous occupations (Schedule II).</li>
+      <li><strong>Types of Disablement Covered:</strong> (a) Death (b) Permanent Total Disablement (c) Permanent Partial Disablement (d) Temporary Disablement (minimum 3 days).</li>
+      <li><strong>Compensation Amounts:</strong> Death = 50% of wages × relevant factor (min ₹1,20,000). Permanent Total Disablement = 60% of wages × relevant factor (min ₹1,40,000). Temporary disablement = 25% of wages for up to 5 years.</li>
+      <li><strong>Occupational Diseases:</strong> Schedule III lists occupational diseases (e.g., silicosis, anthrax, lead poisoning). Contracting a scheduled disease is treated as an employment injury.</li>
+      <li><strong>Exceptions:</strong> No compensation if injury is due to worker's intoxication, wilful disobedience of safety rules, or deliberate removal of safety devices.</li>
+      <li><strong>Commissioner:</strong> A Commissioner for Workmen's Compensation is appointed to adjudicate disputes. The Commissioner has powers of a civil court.</li>
+      <li><strong>Payment within one month:</strong> Compensation must be paid within one month of the accident. If delayed, interest is charged on the unpaid amount.</li>
+    </ol>
+    <p><strong>Conclusion:</strong> This Act protects workers from the financial devastation of work-related injuries and promotes employer responsibility for workplace safety.</p>
+  </div>
+</div>
+
+<h2>10-Mark Essay Questions</h2>
+
+<div class="eq">
+  <div class="eq-h" onclick="tEq(this)"><span class="badge br">10 marks</span><span class="eq-q">Explain all methods of Job Evaluation in detail. Which method is the best and why?</span><span class="eq-t">+</span></div>
+  <div class="eq-b">
+    <p><strong>Introduction:</strong> Job Evaluation is a systematic process of determining the relative worth of jobs within an organisation to establish an equitable pay structure. There are four major methods of job evaluation.</p>
+    <p><strong>1. Ranking Method:</strong> The simplest method where jobs are ranked from highest to lowest based on overall importance without analysing individual factors. Process: prepare job descriptions → rank jobs holistically → assign pay based on rank. Advantages: simple, quick, low cost. Disadvantages: highly subjective, not suitable for large organisations, no quantitative basis. Best for: small organisations.</p>
+    <p><strong>2. Classification/Grading Method:</strong> Predefined job grades are established with descriptions, and each job is placed into the appropriate grade. Widely used in government organisations. Process: define grades → write grade descriptions → slot jobs into grades → assign pay scales. Advantages: systematic, easy to administer. Disadvantages: grade descriptions may be vague, subjective fitting. Example: Indian government Pay Bands.</p>
+    <p><strong>3. Point Rating Method:</strong> The most popular quantitative method. Jobs are broken into compensable factors (education, experience, responsibility, effort, conditions), each factor is assigned maximum points, and jobs are scored on each factor. Total points determine pay grade. Advantages: most objective, reduces bias, applicable to diverse jobs. Disadvantages: expensive to develop, time-consuming. Example: Hay Group methodology used by Tata Steel, Unilever.</p>
+    <p><strong>4. Factor Comparison Method:</strong> Uses benchmark jobs as reference points. The pay of benchmark jobs is distributed among compensable factors. Other jobs are then compared to benchmark jobs factor by factor to determine their pay. Advantages: scientific, gives monetary values. Disadvantages: very complex, if benchmark jobs are incorrectly chosen the whole system fails.</p>
+    <p><strong>Best Method:</strong> The Point Rating Method is considered the best because it is the most objective and scientific; it provides a quantitative score for every job; it reduces personal bias; it can be explained clearly to employees and unions; and it is flexible enough to be applied across diverse job families. It is the most widely used method in Indian and global organisations.</p>
+    <p><strong>Conclusion:</strong> While the choice of method depends on organisational size and resources, the Point Rating Method provides the best balance of objectivity, fairness, and practicability for most organisations.</p>
+  </div>
+</div>
+
+<div class="eq">
+  <div class="eq-h" onclick="tEq(this)"><span class="badge br">10 marks</span><span class="eq-q">Explain Performance-Based Pay in detail. What are its various components and importance?</span><span class="eq-t">+</span></div>
+  <div class="eq-b">
+    <p><strong>Meaning:</strong> Performance-Based Pay (PBP) is a compensation philosophy where part or all of an employee's pay varies with their individual, team, or organisational performance. It replaces or supplements fixed pay with variable pay tied to achieving predetermined targets.</p>
+    <p><strong>Importance of PBP:</strong> (1) Motivates employees to achieve higher performance. (2) Aligns employee goals with organisational objectives. (3) Differentiates rewards between high and low performers. (4) Controls fixed labour costs by making pay variable. (5) Attracts and retains high-performing talent.</p>
+    <p><strong>Components of Performance-Based Pay:</strong></p>
+    <p><strong>1. Incentives:</strong> Additional payments over regular wage for exceeding output targets. Individual incentives include piece rate (paid per unit produced), standard hour plans, and merit increases. Group incentives include gain sharing (sharing cost savings) and team bonuses. Example: A garment factory worker paid ₹20 per shirt stitched beyond 100 units/day.</p>
+    <p><strong>2. Bonus:</strong> A lump-sum payment for achieving specific targets or as a statutory requirement. Types: performance bonus (10–20% of salary for high raters), sign-on bonus (when joining), retention bonus, festival/statutory bonus (minimum 8.33% under Payment of Bonus Act). Example: TCS annual performance bonus of 15% for "A" rated employees.</p>
+    <p><strong>3. Commission:</strong> A percentage of sales revenue paid to sales employees. Types: straight commission (only commission, no base), salary plus commission (mixed), draw against commission. Example: Insurance agents earning 15% of premium collected. HUL sales reps earning ₹25,000 base + 2% of monthly sales.</p>
+    <p><strong>4. Profit Sharing:</strong> Distributing a portion of annual company profits to employees. Builds a sense of ownership. Types: cash plan (direct cash), deferred plan (into pension/ESOP), combination. Example: Infosys ESOP enables employees to benefit from company share price growth.</p>
+    <p><strong>5. Merit Pay:</strong> A permanent increase in base salary based on annual performance appraisal rating — unlike bonus which is a one-time payment. Outstanding performers receive 8–12% merit increase; average performers receive 2–4%. This rewards consistent good performers cumulatively over their career.</p>
+    <p><strong>Conclusion:</strong> Performance-Based Pay is a powerful strategic tool when designed and communicated well. It must be backed by fair, objective performance measurement systems (like MBO or BARS) to be credible and effective.</p>
+  </div>
+</div>
+
+<div class="eq">
+  <div class="eq-h" onclick="tEq(this)"><span class="badge br">10 marks</span><span class="eq-q">Explain the salient features of the Minimum Wages Act, 1948. Include employer obligations, penalties, and significance.</span><span class="eq-t">+</span></div>
+  <div class="eq-b">
+    <p><strong>Introduction:</strong> The Minimum Wages Act, 1948 is one of the most important labour welfare legislations in India. It empowers the government to fix and revise minimum wages for workers in scheduled employments, thereby protecting them from exploitation and ensuring a minimum standard of living.</p>
+    <p><strong>Definition:</strong> The Minimum Wages Act, 1948 is a law that mandates the Central and State governments to fix minimum wages for workers employed in scheduled (notified) industries and occupations, below which no employer can legally pay.</p>
+    <p><strong>Salient Features:</strong></p>
+    <p><strong>1. Fixation of Minimum Wages:</strong> Both Central (for central sphere) and State (for state sphere) governments have the power to fix minimum wages. Wages are fixed for different categories of workers — skilled, semi-skilled, unskilled, and highly skilled.</p>
+    <p><strong>2. Scheduled Employment:</strong> The Act applies to scheduled employments listed in the Schedule — including agriculture, construction, mining, bidi making, domestic work, road construction, and any other employment notified by government.</p>
+    <p><strong>3. Components:</strong> Minimum wage consists of a basic rate of wages and a special allowance (cost of living/dearness allowance) linked to the Consumer Price Index (CPI) to protect against inflation.</p>
+    <p><strong>4. Revision:</strong> Minimum wages must be reviewed and revised at least once in every 5 years. Dearness allowance may be revised more frequently (every 6 months) based on CPI changes.</p>
+    <p><strong>5. Working Hours:</strong> The Act empowers government to fix normal working hours at 9 hours per day (with 1-hour rest) and 48 hours per week.</p>
+    <p><strong>6. Overtime:</strong> Work beyond 9 hours per day or 48 hours per week must be compensated at double the minimum wage rate (2× overtime).</p>
+    <p><strong>7. Employer's Obligations:</strong> No employer may pay below the fixed minimum wage. Wages must be paid on time. Wage records must be maintained. Display the minimum wage rates at the workplace.</p>
+    <p><strong>8. Inspectors:</strong> Government appoints Inspectors with power to enter premises, examine wage records, and take evidence to verify compliance.</p>
+    <p><strong>9. Penalties for Violation:</strong> Employer who pays below minimum wage faces: (a) imprisonment up to 6 months, or (b) fine up to ₹500, or (c) both. Repeat offences attract higher penalties.</p>
+    <p><strong>10. Claims:</strong> Workers can file claims before the Authority within 6 months of the violation. If claim is proved, worker receives the unpaid difference plus compensation up to 10 times the shortfall.</p>
+    <p><strong>Significance:</strong> The Act has been crucial in eliminating the exploitation of unorganised sector workers (domestic workers, agricultural labourers, construction workers) who lack bargaining power. It forms the foundation of India's wage policy.</p>
+    <p><strong>Conclusion:</strong> The Minimum Wages Act, 1948 is a vital pillar of India's social security framework. Combined with the Code on Wages, 2019 (which merges this Act with three others), it continues to protect the rights of millions of Indian workers.</p>
+  </div>
+</div>
+
+</div><!-- /u7 -->
+
+<!-- ===== UNIT 8 — NIGHT REVISION ===== -->
+<div id="u8" class="section">
+<h2>Night Before Exam — Complete Revision Sheet</h2>
+<div class="card ca" style="margin-bottom:14px">
+  <p style="font-size:13px"><strong>Instructions:</strong> Read all these bullet points carefully the night before your exam. These are the most tested definitions, formulas, comparisons, and legal provisions from this entire unit.</p>
+</div>
+
+<div class="nr">
+  <h4>Compensation — Core Definitions</h4>
+  <ul>
+    <li>Compensation = all monetary + non-monetary rewards. Broadest term.</li>
+    <li>Wage = hourly/daily (blue-collar). Salary = monthly fixed (white-collar).</li>
+    <li>Direct = cash payments (salary, DA, HRA, bonus). Indirect = benefits (PF, insurance, canteen).</li>
+    <li>Internal equity = fair pay within org (via job evaluation). External equity = fair pay vs market (via pay surveys).</li>
+    <li>Mnemonic: "Wise Soldiers Can Be Inspiring People" = Wage, Salary, Compensation, Benefits, Incentives, Perks</li>
+  </ul>
+</div>
+
+<div class="nr">
+  <h4>Factors Determining Pay (Internal + External)</h4>
+  <ul>
+    <li>Internal: job evaluation, performance, seniority, skills, company's ability to pay, trade unions, pay policy</li>
+    <li>External: labour market, cost of living (CPI), government law (MWA), industry standards, competitor pay</li>
+    <li>Pay positioning: Lead (above 75th percentile), Match (50th), Lag (below 50th)</li>
+  </ul>
+</div>
+
+<div class="nr">
+  <h4>Job Evaluation — 4 Methods ("Really Cool People Fight")</h4>
+  <ul>
+    <li>Ranking = simplest; arrange jobs best to worst; no points; subjective; small orgs</li>
+    <li>Classification = predefined grades; jobs slotted in; govt/PSUs; Grade I to V</li>
+    <li>Point Rating = most popular; factors get max points; jobs scored; total points = pay grade; Hay Group uses this</li>
+    <li>Factor Comparison = most complex; benchmark jobs; pay distributed to factors; other jobs compared factor by factor</li>
+    <li>Objectivity: Ranking &lt; Classification &lt; Point Rating &lt; Factor Comparison</li>
+  </ul>
+</div>
+
+<div class="nr">
+  <h4>Establishing Pay Rates — 7 Steps</h4>
+  <ul>
+    <li>Job Analysis → Job Evaluation → Pay Survey → Pay Policy → Pay Grades → Pay Ranges → Implement</li>
+    <li>Red-circle rate = overpaid; pay frozen. Green-circle rate = underpaid; pay raised to minimum of grade.</li>
+  </ul>
+</div>
+
+<div class="nr">
+  <h4>Managerial Pay Components</h4>
+  <ul>
+    <li>Base salary + Short-term incentives (annual bonus) + Long-term incentives (ESOPs, RSUs) + Perks (car, club) + Benefits</li>
+    <li>ESOP = Employee Stock Option Plan — managers can buy company shares at predetermined price</li>
+  </ul>
+</div>
+
+<div class="nr">
+  <h4>Performance-Based Pay — 5 Types ("I Buy Coffee, Please Mister")</h4>
+  <ul>
+    <li>Incentives = output-based (piece rate, gain sharing). Individual + Group types.</li>
+    <li>Bonus = lump sum, one-time. Statutory min = 8.33% annual salary (Payment of Bonus Act). Performance bonus = 10–20%.</li>
+    <li>Commission = % of sales. Insurance agents, sales reps. Straight / salary+commission / draw types.</li>
+    <li>Profit Sharing = share of annual profits. Cash / deferred (ESOP) / combination plan.</li>
+    <li>Merit Pay = PERMANENT salary increase based on appraisal rating. Outstanding = 8–12% increase.</li>
+    <li>KEY DIFFERENCE: Bonus = one-time lump sum. Merit Pay = permanent base salary increase.</li>
+  </ul>
+</div>
+
+<div class="nr">
+  <h4>Retirement Benefits — 3 Key Formulas/Rules</h4>
+  <ul>
+    <li>PF (EPF Act 1952): Employee 12% + Employer 12% of basic salary. Interest ~8.15% p.a. Employer's 12% split: 8.33% EPS (pension) + 3.67% EPF.</li>
+    <li>Gratuity (Payment of Gratuity Act 1972): Formula = (Last basic × 15 × years) ÷ 26. Min 5 years service. Max ₹20 lakh.</li>
+    <li>ESI: Covers employees earning up to ₹21,000/month. Provides free medical, sick pay, maternity benefit.</li>
+    <li>EPS Pension: employer contributes 8.33% to EPS. Eligible after 10 years service + age 58.</li>
+  </ul>
+</div>
+
+<div class="nr">
+  <h4>Employee Welfare — Key Numbers (Factories Act)</h4>
+  <ul>
+    <li>Canteen: mandatory for 250+ workers</li>
+    <li>Crèche: mandatory for 30+ women workers</li>
+    <li>First Aid Box: 1 per 150 workers</li>
+    <li>Ambulance: factories with 500+ workers</li>
+    <li>Intra-mural = within workplace. Extra-mural = outside (housing, transport, schools, recreational).</li>
+  </ul>
+</div>
+
+<div class="nr">
+  <h4>Workmen's Compensation Act, 1923 (Key Points)</h4>
+  <ul>
+    <li>Purpose: employer pays compensation for work injuries/death.</li>
+    <li>Renamed: Employees' Compensation Act, 2009.</li>
+    <li>Covers: factories, mines, construction, transport, railways, scheduled hazardous jobs.</li>
+    <li>NOT covered: ESI-covered workers, Armed Forces.</li>
+    <li>Exceptions (ADD): Alcohol/Drugs, Disobedience of safety orders, Deliberate removal of safety guard.</li>
+    <li>Death = min ₹1,20,000 (50% wages × relevant factor).</li>
+    <li>Permanent Total Disablement = min ₹1,40,000 (60% wages × relevant factor).</li>
+    <li>Temporary Disablement = 25% wages as half-monthly payment, max 5 years.</li>
+    <li>Compensation must be paid within 1 month; delay = interest charged.</li>
+  </ul>
+</div>
+
+<div class="nr">
+  <h4>Minimum Wages Act, 1948 (Key Points)</h4>
+  <ul>
+    <li>Purpose: fix minimum wages for scheduled employment workers; prevent exploitation.</li>
+    <li>Both Central (railways, mines) and State governments fix wages.</li>
+    <li>Revised every 5 years. DA revised more frequently based on CPI.</li>
+    <li>Work hours: 9 hours/day; 48 hours/week.</li>
+    <li>Overtime = 2× minimum wage rate.</li>
+    <li>Penalty: up to 6 months imprisonment + ₹500 fine (or both).</li>
+    <li>Workers can claim unpaid wages within 6 months + compensation up to 10× shortfall.</li>
+    <li>Inspectors appointed with power to enter premises and check records.</li>
+  </ul>
+</div>
+
+<div class="card cb" style="margin-top:16px">
+  <h4 style="color:#0C447C">Expected / Most Frequently Asked Questions</h4>
+  <ul>
+    <li>Define compensation. Differentiate between wage, salary, and compensation. <span class="badge ba">High frequency</span></li>
+    <li>Explain all four methods of job evaluation. Which is the best? <span class="badge ba">High frequency</span></li>
+    <li>Explain the Point Rating Method of job evaluation. <span class="badge ba">High frequency</span></li>
+    <li>Explain the process of establishing pay rates.</li>
+    <li>What is Performance-Based Pay? Explain its types.</li>
+    <li>Explain bonus and commission as components of PBP.</li>
+    <li>What is Gratuity? Explain its calculation with example. <span class="badge ba">High frequency</span></li>
+    <li>Explain Provident Fund and its importance as a retirement benefit.</li>
+    <li>Explain employee welfare facilities — intra-mural and extra-mural. <span class="badge ba">High frequency</span></li>
+    <li>Explain salient features of Workmen's Compensation Act, 1923. <span class="badge ba">High frequency</span></li>
+    <li>Explain salient features of Minimum Wages Act, 1948. <span class="badge ba">High frequency</span></li>
+    <li>Differentiate between WCA 1923 and Minimum Wages Act 1948.</li>
+    <li>Explain pricing of managerial and professional jobs.</li>
+    <li>What are the factors determining pay rates?</li>
+    <li>Explain internal vs external equity in compensation.</li>
+  </ul>
+</div>
+
+<div class="card ct" style="margin-top:12px">
+  <h4 style="color:#085041">Exam Writing Tips — Unit IV</h4>
+  <ul>
+    <li>Always open with a clear definition in bold or underlined.</li>
+    <li>Use tables to compare methods (ranking vs classification vs point rating vs factor comparison).</li>
+    <li>Give the gratuity formula AND a worked numerical example — examiners love this.</li>
+    <li>For Acts (WCA and MWA), structure your answer: Meaning → Objective → Scope → Key features → Penalties → Conclusion.</li>
+    <li>Use keywords: compensable factors, pay grades, wage curve, red-circle rate, green-circle rate, ESOP, EPS, EPF, scheduled employment, relevant factor, Commissioner.</li>
+    <li>Include real company examples: Infosys ESOP, TCS bonus, Tata Townships (welfare), Indian Railways (WCA), garment workers (MWA).</li>
+    <li>For 10-mark answers: Introduction → Definition → Process/Features (numbered) → Advantages/Disadvantages → Example → Conclusion.</li>
+  </ul>
+</div>
+</div><!-- /u8 -->
+
+</div><!-- outer -->
+
+<script>
+function show(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  var ids=['u1','u2','u3','u4','u5','u6','u7','u8'];
+  document.querySelectorAll('.nav-btn')[ids.indexOf(id)].classList.add('active');
+  window.scrollTo(0,0);
+}
+function tEq(h){
+  var b=h.nextElementSibling,t=h.querySelector('.eq-t'),o=b.classList.toggle('open');
+  t.classList.toggle('open',o);t.textContent=o?'×':'+';
+}
+</script>

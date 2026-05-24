@@ -1,0 +1,649 @@
+
+
+<div class="container">
+        <a href="index.html" class="back-btn">← Back to Home</a>
+</div>
+<div class="container">
+        <a href="hrm.html" class="back-btn">← Back to HRM units </a>
+</div>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans)}
+.app{padding:1rem 0}
+.hero{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);border:0.5px solid var(--color-border-tertiary);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+.hero h1{font-size:20px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px}
+.hero p{font-size:13px;color:var(--color-text-secondary)}
+.progress-bar{height:6px;background:var(--color-border-tertiary);border-radius:3px;margin-top:12px;overflow:hidden}
+.progress-fill{height:100%;background:#1D9E75;border-radius:3px;transition:width 0.4s}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.25rem}
+.tab{font-size:12px;padding:6px 12px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:var(--color-background-primary);color:var(--color-text-secondary);cursor:pointer;transition:all 0.15s}
+.tab.active{background:#E1F5EE;border-color:#0F6E56;color:#085041;font-weight:500}
+.tab.done{background:#EAF3DE;border-color:#3B6D11;color:#27500A}
+.section{display:none}
+.section.active{display:block}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:1rem}
+.card h2{font-size:16px;font-weight:500;color:var(--color-text-primary);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.card h3{font-size:14px;font-weight:500;color:var(--color-text-primary);margin:12px 0 6px}
+.def-box{background:#E6F1FB;border-left:3px solid #185FA5;border-radius:0;padding:10px 14px;margin:8px 0;font-size:13px;color:#0C447C}
+.tip-box{background:#FAEEDA;border-left:3px solid #BA7517;border-radius:0;padding:10px 14px;margin:8px 0;font-size:13px;color:#633806}
+.mnem-box{background:#E1F5EE;border-left:3px solid #0F6E56;border-radius:0;padding:10px 14px;margin:8px 0;font-size:13px;color:#085041}
+.warn-box{background:#FCEBEB;border-left:3px solid #A32D2D;border-radius:0;padding:10px 14px;margin:8px 0;font-size:13px;color:#791F1F}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:var(--border-radius-md);margin:2px;font-weight:500}
+.tag-blue{background:#E6F1FB;color:#0C447C}
+.tag-green{background:#EAF3DE;color:#27500A}
+.tag-amber{background:#FAEEDA;color:#633806}
+.tag-red{background:#FCEBEB;color:#791F1F}
+.tag-purple{background:#EEEDFE;color:#3C3489}
+.tag-teal{background:#E1F5EE;color:#085041}
+p{font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin-bottom:6px}
+ul{padding-left:1.2rem;margin-bottom:8px}
+li{font-size:13px;color:var(--color-text-secondary);line-height:1.8}
+.flow{display:flex;flex-direction:column;gap:4px;margin:10px 0}
+.flow-step{display:flex;align-items:flex-start;gap:10px;padding:8px 12px;background:var(--color-background-secondary);border-radius:var(--border-radius-md);font-size:13px;color:var(--color-text-primary)}
+.step-num{min-width:24px;height:24px;border-radius:50%;background:#1D9E75;color:#fff;font-size:11px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.flow-arrow{text-align:center;color:#1D9E75;font-size:16px;line-height:1}
+.cmp-table{width:100%;border-collapse:collapse;font-size:12px;margin:8px 0}
+.cmp-table th{background:var(--color-background-secondary);padding:7px 10px;text-align:left;font-weight:500;font-size:12px;color:var(--color-text-secondary);border-bottom:0.5px solid var(--color-border-tertiary)}
+.cmp-table td{padding:7px 10px;border-bottom:0.5px solid var(--color-border-tertiary);color:var(--color-text-secondary);vertical-align:top}
+.cmp-table tr:last-child td{border-bottom:none}
+.cmp-table tr:nth-child(even) td{background:var(--color-background-secondary)}
+.q-card{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);overflow:hidden;margin-bottom:10px}
+.q-head{padding:10px 14px;background:var(--color-background-secondary);cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:500;color:var(--color-text-primary)}
+.q-body{padding:12px 14px;font-size:13px;color:var(--color-text-secondary);display:none;border-top:0.5px solid var(--color-border-tertiary);line-height:1.7}
+.q-body.open{display:block}
+.badge{font-size:10px;padding:2px 8px;border-radius:var(--border-radius-md);font-weight:500}
+.b2{background:#E6F1FB;color:#0C447C}
+.b5{background:#FAEEDA;color:#633806}
+.b10{background:#FCEBEB;color:#791F1F}
+.quiz-area{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:1.25rem;margin-top:1rem}
+.quiz-q{font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:12px;line-height:1.6}
+.quiz-opts{display:flex;flex-direction:column;gap:8px}
+.quiz-opt{padding:10px 14px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:var(--color-background-primary);cursor:pointer;font-size:13px;color:var(--color-text-primary);text-align:left;transition:all 0.15s}
+.quiz-opt:hover{background:var(--color-background-secondary)}
+.quiz-opt.correct{background:#EAF3DE;border-color:#3B6D11;color:#27500A}
+.quiz-opt.wrong{background:#FCEBEB;border-color:#A32D2D;color:#791F1F}
+.quiz-result{margin-top:10px;padding:10px;border-radius:var(--border-radius-md);font-size:13px;display:none}
+.quiz-result.show{display:block}
+.quiz-result.ok{background:#EAF3DE;color:#27500A}
+.quiz-result.no{background:#FCEBEB;color:#791F1F}
+.quiz-nav{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
+.btn{padding:7px 16px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:var(--color-background-primary);color:var(--color-text-primary);cursor:pointer;font-size:13px;transition:all 0.15s}
+.btn:hover{background:var(--color-background-secondary)}
+.btn-primary{background:#1D9E75;border-color:#0F6E56;color:#fff}
+.btn-primary:hover{background:#0F6E56}
+.score-display{font-size:13px;color:var(--color-text-secondary)}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:1rem}
+.stat{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 12px;text-align:center}
+.stat-num{font-size:22px;font-weight:500;color:var(--color-text-primary)}
+.stat-lbl{font-size:11px;color:var(--color-text-secondary);margin-top:2px}
+.section-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.sec-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem;cursor:pointer;transition:all 0.15s}
+.sec-card:hover{border-color:var(--color-border-primary)}
+.sec-card h3{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px}
+.sec-card p{font-size:11px;color:var(--color-text-secondary);margin:0}
+.sec-num{font-size:10px;font-weight:500;margin-bottom:6px}
+.key-acts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
+.act-card{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;border:0.5px solid var(--color-border-tertiary)}
+.act-card h4{font-size:12px;font-weight:500;color:var(--color-text-primary);margin-bottom:6px}
+.act-card p{font-size:11px;margin-bottom:3px;line-height:1.5}
+</style>
+
+<div class="app">
+<h2 class="sr-only">HRM Interactive Study Notes — Employee Relations and Labor Laws</h2>
+
+<div class="hero">
+  <h1><i class="ti ti-school" aria-hidden="true" style="font-size:20px;vertical-align:-2px;margin-right:8px;color:#1D9E75"></i>HRM Study Hub — Employee Relations & Labor Laws</h1>
+  <p>MBA/BBA Semester Exam Preparation · 10 sections · Interactive Q&A · Quick Quiz</p>
+  <div style="display:flex;align-items:center;gap:10px;margin-top:10px">
+    <div class="progress-bar" style="flex:1"><div class="progress-fill" id="prog" style="width:0%"></div></div>
+    <span style="font-size:12px;color:var(--color-text-secondary)" id="prog-label">0 / 10 sections visited</span>
+  </div>
+</div>
+
+<div class="tabs" id="tabs">
+  <button class="tab active" onclick="showSection(0)">🏠 Home</button>
+  <button class="tab" onclick="showSection(1)">1 · Labor Movement</button>
+  <button class="tab" onclick="showSection(2)">2 · Collective Bargaining</button>
+  <button class="tab" onclick="showSection(3)">3 · Grievances</button>
+  <button class="tab" onclick="showSection(4)">4 · Separation</button>
+  <button class="tab" onclick="showSection(5)">5 · Safety & Health</button>
+  <button class="tab" onclick="showSection(6)">6 · IDA 1947</button>
+  <button class="tab" onclick="showSection(7)">7 · Factories Act</button>
+  <button class="tab" onclick="showSection(8)">8 · POSH Act</button>
+  <button class="tab" onclick="showSection(9)">📋 Quiz</button>
+  <button class="tab" onclick="showSection(10)">⚡ Revision</button>
+</div>
+
+<!-- HOME -->
+<div class="section active" id="s0">
+  <div class="stats-grid">
+    <div class="stat"><div class="stat-num" id="st-visited">0</div><div class="stat-lbl">Sections visited</div></div>
+    <div class="stat"><div class="stat-num" id="st-quiz">0%</div><div class="stat-lbl">Quiz score</div></div>
+    <div class="stat"><div class="stat-num">10</div><div class="stat-lbl">Total sections</div></div>
+  </div>
+  <div class="section-grid">
+    <div class="sec-card" onclick="showSection(1)"><div class="sec-num tag tag-blue">Section 1</div><h3>Labor Movement & Trade Unions</h3><p>History, growth, functions, problems</p></div>
+    <div class="sec-card" onclick="showSection(2)"><div class="sec-num tag tag-teal">Section 2</div><h3>Collective Bargaining</h3><p>Types, process, advantages</p></div>
+    <div class="sec-card" onclick="showSection(3)"><div class="sec-num tag tag-amber">Section 3</div><h3>Grievances & GHP</h3><p>Types, causes, handling procedure</p></div>
+    <div class="sec-card" onclick="showSection(4)"><div class="sec-num tag tag-purple">Section 4</div><h3>Employee Separation</h3><p>Layoff vs retrenchment vs dismissal</p></div>
+    <div class="sec-card" onclick="showSection(5)"><div class="sec-num tag tag-red">Section 5</div><h3>Safety & Health</h3><p>Hazards, prevention, occupational diseases</p></div>
+    <div class="sec-card" onclick="showSection(6)"><div class="sec-num tag tag-blue">Section 6</div><h3>Industrial Disputes Act 1947</h3><p>Definitions, authorities, provisions</p></div>
+    <div class="sec-card" onclick="showSection(7)"><div class="sec-num tag tag-green">Section 7</div><h3>Factories Act 1948</h3><p>Health, safety, welfare, hours</p></div>
+    <div class="sec-card" onclick="showSection(8)"><div class="sec-num tag tag-red">Section 8</div><h3>POSH Act 2013</h3><p>ICC, complaint procedure, employer duties</p></div>
+    <div class="sec-card" onclick="showSection(9)" style="background:var(--color-background-secondary)"><div class="sec-num tag tag-amber">Quiz</div><h3>Test Your Knowledge</h3><p>20 MCQs across all sections</p></div>
+    <div class="sec-card" onclick="showSection(10)" style="background:var(--color-background-secondary)"><div class="sec-num tag tag-teal">Revision</div><h3>Night Before Exam Sheet</h3><p>Entire unit in 2 minutes</p></div>
+  </div>
+</div>
+
+<!-- SECTION 1: LABOR MOVEMENT -->
+<div class="section" id="s1">
+  <div class="card">
+    <h2><i class="ti ti-users" aria-hidden="true" style="color:#185FA5"></i>Labor Movement & Trade Unions</h2>
+    <div class="def-box"><strong>Definition:</strong> Labor Movement is the collective effort of workers to improve wages, conditions, and rights through organized action — trade unions, collective bargaining, and political lobbying.</div>
+    <h3>Growth of Trade Unions in India</h3>
+    <div class="cmp-table" style="overflow-x:auto"><table class="cmp-table"><thead><tr><th>Year</th><th>Milestone</th></tr></thead><tbody>
+      <tr><td>1890</td><td>Bombay Mill Hands Association — first union</td></tr>
+      <tr><td>1918</td><td>Madras Labour Union — first registered union (B.P. Wadia)</td></tr>
+      <tr><td>1920</td><td>AITUC — first national federation</td></tr>
+      <tr><td>1926</td><td>Trade Unions Act — legal recognition given</td></tr>
+      <tr><td>1947+</td><td>INTUC, HMS, BMS, CITU formed — political affiliations</td></tr>
+    </tbody></table></div>
+    <h3>Functions of Trade Unions</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0">
+      <div style="padding:10px;background:var(--color-background-secondary);border-radius:var(--border-radius-md)"><strong style="font-size:12px;color:#185FA5">⚔ Militant</strong><p style="margin-top:4px">Collective bargaining, strikes, legal action</p></div>
+      <div style="padding:10px;background:var(--color-background-secondary);border-radius:var(--border-radius-md)"><strong style="font-size:12px;color:#1D9E75">🤝 Fraternal</strong><p style="margin-top:4px">Welfare, financial aid, healthcare</p></div>
+      <div style="padding:10px;background:var(--color-background-secondary);border-radius:var(--border-radius-md)"><strong style="font-size:12px;color:#BA7517">🏛 Political</strong><p style="margin-top:4px">Lobbying, elections, legislation</p></div>
+      <div style="padding:10px;background:var(--color-background-secondary);border-radius:var(--border-radius-md)"><strong style="font-size:12px;color:#639922">💰 Economic</strong><p style="margin-top:4px">Wages, profit-sharing, bonus</p></div>
+    </div>
+    <h3>Problems of Trade Unions</h3>
+    <ul>
+      <li><strong>Multiplicity</strong> — too many small unions, weakens collective power</li>
+      <li><strong>Political affiliation</strong> — political parties control unions for own agenda</li>
+      <li><strong>Low membership</strong> — weak financial base</li>
+      <li><strong>Outside leadership</strong> — politicians lead unions, not workers</li>
+      <li><strong>Illiteracy</strong> — workers can't participate effectively</li>
+      <li><strong>Employer hostility</strong> — management victimize union leaders</li>
+    </ul>
+    <div class="mnem-box"><strong>Mnemonic — MILL-PE:</strong> Multiplicity · Illiteracy · Low membership · Leadership (outside) · Political affiliation · Employer hostility</div>
+    <div class="tip-box"><strong>Exam tip:</strong> "Problems of trade unions" is asked in almost every exam. Write at least 5 problems with brief explanations.</div>
+  </div>
+  <div class="card"><h2>Exam Q&A</h2>
+    <div class="q-card"><div class="q-head" onclick="tog(this)"><span><span class="badge b2">2 marks</span> What is a trade union?</span><i class="ti ti-chevron-down" aria-hidden="true"></i></div><div class="q-body">A Trade Union is an organized association of workers formed to protect and promote their common interests in employment through collective action such as bargaining, strikes, and lobbying.</div></div>
+    <div class="q-card"><div class="q-head" onclick="tog(this)"><span><span class="badge b2">2 marks</span> First trade union in India?</span><i class="ti ti-chevron-down" aria-hidden="true"></i></div><div class="q-body">Madras Labour Union (1918) founded by B.P. Wadia is the first registered trade union. AITUC (1920) was the first national federation. Trade Unions Act 1926 gave legal recognition.</div></div>
+    <div class="q-card"><div class="q-head" onclick="tog(this)"><span><span class="badge b5">5 marks</span> Explain functions of trade unions.</span><i class="ti ti-chevron-down" aria-hidden="true"></i></div><div class="q-body">Trade unions perform 4 types of functions: <br><br><strong>(1) Militant:</strong> Collective bargaining, strikes, gherao, legal action<br><strong>(2) Fraternal:</strong> Welfare programs, financial aid, schools, hospitals for members<br><strong>(3) Political:</strong> Lobbying, elections, representation in legislative bodies<br><strong>(4) Economic:</strong> Wage improvement, profit sharing, bonus schemes<br><br>These functions collectively protect worker rights and improve employment conditions.</div></div>
+  </div>
+</div>
+
+<!-- SECTION 2: COLLECTIVE BARGAINING -->
+<div class="section" id="s2">
+  <div class="card">
+    <h2><i class="ti ti-handshake" aria-hidden="true" style="color:#1D9E75"></i>Collective Bargaining</h2>
+    <div class="def-box"><strong>ILO Definition:</strong> Collective Bargaining is the process of negotiation between employers and a group of employees aimed at agreements to regulate working salaries, conditions, benefits, and rights for workers.</div>
+    <h3>Types of Collective Bargaining</h3>
+    <div class="cmp-table" style="overflow-x:auto"><table class="cmp-table"><thead><tr><th>Type</th><th>Nature</th><th>Example</th></tr></thead><tbody>
+      <tr><td><span class="tag tag-red">Distributive</span></td><td>Win-lose; fixed resources</td><td>Union wants 20% hike; company offers 10%</td></tr>
+      <tr><td><span class="tag tag-teal">Integrative</span></td><td>Win-win; mutual benefit</td><td>Flexible hours in exchange for better benefits</td></tr>
+      <tr><td><span class="tag tag-amber">Concessionary</span></td><td>Workers give up benefits to save jobs</td><td>Salary cut to avoid layoffs</td></tr>
+      <tr><td><span class="tag tag-blue">Productivity</span></td><td>Wages linked to output</td><td>Bonus for meeting production targets</td></tr>
+      <tr><td><span class="tag tag-purple">Composite</span></td><td>Wages + working conditions together</td><td>Wages + safety standards negotiated</td></tr>
+    </tbody></table></div>
+    <div class="mnem-box"><strong>Mnemonic — DICP-C:</strong> Distributive · Integrative · Concessionary · Productivity · Composite</div>
+    <h3>Collective Bargaining Process (8 Steps)</h3>
+    <div class="flow">
+      <div class="flow-step"><div class="step-num">1</div><div><strong>Preparation</strong> — Both parties collect data, identify issues, set goals</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num">2</div><div><strong>Notice</strong> — Union serves formal notice to employer</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num">3</div><div><strong>Negotiation</strong> — Representatives meet; proposals exchanged</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num">4</div><div><strong>Bargaining</strong> — Intensive discussions; compromise sought</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num">5</div><div><strong>Agreement / Deadlock</strong> — Agreement reached OR conciliation/arbitration</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num">6</div><div><strong>Signing</strong> — Written collective agreement signed by both</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num">7</div><div><strong>Implementation</strong> — Terms put into practice by management</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num">8</div><div><strong>Administration</strong> — Compliance monitored; grievances per agreement</div></div>
+    </div>
+    <div class="tip-box"><strong>Exam tip:</strong> 10-mark answer must include: Definition + All 5 Types + All 8 Process steps + Advantages/Disadvantages</div>
+  </div>
+  <div class="card"><h2>Exam Q&A</h2>
+    <div class="q-card"><div class="q-head" onclick="tog(this)"><span><span class="badge b2">2 marks</span> Define Collective Bargaining.</span><i class="ti ti-chevron-down" aria-hidden="true"></i></div><div class="q-body">Collective Bargaining is a process of negotiations between employer and workers' union representatives to determine wages, hours, benefits, and employment conditions, resulting in a binding collective agreement (ILO definition).</div></div>
+    <div class="q-card"><div class="q-head" onclick="tog(this)"><span><span class="badge b5">5 marks</span> CB vs. Simple Negotiation — differences.</span><i class="ti ti-chevron-down" aria-hidden="true"></i></div><div class="q-body"><strong>Collective Bargaining:</strong> Union vs. employer · legal framework (IDA 1947) · results in binding written contract · workers have collective power<br><br><strong>Negotiation:</strong> Any two parties · generally informal · may/may not be written · individual power dynamics<br><br>Key difference: CB requires worker organization/union and has legal status; negotiation can be individual and informal.</div></div>
+  </div>
+</div>
+
+<!-- SECTION 3: GRIEVANCES -->
+<div class="section" id="s3">
+  <div class="card">
+    <h2><i class="ti ti-message-report" aria-hidden="true" style="color:#BA7517"></i>Grievances & Grievance Handling</h2>
+    <div class="def-box"><strong>Definition (Michael Jucius):</strong> A grievance is "any dissatisfaction or feeling of injustice in connection with one's employment situation that is brought to the attention of management."</div>
+    <h3>Grievance vs. Industrial Dispute</h3>
+    <div class="cmp-table" style="overflow-x:auto"><table class="cmp-table"><thead><tr><th>Basis</th><th>Grievance</th><th>Industrial Dispute</th></tr></thead><tbody>
+      <tr><td>Nature</td><td>Individual complaint</td><td>Collective formal conflict</td></tr>
+      <tr><td>Parties</td><td>Single employee vs. mgmt</td><td>Union vs. management</td></tr>
+      <tr><td>Legal status</td><td>No legal formality</td><td>Governed by IDA 1947</td></tr>
+      <tr><td>Resolution</td><td>Grievance Handling Procedure</td><td>Conciliation/Arbitration/Tribunal</td></tr>
+      <tr><td>Example</td><td>Unhappy about transfer order</td><td>Strike over wage demands</td></tr>
+    </tbody></table></div>
+    <h3>Grievance Handling Procedure (GHP) — Flowchart</h3>
+    <div class="flow">
+      <div class="flow-step"><div class="step-num">1</div><div><strong>Employee → Supervisor</strong> — Express grievance verbally/written <span class="tag tag-blue">3 days</span></div></div>
+      <div class="flow-arrow">↓ if unsatisfied</div>
+      <div class="flow-step"><div class="step-num">2</div><div><strong>Supervisor's decision</strong> — Investigates and responds <span class="tag tag-blue">2–3 days</span></div></div>
+      <div class="flow-arrow">↓ if unsatisfied</div>
+      <div class="flow-step"><div class="step-num">3</div><div><strong>Department Head (HOD)</strong> — Reviews case, consults HR <span class="tag tag-blue">3–5 days</span></div></div>
+      <div class="flow-arrow">↓ if unsatisfied</div>
+      <div class="flow-step"><div class="step-num">4</div><div><strong>Grievance Committee</strong> — Joint management-worker committee meets <span class="tag tag-blue">7 days</span></div></div>
+      <div class="flow-arrow">↓ if unsatisfied</div>
+      <div class="flow-step"><div class="step-num">5</div><div><strong>Top Management / HR Director</strong> — Final internal appeal</div></div>
+      <div class="flow-arrow">↓ if unsatisfied</div>
+      <div class="flow-step"><div class="step-num">6</div><div><strong>Voluntary Arbitration</strong> — Neutral third party decides</div></div>
+    </div>
+    <div class="mnem-box"><strong>Good GHP features — SAFE-PW:</strong> Simple · Accurate · Fair · Effective · Prompt · Written records</div>
+  </div>
+  <div class="card"><h2>Exam Q&A</h2>
+    <div class="q-card"><div class="q-head" onclick="tog(this)"><span><span class="badge b2">2 marks</span> Types of grievances.</span><i class="ti ti-chevron-down" aria-hidden="true"></i></div><div class="q-body"><strong>Factual:</strong> Real concrete grievance with facts (e.g., denied promised promotion)<br><strong>Imaginary:</strong> Based on wrong perception/misunderstanding<br><strong>Disguised:</strong> Real cause hidden; another issue used as excuse</div></div>
+    <div class="q-card"><div class="q-head" onclick="tog(this)"><span><span class="badge b10">10 marks</span> Explain GHP with flowchart.</span><i class="ti ti-chevron-down" aria-hidden="true"></i></div><div class="q-body">Grievance Handling Procedure (GHP) is a systematic multi-step process. Steps: (1) Employee expresses to supervisor within 3 days; (2) Supervisor responds in 2-3 days; (3) If unsatisfied, escalates to HOD (3-5 days); (4) Grievance Committee of joint members meets within 7 days; (5) Appeal to Top Management/HR Director; (6) Voluntary Arbitration as final step; (7) If still unresolved → Labour Court under IDA 1947.<br><br>Features of good GHP: Simple, Fair, Prompt, Written records, Confidential, No victimization. Prevents individual grievances from becoming industrial disputes.</div></div>
+  </div>
+</div>
+
+<!-- SECTION 4: SEPARATION -->
+<div class="section" id="s4">
+  <div class="card">
+    <h2><i class="ti ti-door-exit" aria-hidden="true" style="color:#534AB7"></i>Employee Separation</h2>
+    <div class="def-box"><strong>Definition:</strong> Employee Separation is the process of terminating the employment relationship between an employee and organization, either voluntarily or involuntarily, temporarily or permanently.</div>
+    <h3>Master Comparison: All Types</h3>
+    <div style="overflow-x:auto"><table class="cmp-table"><thead><tr><th>Basis</th><th>Layoff</th><th>Retrenchment</th><th>Resignation</th><th>Dismissal</th></tr></thead><tbody>
+      <tr><td>Initiated by</td><td>Employer</td><td>Employer</td><td>Employee</td><td>Employer</td></tr>
+      <tr><td>Nature</td><td>Temporary</td><td>Permanent</td><td>Voluntary</td><td>Permanent</td></tr>
+      <tr><td>Employee fault</td><td>No</td><td>No</td><td>No</td><td>Yes (misconduct)</td></tr>
+      <tr><td>Reason</td><td>Recession, shortage</td><td>Downsizing, automation</td><td>Personal choice</td><td>Theft, fraud, violence</td></tr>
+      <tr><td>Compensation</td><td class="tag tag-amber" style="display:table-cell">50% wages</td><td class="tag tag-amber" style="display:table-cell">15 days/year</td><td>None</td><td>None / Forfeiture</td></tr>
+      <tr><td>Can return?</td><td>Yes</td><td>No</td><td>No</td><td>No (banned)</td></tr>
+      <tr><td>Law</td><td>IDA 1947</td><td>IDA 1947 + Govt perm</td><td>Employment contract</td><td>Domestic Enquiry</td></tr>
+    </tbody></table></div>
+    <div class="warn-box"><strong>Key numbers — retrenchment:</strong> 1 month notice · 15 days wages per year of service · LIFO (Last In, First Out) · Govt permission for 100+ workers · "1-1-15 Rule"</div>
+    <div class="mnem-box"><strong>Separation types — RRLRTD:</strong> Resignation · Retirement · Layoff · Retrenchment · Termination · Dismissal</div>
+    <div class="tip-box"><strong>Exam tip:</strong> This comparison table is asked in EVERY semester. Memorize: Layoff = temporary + 50% | Retrenchment = permanent + 15 days/year | Dismissal = misconduct + no compensation.</div>
+  </div>
+  <div class="card"><h2>Exam Q&A</h2>
+    <div class="q-card"><div class="q-head" onclick="tog(this)"><span><span class="badge b2">2 marks</span> Difference: layoff vs. retrenchment.</span><i class="ti ti-chevron-down" aria-hidden="true"></i></div><div class="q-body"><strong>Layoff:</strong> Temporary removal due to external reasons (shortage, recession); 50% basic wages as compensation; worker may return.<br><br><strong>Retrenchment:</strong> Permanent termination for economic reasons (downsizing, automation); 15 days wages per year of service; LIFO principle; Govt permission for 100+ workers; worker does not return.</div></div>
+    <div class="q-card"><div class="q-head" onclick="tog(this)"><span><span class="badge b5">5 marks</span> Explain types of employee separation.</span><i class="ti ti-chevron-down" aria-hidden="true"></i></div><div class="q-body"><strong>1. Resignation:</strong> Voluntary exit by employee; notice period served; full & final settlement.<br><strong>2. Retirement:</strong> At prescribed age (superannuation, 58-60 yrs) or VRS; gratuity + PF + pension.<br><strong>3. Layoff:</strong> Temporary, employer-initiated, external reasons; 50% wage compensation; IDA 1947.<br><strong>4. Retrenchment:</strong> Permanent, economic reasons; 15 days/year compensation; LIFO; Govt permission (100+).<br><strong>5. Termination:</strong> Involuntary; poor performance or business closure.<br><strong>6. Dismissal:</strong> For misconduct; domestic enquiry mandatory; no compensation.</div></div>
+  </div>
+</div>
+
+<!-- SECTION 5: SAFETY & HEALTH -->
+<div class="section" id="s5">
+  <div class="card">
+    <h2><i class="ti ti-shield-check" aria-hidden="true" style="color:#A32D2D"></i>Employee Safety & Health</h2>
+    <div class="def-box"><strong>Definition:</strong> Occupational Safety and Health (OSH) is concerned with safety, health, and welfare of people at work — identifying, evaluating, and controlling workplace hazards to foster a safe work environment.</div>
+    <h3>5 Types of Workplace Hazards</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0">
+      <div style="padding:10px;background:#FCEBEB;border-radius:var(--border-radius-md);border-left:3px solid #A32D2D"><strong style="font-size:12px;color:#791F1F">Physical</strong><p style="color:#791F1F;margin-top:4px">Noise, vibration, extreme heat/cold, radiation → Hearing loss, burns</p></div>
+      <div style="padding:10px;background:#FAEEDA;border-radius:var(--border-radius-md);border-left:3px solid #BA7517"><strong style="font-size:12px;color:#633806">Chemical</strong><p style="color:#633806;margin-top:4px">Toxic gases, solvents, acids → Poisoning, cancer, respiratory</p></div>
+      <div style="padding:10px;background:#E6F1FB;border-radius:var(--border-radius-md);border-left:3px solid #185FA5"><strong style="font-size:12px;color:#0C447C">Biological</strong><p style="color:#0C447C;margin-top:4px">Bacteria, viruses, fungi → Infections, hepatitis, TB</p></div>
+      <div style="padding:10px;background:#EEEDFE;border-radius:var(--border-radius-md);border-left:3px solid #534AB7"><strong style="font-size:12px;color:#3C3489">Ergonomic</strong><p style="color:#3C3489;margin-top:4px">Repetitive motion, poor posture → CTS, back pain</p></div>
+      <div style="padding:10px;background:#E1F5EE;border-radius:var(--border-radius-md);border-left:3px solid #0F6E56;grid-column:span 2"><strong style="font-size:12px;color:#085041">Psychological</strong><p style="color:#085041;margin-top:4px">Stress, harassment, bullying → Burnout, anxiety, depression → Remedied by EAP, POSH Act</p></div>
+    </div>
+    <div class="mnem-box"><strong>Mnemonic — PCBEP:</strong> Physical · Chemical · Biological · Ergonomic · Psychological</div>
+    <h3>Controls Hierarchy (Most to Least Preferred)</h3>
+    <div class="flow">
+      <div class="flow-step"><div class="step-num" style="background:#185FA5">1</div><div><strong>Engineering Controls</strong> — Machine guarding, ventilation, ergonomic design (most effective)</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num" style="background:#BA7517">2</div><div><strong>Administrative Controls</strong> — SOPs, job rotation, time limits on hazardous areas</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num" style="background:#A32D2D">3</div><div><strong>PPE</strong> — Helmets, masks, gloves, goggles (last resort, least effective alone)</div></div>
+    </div>
+    <h3>Key Occupational Diseases</h3>
+    <ul>
+      <li><strong>Silicosis</strong> — silica dust → mining/construction</li>
+      <li><strong>Asbestosis</strong> — asbestos fibers → shipbuilding</li>
+      <li><strong>Byssinosis</strong> — cotton dust → textile (Brown Lung)</li>
+      <li><strong>CTS (Carpal Tunnel Syndrome)</strong> — repetitive motion → IT/data entry</li>
+      <li><strong>Noise-Induced Hearing Loss</strong> — prolonged loud noise → manufacturing</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SECTION 6: IDA 1947 -->
+<div class="section" id="s6">
+  <div class="card">
+    <h2><i class="ti ti-gavel" aria-hidden="true" style="color:#185FA5"></i>Industrial Disputes Act, 1947</h2>
+    <div class="def-box"><strong>Section 2(k):</strong> Industrial Dispute = "Any dispute or difference between employers and employers, or between employers and workmen, or between workmen and workmen, connected with employment or non-employment or terms of employment or conditions of labour."</div>
+    <h3>Key Definitions</h3>
+    <div class="cmp-table" style="overflow-x:auto"><table class="cmp-table"><thead><tr><th>Section</th><th>Term</th><th>Meaning</th></tr></thead><tbody>
+      <tr><td>S.2(k)</td><td>Industrial Dispute</td><td>Dispute between employer–workman on employment conditions</td></tr>
+      <tr><td>S.2(q)</td><td>Strike</td><td>Cessation of work by workers acting in combination</td></tr>
+      <tr><td>S.2(l)</td><td>Lockout</td><td>Employer closing workplace to compel workers</td></tr>
+      <tr><td>S.2(oo)</td><td>Retrenchment</td><td>Termination of service for economic reasons, not misconduct</td></tr>
+      <tr><td>S.2(kkk)</td><td>Layoff</td><td>Inability of employer to give employment due to shortage</td></tr>
+      <tr><td>S.2(cc)</td><td>Closure</td><td>Permanent closing of place of employment</td></tr>
+    </tbody></table></div>
+    <h3>Authorities under IDA 1947</h3>
+    <div class="flow">
+      <div class="flow-step"><div class="step-num" style="background:#185FA5">1</div><div><strong>Conciliation Officers (S.4)</strong> — Mediate between parties; promote settlement</div></div>
+      <div class="flow-arrow">↓ if failed</div>
+      <div class="flow-step"><div class="step-num" style="background:#185FA5">2</div><div><strong>Board of Conciliation (S.5)</strong> — For complex cases; equal representation; 2 months</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num" style="background:#534AB7">3</div><div><strong>Courts of Inquiry (S.6)</strong> — Investigate causes; publish report within 6 months</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num" style="background:#534AB7">4</div><div><strong>Labour Courts (S.7)</strong> — Adjudicate 2nd Schedule disputes (dismissal, wages, hours)</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num" style="background:#A32D2D">5</div><div><strong>Industrial Tribunals (S.7A)</strong> — 2nd + 3rd Schedule (wages, bonus, profit-sharing)</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num" style="background:#A32D2D">6</div><div><strong>National Tribunal (S.7B)</strong> — National importance / multi-state disputes</div></div>
+    </div>
+    <h3>Key Numbers to Remember</h3>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:8px 0">
+      <div class="stat"><div class="stat-num" style="font-size:18px">50%</div><div class="stat-lbl">Layoff compensation</div></div>
+      <div class="stat"><div class="stat-num" style="font-size:18px">15 days</div><div class="stat-lbl">Retrenchment/year</div></div>
+      <div class="stat"><div class="stat-num" style="font-size:18px">1 month</div><div class="stat-lbl">Retrenchment notice</div></div>
+      <div class="stat"><div class="stat-num" style="font-size:18px">60 days</div><div class="stat-lbl">Closure notice</div></div>
+      <div class="stat"><div class="stat-num" style="font-size:18px">100+</div><div class="stat-lbl">Govt permission reqd</div></div>
+      <div class="stat"><div class="stat-num" style="font-size:18px">240</div><div class="stat-lbl">Days = 1 year service</div></div>
+    </div>
+    <div class="tip-box"><strong>Exam tip:</strong> Key sections to memorize: S.2(k), S.2(q), S.2(l), S.2(oo), S.22 (strike prohibition), S.25F (retrenchment conditions), S.25N (100+ permission)</div>
+  </div>
+</div>
+
+<!-- SECTION 7: FACTORIES ACT -->
+<div class="section" id="s7">
+  <div class="card">
+    <h2><i class="ti ti-building-factory" aria-hidden="true" style="color:#3B6D11"></i>Factories Act, 1948</h2>
+    <div class="def-box"><strong>Factory (S.2m):</strong> Any premises where <strong>10 or more workers</strong> work with the aid of power, or <strong>20 or more workers</strong> work without power, in a manufacturing process.</div>
+    <h3>Key Provisions by Chapter</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:8px 0">
+      <div style="padding:10px;background:#E6F1FB;border-radius:var(--border-radius-md);border-top:3px solid #185FA5"><strong style="font-size:12px;color:#0C447C">Chapter III — Health</strong><p style="color:#0C447C;font-size:11px;margin-top:4px">S.11 Clean · S.13 Ventilation · S.17 Lighting · S.18 Drinking water · S.19 Latrines</p></div>
+      <div style="padding:10px;background:#FCEBEB;border-radius:var(--border-radius-md);border-top:3px solid #A32D2D"><strong style="font-size:12px;color:#791F1F">Chapter IV — Safety</strong><p style="color:#791F1F;font-size:11px;margin-top:4px">S.21 Machine fencing · S.22 No cleaning near moving parts · S.38 Fire safety · S.40 Safety Officer (1000+)</p></div>
+      <div style="padding:10px;background:#EAF3DE;border-radius:var(--border-radius-md);border-top:3px solid #3B6D11"><strong style="font-size:12px;color:#27500A">Chapter V — Welfare</strong><p style="color:#27500A;font-size:11px;margin-top:4px">S.45 First aid · S.46 Canteen · S.47 Shelter · S.48 Creche · S.49 Welfare Officer</p></div>
+    </div>
+    <h3>Critical Numbers — Welfare Provisions</h3>
+    <div style="overflow-x:auto"><table class="cmp-table"><thead><tr><th>Provision</th><th>Trigger Number</th><th>Section</th></tr></thead><tbody>
+      <tr><td>First Aid Box (1 per 150 workers)</td><td>All factories</td><td>S.45</td></tr>
+      <tr><td>Canteen</td><td><strong>250+ workers</strong></td><td>S.46</td></tr>
+      <tr><td>Shelter / Rest Room / Lunch Room</td><td><strong>150+ workers</strong></td><td>S.47</td></tr>
+      <tr><td>Creche (Day care)</td><td><strong>30+ women workers</strong></td><td>S.48</td></tr>
+      <tr><td>Welfare Officer</td><td><strong>500+ workers</strong></td><td>S.49</td></tr>
+      <tr><td>Safety Officer</td><td><strong>1000+ workers</strong></td><td>S.40</td></tr>
+    </tbody></table></div>
+    <div class="mnem-box"><strong>Mnemonic — 250-150-30-500-1000:</strong> Canteen(250) · Shelter(150) · Creche(30 women) · Welfare Officer(500) · Safety Officer(1000)</div>
+    <h3>Working Hours</h3>
+    <ul>
+      <li>Daily: maximum <strong>9 hours</strong></li>
+      <li>Weekly: maximum <strong>48 hours</strong></li>
+      <li>Overtime wages: <strong>double</strong> the ordinary rate</li>
+      <li>Spread over: max <strong>10.5 hours</strong></li>
+      <li>Rest interval: 30 min after 5 continuous hours</li>
+      <li>No child under <strong>14 years</strong> (S.67)</li>
+      <li>Women: cannot work between <strong>7 PM – 6 AM</strong></li>
+    </ul>
+    <div class="warn-box"><strong>Penalties:</strong> Contravention → 2 years + Rs.1 lakh fine | Death/serious injury → 3 years + Rs.3 lakh | Continuing offence → Rs.1,000/day extra</div>
+  </div>
+</div>
+
+<!-- SECTION 8: POSH ACT -->
+<div class="section" id="s8">
+  <div class="card">
+    <h2><i class="ti ti-shield-half" aria-hidden="true" style="color:#A32D2D"></i>POSH Act, 2013</h2>
+    <div class="def-box"><strong>Based on:</strong> Vishakha & Others v. State of Rajasthan (1997) — Supreme Court guidelines on sexual harassment at workplace, which became the foundation for POSH Act 2013.</div>
+    <div class="def-box" style="margin-top:6px"><strong>Sexual Harassment (S.2n):</strong> Includes — (i) physical contact/advances, (ii) demand/request for sexual favors, (iii) sexually colored remarks, (iv) showing pornography, (v) any unwelcome physical/verbal/non-verbal conduct of sexual nature.</div>
+    <h3>Two Types of Sexual Harassment</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0">
+      <div style="padding:10px;background:#FCEBEB;border-radius:var(--border-radius-md)"><strong style="font-size:12px;color:#791F1F">Quid Pro Quo</strong><p style="color:#791F1F;margin-top:4px">"This for that" — sexual favors demanded for job benefits (promotion, hiring)</p></div>
+      <div style="padding:10px;background:#FAEEDA;border-radius:var(--border-radius-md)"><strong style="font-size:12px;color:#633806">Hostile Work Environment</strong><p style="color:#633806;margin-top:4px">Conduct so pervasive it creates intimidating/offensive atmosphere</p></div>
+    </div>
+    <h3>ICC — Internal Complaints Committee (S.4)</h3>
+    <div class="def-box">Mandatory for every employer with <strong>10+ employees</strong>. Must be formed in EACH office/branch.</div>
+    <div class="cmp-table" style="overflow-x:auto"><table class="cmp-table"><thead><tr><th>Member</th><th>Requirement</th></tr></thead><tbody>
+      <tr><td>Presiding Officer</td><td>Senior woman employee at the workplace</td></tr>
+      <tr><td>Internal Members (2)</td><td>Employees committed to women's cause / legal knowledge</td></tr>
+      <tr><td>External Member (1)</td><td>NGO/association working for women OR expert on SH issues</td></tr>
+      <tr><td>Gender rule</td><td>At least <strong>50% members must be women</strong></td></tr>
+      <tr><td>Tenure</td><td>Maximum <strong>3 years</strong></td></tr>
+    </tbody></table></div>
+    <h3>Complaint Procedure Flowchart</h3>
+    <div class="flow">
+      <div class="flow-step"><div class="step-num" style="background:#A32D2D">1</div><div><strong>Written complaint to ICC/LCC</strong> — within <span class="tag tag-red">3 months</span> of incident (extendable to 6 months)</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num">2</div><div><strong>Conciliation (optional)</strong> — if complainant requests; no monetary settlement allowed</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num">3</div><div><strong>Inquiry</strong> — ICC conducts inquiry; both parties heard; principles of natural justice <span class="tag tag-amber">90 days</span></div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num">4</div><div><strong>ICC submits report</strong> to employer within 10 days of inquiry completion</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num">5</div><div><strong>Employer takes action</strong> on ICC recommendations <span class="tag tag-amber">60 days</span></div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num">6</div><div><strong>Appeal</strong> to court/tribunal <span class="tag tag-amber">within 90 days</span></div></div>
+    </div>
+    <div class="mnem-box"><strong>POSH Timelines — 3-90-60-90:</strong> 3 months to file · 90 days inquiry · 60 days employer action · 90 days to appeal</div>
+    <div class="warn-box"><strong>Employer penalty for NOT forming ICC: Rs. 50,000 fine + possible license cancellation on repeat offence</strong></div>
+    <h3>Employer's Responsibilities</h3>
+    <ul>
+      <li>Constitute ICC in every office with 10+ employees</li>
+      <li>Display consequences of SH at conspicuous places</li>
+      <li>Conduct regular awareness and sensitization programs</li>
+      <li>Ensure confidentiality of complaints and proceedings</li>
+      <li>Treat SH as misconduct in service rules</li>
+      <li>Submit <strong>annual report</strong> to District Officer</li>
+    </ul>
+  </div>
+</div>
+
+<!-- QUIZ -->
+<div class="section" id="s9">
+  <div class="card">
+    <h2><i class="ti ti-brain" aria-hidden="true" style="color:#534AB7"></i>Knowledge Check Quiz</h2>
+    <p>Test yourself on all sections. 20 questions from the entire unit.</p>
+    <div class="quiz-area">
+      <div id="quiz-progress" style="font-size:12px;color:var(--color-text-secondary);margin-bottom:8px">Question 1 of 20</div>
+      <div class="quiz-q" id="qq"></div>
+      <div class="quiz-opts" id="qopts"></div>
+      <div class="quiz-result" id="qresult"></div>
+      <div class="quiz-nav">
+        <div class="score-display" id="qscore">Score: 0 / 0</div>
+        <button class="btn btn-primary" id="qnext" onclick="nextQ()" style="display:none">Next →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REVISION SHEET -->
+<div class="section" id="s10">
+  <div class="card">
+    <h2><i class="ti ti-bolt" aria-hidden="true" style="color:#BA7517"></i>Night Before Exam — Complete Revision</h2>
+    <div class="tip-box" style="margin-bottom:12px">Read this 30 minutes before your exam. Covers the ENTIRE unit.</div>
+    <h3>Block 1 — Labor Movement</h3>
+    <ul>
+      <li>First Indian union: Madras Labour Union (1918, B.P. Wadia) | First national: AITUC (1920) | Legal recognition: Trade Unions Act 1926</li>
+      <li>Functions: Militant + Fraternal + Political + Economic</li>
+      <li>Problems — MILL-PE: Multiplicity · Illiteracy · Low membership · Leadership(outside) · Political affiliation · Employer hostility</li>
+    </ul>
+    <h3>Block 2 — Collective Bargaining</h3>
+    <ul>
+      <li>CB = Union negotiation with employer → Collective Agreement (IDA 1947 governed)</li>
+      <li>Types — DICP-C: Distributive · Integrative · Concessionary · Productivity · Composite</li>
+      <li>Process: Preparation → Notice → Negotiation → Bargaining → Agreement → Signing → Implementation → Administration</li>
+    </ul>
+    <h3>Block 3 — Grievances</h3>
+    <ul>
+      <li>Grievance = individual complaint | Dispute = collective, legal, formal conflict</li>
+      <li>GHP: Employee → Supervisor → HOD → Grievance Committee → Top Mgmt → Arbitration</li>
+    </ul>
+    <h3>Block 4 — Separation</h3>
+    <ul>
+      <li>Layoff: temp, 50% wages | Retrenchment: perm, 15 days/year, LIFO, Govt perm(100+)</li>
+      <li>Dismissal: misconduct, domestic enquiry, no compensation | Resignation: voluntary</li>
+      <li>Retrenchment "1-1-15": 1 month notice · 1 year = 240 days · 15 days/year compensation</li>
+    </ul>
+    <h3>Block 5 — Safety & Health</h3>
+    <ul>
+      <li>5 hazards — PCBEP: Physical · Chemical · Biological · Ergonomic · Psychological</li>
+      <li>Controls hierarchy: Engineering → Administrative → PPE</li>
+    </ul>
+    <h3>Block 6 — IDA 1947</h3>
+    <ul>
+      <li>Dispute = S.2(k) | Strike = S.2(q) | Lockout = S.2(l) | Retrenchment = S.2(oo)</li>
+      <li>Layoff = 50% | Retrenchment = 15 days/year | Closure notice = 60 days | Permission = 100+ workers</li>
+      <li>Strike notice: 6 weeks (public utility) · 14 days (others) · Prohibited during adjudication</li>
+    </ul>
+    <h3>Block 7 — Factories Act 1948</h3>
+    <ul>
+      <li>Factory = 10+(power) or 20+(no power)</li>
+      <li>Canteen(250) · Shelter(150) · Creche(30 women) · Welfare Officer(500) · Safety Officer(1000)</li>
+      <li>Hours: 9/day · 48/week · OT = double wages · No child under 14</li>
+    </ul>
+    <h3>Block 8 — POSH Act 2013</h3>
+    <ul>
+      <li>Based on Vishakha v. State of Rajasthan (1997)</li>
+      <li>SH types: Quid Pro Quo + Hostile Work Environment</li>
+      <li>ICC: 10+ employees mandatory | 1 PO + 2 internal + 1 external | 50%+ women | 3-year term</li>
+      <li>Timeline — 3-90-60-90: complaint(3m) · inquiry(90d) · action(60d) · appeal(90d)</li>
+      <li>Penalty for no ICC: Rs. 50,000</li>
+    </ul>
+    <div class="key-acts">
+      <div class="act-card"><h4 style="color:#185FA5">IDA 1947</h4><p>Disputes + Strike/Lockout</p><p>Layoff 50% wages</p><p>Retrench 15d/yr + notice</p><p>Labour Courts + Tribunals</p></div>
+      <div class="act-card"><h4 style="color:#3B6D11">Factories Act 1948</h4><p>10/20 worker threshold</p><p>Health + Safety + Welfare</p><p>9hr/day, 48hr/week</p><p>No child under 14</p></div>
+      <div class="act-card"><h4 style="color:#A32D2D">POSH Act 2013</h4><p>Based on Vishakha 1997</p><p>ICC: 10+ employees</p><p>3 months to complain</p><p>Rs.50K penalty</p></div>
+    </div>
+    <div style="margin-top:1rem;padding:12px;background:var(--color-background-secondary);border-radius:var(--border-radius-md);text-align:center">
+      <p style="font-size:14px;font-weight:500;color:var(--color-text-primary)">Predicted top 10-mark questions</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:8px">
+        <span class="tag tag-blue">Collective Bargaining Process</span>
+        <span class="tag tag-teal">Grievance Handling Procedure</span>
+        <span class="tag tag-amber">Layoff vs. Retrenchment</span>
+        <span class="tag tag-red">IDA 1947 Features</span>
+        <span class="tag tag-green">Factories Act Features</span>
+        <span class="tag tag-purple">POSH Act + ICC</span>
+        <span class="tag tag-blue">Trade Union Problems</span>
+        <span class="tag tag-teal">Employee Separation Types</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="container">
+        <a href="index.html" class="back-btn">← Back to Home</a>
+</div>
+<div class="container">
+        <a href="hrm.html" class="back-btn">← Back to HRM units </a>
+</div>
+
+<script>
+const visited = new Set([0]);
+
+function showSection(n) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById('s' + n).classList.add('active');
+  document.querySelectorAll('.tab').forEach((t,i) => {
+    t.classList.toggle('active', i === n);
+    if(visited.has(i) && i !== 0) t.classList.add('done');
+  });
+  visited.add(n);
+  const pct = Math.round(Math.min((visited.size - 1) / 10, 1) * 100);
+  document.getElementById('prog').style.width = pct + '%';
+  document.getElementById('prog-label').textContent = Math.min(visited.size - 1, 10) + ' / 10 sections visited';
+  document.getElementById('st-visited').textContent = Math.min(visited.size - 1, 10);
+  if(n === 9) initQuiz();
+}
+
+function tog(el) {
+  const body = el.nextElementSibling;
+  const icon = el.querySelector('i');
+  body.classList.toggle('open');
+  icon.style.transform = body.classList.contains('open') ? 'rotate(180deg)' : '';
+}
+
+const questions = [
+  {q:"What is the first registered trade union in India?",opts:["AITUC","Madras Labour Union","Bombay Mill Hands Association","INTUC"],ans:1},
+  {q:"Which year was the Trade Unions Act passed giving legal recognition?",opts:["1918","1920","1926","1947"],ans:2},
+  {q:"ILO defines Collective Bargaining as negotiation between employer and ___.",opts:["Government","Individual workers","Group of employees / union","Labour Court"],ans:2},
+  {q:"'Distributive Bargaining' is best described as:",opts:["Win-win negotiation","Workers give up benefits","Win-lose; bargaining over fixed resources","Wages linked to output"],ans:2},
+  {q:"In a Grievance Handling Procedure, what comes AFTER the Grievance Committee?",opts:["Arbitration","Top Management","HOD","Labour Court"],ans:1},
+  {q:"Layoff compensation under IDA 1947 is:",opts:["100% of wages","75% of wages","50% of basic wages + DA","15 days wages per year"],ans:2},
+  {q:"Retrenchment compensation is:",opts:["50% of wages","1 month wages","15 days wages per year of service","No compensation"],ans:2},
+  {q:"Which Act defines 'factory' as premises with 10+ workers using power?",opts:["IDA 1947","Factories Act 1948","POSH Act 2013","ESI Act"],ans:1},
+  {q:"Under Factories Act, which worker strength requires a Canteen?",opts:["100+","150+","250+","500+"],ans:2},
+  {q:"Creche facility under Factories Act is mandatory when there are:",opts:["50+ workers","100+ workers","30+ women workers","250+ workers"],ans:2},
+  {q:"POSH Act 2013 was based on which Supreme Court case?",opts:["Maneka Gandhi v. Union of India","Vishakha v. State of Rajasthan","Kesavananda Bharati case","ADM Jabalpur case"],ans:1},
+  {q:"ICC under POSH Act is mandatory for establishments with:",opts:["5+ employees","10+ employees","25+ employees","50+ employees"],ans:1},
+  {q:"A woman must file a complaint under POSH Act within:",opts:["1 month","3 months","6 months","1 year"],ans:1},
+  {q:"Under IDA 1947, which Section deals with conditions for retrenchment?",opts:["Section 2(k)","Section 22","Section 25F","Section 7"],ans:2},
+  {q:"What is the 'LIFO' principle in retrenchment?",opts:["Last In First Out","Last Income First Out","Labour In Force Order","Legal In Force Order"],ans:0},
+  {q:"Which type of hazard causes Carpal Tunnel Syndrome?",opts:["Physical","Chemical","Biological","Ergonomic"],ans:3},
+  {q:"In Collective Bargaining, 'Concessionary Bargaining' means:",opts:["Win-win outcome","Workers give up benefits to protect jobs","Wages linked to productivity","Wages + conditions bargained together"],ans:1},
+  {q:"What is the penalty on employer for NOT forming ICC under POSH Act?",opts:["Rs.10,000","Rs.25,000","Rs.50,000","Rs.1,00,000"],ans:2},
+  {q:"Welfare Officer appointment is mandatory under Factories Act for:",opts:["250+ workers","500+ workers","1000+ workers","150+ workers"],ans:1},
+  {q:"The maximum daily working hours for an adult worker under Factories Act is:",opts:["8 hours","9 hours","10 hours","12 hours"],ans:1}
+];
+
+let qi = 0, score = 0, answered = false;
+
+function initQuiz() {
+  qi = 0; score = 0; answered = false;
+  renderQ();
+}
+
+function renderQ() {
+  const d = questions[qi];
+  document.getElementById('quiz-progress').textContent = 'Question ' + (qi+1) + ' of ' + questions.length;
+  document.getElementById('qq').textContent = d.q;
+  const opts = document.getElementById('qopts');
+  opts.innerHTML = '';
+  d.opts.forEach((o,i) => {
+    const b = document.createElement('button');
+    b.className = 'quiz-opt';
+    b.textContent = o;
+    b.onclick = () => checkAns(i, b);
+    opts.appendChild(b);
+  });
+  document.getElementById('qresult').className = 'quiz-result';
+  document.getElementById('qresult').textContent = '';
+  document.getElementById('qnext').style.display = 'none';
+  answered = false;
+}
+
+function checkAns(i, btn) {
+  if(answered) return;
+  answered = true;
+  const correct = questions[qi].ans;
+  const btns = document.querySelectorAll('.quiz-opt');
+  btns[correct].classList.add('correct');
+  if(i === correct) {
+    score++;
+    const r = document.getElementById('qresult');
+    r.className = 'quiz-result show ok';
+    r.textContent = '✓ Correct!';
+  } else {
+    btn.classList.add('wrong');
+    const r = document.getElementById('qresult');
+    r.className = 'quiz-result show no';
+    r.textContent = '✗ Incorrect. Correct answer: ' + questions[qi].opts[correct];
+  }
+  document.getElementById('qscore').textContent = 'Score: ' + score + ' / ' + (qi + 1);
+  document.getElementById('st-quiz').textContent = Math.round(score/(qi+1)*100) + '%';
+  document.getElementById('qnext').style.display = 'block';
+  document.getElementById('qnext').textContent = qi < questions.length - 1 ? 'Next →' : 'See Results';
+}
+
+function nextQ() {
+  qi++;
+  if(qi < questions.length) {
+    renderQ();
+  } else {
+    const pct = Math.round(score/questions.length*100);
+    let msg = pct >= 80 ? 'Excellent! You are exam-ready.' : pct >= 60 ? 'Good. Review weak sections.' : 'Keep revising — focus on the revision sheet.';
+    document.getElementById('quiz-area') && (document.querySelector('.quiz-area').innerHTML =
+      '<div style="text-align:center;padding:1.5rem"><div style="font-size:32px;font-weight:500;color:var(--color-text-primary)">' + pct + '%</div>' +
+      '<div style="font-size:14px;color:var(--color-text-secondary);margin-top:4px">Score: ' + score + ' / ' + questions.length + '</div>' +
+      '<div style="margin-top:12px;font-size:13px;color:var(--color-text-primary)">' + msg + '</div>' +
+      '<button class="btn btn-primary" style="margin-top:16px" onclick="initQuiz()">Retake Quiz</button></div>');
+    document.getElementById('st-quiz').textContent = pct + '%';
+  }
+}
+
+renderQ();
+</script>

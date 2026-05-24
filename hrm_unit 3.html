@@ -1,0 +1,1369 @@
+
+
+<div class="container">
+        <a href="index.html" class="back-btn">← Back to Home</a>
+</div>
+<div class="container">
+        <a href="hrm.html" class="back-btn">← Back to HRM units </a>
+</div>
+<h2 class="sr-only">Complete HRM Study Notes: Training, Development & Performance Management — Exam-Oriented Guide</h2>
+<style>
+:root {
+  --blue-50: #E6F1FB; --blue-100: #B5D4F4; --blue-200: #85B7EB; --blue-600: #185FA5; --blue-800: #0C447C; --blue-900: #042C53;
+  --teal-50: #E1F5EE; --teal-100: #9FE1CB; --teal-600: #0F6E56; --teal-800: #085041;
+  --amber-50: #FAEEDA; --amber-100: #FAC775; --amber-600: #854F0B; --amber-800: #633806;
+  --coral-50: #FAECE7; --coral-100: #F5C4B3; --coral-600: #993C1D; --coral-800: #712B13;
+  --purple-50: #EEEDFE; --purple-100: #CECBF6; --purple-600: #534AB7; --purple-800: #3C3489;
+  --green-50: #EAF3DE; --green-100: #C0DD97; --green-600: #3B6D11; --green-800: #27500A;
+  --red-50: #FCEBEB; --red-100: #F7C1C1; --red-600: #A32D2D; --red-800: #791F1F;
+  --gray-50: #F1EFE8; --gray-100: #D3D1C7; --gray-600: #5F5E5A; --gray-800: #444441;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans, system-ui, sans-serif); font-size: 14px; line-height: 1.6; color: var(--color-text-primary); background: transparent; }
+
+/* NAV */
+#nav-bar { display: flex; flex-wrap: wrap; gap: 6px; padding: 12px 0 16px; border-bottom: 0.5px solid var(--color-border-tertiary); margin-bottom: 20px; }
+.nav-btn { background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md, 8px); padding: 5px 12px; font-size: 12px; cursor: pointer; color: var(--color-text-secondary); transition: all .15s; white-space: nowrap; }
+.nav-btn:hover, .nav-btn.active { background: var(--blue-600); color: #fff; border-color: var(--blue-600); }
+
+/* SECTIONS */
+.section { display: none; }
+.section.active { display: block; }
+
+/* TYPOGRAPHY */
+h1 { font-size: 22px; font-weight: 500; margin-bottom: 6px; }
+h2 { font-size: 18px; font-weight: 500; margin: 24px 0 10px; padding-bottom: 6px; border-bottom: 0.5px solid var(--color-border-tertiary); }
+h3 { font-size: 15px; font-weight: 500; margin: 18px 0 8px; }
+h4 { font-size: 13px; font-weight: 500; margin: 14px 0 6px; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: .04em; }
+p { margin-bottom: 10px; font-size: 14px; line-height: 1.7; }
+ul, ol { padding-left: 20px; margin-bottom: 10px; }
+li { margin-bottom: 4px; font-size: 14px; line-height: 1.6; }
+strong { font-weight: 500; }
+
+/* CARDS */
+.card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg, 12px); padding: 16px 20px; margin-bottom: 16px; }
+.card-blue { background: var(--blue-50); border-color: var(--blue-100); }
+.card-teal { background: var(--teal-50); border-color: var(--teal-100); }
+.card-amber { background: var(--amber-50); border-color: var(--amber-100); }
+.card-coral { background: var(--coral-50); border-color: var(--coral-100); }
+.card-purple { background: var(--purple-50); border-color: var(--purple-100); }
+.card-green { background: var(--green-50); border-color: var(--green-100); }
+.card-red { background: var(--red-50); border-color: var(--red-100); }
+.card-gray { background: var(--gray-50); border-color: var(--gray-100); }
+
+/* BADGES */
+.badge { display: inline-block; font-size: 11px; font-weight: 500; border-radius: 4px; padding: 2px 8px; margin-right: 4px; }
+.badge-blue { background: var(--blue-50); color: var(--blue-800); border: 0.5px solid var(--blue-100); }
+.badge-amber { background: var(--amber-50); color: var(--amber-800); border: 0.5px solid var(--amber-100); }
+.badge-red { background: var(--red-50); color: var(--red-800); border: 0.5px solid var(--red-100); }
+.badge-green { background: var(--green-50); color: var(--green-800); border: 0.5px solid var(--green-100); }
+.badge-purple { background: var(--purple-50); color: var(--purple-800); border: 0.5px solid var(--purple-100); }
+.badge-teal { background: var(--teal-50); color: var(--teal-800); border: 0.5px solid var(--teal-100); }
+
+/* TABLES */
+.tbl { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 13px; }
+.tbl th { background: var(--color-background-secondary); font-weight: 500; text-align: left; padding: 8px 10px; border: 0.5px solid var(--color-border-tertiary); font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--color-text-secondary); }
+.tbl td { padding: 8px 10px; border: 0.5px solid var(--color-border-tertiary); vertical-align: top; }
+.tbl tr:nth-child(even) td { background: var(--color-background-secondary); }
+
+/* PROCESS STEPS */
+.steps { counter-reset: step; list-style: none; padding: 0; }
+.steps li { counter-increment: step; display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+.steps li::before { content: counter(step); min-width: 26px; height: 26px; background: var(--blue-600); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; flex-shrink: 0; margin-top: 1px; }
+.steps li .step-content { flex: 1; }
+.steps li .step-title { font-weight: 500; font-size: 14px; }
+.steps li .step-desc { font-size: 13px; color: var(--color-text-secondary); margin-top: 2px; }
+
+/* DEFINITION BOX */
+.def-box { border-left: 3px solid var(--blue-600); padding: 10px 14px; background: var(--blue-50); border-radius: 0 8px 8px 0; margin-bottom: 14px; }
+.def-box .def-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; color: var(--blue-600); margin-bottom: 4px; }
+.def-box p { margin: 0; font-size: 13px; }
+
+/* MNEMONIC */
+.mnemonic { border-left: 3px solid var(--amber-600); padding: 10px 14px; background: var(--amber-50); border-radius: 0 8px 8px 0; margin-bottom: 14px; }
+.mnemonic .mn-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; color: var(--amber-600); margin-bottom: 4px; }
+
+/* EXAM QUESTION */
+.eq { border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); margin-bottom: 14px; overflow: hidden; }
+.eq-header { display: flex; align-items: center; gap: 8px; padding: 10px 14px; background: var(--color-background-secondary); cursor: pointer; user-select: none; }
+.eq-header:hover { background: var(--color-background-tertiary); }
+.eq-mark { font-size: 11px; font-weight: 500; }
+.eq-q { flex: 1; font-size: 14px; font-weight: 500; }
+.eq-toggle { font-size: 18px; color: var(--color-text-secondary); transition: transform .2s; }
+.eq-toggle.open { transform: rotate(45deg); }
+.eq-body { display: none; padding: 14px; border-top: 0.5px solid var(--color-border-tertiary); }
+.eq-body.open { display: block; }
+
+/* QUICK REVISION */
+.qr-item { display: flex; gap: 8px; align-items: flex-start; padding: 6px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
+.qr-item:last-child { border-bottom: none; }
+.qr-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--blue-600); margin-top: 6px; flex-shrink: 0; }
+.qr-item p { margin: 0; font-size: 13px; }
+
+/* NIGHT REVISION */
+.nr-topic { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px 14px; margin-bottom: 10px; }
+.nr-topic h4 { margin-bottom: 6px; color: var(--blue-800); font-size: 13px; }
+.nr-topic ul { margin: 0; padding-left: 16px; }
+.nr-topic li { font-size: 12px; margin-bottom: 2px; }
+
+/* ERROR TAG */
+.err-tag { display: inline-block; background: var(--red-50); color: var(--red-800); border: 0.5px solid var(--red-100); border-radius: 4px; font-size: 11px; font-weight: 500; padding: 2px 8px; margin: 2px; }
+
+/* FLOW DIAGRAM (CSS-only) */
+.flow { display: flex; flex-direction: column; gap: 0; align-items: flex-start; margin: 12px 0; }
+.flow-item { display: flex; align-items: center; gap: 0; width: 100%; }
+.flow-box { background: var(--blue-50); border: 0.5px solid var(--blue-100); border-radius: 8px; padding: 8px 14px; font-size: 13px; font-weight: 500; color: var(--blue-800); flex: 1; text-align: center; }
+.flow-arrow { display: flex; flex-direction: column; align-items: center; padding: 2px 0; }
+.flow-arrow-line { width: 2px; height: 18px; background: var(--color-border-secondary); }
+.flow-arrow-head { width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 8px solid var(--color-border-secondary); }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 500px) { .two-col { grid-template-columns: 1fr; } }
+
+/* DARK MODE OVERRIDES */
+@media (prefers-color-scheme: dark) {
+  .card-blue { background: rgba(24,95,165,.12); border-color: rgba(24,95,165,.3); }
+  .card-teal { background: rgba(15,110,86,.12); border-color: rgba(15,110,86,.3); }
+  .card-amber { background: rgba(133,79,11,.15); border-color: rgba(133,79,11,.3); }
+  .card-coral { background: rgba(153,60,29,.15); border-color: rgba(153,60,29,.3); }
+  .card-purple { background: rgba(83,74,183,.12); border-color: rgba(83,74,183,.3); }
+  .card-green { background: rgba(59,109,17,.12); border-color: rgba(59,109,17,.3); }
+  .card-red { background: rgba(163,45,45,.12); border-color: rgba(163,45,45,.3); }
+  .card-gray { background: rgba(95,94,90,.12); border-color: rgba(95,94,90,.3); }
+  .def-box { background: rgba(24,95,165,.12); border-color: var(--blue-600); }
+  .mnemonic { background: rgba(133,79,11,.15); border-color: var(--amber-600); }
+  .flow-box { background: rgba(24,95,165,.12); border-color: rgba(24,95,165,.3); color: var(--blue-100); }
+  .badge-blue { background: rgba(24,95,165,.2); color: var(--blue-100); border-color: rgba(24,95,165,.3); }
+  .badge-amber { background: rgba(133,79,11,.2); color: var(--amber-100); border-color: rgba(133,79,11,.3); }
+  .badge-red { background: rgba(163,45,45,.2); color: var(--red-100); border-color: rgba(163,45,45,.3); }
+  .badge-green { background: rgba(59,109,17,.2); color: var(--green-100); border-color: rgba(59,109,17,.3); }
+  .badge-purple { background: rgba(83,74,183,.2); color: var(--purple-100); border-color: rgba(83,74,183,.3); }
+  .badge-teal { background: rgba(15,110,86,.2); color: var(--teal-100); border-color: rgba(15,110,86,.3); }
+  .err-tag { background: rgba(163,45,45,.2); color: var(--red-100); border-color: rgba(163,45,45,.3); }
+  .nr-topic { background: rgba(255,255,255,.04); }
+  .nr-topic h4 { color: var(--blue-100); }
+}
+</style>
+
+<div style="padding: 16px 0 0;">
+
+<!-- HEADER -->
+<div style="margin-bottom: 20px;">
+  
+  <h1>Training, Development & Performance Management</h1>
+  <p style="color:var(--color-text-secondary); font-size:13px;">Complete exam-oriented notes · All topics covered · Questions + model answers included</p>
+</div>
+
+<!-- NAV -->
+<div id="nav-bar">
+  <button class="nav-btn active" onclick="show('unit1')">1. Training & Development</button>
+  <button class="nav-btn" onclick="show('unit2')">2. Training Methods</button>
+  <button class="nav-btn" onclick="show('unit3')">3. Mgmt Development & Evaluation</button>
+  <button class="nav-btn" onclick="show('unit4')">4. Performance Management</button>
+  <button class="nav-btn" onclick="show('unit5')">5. Appraisal Techniques & Errors</button>
+  <button class="nav-btn" onclick="show('unit6')">6. Career Management</button>
+  <button class="nav-btn" onclick="show('unit7')">7. Exam Questions</button>
+  
+</div>
+
+<!-- ========================== UNIT 1 ========================== -->
+<div id="unit1" class="section active">
+
+<h2> 1 — Training & Development: Foundations</h2>
+
+<div class="def-box">
+  <div class="def-label">University Exam Definition — Training</div>
+  <p><strong>Training</strong> is a short-term, systematic process of improving the knowledge, skills, attitudes, and behaviour of employees for performing a specific job effectively. It is job-oriented and focuses on present needs.</p>
+</div>
+
+<div class="def-box" style="border-color:var(--teal-600); background:var(--teal-50);">
+  <div class="def-label" style="color:var(--teal-600);">University Exam Definition — Development</div>
+  <p><strong>Development</strong> is a long-term educational process aimed at preparing an individual for broader responsibilities in the future. It is person-oriented and focuses on future needs, personality, and potential.</p>
+</div>
+
+<h3>Key Differences: Training vs Development</h3>
+<table class="tbl">
+  <tr><th>Basis</th><th>Training</th><th>Development</th></tr>
+  <tr><td><strong>Meaning</strong></td><td>Teaching specific job skills</td><td>Overall growth of the employee</td></tr>
+  <tr><td><strong>Duration</strong></td><td>Short-term</td><td>Long-term</td></tr>
+  <tr><td><strong>Orientation</strong></td><td>Job-oriented</td><td>Career/person-oriented</td></tr>
+  <tr><td><strong>Focus</strong></td><td>Present needs</td><td>Future needs</td></tr>
+  <tr><td><strong>Who benefits</strong></td><td>Operative employees</td><td>Managers / executives</td></tr>
+  <tr><td><strong>Objective</strong></td><td>Improve technical skills</td><td>Develop leadership, decision-making</td></tr>
+  <tr><td><strong>Initiative taken by</strong></td><td>Employer / organization</td><td>Individual + organization</td></tr>
+  <tr><td><strong>Example</strong></td><td>Teaching a cashier to use POS software</td><td>Sending a manager for an MBA programme</td></tr>
+</table>
+
+<div class="mnemonic">
+  <div class="mn-label">Mnemonic — Remember Training vs Development</div>
+  <p><strong>T = Today (Present, Technical, Task-based)</strong><br>
+  <strong>D = Dream (Future, Decision-making, Developmental)</strong></p>
+</div>
+
+<h2>Importance of Training and Development</h2>
+<div class="two-col">
+  <div class="card card-blue">
+    <h4>For the Organisation</h4>
+    <ul>
+      <li>Increases productivity and efficiency</li>
+      <li>Reduces accidents and errors</li>
+      <li>Reduces employee turnover and absenteeism</li>
+      <li>Improves quality of products/services</li>
+      <li>Helps in organizational growth</li>
+      <li>Reduces supervision costs</li>
+    </ul>
+  </div>
+  <div class="card card-teal">
+    <h4>For the Employee</h4>
+    <ul>
+      <li>Increases knowledge and skills</li>
+      <li>Boosts morale and motivation</li>
+      <li>Improves career growth prospects</li>
+      <li>Increases job satisfaction</li>
+      <li>Reduces fear of new technology</li>
+      <li>Enhances self-confidence</li>
+    </ul>
+  </div>
+</div>
+
+<h2>The Training Process — Step by Step</h2>
+<p>The training process follows a structured, logical sequence:</p>
+<ol class="steps">
+  <li>
+    <div class="step-content">
+      <div class="step-title">Identifying Training Needs (TNA)</div>
+      <div class="step-desc">Analyse gaps between current and required performance at organisational, task, and individual levels.</div>
+    </div>
+  </li>
+  <li>
+    <div class="step-content">
+      <div class="step-title">Setting Training Objectives</div>
+      <div class="step-desc">Define SMART goals — what employees should be able to do after training.</div>
+    </div>
+  </li>
+  <li>
+    <div class="step-content">
+      <div class="step-title">Designing the Training Programme</div>
+      <div class="step-desc">Decide content, method, duration, trainers, location, and budget.</div>
+    </div>
+  </li>
+  <li>
+    <div class="step-content">
+      <div class="step-title">Implementation</div>
+      <div class="step-desc">Deliver the training using selected methods (on-the-job / off-the-job).</div>
+    </div>
+  </li>
+  <li>
+    <div class="step-content">
+      <div class="step-title">Evaluation</div>
+      <div class="step-desc">Measure effectiveness using Kirkpatrick's 4-level model or ROI analysis.</div>
+    </div>
+  </li>
+</ol>
+
+<div class="mnemonic">
+  <div class="mn-label">Mnemonic — Training Process</div>
+  <p><strong>"I See Dogs In Every Yard"</strong> → <strong>I</strong>dentify → <strong>S</strong>et objectives → <strong>D</strong>esign → <strong>I</strong>mplement → <strong>E</strong>valuate → <strong>(Y)</strong>ield results</p>
+</div>
+
+<h2>Training Need Analysis (TNA)</h2>
+<div class="def-box">
+  <div class="def-label">Definition</div>
+  <p><strong>TNA (Training Need Analysis)</strong> is the process of identifying the gap between the current performance of employees and the desired performance standard, to determine what training is required, for whom, and when.</p>
+</div>
+
+<h3>Levels of TNA</h3>
+<div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-bottom:14px;">
+  <div class="card card-blue" style="padding:12px;">
+    <h4>1. Organisational Level</h4>
+    <p style="font-size:13px;">Identifies training needs based on company goals, strategy, and changes in technology or environment.</p>
+    <p style="font-size:12px; color:var(--color-text-secondary);">Example: TCS plans to adopt AI — all IT staff need AI training.</p>
+  </div>
+  <div class="card card-teal" style="padding:12px;">
+    <h4>2. Task / Job Level</h4>
+    <p style="font-size:13px;">Identifies skills, knowledge, and abilities required to perform a specific job role effectively.</p>
+    <p style="font-size:12px; color:var(--color-text-secondary);">Example: A sales job requires negotiation skills, product knowledge, CRM tools.</p>
+  </div>
+  <div class="card card-amber" style="padding:12px;">
+    <h4>3. Individual / Person Level</h4>
+    <p style="font-size:13px;">Compares actual employee performance with required performance to identify personal training gaps.</p>
+    <p style="font-size:12px; color:var(--color-text-secondary);">Example: Riya's sales targets are missed → needs negotiation training.</p>
+  </div>
+</div>
+
+<h3>Methods of Collecting TNA Data</h3>
+<ul>
+  <li><strong>Performance Appraisals</strong> — reveal gaps in individual performance</li>
+  <li><strong>Observations</strong> — direct watching of employees at work</li>
+  <li><strong>Interviews</strong> — one-on-one discussions with employees and managers</li>
+  <li><strong>Questionnaires / Surveys</strong> — structured data collection</li>
+  <li><strong>Exit Interviews</strong> — identify why employees leave</li>
+  <li><strong>Tests and Assessments</strong> — measure knowledge/skill gaps directly</li>
+  <li><strong>Job Analysis</strong> — study of job requirements</li>
+</ul>
+
+<h3>Designing the Training Programme</h3>
+<p>Once needs are identified, the programme is designed considering:</p>
+<table class="tbl">
+  <tr><th>Element</th><th>Details</th></tr>
+  <tr><td><strong>Content</strong></td><td>What topics will be taught (skills, knowledge, attitude)</td></tr>
+  <tr><td><strong>Methods</strong></td><td>Classroom, OJT, e-learning, simulation, etc.</td></tr>
+  <tr><td><strong>Duration</strong></td><td>How many hours/days/weeks the training will run</td></tr>
+  <tr><td><strong>Trainers</strong></td><td>Internal experts or external consultants</td></tr>
+  <tr><td><strong>Venue</strong></td><td>On-site, off-site, online</td></tr>
+  <tr><td><strong>Budget</strong></td><td>Cost of training materials, trainers, facilities</td></tr>
+  <tr><td><strong>Target Audience</strong></td><td>Which employees need training (new hires, managers, all staff)</td></tr>
+</table>
+
+<h2>On-the-Job vs Off-the-Job Training</h2>
+<table class="tbl">
+  <tr><th>Basis</th><th>On-the-Job Training (OJT)</th><th>Off-the-Job Training</th></tr>
+  <tr><td><strong>Location</strong></td><td>At the actual workplace</td><td>Away from the workplace</td></tr>
+  <tr><td><strong>Learning by</strong></td><td>Doing the actual job</td><td>Classroom or simulated environment</td></tr>
+  <tr><td><strong>Cost</strong></td><td>Low</td><td>Higher</td></tr>
+  <tr><td><strong>Productivity</strong></td><td>Employee produces output while learning</td><td>No production during training</td></tr>
+  <tr><td><strong>Suitable for</strong></td><td>Technical, operative jobs</td><td>Managerial, conceptual skills</td></tr>
+  <tr><td><strong>Distraction</strong></td><td>Possible (real workplace distractions)</td><td>Focused learning environment</td></tr>
+  <tr><td><strong>Examples</strong></td><td>Coaching, Job Rotation, Apprenticeship</td><td>Lectures, Case Study, Role Play, E-learning</td></tr>
+  <tr><td><strong>Risk</strong></td><td>Risk of damage/errors on real equipment</td><td>No risk to real equipment</td></tr>
+</table>
+
+<div class="card card-gray" style="margin-top:12px;">
+  <h4>Quick Revision — Unit 1 Key Points</h4>
+  <div class="qr-item"><div class="qr-dot"></div><p>Training = short-term, job-oriented. Development = long-term, person-oriented.</p></div>
+  <div class="qr-item"><div class="qr-dot"></div><p>TNA has 3 levels: Organisational → Task → Individual.</p></div>
+  <div class="qr-item"><div class="qr-dot"></div><p>Training Process: Identify → Set Objectives → Design → Implement → Evaluate.</p></div>
+  <div class="qr-item"><div class="qr-dot"></div><p>OJT = at workplace, low cost, learning by doing. Off-JT = away from work, focused, costly.</p></div>
+</div>
+
+</div><!-- /unit1 -->
+
+<!-- ========================== UNIT 2 ========================== -->
+<div id="unit2" class="section">
+
+<h2> 2 — Training Methods</h2>
+<p>Training methods are broadly divided into <strong>On-the-Job</strong> and <strong>Off-the-Job</strong> methods.</p>
+
+<h2>On-the-Job Training Methods</h2>
+
+<div class="card card-blue">
+  <h3>1. Coaching</h3>
+  <div class="def-box" style="margin-bottom:10px;">
+    <div class="def-label">Definition</div>
+    <p>Coaching is a one-on-one training process where a senior/experienced employee (coach) guides a junior employee to improve their performance on specific tasks.</p>
+  </div>
+  <ul>
+    <li><strong>Key Feature:</strong> Personalised, continuous feedback</li>
+    <li><strong>Advantage:</strong> Individual attention, flexible, low cost</li>
+    <li><strong>Disadvantage:</strong> Quality depends on coach's ability; coach may not have time</li>
+    <li><strong>Example:</strong> A senior sales manager coaching a new sales rep on closing deals at HUL.</li>
+  </ul>
+</div>
+
+<div class="card card-teal">
+  <h3>2. Mentoring</h3>
+  <div class="def-box" style="margin-bottom:10px;">
+    <div class="def-label">Definition</div>
+    <p>Mentoring is a long-term developmental relationship where an experienced mentor provides career guidance, personal support, and wisdom to a less experienced mentee.</p>
+  </div>
+  <ul>
+    <li><strong>Key Feature:</strong> Focuses on career growth and personality development</li>
+    <li><strong>Difference from Coaching:</strong> Coaching = task-focused (short-term); Mentoring = career-focused (long-term)</li>
+    <li><strong>Advantage:</strong> Builds confidence, career vision, networking</li>
+    <li><strong>Example:</strong> Infosys assigns senior leaders as mentors to high-potential employees.</li>
+  </ul>
+</div>
+
+<div class="card card-amber">
+  <h3>3. Job Rotation</h3>
+  <div class="def-box" style="margin-bottom:10px;">
+    <div class="def-label">Definition</div>
+    <p>Job Rotation is a method where employees are moved between different jobs/departments at regular intervals to gain broad experience across multiple functions.</p>
+  </div>
+  <ul>
+    <li><strong>Purpose:</strong> Multi-skilling, reduces boredom, prepares for promotion</li>
+    <li><strong>Advantage:</strong> Employee learns multiple functions; reduces monotony</li>
+    <li><strong>Disadvantage:</strong> Reduces efficiency in each role; may cause frustration</li>
+    <li><strong>Example:</strong> Mahindra & Mahindra rotates management trainees across Finance, Marketing, and Operations.</li>
+  </ul>
+</div>
+
+<div class="card card-purple">
+  <h3>4. Apprenticeship / Internship</h3>
+  <div class="def-box" style="margin-bottom:10px;">
+    <div class="def-label">Definition</div>
+    <p>Apprenticeship is a formal training contract where a learner works under a master craftsperson for a period to learn a skilled trade. Internship is a temporary, structured work experience given to students or fresh graduates.</p>
+  </div>
+  <ul>
+    <li><strong>Apprenticeship:</strong> Used in skilled trades (plumbing, electrical, welding)</li>
+    <li><strong>Internship:</strong> Used by companies to develop fresh talent</li>
+    <li><strong>Advantage:</strong> Real work experience, earn while learning</li>
+    <li><strong>Example:</strong> Wipro's campus internship programme; ITI apprentices in manufacturing firms.</li>
+  </ul>
+</div>
+
+<h2>Off-the-Job Training Methods</h2>
+
+<div class="card card-coral">
+  <h3>5. Vestibule Training</h3>
+  <div class="def-box" style="margin-bottom:10px;">
+    <div class="def-label">Definition</div>
+    <p>Vestibule Training is a method where employees are trained on equipment/machines that closely replicate the actual work environment, but in a separate training area (vestibule) — not on the actual shop floor.</p>
+  </div>
+  <ul>
+    <li><strong>Ideal for:</strong> Factory workers, airline pilots, bank tellers</li>
+    <li><strong>Advantage:</strong> Safe, no disruption to production, realistic</li>
+    <li><strong>Disadvantage:</strong> Expensive to set up duplicate equipment</li>
+    <li><strong>Example:</strong> IndiGo airlines trains pilots on full-motion flight simulators before they fly real aircraft.</li>
+  </ul>
+</div>
+
+<div class="card card-green">
+  <h3>6. Role Playing</h3>
+  <div class="def-box" style="margin-bottom:10px;">
+    <div class="def-label">Definition</div>
+    <p>Role Playing is a training method where trainees enact real-life situations (such as a customer complaint, performance review, or negotiation) to practise human relations and interpersonal skills.</p>
+  </div>
+  <ul>
+    <li><strong>Ideal for:</strong> Customer service, HR professionals, managers</li>
+    <li><strong>Advantage:</strong> Develops empathy, communication, problem-solving</li>
+    <li><strong>Disadvantage:</strong> Trainees may not take it seriously; embarrassment</li>
+    <li><strong>Example:</strong> HDFC Bank trains customer service staff through simulated angry-customer role-play scenarios.</li>
+  </ul>
+</div>
+
+<div class="card card-blue">
+  <h3>7. Case Study Method</h3>
+  <div class="def-box" style="margin-bottom:10px;">
+    <div class="def-label">Definition</div>
+    <p>The Case Study Method presents trainees with a real or hypothetical business problem and asks them to analyse the situation, identify issues, and suggest solutions — developing analytical and decision-making skills.</p>
+  </div>
+  <ul>
+    <li><strong>Ideal for:</strong> Management education, MBA programmes</li>
+    <li><strong>Advantage:</strong> Develops critical thinking, problem-solving, group discussion skills</li>
+    <li><strong>Disadvantage:</strong> May not reflect actual workplace dynamics; time-consuming</li>
+    <li><strong>Example:</strong> IIM Ahmedabad extensively uses Harvard case studies in MBA training.</li>
+  </ul>
+</div>
+
+<div class="card card-teal">
+  <h3>8. Lecture Method</h3>
+  <div class="def-box" style="margin-bottom:10px;">
+    <div class="def-label">Definition</div>
+    <p>The Lecture Method is the most traditional training approach where a trainer/instructor delivers information to a group of trainees through oral presentation, often supported by slides or handouts.</p>
+  </div>
+  <ul>
+    <li><strong>Advantage:</strong> Cost-effective for large groups; structured content delivery</li>
+    <li><strong>Disadvantage:</strong> One-way communication; passive learners; no feedback</li>
+    <li><strong>Example:</strong> New employee induction programmes at most companies.</li>
+  </ul>
+</div>
+
+<div class="card card-amber">
+  <h3>9. Simulation Training</h3>
+  <div class="def-box" style="margin-bottom:10px;">
+    <div class="def-label">Definition</div>
+    <p>Simulation Training uses artificial environments, computer programs, or physical models that replicate real-world conditions to allow trainees to practise skills in a risk-free setting.</p>
+  </div>
+  <ul>
+    <li><strong>Ideal for:</strong> Military, aviation, medical, nuclear industries</li>
+    <li><strong>Advantage:</strong> Safe, realistic, can repeat as many times as needed</li>
+    <li><strong>Disadvantage:</strong> Very expensive; tech-dependent</li>
+    <li><strong>Example:</strong> Army uses combat simulators; ISRO uses spacecraft simulators; surgeons train on surgical simulators.</li>
+  </ul>
+</div>
+
+<div class="card card-purple">
+  <h3>10. E-learning</h3>
+  <div class="def-box" style="margin-bottom:10px;">
+    <div class="def-label">Definition</div>
+    <p>E-learning (Electronic Learning) is training delivered through digital technology — internet, computer-based programmes, mobile apps, or Learning Management Systems (LMS) — allowing self-paced, anytime, anywhere learning.</p>
+  </div>
+  <ul>
+    <li><strong>Advantage:</strong> Flexible, scalable, self-paced, cost-effective for large organisations</li>
+    <li><strong>Disadvantage:</strong> Requires tech infrastructure; lacks human interaction; self-discipline needed</li>
+    <li><strong>Types:</strong> MOOCs (Coursera, Udemy), LMS platforms (Moodle), webinars, podcasts</li>
+    <li><strong>Example:</strong> Accenture trains 500,000+ employees globally using its e-learning platform "Accenture Learning."</li>
+  </ul>
+</div>
+
+<h3>Summary Table — Training Methods</h3>
+<table class="tbl">
+  <tr><th>Method</th><th>Type</th><th>Best For</th><th>Example</th></tr>
+  <tr><td>Coaching</td><td>On-the-job</td><td>Individual performance</td><td>Manager-trainee coaching</td></tr>
+  <tr><td>Mentoring</td><td>On-the-job</td><td>Career development</td><td>Senior-junior mentoring</td></tr>
+  <tr><td>Job Rotation</td><td>On-the-job</td><td>Multi-skilling</td><td>M&M management trainees</td></tr>
+  <tr><td>Internship</td><td>On-the-job</td><td>Fresh graduates</td><td>Wipro campus programme</td></tr>
+  <tr><td>Vestibule</td><td>Off-the-job</td><td>Technical/factory</td><td>Pilot simulator training</td></tr>
+  <tr><td>Role Playing</td><td>Off-the-job</td><td>Interpersonal skills</td><td>Customer service</td></tr>
+  <tr><td>Case Study</td><td>Off-the-job</td><td>Management</td><td>IIM case study</td></tr>
+  <tr><td>Lecture</td><td>Off-the-job</td><td>Large groups, induction</td><td>New hire orientation</td></tr>
+  <tr><td>Simulation</td><td>Off-the-job</td><td>Risk-sensitive jobs</td><td>Military, aviation</td></tr>
+  <tr><td>E-learning</td><td>Off-the-job</td><td>Remote/large workforce</td><td>Accenture LMS</td></tr>
+</table>
+
+<div class="card card-gray">
+  <h4>Quick Revision — Unit 2</h4>
+  <div class="qr-item"><div class="qr-dot"></div><p>OJT Methods: Coaching, Mentoring, Job Rotation, Internship/Apprenticeship.</p></div>
+  <div class="qr-item"><div class="qr-dot"></div><p>Off-JT Methods: Vestibule, Role Play, Case Study, Lecture, Simulation, E-learning.</p></div>
+  <div class="qr-item"><div class="qr-dot"></div><p>Coaching = short-term task; Mentoring = long-term career.</p></div>
+  <div class="qr-item"><div class="qr-dot"></div><p>Vestibule = duplicate setup; Simulation = digital/physical replica of risk environment.</p></div>
+</div>
+
+</div><!-- /unit2 -->
+
+<!-- ========================== UNIT 3 ========================== -->
+<div id="unit3" class="section">
+
+<h2> 3 — Management Development & Evaluation</h2>
+
+<h2>Management Development</h2>
+<div class="def-box">
+  <div class="def-label">Definition</div>
+  <p><strong>Management Development</strong> is the process by which managers acquire the knowledge, skills, attitudes, and experiences necessary to become effective leaders and handle complex organisational challenges now and in the future.</p>
+</div>
+
+<h3>Objectives of Management Development</h3>
+<ul>
+  <li>Prepare managers for higher-level responsibilities</li>
+  <li>Improve decision-making and leadership skills</li>
+  <li>Develop strategic thinking and vision</li>
+  <li>Create a pipeline of future leaders (succession planning)</li>
+  <li>Improve interpersonal and communication skills</li>
+  <li>Build change management capability</li>
+</ul>
+
+<h3>Management Development Process</h3>
+<ol class="steps">
+  <li>
+    <div class="step-content">
+      <div class="step-title">Identify Managerial Talent</div>
+      <div class="step-desc">Identify high-potential managers through appraisals, assessment centres, and nominations.</div>
+    </div>
+  </li>
+  <li>
+    <div class="step-content">
+      <div class="step-title">Assess Development Needs</div>
+      <div class="step-desc">Identify gaps between current managerial competencies and required future competencies.</div>
+    </div>
+  </li>
+  <li>
+    <div class="step-content">
+      <div class="step-title">Develop Individual Development Plans (IDP)</div>
+      <div class="step-desc">Create personalised plans with goals, timelines, activities for each manager.</div>
+    </div>
+  </li>
+  <li>
+    <div class="step-content">
+      <div class="step-title">Implement Development Activities</div>
+      <div class="step-desc">Use methods like executive coaching, management education (MBA), seminars, job assignments, action learning.</div>
+    </div>
+  </li>
+  <li>
+    <div class="step-content">
+      <div class="step-title">Evaluate Progress</div>
+      <div class="step-desc">Review development against IDP targets; 360-degree feedback from peers, subordinates, superiors.</div>
+    </div>
+  </li>
+</ol>
+
+<h3>Methods of Management Development</h3>
+<table class="tbl">
+  <tr><th>Method</th><th>Description</th><th>Example</th></tr>
+  <tr><td><strong>Executive Coaching</strong></td><td>1-on-1 personalised guidance for senior managers</td><td>CEO coached by external consultant</td></tr>
+  <tr><td><strong>Management Games</strong></td><td>Business simulations requiring strategic decisions</td><td>Company-wide business strategy games</td></tr>
+  <tr><td><strong>Sensitivity Training</strong></td><td>Group experience to improve self-awareness and empathy</td><td>T-group sessions in leadership workshops</td></tr>
+  <tr><td><strong>Action Learning</strong></td><td>Real projects assigned in small groups; learning from doing</td><td>GE's Crotonville management centre</td></tr>
+  <tr><td><strong>Job Enrichment</strong></td><td>Adding more responsibility and challenge to current role</td><td>Giving a manager a cross-functional project</td></tr>
+  <tr><td><strong>Conference/Seminars</strong></td><td>Attending industry or academic events</td><td>CII National Management Conference</td></tr>
+  <tr><td><strong>In-basket Exercise</strong></td><td>Trainees handle a pile of letters, memos, reports — simulate managerial inbox</td><td>Assessment centre exercises</td></tr>
+</table>
+
+<h2>Evaluation of Training & Development Programmes</h2>
+
+<div class="def-box">
+  <div class="def-label">Definition</div>
+  <p><strong>Training Evaluation</strong> is the systematic process of measuring the effectiveness and impact of training programmes to determine whether the training has achieved its intended objectives.</p>
+</div>
+
+<h3>Kirkpatrick's Four-Level Model of Training Evaluation</h3>
+<p>This is the most important and frequently examined model of training evaluation.</p>
+
+<div style="margin: 16px 0;">
+  <div class="card card-blue" style="margin-bottom:8px;">
+    <div style="display:flex; align-items:center; gap:12px;">
+      <div style="min-width:36px; height:36px; background:var(--blue-600); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:500;">L1</div>
+      <div>
+        <strong>Reaction</strong> — How do trainees feel about the training?
+        <p style="font-size:13px; color:var(--color-text-secondary); margin-top:2px;">Measured by: Feedback forms, Smile sheets, Surveys immediately after training.<br>Example: "Was the trainer clear? Was content useful?"</p>
+      </div>
+    </div>
+  </div>
+  <div class="card card-teal" style="margin-bottom:8px;">
+    <div style="display:flex; align-items:center; gap:12px;">
+      <div style="min-width:36px; height:36px; background:var(--teal-600); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:500;">L2</div>
+      <div>
+        <strong>Learning</strong> — What knowledge/skills did they actually gain?
+        <p style="font-size:13px; color:var(--color-text-secondary); margin-top:2px;">Measured by: Pre-test vs Post-test scores, quizzes, skill assessments.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card card-amber" style="margin-bottom:8px;">
+    <div style="display:flex; align-items:center; gap:12px;">
+      <div style="min-width:36px; height:36px; background:var(--amber-600); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:500;">L3</div>
+      <div>
+        <strong>Behaviour</strong> — Are they applying the learning on the job?
+        <p style="font-size:13px; color:var(--color-text-secondary); margin-top:2px;">Measured by: Performance observation, supervisor reports, 360° feedback after 3-6 months.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card card-coral" style="margin-bottom:8px;">
+    <div style="display:flex; align-items:center; gap:12px;">
+      <div style="min-width:36px; height:36px; background:var(--coral-600); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:500;">L4</div>
+      <div>
+        <strong>Results</strong> — What is the business impact?
+        <p style="font-size:13px; color:var(--color-text-secondary); margin-top:2px;">Measured by: Productivity, quality metrics, reduced errors, revenue increase, lower attrition.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mnemonic">
+  <div class="mn-label">Mnemonic — Kirkpatrick's 4 Levels</div>
+  <p><strong>"Really Lovely Behaviour Results"</strong> → Reaction → Learning → Behaviour → Results</p>
+</div>
+
+<h3>ROI of Training (Level 5 — Jack Phillips Extension)</h3>
+<p>Beyond Kirkpatrick, Phillips added a 5th level — Return on Investment (ROI):</p>
+<div class="card card-green" style="padding:12px;">
+  <p style="font-size:13px; text-align:center; font-weight:500;">ROI (%) = [(Benefits of Training − Cost of Training) ÷ Cost of Training] × 100</p>
+  <p style="font-size:13px; color:var(--color-text-secondary); text-align:center;">Example: Training cost ₹1,00,000. Productivity gain = ₹3,00,000. ROI = [(3,00,000 − 1,00,000) ÷ 1,00,000] × 100 = 200%</p>
+</div>
+
+<h3>Methods of Evaluating Training</h3>
+<table class="tbl">
+  <tr><th>Method</th><th>When Used</th></tr>
+  <tr><td>Pre-test / Post-test</td><td>Before and after training — measures learning gain</td></tr>
+  <tr><td>Feedback Forms</td><td>Immediately after training — measures reaction</td></tr>
+  <tr><td>Performance Records</td><td>Weeks/months after — measures behaviour change</td></tr>
+  <tr><td>360° Feedback</td><td>After training — multi-source performance feedback</td></tr>
+  <tr><td>Control Group Method</td><td>Trained group vs. untrained group comparison</td></tr>
+  <tr><td>Cost-Benefit Analysis</td><td>Compares cost of training with value of outcomes</td></tr>
+</table>
+
+<div class="card card-gray">
+  <h4>Quick Revision — Unit 3</h4>
+  <div class="qr-item"><div class="qr-dot"></div><p>Management Development focuses on preparing managers for future leadership roles.</p></div>
+  <div class="qr-item"><div class="qr-dot"></div><p>Kirkpatrick's model: Level 1 = Reaction, 2 = Learning, 3 = Behaviour, 4 = Results.</p></div>
+  <div class="qr-item"><div class="qr-dot"></div><p>Phillips added Level 5 = ROI = [(Benefits − Cost) / Cost] × 100.</p></div>
+  <div class="qr-item"><div class="qr-dot"></div><p>Evaluation methods: Pre/Post test, feedback forms, performance records, 360° feedback.</p></div>
+</div>
+
+</div><!-- /unit3 -->
+
+<!-- ========================== UNIT 4 ========================== -->
+<div id="unit4" class="section">
+
+<h2> 4 — Performance Management</h2>
+
+<div class="def-box">
+  <div class="def-label">University Exam Definition — Performance Management</div>
+  <p><strong>Performance Management</strong> is a continuous, systematic process by which the organisation involves its employees, as individuals and members of groups, in improving organisational effectiveness in the accomplishment of organisational mission and goals.</p>
+</div>
+
+<div class="def-box" style="border-color:var(--teal-600); background:var(--teal-50);">
+  <div class="def-label" style="color:var(--teal-600);">University Exam Definition — Performance Appraisal</div>
+  <p><strong>Performance Appraisal</strong> is the formal, systematic process of evaluating an employee's job performance and productivity in relation to certain pre-established criteria and organisational objectives.</p>
+</div>
+
+<h3>Performance Management vs Performance Appraisal</h3>
+<table class="tbl">
+  <tr><th>Basis</th><th>Performance Management</th><th>Performance Appraisal</th></tr>
+  <tr><td><strong>Nature</strong></td><td>Continuous, ongoing process</td><td>Periodic, one-time review (annual/quarterly)</td></tr>
+  <tr><td><strong>Scope</strong></td><td>Broader — includes goal-setting, coaching, feedback, development</td><td>Narrower — only evaluation of past performance</td></tr>
+  <tr><td><strong>Focus</strong></td><td>Future improvement and development</td><td>Past performance assessment</td></tr>
+  <tr><td><strong>Who initiates</strong></td><td>Both manager and employee jointly</td><td>Primarily manager / HR department</td></tr>
+  <tr><td><strong>Output</strong></td><td>Development plan, goal alignment</td><td>Rating, salary revision, promotion decision</td></tr>
+  <tr><td><strong>Relationship</strong></td><td>Ongoing dialogue and partnership</td><td>Formal top-down review</td></tr>
+  <tr><td><strong>Modern/Traditional</strong></td><td>Modern, strategic approach</td><td>Traditional, administrative tool</td></tr>
+  <tr><td><strong>Example</strong></td><td>Google's OKR-based performance system</td><td>Annual appraisal form at a PSU bank</td></tr>
+</table>
+
+<div class="mnemonic">
+  <div class="mn-label">Mnemonic — Remember the Difference</div>
+  <p><strong>PM = "Progress Monthly"</strong> (continuous, broad, future-focused)<br>
+  <strong>PA = "Past Assessment"</strong> (periodic, narrow, past-focused)</p>
+</div>
+
+<h2>Performance Appraisal Process — Step by Step</h2>
+<ol class="steps">
+  <li>
+    <div class="step-content">
+      <div class="step-title">Establish Performance Standards</div>
+      <div class="step-desc">Set clear, measurable standards/benchmarks aligned with organisational goals (using KPIs, KRAs, MBO targets). Example: A sales employee must achieve ₹10 lakh monthly sales.</div>
+    </div>
+  </li>
+  <li>
+    <div class="step-content">
+      <div class="step-title">Communicate Standards to Employees</div>
+      <div class="step-desc">Make sure every employee clearly understands the expectations and evaluation criteria before the appraisal period begins.</div>
+    </div>
+  </li>
+  <li>
+    <div class="step-content">
+      <div class="step-title">Measure Actual Performance</div>
+      <div class="step-desc">Collect data on how the employee actually performed — through observation, records, reports, and feedback from supervisors and peers.</div>
+    </div>
+  </li>
+  <li>
+    <div class="step-content">
+      <div class="step-title">Compare Actual Performance with Standards</div>
+      <div class="step-desc">Identify the gap (positive or negative) between what was expected and what was delivered.</div>
+    </div>
+  </li>
+  <li>
+    <div class="step-content">
+      <div class="step-title">Discuss the Appraisal with the Employee</div>
+      <div class="step-desc">Conduct a formal appraisal interview — explain the rating, highlight strengths, discuss areas for improvement. Two-way communication is key.</div>
+    </div>
+  </li>
+  <li>
+    <div class="step-content">
+      <div class="step-title">Initiate Corrective Action</div>
+      <div class="step-desc">Based on the appraisal, decide on rewards (promotion, increment, bonus) or corrective measures (training, counselling, warning) for poor performers.</div>
+    </div>
+  </li>
+</ol>
+
+<div class="mnemonic">
+  <div class="mn-label">Mnemonic — 6-Step PA Process</div>
+  <p><strong>"Every Cat Must Compare Daily Correctly"</strong><br>
+  <strong>E</strong>stablish standards → <strong>C</strong>ommunicate → <strong>M</strong>easure → <strong>C</strong>ompare → <strong>D</strong>iscuss → <strong>C</strong>orrect</p>
+</div>
+
+<h2>Objectives of Performance Appraisal</h2>
+<div class="two-col">
+  <div class="card card-blue">
+    <h4>Administrative Objectives</h4>
+    <ul>
+      <li>Salary revision / increment decisions</li>
+      <li>Promotion or demotion decisions</li>
+      <li>Transfer decisions</li>
+      <li>Termination or retention</li>
+      <li>Identifying training needs</li>
+    </ul>
+  </div>
+  <div class="card card-teal">
+    <h4>Developmental Objectives</h4>
+    <ul>
+      <li>Provide performance feedback</li>
+      <li>Identify employee strengths and weaknesses</li>
+      <li>Plan career development</li>
+      <li>Improve communication between manager and employee</li>
+      <li>Motivate employees</li>
+    </ul>
+  </div>
+</div>
+
+<h2>Uses / Importance of Performance Appraisal</h2>
+<ul>
+  <li><strong>Compensation decisions</strong> — basis for increments, bonuses</li>
+  <li><strong>Promotion decisions</strong> — identifies promotion-worthy employees</li>
+  <li><strong>Training needs</strong> — reveals performance gaps requiring training</li>
+  <li><strong>Motivation tool</strong> — rewards good performers, encourages improvement</li>
+  <li><strong>Employee feedback</strong> — helps employees understand where they stand</li>
+  <li><strong>Legal protection</strong> — documented evidence for HR decisions</li>
+  <li><strong>Succession planning</strong> — identifies future leaders</li>
+</ul>
+
+<div class="card card-gray">
+  <h4>Quick Revision — Unit 4</h4>
+  <div class="qr-item"><div class="qr-dot"></div><p>Performance Management = continuous, broad, future-focused system.</p></div>
+  <div class="qr-item"><div class="qr-dot"></div><p>Performance Appraisal = periodic, narrow, past-focused evaluation tool.</p></div>
+  <div class="qr-item"><div class="qr-dot"></div><p>PA Process: Establish → Communicate → Measure → Compare → Discuss → Correct.</p></div>
+  <div class="qr-item"><div class="qr-dot"></div><p>Purposes of PA: Salary, Promotion, Training, Motivation, Feedback, Legal, Succession.</p></div>
+</div>
+
+</div><!-- /unit4 -->
+
+<!-- ========================== UNIT 5 ========================== -->
+<div id="unit5" class="section">
+
+<h2> 5 — Appraisal Techniques & Common Errors</h2>
+
+<h2>Techniques / Methods of Performance Appraisal</h2>
+
+<h3>Traditional Methods</h3>
+
+<div class="card card-blue">
+  <h3>1. Ranking Method</h3>
+  <p>Employees are ranked from best to worst based on overall performance. The simplest method.</p>
+  <p><strong>Types:</strong> Simple Ranking (1st, 2nd, 3rd...) | Paired Comparison (compare each employee with every other employee) | Forced Distribution (like a bell curve — 10% excellent, 20% good, 40% average, 20% below average, 10% poor).</p>
+  <div class="two-col" style="margin-top:8px;">
+    <div><strong style="color:var(--green-600);">Advantages</strong><ul><li>Simple and easy to understand</li><li>Eliminates central tendency</li></ul></div>
+    <div><strong style="color:var(--red-600);">Disadvantages</strong><ul><li>No absolute standards; subjective</li><li>Demotivating for those at the bottom</li></ul></div>
+  </div>
+</div>
+
+<div class="card card-teal">
+  <h3>2. Rating Scale Method (Graphic Rating Scale)</h3>
+  <p>Evaluators rate employees on several traits (quantity of work, quality of work, attitude, punctuality, teamwork) using a scale — usually 1–5 or 1–10.</p>
+  <p><strong>Example:</strong></p>
+  <table class="tbl" style="margin:8px 0;">
+    <tr><th>Trait</th><th>1 (Poor)</th><th>2</th><th>3</th><th>4</th><th>5 (Excellent)</th></tr>
+    <tr><td>Quality of Work</td><td>☐</td><td>☐</td><td>☑</td><td>☐</td><td>☐</td></tr>
+    <tr><td>Team Work</td><td>☐</td><td>☐</td><td>☐</td><td>☑</td><td>☐</td></tr>
+  </table>
+  <div class="two-col">
+    <div><strong style="color:var(--green-600);">Advantages</strong><ul><li>Easy to administer; widely used</li><li>Allows comparison across employees</li></ul></div>
+    <div><strong style="color:var(--red-600);">Disadvantages</strong><ul><li>Susceptible to rater biases (halo effect)</li><li>Traits may not be job-relevant</li></ul></div>
+  </div>
+</div>
+
+<div class="card card-amber">
+  <h3>3. Checklist Method</h3>
+  <p>The appraiser is given a list of statements/behaviours and simply checks (✓) those that describe the employee.</p>
+  <p><strong>Types:</strong> Simple Checklist | Weighted Checklist (each item has a different weight based on importance) | Forced Choice Checklist (appraiser must choose between two equally favourable or unfavourable statements).</p>
+  <div class="two-col">
+    <div><strong style="color:var(--green-600);">Advantages</strong><ul><li>Simple and quick</li><li>Reduces personal bias</li></ul></div>
+    <div><strong style="color:var(--red-600);">Disadvantages</strong><ul><li>HR must interpret; appraiser may not understand weightings</li><li>Expensive to design</li></ul></div>
+  </div>
+</div>
+
+<h3>Modern Methods</h3>
+
+<div class="card card-purple">
+  <h3>4. 360-Degree Appraisal</h3>
+  <div class="def-box" style="margin-bottom:10px;">
+    <div class="def-label">Definition</div>
+    <p>360-Degree Appraisal is a comprehensive multi-source feedback method where an employee is evaluated by superiors, peers, subordinates, customers, and themselves to give a complete, well-rounded picture of performance.</p>
+  </div>
+  <div style="text-align:center; margin:10px 0;">
+    <div style="display:inline-grid; grid-template-columns:1fr 1fr 1fr; gap:8px; max-width:380px;">
+      <div class="card card-blue" style="padding:8px; text-align:center; font-size:12px;">Superior (Boss)</div>
+      <div class="card card-teal" style="padding:8px; text-align:center; font-size:12px; grid-row:1 / span 3; display:flex; align-items:center; justify-content:center; font-weight:500;">Employee (Self)</div>
+      <div class="card card-amber" style="padding:8px; text-align:center; font-size:12px;">Customer</div>
+      <div class="card card-coral" style="padding:8px; text-align:center; font-size:12px;">Peers</div>
+      <div class="card card-purple" style="padding:8px; text-align:center; font-size:12px;">Subordinates</div>
+    </div>
+  </div>
+  <div class="two-col" style="margin-top:8px;">
+    <div><strong style="color:var(--green-600);">Advantages</strong><ul><li>Comprehensive, well-rounded view</li><li>Reduces single-rater bias</li><li>Improves self-awareness</li></ul></div>
+    <div><strong style="color:var(--red-600);">Disadvantages</strong><ul><li>Time-consuming and expensive</li><li>Conflicting feedback may confuse employee</li><li>Peers may give inflated ratings</li></ul></div>
+  </div>
+  <p style="margin-top:8px; font-size:13px;"><strong>Example:</strong> Infosys, Wipro, Tata Motors use 360° appraisals for managerial staff.</p>
+</div>
+
+<div class="card card-green">
+  <h3>5. Management by Objectives (MBO)</h3>
+  <div class="def-box" style="margin-bottom:10px;">
+    <div class="def-label">Definition</div>
+    <p>MBO (proposed by Peter Drucker) is an appraisal technique where manager and employee jointly set specific, measurable objectives at the beginning of the period, and performance is evaluated against achievement of those objectives at the end of the period.</p>
+  </div>
+  <h4>MBO Process:</h4>
+  <ol style="font-size:13px; padding-left:18px; margin-bottom:8px;">
+    <li>Manager and employee jointly set SMART objectives</li>
+    <li>Employee works towards achieving those objectives</li>
+    <li>Progress is monitored periodically</li>
+    <li>At the end of period, performance is evaluated against agreed objectives</li>
+    <li>New objectives set for next period</li>
+  </ol>
+  <div class="two-col">
+    <div><strong style="color:var(--green-600);">Advantages</strong><ul><li>Objective, transparent, measurable</li><li>Employee ownership and motivation</li><li>Aligns individual goals with org goals</li></ul></div>
+    <div><strong style="color:var(--red-600);">Disadvantages</strong><ul><li>Time-consuming to set objectives</li><li>Difficult for qualitative roles</li><li>May ignore team collaboration</li></ul></div>
+  </div>
+  <p style="margin-top:8px; font-size:13px;"><strong>Example:</strong> Google's OKR (Objectives and Key Results) system is an advanced form of MBO.</p>
+</div>
+
+<div class="card card-coral">
+  <h3>6. BARS (Behaviorally Anchored Rating Scale)</h3>
+  <div class="def-box" style="margin-bottom:10px;">
+    <div class="def-label">Definition</div>
+    <p>BARS combines the best elements of narrative critical incidents and quantified rating scales. Each point on the rating scale is anchored by specific behavioural examples (critical incidents) that describe what that level of performance actually looks like.</p>
+  </div>
+  <p><strong>Example — Customer Service Representative, "Handles Complaints":</strong></p>
+  <table class="tbl">
+    <tr><th>Rating</th><th>Behavioural Anchor</th></tr>
+    <tr><td>5 (Excellent)</td><td>Calmly listens to customer, apologises, offers immediate solution, and follows up within 24 hours</td></tr>
+    <tr><td>3 (Average)</td><td>Listens to customer, offers standard solution from manual</td></tr>
+    <tr><td>1 (Poor)</td><td>Becomes defensive, argues with customer, no solution offered</td></tr>
+  </table>
+  <div class="two-col" style="margin-top:8px;">
+    <div><strong style="color:var(--green-600);">Advantages</strong><ul><li>Very specific and accurate</li><li>Reduces rater bias</li><li>Fair and job-relevant</li></ul></div>
+    <div><strong style="color:var(--red-600);">Disadvantages</strong><ul><li>Expensive and time-consuming to develop</li><li>Needs separate scale for each job</li></ul></div>
+  </div>
+</div>
+
+<h3>Comparison of Appraisal Methods</h3>
+<table class="tbl">
+  <tr><th>Method</th><th>Type</th><th>Key Feature</th><th>Best For</th></tr>
+  <tr><td>Ranking</td><td>Traditional</td><td>Comparative, simple</td><td>Small teams</td></tr>
+  <tr><td>Rating Scale</td><td>Traditional</td><td>Numeric scale on traits</td><td>Large orgs, easy admin</td></tr>
+  <tr><td>Checklist</td><td>Traditional</td><td>Yes/No statements</td><td>Standardised roles</td></tr>
+  <tr><td>360° Appraisal</td><td>Modern</td><td>Multi-source feedback</td><td>Managers, leaders</td></tr>
+  <tr><td>MBO</td><td>Modern</td><td>Jointly set objectives</td><td>Knowledge workers, sales</td></tr>
+  <tr><td>BARS</td><td>Modern</td><td>Behaviour-anchored scale</td><td>Customer-facing, service roles</td></tr>
+</table>
+
+<h2>Common Errors / Biases in Performance Appraisal</h2>
+<p>Appraisal errors occur when raters make mistakes in judging employee performance. These are frequently asked in exams.</p>
+
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px;">
+  <div class="card" style="border-color:var(--red-100); background:var(--red-50);">
+    <span class="err-tag">Halo Effect</span>
+    <p style="font-size:13px; margin-top:6px;">Rating an employee high on ALL dimensions because of one outstanding positive quality. Example: "Rajan is always punctual, so he must be good at everything."</p>
+  </div>
+  <div class="card" style="border-color:var(--red-100); background:var(--red-50);">
+    <span class="err-tag">Horn Effect</span>
+    <p style="font-size:13px; margin-top:6px;">Opposite of halo — rating an employee low on ALL dimensions because of one negative trait. Example: "Priya missed one deadline, so she must be incompetent overall."</p>
+  </div>
+  <div class="card" style="border-color:var(--red-100); background:var(--red-50);">
+    <span class="err-tag">Central Tendency</span>
+    <p style="font-size:13px; margin-top:6px;">Rater gives everyone an average rating (3 out of 5) to avoid conflict and controversy. This does not differentiate good and poor performers.</p>
+  </div>
+  <div class="card" style="border-color:var(--red-100); background:var(--red-50);">
+    <span class="err-tag">Leniency Error</span>
+    <p style="font-size:13px; margin-top:6px;">Rater gives everyone very high ratings to avoid confrontation or appear liked. Everyone seems excellent even if they are not.</p>
+  </div>
+  <div class="card" style="border-color:var(--red-100); background:var(--red-50);">
+    <span class="err-tag">Strictness Error</span>
+    <p style="font-size:13px; margin-top:6px;">Opposite of leniency — rater gives everyone low ratings even for good performance. Creates demotivation and unfairness.</p>
+  </div>
+  <div class="card" style="border-color:var(--red-100); background:var(--red-50);">
+    <span class="err-tag">Recency Error</span>
+    <p style="font-size:13px; margin-top:6px;">Rating based only on recent performance (last few weeks) rather than the entire appraisal period. One recent good or bad incident dominates the rating.</p>
+  </div>
+  <div class="card" style="border-color:var(--red-100); background:var(--red-50);">
+    <span class="err-tag">Similarity Bias</span>
+    <p style="font-size:13px; margin-top:6px;">Rater gives higher ratings to employees who are similar to themselves in background, personality, interests, or alma mater. "He went to the same college as me — must be good."</p>
+  </div>
+  <div class="card" style="border-color:var(--red-100); background:var(--red-50);">
+    <span class="err-tag">Personal Bias / Prejudice</span>
+    <p style="font-size:13px; margin-top:6px;">Rating influenced by personal feelings about the employee's race, gender, age, religion, etc. — not actual performance.</p>
+  </div>
+</div>
+
+<div class="mnemonic">
+  <div class="mn-label">Mnemonic — Remember Appraisal Errors</div>
+  <p><strong>"Happy Horses Can't Learn, So Rest Softly, Peacefully"</strong><br>
+  <strong>H</strong>alo · <strong>H</strong>orn · <strong>C</strong>entral tendency · <strong>L</strong>eniency · <strong>S</strong>trictness · <strong>R</strong>ecency · <strong>S</strong>imilarity · <strong>P</strong>ersonal bias</p>
+</div>
+
+<h3>How to Reduce Appraisal Errors</h3>
+<ul>
+  <li>Train appraisers on common biases</li>
+  <li>Use structured, objective methods (BARS, MBO)</li>
+  <li>Use multiple raters (360° appraisal)</li>
+  <li>Maintain critical incident diary throughout the year</li>
+  <li>Set clear, measurable criteria before appraisal</li>
+</ul>
+
+<div class="card card-gray">
+  <h4>Quick Revision — Unit 5</h4>
+  <div class="qr-item"><div class="qr-dot"></div><p>Traditional methods: Ranking, Rating Scale, Checklist.</p></div>
+  <div class="qr-item"><div class="qr-dot"></div><p>Modern methods: 360°, MBO, BARS.</p></div>
+  <div class="qr-item"><div class="qr-dot"></div><p>MBO = jointly set objectives, evaluate against achievement. Peter Drucker concept.</p></div>
+  <div class="qr-item"><div class="qr-dot"></div><p>BARS = behaviour-anchored scale, most accurate but most expensive to develop.</p></div>
+  <div class="qr-item"><div class="qr-dot"></div><p>Halo (one positive → all high) vs Horn (one negative → all low). Recency = recent events dominate.</p></div>
+</div>
+
+</div><!-- /unit5 -->
+
+<!-- ========================== UNIT 6 ========================== -->
+<div id="unit6" class="section">
+
+<h2> 6 — Career Management</h2>
+
+<div class="def-box">
+  <div class="def-label">Definition — Career Management</div>
+  <p><strong>Career Management</strong> is an ongoing process through which individuals plan, develop, and monitor their career progression, while organisations support and guide employees in aligning their career goals with organisational needs.</p>
+</div>
+
+<h3>Components of Career Management</h3>
+
+<h2>1. Career Planning</h2>
+<div class="def-box">
+  <div class="def-label">Definition</div>
+  <p><strong>Career Planning</strong> is the process by which an individual sets career goals and identifies the steps, paths, and strategies needed to achieve those goals. It is a self-analysis and goal-setting process.</p>
+</div>
+
+<h3>Career Planning Process</h3>
+<ol class="steps">
+  <li>
+    <div class="step-content">
+      <div class="step-title">Self-Assessment</div>
+      <div class="step-desc">Identify your interests, values, skills, strengths, and weaknesses. Tools: SWOT analysis of self, aptitude tests, personality tests (MBTI).</div>
+    </div>
+  </li>
+  <li>
+    <div class="step-content">
+      <div class="step-title">Explore Career Opportunities</div>
+      <div class="step-desc">Research available career paths, industries, job roles, and required qualifications.</div>
+    </div>
+  </li>
+  <li>
+    <div class="step-content">
+      <div class="step-title">Set Career Goals</div>
+      <div class="step-desc">Define short-term (1-2 years) and long-term (5-10 years) career objectives.</div>
+    </div>
+  </li>
+  <li>
+    <div class="step-content">
+      <div class="step-title">Identify Development Needs</div>
+      <div class="step-desc">Determine what skills, qualifications, and experiences are needed to achieve your goals.</div>
+    </div>
+  </li>
+  <li>
+    <div class="step-content">
+      <div class="step-title">Prepare Action Plan</div>
+      <div class="step-desc">Create a detailed plan with timelines, milestones, and specific development activities (certifications, training, networking).</div>
+    </div>
+  </li>
+  <li>
+    <div class="step-content">
+      <div class="step-title">Review and Revise</div>
+      <div class="step-desc">Regularly review progress and update the plan based on changing circumstances.</div>
+    </div>
+  </li>
+</ol>
+
+<h2>2. Career Development</h2>
+<div class="def-box">
+  <div class="def-label">Definition</div>
+  <p><strong>Career Development</strong> is the ongoing process of acquiring skills, experiences, and education needed to progress along one's chosen career path. It combines both individual effort and organisational support.</p>
+</div>
+
+<h3>Individual vs Organisational Responsibility</h3>
+<table class="tbl">
+  <tr><th>Individual Responsibilities</th><th>Organisational Responsibilities</th></tr>
+  <tr><td>Self-assessment and goal setting</td><td>Providing training and development programmes</td></tr>
+  <tr><td>Seeking feedback</td><td>Mentoring and coaching programmes</td></tr>
+  <tr><td>Networking</td><td>Career counselling services</td></tr>
+  <tr><td>Continuous learning (certifications, degrees)</td><td>Job rotation and stretch assignments</td></tr>
+  <tr><td>Taking initiative on challenging projects</td><td>Internal job postings and promotions</td></tr>
+  <tr><td>Building a portfolio of skills</td><td>Leadership development programmes</td></tr>
+</table>
+
+<h3>Career Development Tools</h3>
+<ul>
+  <li><strong>Job Ladders</strong> — defined vertical promotion paths within a function</li>
+  <li><strong>Job Enrichment</strong> — adding more challenging responsibilities</li>
+  <li><strong>Lateral Moves</strong> — moving to a different department at the same level to broaden experience</li>
+  <li><strong>Dual Career Ladders</strong> — separate tracks for technical specialists and managers (both can advance without one forcing the other's path)</li>
+  <li><strong>Mentoring Programmes</strong> — pairing junior employees with senior leaders</li>
+  <li><strong>Assessment Centres</strong> — structured evaluation to identify high-potential employees</li>
+</ul>
+
+<h2>3. Succession Planning</h2>
+<div class="def-box">
+  <div class="def-label">Definition</div>
+  <p><strong>Succession Planning</strong> is the systematic process of identifying, assessing, and developing internal talent to fill critical leadership and key positions in the future when they become vacant — due to retirement, resignation, or promotion.</p>
+</div>
+
+<h3>Importance of Succession Planning</h3>
+<ul>
+  <li>Ensures business continuity — no leadership vacuum</li>
+  <li>Reduces dependence on external hiring for senior positions</li>
+  <li>Motivates high-potential employees by showing a clear growth path</li>
+  <li>Reduces time and cost of finding replacements</li>
+  <li>Preserves institutional knowledge and organisational culture</li>
+</ul>
+
+<h3>Succession Planning Process</h3>
+<ol class="steps">
+  <li>
+    <div class="step-content">
+      <div class="step-title">Identify Key Positions</div>
+      <div class="step-desc">Identify critical roles that, if left vacant, would significantly disrupt operations. (CEO, CFO, Plant Head, etc.)</div>
+    </div>
+  </li>
+  <li>
+    <div class="step-content">
+      <div class="step-title">Identify High-Potential Employees</div>
+      <div class="step-desc">Use performance appraisals, assessment centres, and manager nominations to identify HiPo talent.</div>
+    </div>
+  </li>
+  <li>
+    <div class="step-content">
+      <div class="step-title">Assess Gaps</div>
+      <div class="step-desc">Compare current capabilities of successors with what is required for the target position.</div>
+    </div>
+  </li>
+  <li>
+    <div class="step-content">
+      <div class="step-title">Develop Successors</div>
+      <div class="step-desc">Design Individual Development Plans (IDPs) — mentoring, stretch assignments, training, leadership programmes.</div>
+    </div>
+  </li>
+  <li>
+    <div class="step-content">
+      <div class="step-title">Monitor and Review</div>
+      <div class="step-desc">Regularly review the succession pipeline and update plans as business needs evolve.</div>
+    </div>
+  </li>
+</ol>
+
+<div class="card card-amber">
+  <h4>Real-World Example</h4>
+  <p style="font-size:13px;"><strong>Tata Group:</strong> The appointment of N. Chandrasekaran as Chairman of Tata Sons was the result of a well-structured succession planning process. Similarly, <strong>Infosys</strong> has a formal leadership development programme (ILP+) that identifies and grooms future leaders from within.</p>
+</div>
+
+<h3>Career Planning vs Career Development vs Succession Planning</h3>
+<table class="tbl">
+  <tr><th>Basis</th><th>Career Planning</th><th>Career Development</th><th>Succession Planning</th></tr>
+  <tr><td><strong>Who does it</strong></td><td>Individual employee</td><td>Individual + Organisation</td><td>Organisation (HR + Top Mgmt)</td></tr>
+  <tr><td><strong>Focus</strong></td><td>Future career goals</td><td>Building skills for goals</td><td>Filling future key vacancies</td></tr>
+  <tr><td><strong>Outcome</strong></td><td>Career roadmap</td><td>Skill growth, promotions</td><td>Ready pipeline of leaders</td></tr>
+  <tr><td><strong>Time horizon</strong></td><td>1–10 years</td><td>Ongoing</td><td>3–10 years ahead</td></tr>
+</table>
+
+<div class="card card-gray">
+  <h4>Quick Revision — Unit 6</h4>
+  <div class="qr-item"><div class="qr-dot"></div><p>Career Planning = individual-led goal setting and roadmap creation.</p></div>
+  <div class="qr-item"><div class="qr-dot"></div><p>Career Development = acquiring skills; both individual and org responsibility.</p></div>
+  <div class="qr-item"><div class="qr-dot"></div><p>Succession Planning = org-led process to prepare internal replacements for key roles.</p></div>
+  <div class="qr-item"><div class="qr-dot"></div><p>Succession Planning ensures business continuity and motivates HiPo employees.</p></div>
+</div>
+
+</div><!-- /unit6 -->
+
+<!-- ========================== UNIT 7 — EXAM Q ========================== -->
+<div id="unit7" class="section">
+
+<h2> 7 — Exam Questions & Model Answers</h2>
+<p style="color:var(--color-text-secondary); font-size:13px;">Click any question to expand the model answer. Use these directly in your semester examination.</p>
+
+<h2>2-Mark Questions</h2>
+
+<div class="eq">
+  <div class="eq-header" onclick="toggleEq(this)">
+    <span class="badge badge-blue">2 marks</span>
+    <span class="eq-q">Define Training. How is it different from Education?</span>
+    <span class="eq-toggle">+</span>
+  </div>
+  <div class="eq-body">
+    <p><strong>Training</strong> is a short-term, systematic process aimed at improving specific job-related knowledge, skills, and attitudes of employees to enhance their current job performance.</p>
+    <p><strong>Difference:</strong> Training is job-oriented and focuses on present skills needed for a specific role. Education is broader, theoretical, and prepares a person for life and multiple career opportunities in general.</p>
+  </div>
+</div>
+
+<div class="eq">
+  <div class="eq-header" onclick="toggleEq(this)">
+    <span class="badge badge-blue">2 marks</span>
+    <span class="eq-q">What is Training Need Analysis (TNA)?</span>
+    <span class="eq-toggle">+</span>
+  </div>
+  <div class="eq-body">
+    <p><strong>Training Need Analysis (TNA)</strong> is the process of identifying the gap between the current performance of employees and the desired/required performance standard. It determines what training is needed, for whom, and when.</p>
+    <p>TNA is conducted at three levels: Organisational Level, Task/Job Level, and Individual Level.</p>
+  </div>
+</div>
+
+<div class="eq">
+  <div class="eq-header" onclick="toggleEq(this)">
+    <span class="badge badge-blue">2 marks</span>
+    <span class="eq-q">What is Vestibule Training?</span>
+    <span class="eq-toggle">+</span>
+  </div>
+  <div class="eq-body">
+    <p><strong>Vestibule Training</strong> is an off-the-job training method where employees are trained in a separate area (vestibule) using equipment and conditions that closely replicate the actual workplace — but without disrupting production or creating risk on the actual shop floor.</p>
+    <p><strong>Example:</strong> Pilot training on flight simulators; bank teller training on dummy teller counters.</p>
+  </div>
+</div>
+
+<div class="eq">
+  <div class="eq-header" onclick="toggleEq(this)">
+    <span class="badge badge-blue">2 marks</span>
+    <span class="eq-q">What is the Halo Effect in Performance Appraisal?</span>
+    <span class="eq-toggle">+</span>
+  </div>
+  <div class="eq-body">
+    <p><strong>Halo Effect</strong> is an appraisal error where the rater gives an overall high rating to an employee based on one outstanding positive characteristic, ignoring other aspects of performance.</p>
+    <p><strong>Example:</strong> A manager rates a highly punctual employee as excellent in all areas — even though their work quality is only average.</p>
+  </div>
+</div>
+
+<div class="eq">
+  <div class="eq-header" onclick="toggleEq(this)">
+    <span class="badge badge-blue">2 marks</span>
+    <span class="eq-q">Define Succession Planning.</span>
+    <span class="eq-toggle">+</span>
+  </div>
+  <div class="eq-body">
+    <p><strong>Succession Planning</strong> is the systematic process of identifying and developing internal talent (high-potential employees) to fill critical leadership and key positions when they become vacant in the future due to retirement, resignation, or promotion.</p>
+    <p>It ensures business continuity and creates a pipeline of ready leaders within the organisation.</p>
+  </div>
+</div>
+
+<div class="eq">
+  <div class="eq-header" onclick="toggleEq(this)">
+    <span class="badge badge-blue">2 marks</span>
+    <span class="eq-q">What is Kirkpatrick's Level 1 and Level 2 of training evaluation?</span>
+    <span class="eq-toggle">+</span>
+  </div>
+  <div class="eq-body">
+    <p><strong>Level 1 — Reaction:</strong> Measures how trainees feel about the training programme — whether they found it useful, relevant, and well-delivered. Measured through feedback forms/smile sheets immediately after training.</p>
+    <p><strong>Level 2 — Learning:</strong> Measures the actual knowledge, skills, or attitude gained from the training. Measured through pre-test vs. post-test comparisons or skill assessments.</p>
+  </div>
+</div>
+
+<h2>5-Mark Questions</h2>
+
+<div class="eq">
+  <div class="eq-header" onclick="toggleEq(this)">
+    <span class="badge badge-amber">5 marks</span>
+    <span class="eq-q">Explain MBO as a technique of Performance Appraisal.</span>
+    <span class="eq-toggle">+</span>
+  </div>
+  <div class="eq-body">
+    <p><strong>Management by Objectives (MBO)</strong> was proposed by Peter Drucker and is one of the most popular modern methods of performance appraisal.</p>
+    <p><strong>Meaning:</strong> MBO is a process where the manager and subordinate jointly set specific, measurable, achievable, relevant, and time-bound (SMART) objectives at the beginning of the appraisal period. At the end of the period, performance is evaluated based on whether those objectives were achieved.</p>
+    <p><strong>Process of MBO:</strong></p>
+    <ol style="padding-left:18px; font-size:13px;">
+      <li>Manager and employee jointly set SMART objectives for the period.</li>
+      <li>Employee works towards achieving the agreed objectives.</li>
+      <li>Progress is reviewed periodically (monthly/quarterly).</li>
+      <li>At the end of the period, actual achievement is compared against targets.</li>
+      <li>New objectives are set for the next period based on learnings.</li>
+    </ol>
+    <p><strong>Advantages:</strong> Objective and transparent; increases employee motivation and ownership; aligns individual performance with organisational goals.</p>
+    <p><strong>Disadvantages:</strong> Time-consuming to set objectives; difficult to apply for qualitative roles; may encourage short-term thinking.</p>
+    <p><strong>Example:</strong> Google uses an advanced form of MBO called OKRs (Objectives and Key Results), where each employee sets quarterly objectives and tracks key results.</p>
+  </div>
+</div>
+
+<div class="eq">
+  <div class="eq-header" onclick="toggleEq(this)">
+    <span class="badge badge-amber">5 marks</span>
+    <span class="eq-q">Explain 360-Degree Performance Appraisal with its advantages and limitations.</span>
+    <span class="eq-toggle">+</span>
+  </div>
+  <div class="eq-body">
+    <p><strong>360-Degree Appraisal</strong> is a modern, multi-source performance evaluation method where an employee is assessed by multiple stakeholders — including superiors, peers, subordinates, customers, and the employee themselves.</p>
+    <p><strong>Sources of Feedback in 360°:</strong></p>
+    <ul style="font-size:13px;">
+      <li><strong>Superior/Boss</strong> — evaluates work output and targets met</li>
+      <li><strong>Peers/Colleagues</strong> — evaluate teamwork and cooperation</li>
+      <li><strong>Subordinates</strong> — evaluate leadership and managerial style</li>
+      <li><strong>Customers (internal/external)</strong> — evaluate service quality</li>
+      <li><strong>Self-appraisal</strong> — employee's own assessment</li>
+    </ul>
+    <p><strong>Advantages:</strong> Comprehensive and well-rounded view; reduces bias; improves self-awareness; useful for leadership development.</p>
+    <p><strong>Limitations:</strong> Time-consuming and expensive; conflicting feedback can confuse employees; peers may give inflated ratings to friends; requires proper training to implement.</p>
+    <p><strong>Example:</strong> Companies like Infosys, Wipro, and TCS use 360° appraisals for their managerial cadre.</p>
+  </div>
+</div>
+
+<div class="eq">
+  <div class="eq-header" onclick="toggleEq(this)">
+    <span class="badge badge-amber">5 marks</span>
+    <span class="eq-q">Explain any four common errors in Performance Appraisal.</span>
+    <span class="eq-toggle">+</span>
+  </div>
+  <div class="eq-body">
+    <p>Performance appraisal errors are mistakes made by raters that distort the accuracy of evaluation. Four important errors are:</p>
+    <p><strong>1. Halo Effect:</strong> The rater gives an overall high rating based on one outstanding positive trait, ignoring other performance areas. Example: An employee who is always punctual gets rated "Excellent" in all parameters, even where performance is average.</p>
+    <p><strong>2. Horn Effect:</strong> Opposite of halo — the rater gives overall low ratings due to one negative incident or trait. Example: An employee who missed one deadline is rated "Poor" across all dimensions.</p>
+    <p><strong>3. Central Tendency:</strong> The rater rates everyone as average (3 out of 5) to avoid conflict or taking a definite position. This fails to distinguish between high and low performers.</p>
+    <p><strong>4. Recency Error:</strong> The rater focuses only on recent performance (last few weeks) rather than the entire appraisal period. One recent incident — positive or negative — unduly influences the entire rating.</p>
+    <p><strong>How to overcome:</strong> Train appraisers, use BARS or MBO, use 360° feedback, maintain critical incident diaries throughout the year.</p>
+  </div>
+</div>
+
+<h2>10-Mark Essay Questions</h2>
+
+<div class="eq">
+  <div class="eq-header" onclick="toggleEq(this)">
+    <span class="badge badge-red">10 marks</span>
+    <span class="eq-q">Explain the Training Process in detail, with steps, and importance of Training Need Analysis.</span>
+    <span class="eq-toggle">+</span>
+  </div>
+  <div class="eq-body">
+    <p><strong>Introduction:</strong> Training is a systematic, short-term process of improving the knowledge, skills, and attitudes of employees to enable them to perform their current jobs effectively. A well-structured training process ensures that training is not random but strategic and result-oriented.</p>
+    <p><strong>Steps in the Training Process:</strong></p>
+    <p><strong>Step 1 — Training Need Analysis (TNA):</strong> The foundation of any training programme. TNA identifies the gap between current performance and desired performance. It is conducted at three levels:<br>
+    (a) <em>Organisational level</em> — based on company goals and strategy<br>
+    (b) <em>Task level</em> — based on job requirements<br>
+    (c) <em>Individual level</em> — based on personal performance gaps.</p>
+    <p><strong>Step 2 — Setting Training Objectives:</strong> Based on the TNA, SMART objectives are defined — what employees should know, do, or feel differently after training.</p>
+    <p><strong>Step 3 — Designing the Training Programme:</strong> Decisions are made on content, training methods (OJT or off-JT), trainers (internal/external), duration, venue, and budget.</p>
+    <p><strong>Step 4 — Implementation:</strong> The training is delivered using selected methods — coaching, role play, simulation, e-learning, etc.</p>
+    <p><strong>Step 5 — Evaluation:</strong> Effectiveness is measured using Kirkpatrick's four-level model: Reaction → Learning → Behaviour → Results.</p>
+    <p><strong>Importance of TNA:</strong> TNA ensures that training resources are not wasted on irrelevant content. It aligns training with organisational strategy, identifies the right people to train, and serves as the benchmark against which training effectiveness is later evaluated.</p>
+    <p><strong>Conclusion:</strong> A structured training process that begins with a thorough TNA and ends with rigorous evaluation ensures maximum return on training investment and contributes directly to organisational performance.</p>
+  </div>
+</div>
+
+<div class="eq">
+  <div class="eq-header" onclick="toggleEq(this)">
+    <span class="badge badge-red">10 marks</span>
+    <span class="eq-q">Explain Performance Appraisal: its process, methods, and common errors. (OR: Write a detailed note on Performance Appraisal.)</span>
+    <span class="eq-toggle">+</span>
+  </div>
+  <div class="eq-body">
+    <p><strong>Meaning:</strong> Performance Appraisal is the formal, systematic process of evaluating an employee's job performance against pre-established standards. It is one of the most critical functions of HRM, influencing salary, promotion, training, and motivation decisions.</p>
+    <p><strong>Process of Performance Appraisal (6 Steps):</strong></p>
+    <ol style="padding-left:18px; font-size:13px;">
+      <li><strong>Establish Standards</strong> — Set KPIs and targets aligned with org goals.</li>
+      <li><strong>Communicate Standards</strong> — Inform employees about evaluation criteria.</li>
+      <li><strong>Measure Actual Performance</strong> — Collect data through observation, records, feedback.</li>
+      <li><strong>Compare with Standards</strong> — Identify the performance gap.</li>
+      <li><strong>Discuss with Employee</strong> — Conduct appraisal interview; two-way communication.</li>
+      <li><strong>Corrective Action</strong> — Reward good performers; counsel/train poor performers.</li>
+    </ol>
+    <p><strong>Methods of Performance Appraisal:</strong></p>
+    <p><em>Traditional:</em> (1) Ranking Method — ranks employees from best to worst. (2) Graphic Rating Scale — numerical rating on multiple traits. (3) Checklist Method — tick-box of behavioural statements.</p>
+    <p><em>Modern:</em> (1) 360-Degree Appraisal — multi-source feedback from superiors, peers, subordinates, customers, self. (2) MBO (Management by Objectives) — jointly set objectives; evaluate against targets. (3) BARS (Behaviorally Anchored Rating Scale) — scale anchored with specific behavioural examples.</p>
+    <p><strong>Common Errors in Appraisal:</strong> Halo Effect (one positive dominates all ratings), Horn Effect (one negative dominates all ratings), Central Tendency (everyone rated average), Leniency Error (everyone rated high), Strictness Error (everyone rated low), Recency Error (only recent events considered), Similarity Bias (like-me bias).</p>
+    <p><strong>Conclusion:</strong> Performance Appraisal, when done correctly and objectively, is a powerful tool for employee motivation, development, and organisational productivity. Using modern methods like MBO and 360°, combined with proper appraiser training, can significantly reduce errors and improve the accuracy of evaluations.</p>
+  </div>
+</div>
+
+<div class="eq">
+  <div class="eq-header" onclick="toggleEq(this)">
+    <span class="badge badge-red">10 marks</span>
+    <span class="eq-q">Describe various methods of training. Distinguish between On-the-Job and Off-the-Job training.</span>
+    <span class="eq-toggle">+</span>
+  </div>
+  <div class="eq-body">
+    <p><strong>Introduction:</strong> Training methods refer to the techniques used to impart knowledge, skills, and attitudes to employees. They are broadly classified into On-the-Job and Off-the-Job training methods.</p>
+    <p><strong>On-the-Job Training (OJT) Methods:</strong> Employee learns by actually performing the job.</p>
+    <p>(1) <strong>Coaching</strong> — A senior employee (coach) provides one-on-one guidance and feedback on specific tasks. Personalised, continuous, and low cost. Example: Manager coaching a new sales rep.</p>
+    <p>(2) <strong>Mentoring</strong> — Long-term relationship where a senior mentor guides the mentee's overall career development. Focuses on career growth, unlike coaching which is task-focused.</p>
+    <p>(3) <strong>Job Rotation</strong> — Moving employees across different departments at intervals to build multi-skilling and reduce monotony. Example: Management trainees at Mahindra rotate across Finance, HR, Operations.</p>
+    <p>(4) <strong>Apprenticeship/Internship</strong> — Formal training contract (apprenticeship for skilled trades); temporary work experience (internship for fresh graduates).</p>
+    <p><strong>Off-the-Job Training Methods:</strong> Employee learns away from the actual workplace.</p>
+    <p>(1) <strong>Vestibule Training</strong> — Training on replicated equipment in a separate area; no risk to production. Example: Flight simulators for pilots.</p>
+    <p>(2) <strong>Role Playing</strong> — Trainees act out real-life scenarios to develop interpersonal skills. Example: Customer complaint handling practice.</p>
+    <p>(3) <strong>Case Study Method</strong> — Real or hypothetical business problems are analysed to develop decision-making skills. Widely used in MBA programmes.</p>
+    <p>(4) <strong>Lecture Method</strong> — Traditional classroom delivery; cost-effective for large groups; passive learning.</p>
+    <p>(5) <strong>Simulation Training</strong> — Artificial environment replicating real conditions. Used in military, aviation, medical fields.</p>
+    <p>(6) <strong>E-Learning</strong> — Digital, self-paced learning through LMS, MOOCs, webinars. Scalable and flexible.</p>
+    <p><strong>Key Differences — OJT vs Off-JT:</strong> OJT is at the actual workplace, low cost, learning by doing, employee produces output while learning. Off-JT is away from work, focused environment, no production, higher cost but more in-depth learning.</p>
+    <p><strong>Conclusion:</strong> The choice of training method depends on the nature of the job, objectives of training, available resources, and number of trainees. A blended approach using both OJT and off-JT methods typically yields the best results.</p>
+  </div>
+</div>
+
+</div><!-- /unit7 -->
+
+<!-- ========================== UNIT 8 — NIGHT REVISION ========================== -->
+
+
+</div><!-- outer wrapper -->
+
+<script>
+function show(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const idx = ['unit1','unit2','unit3','unit4','unit5','unit6','unit7','unit8'].indexOf(id);
+  document.querySelectorAll('.nav-btn')[idx].classList.add('active');
+  window.scrollTo(0,0);
+}
+function toggleEq(header) {
+  const body = header.nextElementSibling;
+  const tog = header.querySelector('.eq-toggle');
+  const open = body.classList.toggle('open');
+  tog.classList.toggle('open', open);
+  tog.textContent = open ? '×' : '+';
+}
+</script>

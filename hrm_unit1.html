@@ -1,0 +1,1017 @@
+
+
+</div>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans, 'Segoe UI', sans-serif); background: transparent; color: var(--color-text-primary); font-size: 15px; line-height: 1.7; }
+.container { max-width: 860px; margin: 0 auto; padding: 1rem 0.5rem 3rem; }
+
+.header { text-align: center; padding: 2rem 1rem; border-bottom: 0.5px solid var(--color-border-tertiary); margin-bottom: 1.5rem; }
+.header h1 { font-size: 22px; font-weight: 500; margin-bottom: 0.4rem; }
+.header p { font-size: 13px; color: var(--color-text-secondary); }
+.badge { display: inline-block; background: var(--color-background-info); color: var(--color-text-info); font-size: 11px; padding: 3px 10px; border-radius: 12px; margin: 0 4px; font-weight: 500; }
+
+.nav-bar { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.5rem; padding: 0.75rem; background: var(--color-background-secondary); border-radius: var(--border-radius-lg); border: 0.5px solid var(--color-border-tertiary); }
+.nav-btn { font-size: 12px; padding: 5px 10px; border: 0.5px solid var(--color-border-secondary); border-radius: 6px; cursor: pointer; background: var(--color-background-primary); color: var(--color-text-primary); font-family: inherit; transition: background 0.15s; }
+.nav-btn:hover, .nav-btn.active { background: var(--color-background-info); color: var(--color-text-info); border-color: transparent; }
+
+.section { display: none; }
+.section.active { display: block; }
+
+.topic-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); margin-bottom: 1.5rem; overflow: hidden; }
+.topic-header { padding: 0.9rem 1.2rem; background: var(--color-background-secondary); border-bottom: 0.5px solid var(--color-border-tertiary); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+.topic-header h2 { font-size: 16px; font-weight: 500; }
+.topic-num { font-size: 11px; color: var(--color-text-secondary); background: var(--color-background-tertiary); padding: 2px 8px; border-radius: 10px; }
+.topic-body { padding: 1.2rem; display: none; }
+.topic-body.open { display: block; }
+
+.def-box { background: var(--color-background-info); border-left: 3px solid #378ADD; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; padding: 0.75rem 1rem; margin-bottom: 1rem; font-size: 14px; color: var(--color-text-primary); }
+.def-box strong { color: var(--color-text-info); }
+
+.exam-box { background: var(--color-background-warning); border-left: 3px solid #BA7517; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; padding: 0.75rem 1rem; margin: 1rem 0; font-size: 13px; }
+.exam-box strong { color: #633806; }
+
+.tip-box { background: var(--color-background-success); border-left: 3px solid #3B6D11; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; padding: 0.75rem 1rem; margin: 1rem 0; font-size: 13px; }
+.tip-box strong { color: var(--color-text-success); }
+
+h3 { font-size: 15px; font-weight: 500; margin: 1.2rem 0 0.5rem; color: var(--color-text-primary); }
+h4 { font-size: 14px; font-weight: 500; margin: 0.8rem 0 0.3rem; color: var(--color-text-secondary); }
+ul, ol { padding-left: 1.4rem; margin: 0.5rem 0; }
+li { margin-bottom: 0.25rem; font-size: 14px; }
+p { font-size: 14px; margin-bottom: 0.6rem; }
+
+table { width: 100%; border-collapse: collapse; margin: 0.8rem 0; font-size: 13px; }
+th { background: var(--color-background-secondary); padding: 8px 10px; text-align: left; font-weight: 500; border: 0.5px solid var(--color-border-tertiary); }
+td { padding: 7px 10px; border: 0.5px solid var(--color-border-tertiary); vertical-align: top; }
+tr:nth-child(even) td { background: var(--color-background-secondary); }
+
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 0.8rem 0; }
+.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 0.8rem 0; }
+.mini-card { background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 0.7rem; }
+.mini-card h4 { margin-top: 0; }
+
+.keyword-list { display: flex; flex-wrap: wrap; gap: 6px; margin: 0.5rem 0; }
+.kw { background: var(--color-background-secondary); border: 0.5px solid var(--color-border-secondary); border-radius: 12px; padding: 3px 10px; font-size: 12px; color: var(--color-text-secondary); }
+
+.q-block { border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); margin-bottom: 0.75rem; overflow: hidden; }
+.q-head { padding: 0.6rem 1rem; background: var(--color-background-secondary); cursor: pointer; font-size: 14px; display: flex; justify-content: space-between; align-items: center; }
+.q-mark { font-size: 11px; color: var(--color-text-secondary); background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: 8px; padding: 2px 8px; }
+.q-body { padding: 1rem; display: none; font-size: 14px; line-height: 1.7; }
+.q-body.open { display: block; }
+
+.night-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); margin-bottom: 1rem; padding: 1rem 1.2rem; }
+.night-card h3 { margin-top: 0; font-size: 14px; }
+
+.progress-bar { background: var(--color-background-secondary); border-radius: 10px; height: 6px; margin-bottom: 1.5rem; overflow: hidden; }
+.progress-fill { background: #378ADD; height: 100%; border-radius: 10px; transition: width 0.4s; }
+
+.expand-all { font-size: 12px; color: var(--color-text-info); cursor: pointer; text-decoration: underline; margin-bottom: 1rem; display: inline-block; background: none; border: none; font-family: inherit; }
+</style>
+</head>
+<body>
+  <div class="container">
+        <a href="index.html" class="back-btn">← Back to Home</a>
+</div>
+<div class="container">
+        <a href="hrm.html" class="back-btn">← Back to HRM units </a>
+<div class="container">
+  <div class="header">
+    <h1>Human Resource Management — Unit 1</h1>
+    <p>Complete Exam-Ready Notes &nbsp;|&nbsp; BBA/MBA Semester Preparation</p>
+    <div style="margin-top:0.6rem">
+      <span class="badge">14 Topics</span>
+      <span class="badge">2 / 5 / 10 Mark Q&amp;A</span>
+      <span class="badge">Night Revision Sheet</span>
+    </div>
+  </div>
+
+  <div class="nav-bar">
+    <button class="nav-btn active" onclick="showSection('notes')">📖 Detailed Notes</button>
+    <button class="nav-btn" onclick="showSection('questions')">❓ Important Questions</button>
+    <button class="nav-btn" onclick="showSection('quick')">⚡ Quick Revision</button>
+    <button class="nav-btn" onclick="showSection('night')">🌙 Night Before Exam</button>
+  </div>
+
+  <!-- SECTION: NOTES -->
+  <div id="sec-notes" class="section active">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.8rem;">
+      <p style="font-size:13px; color:var(--color-text-secondary);">Click any topic to expand. All 14 topics covered.</p>
+      <button class="expand-all" onclick="expandAll()">Expand all</button>
+    </div>
+
+    <!-- TOPIC 1 -->
+    <div class="topic-card">
+      <div class="topic-header" onclick="toggle(this)">
+        <h2>1. Introduction to HRM</h2>
+        <span class="topic-num">Topic 01</span>
+      </div>
+      <div class="topic-body">
+        <div class="def-box"><strong>Definition:</strong> HRM is the process of recruiting, selecting, training, developing, compensating, and maintaining employees to achieve organizational goals effectively.</div>
+        <h3>Evolution of HRM</h3>
+        <table>
+          <tr><th>Era</th><th>Focus</th><th>Called</th></tr>
+          <tr><td>Pre-Industrial</td><td>Craft guilds, apprenticeships</td><td>—</td></tr>
+          <tr><td>Industrial Revolution</td><td>Labour welfare</td><td>Personnel Management</td></tr>
+          <tr><td>Post-WWII</td><td>Industrial relations</td><td>Industrial Relations</td></tr>
+          <tr><td>1980s onward</td><td>Strategic integration</td><td>Human Resource Management</td></tr>
+        </table>
+        <h3>Nature of HRM</h3>
+        <ul>
+          <li>Pervasive — present in all organizations</li>
+          <li>People-oriented — focuses on human beings</li>
+          <li>Action-oriented — emphasizes solutions, not records</li>
+          <li>Future-oriented — plans for long-term needs</li>
+          <li>Development-oriented — grows employee skills</li>
+          <li>Integrated — linked to overall strategy</li>
+        </ul>
+        <h3>Objectives of HRM</h3>
+        <div class="grid2">
+          <div class="mini-card"><h4>Organizational</h4><p>Achieve corporate goals; effective use of human talent</p></div>
+          <div class="mini-card"><h4>Functional</h4><p>Maintain HR contribution at appropriate level</p></div>
+          <div class="mini-card"><h4>Societal</h4><p>Respond ethically to society's needs and challenges</p></div>
+          <div class="mini-card"><h4>Personal</h4><p>Help employees achieve personal goals to motivate them</p></div>
+        </div>
+        <h3>Functions of HRM</h3>
+        <table>
+          <tr><th>Managerial Functions</th><th>Operative Functions</th></tr>
+          <tr><td>Planning</td><td>Recruitment &amp; Selection</td></tr>
+          <tr><td>Organizing</td><td>Training &amp; Development</td></tr>
+          <tr><td>Directing</td><td>Performance Appraisal</td></tr>
+          <tr><td>Controlling</td><td>Compensation &amp; Benefits</td></tr>
+        </table>
+        <h3>HRM vs. Personnel Management</h3>
+        <table>
+          <tr><th>HRM</th><th>Personnel Management</th></tr>
+          <tr><td>Strategic, proactive</td><td>Administrative, reactive</td></tr>
+          <tr><td>Employees = assets</td><td>Employees = costs</td></tr>
+          <tr><td>Long-term focus</td><td>Short-term focus</td></tr>
+          <tr><td>Integrated with strategy</td><td>Separate department</td></tr>
+        </table>
+        <div class="exam-box"><strong>⭐ Exam Point:</strong> The difference between HRM and Personnel Management is a very frequently asked 5-mark question. Memorize the table above.</div>
+        <h3>Importance of HRM</h3>
+        <ul>
+          <li>Helps attract and retain talent</li>
+          <li>Improves productivity and performance</li>
+          <li>Ensures legal compliance</li>
+          <li>Builds positive organizational culture</li>
+          <li>Manages change effectively</li>
+        </ul>
+        <div class="tip-box"><strong>🧠 Memory Trick:</strong> HRM functions = <strong>PRSATC</strong> — Planning, Recruitment, Selection, Appraisal, Training, Compensation</div>
+        <h3>Real-World Example</h3>
+        <p>Infosys has a dedicated HRM team that handles recruitment (campus drives), training (Mysuru campus), performance management, and compensation — all aligned with their business strategy. This is modern HRM in action.</p>
+        <div class="keyword-list">
+          <span class="kw">Human Capital</span><span class="kw">Personnel Management</span><span class="kw">Strategic HRM</span><span class="kw">Talent Management</span><span class="kw">Workforce Planning</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOPIC 2 -->
+    <div class="topic-card">
+      <div class="topic-header" onclick="toggle(this)">
+        <h2>2. Line Managers &amp; HR</h2>
+        <span class="topic-num">Topic 02</span>
+      </div>
+      <div class="topic-body">
+        <div class="def-box"><strong>Line Manager:</strong> A manager directly responsible for achieving organizational goals and managing employees in their team. They are the first point of contact between management and workers.</div>
+        <h3>Role of Line Managers in HRM</h3>
+        <ul>
+          <li>Interviewing and selecting new hires</li>
+          <li>Orienting and training employees</li>
+          <li>Setting performance targets</li>
+          <li>Conducting performance appraisals</li>
+          <li>Handling grievances and discipline</li>
+          <li>Ensuring safe working conditions</li>
+          <li>Communicating HR policies to staff</li>
+        </ul>
+        <h3>Line vs. Staff Authority</h3>
+        <table>
+          <tr><th>Line Authority</th><th>Staff Authority</th></tr>
+          <tr><td>Direct command over subordinates</td><td>Advisory role only</td></tr>
+          <tr><td>Accountable for production</td><td>Supports line managers</td></tr>
+          <tr><td>Example: Production Manager</td><td>Example: HR Manager</td></tr>
+        </table>
+        <h3>Why Line Managers Matter for HR</h3>
+        <p>HR policies are made by the HR department but <em>implemented</em> by line managers. If a line manager doesn't follow the appraisal process, the HR policy fails. Therefore, HR and line managers must work as partners.</p>
+        <div class="exam-box"><strong>⭐ Exam Point:</strong> "Line managers are the real implementers of HR policy." Explain this with examples in 5-mark answers.</div>
+        <div class="tip-box"><strong>🧠 Memory Trick:</strong> Line Manager = <strong>SOPPED</strong> — Selection, Orientation, Performance, Planning, Employee relations, Discipline</div>
+        <div class="keyword-list">
+          <span class="kw">Line Authority</span><span class="kw">Staff Authority</span><span class="kw">Delegation</span><span class="kw">Accountability</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOPIC 3 -->
+    <div class="topic-card">
+      <div class="topic-header" onclick="toggle(this)">
+        <h2>3. HR Roles &amp; Responsibilities</h2>
+        <span class="topic-num">Topic 03</span>
+      </div>
+      <div class="topic-body">
+        <div class="def-box"><strong>HR Roles:</strong> The various capacities in which an HR professional operates to add value to the organization — from administrative expert to strategic partner.</div>
+        <h3>Dave Ulrich's HR Role Model (4 Roles)</h3>
+        <table>
+          <tr><th>Role</th><th>Focus</th><th>Activity</th></tr>
+          <tr><td>Strategic Partner</td><td>Long-term / Strategic</td><td>Aligns HR with business goals</td></tr>
+          <tr><td>Administrative Expert</td><td>Short-term / Operational</td><td>Manages HR processes efficiently</td></tr>
+          <tr><td>Employee Champion</td><td>People</td><td>Listens to and advocates for employees</td></tr>
+          <tr><td>Change Agent</td><td>Transformation</td><td>Drives organizational change</td></tr>
+        </table>
+        <div class="exam-box"><strong>⭐ Exam Point:</strong> Dave Ulrich's 4-role model is extremely important. Draw a 2×2 matrix with axes: Future/Strategic vs. Day-to-day/Operational and People vs. Process.</div>
+        <h3>Key HR Responsibilities</h3>
+        <div class="grid2">
+          <div class="mini-card"><h4>Staffing</h4><p>Job analysis, recruitment, selection, placement, orientation</p></div>
+          <div class="mini-card"><h4>Development</h4><p>Training, career planning, performance management</p></div>
+          <div class="mini-card"><h4>Compensation</h4><p>Pay, benefits, incentives, job evaluation</p></div>
+          <div class="mini-card"><h4>Employee Relations</h4><p>Safety, health, grievance, discipline, union relations</p></div>
+        </div>
+        <h3>Modern HR Competencies (SHRM Model)</h3>
+        <ul>
+          <li>HR Expertise (Technical knowledge)</li>
+          <li>Business Acumen (Understanding business)</li>
+          <li>Relationship Management</li>
+          <li>Ethical Practice</li>
+          <li>Communication skills</li>
+          <li>Leadership &amp; Navigation</li>
+        </ul>
+        <div class="keyword-list">
+          <span class="kw">Dave Ulrich</span><span class="kw">Strategic Partner</span><span class="kw">Change Agent</span><span class="kw">SHRM</span><span class="kw">HR Competencies</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOPIC 4 -->
+    <div class="topic-card">
+      <div class="topic-header" onclick="toggle(this)">
+        <h2>4. New Approaches to Organizing HR</h2>
+        <span class="topic-num">Topic 04</span>
+      </div>
+      <div class="topic-body">
+        <div class="def-box"><strong>New HR Organization:</strong> Modern ways of structuring the HR function to make it more efficient, strategic, and responsive — moving away from traditional centralized HR departments.</div>
+        <h3>Traditional vs. New HR Structure</h3>
+        <table>
+          <tr><th>Traditional HR</th><th>New/Modern HR</th></tr>
+          <tr><td>Centralized department</td><td>Decentralized / Shared services</td></tr>
+          <tr><td>Generalists only</td><td>Specialists + Generalists</td></tr>
+          <tr><td>Paper-based processes</td><td>Technology-driven (HRIS)</td></tr>
+          <tr><td>Cost center</td><td>Strategic business partner</td></tr>
+        </table>
+        <h3>Three-Legged Stool Model (Ulrich)</h3>
+        <ul>
+          <li><strong>Shared Service Centers (SSC):</strong> Handle routine HR tasks centrally (payroll, leave) — reduces cost</li>
+          <li><strong>Centers of Excellence (COE):</strong> Specialists in areas like recruitment, L&amp;D, compensation design</li>
+          <li><strong>HR Business Partners (HRBP):</strong> Embedded in business units to provide strategic HR support</li>
+        </ul>
+        <div class="exam-box"><strong>⭐ Exam Point:</strong> The three-legged stool (SSC + COE + HRBP) is a key concept. Explain each leg with examples.</div>
+        <h3>Other Modern Approaches</h3>
+        <ul>
+          <li><strong>Outsourcing:</strong> Third-party handles payroll, recruitment (e.g., Randstad, TeamLease in India)</li>
+          <li><strong>e-HR:</strong> Self-service portals for employees and managers</li>
+          <li><strong>Agile HR:</strong> Flexible, iterative HR practices adopted from software industry</li>
+          <li><strong>People Analytics:</strong> Data-driven HR decisions</li>
+        </ul>
+        <div class="keyword-list">
+          <span class="kw">Shared Services</span><span class="kw">HRBP</span><span class="kw">Center of Excellence</span><span class="kw">Outsourcing</span><span class="kw">Agile HR</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOPIC 5 -->
+    <div class="topic-card">
+      <div class="topic-header" onclick="toggle(this)">
+        <h2>5. Globalization &amp; Competition Trends</h2>
+        <span class="topic-num">Topic 05</span>
+      </div>
+      <div class="topic-body">
+        <div class="def-box"><strong>Globalization:</strong> The increasing integration of economies, cultures, and markets worldwide, creating both opportunities and challenges for HR management.</div>
+        <h3>Impact of Globalization on HRM</h3>
+        <ul>
+          <li>Need to manage multicultural workforce</li>
+          <li>Expatriate management (sending employees abroad)</li>
+          <li>Cross-cultural training becomes essential</li>
+          <li>Standardized vs. localized HR practices</li>
+          <li>Global talent acquisition</li>
+          <li>Compliance with international labor laws</li>
+        </ul>
+        <h3>Competitive Trends Affecting HRM</h3>
+        <table>
+          <tr><th>Trend</th><th>HR Challenge</th><th>HR Response</th></tr>
+          <tr><td>Global competition</td><td>Need for skilled talent</td><td>Aggressive recruitment, L&amp;D</td></tr>
+          <tr><td>Cost pressure</td><td>Reducing HR costs</td><td>Outsourcing, automation</td></tr>
+          <tr><td>Customer focus</td><td>Service culture</td><td>Training on customer skills</td></tr>
+          <tr><td>Speed</td><td>Fast hiring, fast adaption</td><td>Lean HR processes</td></tr>
+        </table>
+        <h3>International HRM Approaches</h3>
+        <ul>
+          <li><strong>Ethnocentric:</strong> Home-country nationals fill key positions abroad</li>
+          <li><strong>Polycentric:</strong> Host-country nationals manage local operations</li>
+          <li><strong>Geocentric:</strong> Best person for the job, regardless of nationality</li>
+        </ul>
+        <div class="tip-box"><strong>🧠 Memory Trick:</strong> EPG = Ethnocentric (Home), Polycentric (Host), Geocentric (Global Best)</div>
+        <p><strong>Real-World Example:</strong> TCS operates in 50+ countries. It must manage diverse workforces, comply with local labor laws, and maintain a consistent company culture — all key globalization challenges for HR.</p>
+        <div class="keyword-list">
+          <span class="kw">Globalization</span><span class="kw">Expatriate</span><span class="kw">EPG Model</span><span class="kw">Cross-cultural Training</span><span class="kw">International HRM</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOPIC 6 -->
+    <div class="topic-card">
+      <div class="topic-header" onclick="toggle(this)">
+        <h2>6. Technological Trends</h2>
+        <span class="topic-num">Topic 06</span>
+      </div>
+      <div class="topic-body">
+        <div class="def-box"><strong>Technology in HRM:</strong> The use of digital tools, software, AI, and automation to enhance HR processes — making them faster, more accurate, and more strategic.</div>
+        <h3>Key Technologies in Modern HRM</h3>
+        <table>
+          <tr><th>Technology</th><th>Application in HR</th></tr>
+          <tr><td>Artificial Intelligence (AI)</td><td>Resume screening, chatbots for recruitment</td></tr>
+          <tr><td>Big Data &amp; Analytics</td><td>Predicting turnover, performance analysis</td></tr>
+          <tr><td>Cloud Computing</td><td>Remote access to HR systems (SAP SuccessFactors)</td></tr>
+          <tr><td>Mobile HR</td><td>Employee self-service on smartphones</td></tr>
+          <tr><td>Social Media</td><td>LinkedIn recruitment, employer branding</td></tr>
+          <tr><td>Blockchain</td><td>Verifying candidate credentials</td></tr>
+          <tr><td>Gamification</td><td>Training, employee engagement</td></tr>
+        </table>
+        <h3>Benefits of Technology in HRM</h3>
+        <ul>
+          <li>Reduces paperwork and administrative burden</li>
+          <li>Faster recruitment processes</li>
+          <li>Data-driven decision making</li>
+          <li>Better employee experience</li>
+          <li>Cost reduction</li>
+        </ul>
+        <h3>Challenges</h3>
+        <ul>
+          <li>Data privacy concerns (GDPR compliance)</li>
+          <li>Digital divide — not all employees tech-savvy</li>
+          <li>High implementation costs</li>
+          <li>Resistance to change</li>
+          <li>Over-dependence on technology</li>
+        </ul>
+        <div class="exam-box"><strong>⭐ Exam Point:</strong> "How is technology transforming HRM?" — Common 10-mark question. Cover AI, Big Data, Cloud, Mobile, Social Media with examples.</div>
+        <div class="keyword-list">
+          <span class="kw">HRIS</span><span class="kw">AI in HR</span><span class="kw">People Analytics</span><span class="kw">Automation</span><span class="kw">Digital HR</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOPIC 7 -->
+    <div class="topic-card">
+      <div class="topic-header" onclick="toggle(this)">
+        <h2>7. Trends in Nature of Work</h2>
+        <span class="topic-num">Topic 07</span>
+      </div>
+      <div class="topic-body">
+        <div class="def-box"><strong>Nature of Work Trends:</strong> Fundamental changes in how, where, when, and by whom work is performed in the modern economy.</div>
+        <h3>Major Trends</h3>
+        <table>
+          <tr><th>Trend</th><th>Meaning</th><th>HR Implication</th></tr>
+          <tr><td>Gig Economy</td><td>Freelance/contract work instead of permanent jobs</td><td>Managing non-traditional workers</td></tr>
+          <tr><td>Remote Work</td><td>Work from home / anywhere</td><td>Virtual team management</td></tr>
+          <tr><td>Hybrid Work</td><td>Mix of office and remote</td><td>Flexible policies needed</td></tr>
+          <tr><td>Automation</td><td>Machines replacing routine tasks</td><td>Reskilling programs</td></tr>
+          <tr><td>Knowledge Work</td><td>Emphasis on intellectual work</td><td>Talent development focus</td></tr>
+          <tr><td>Work-Life Balance</td><td>Employees demand flexible hours</td><td>Flexible work arrangements</td></tr>
+        </table>
+        <h3>Types of Workers Today</h3>
+        <ul>
+          <li><strong>Full-time employees</strong> — traditional permanent workers</li>
+          <li><strong>Part-time workers</strong> — fewer than 40 hours per week</li>
+          <li><strong>Contingent/Gig workers</strong> — Uber drivers, freelancers, contractors</li>
+          <li><strong>Outsourced workers</strong> — employed by a third party</li>
+        </ul>
+        <h3>HR Challenges</h3>
+        <ul>
+          <li>Ensuring fairness between full-time and gig workers</li>
+          <li>Maintaining culture in remote settings</li>
+          <li>Legal classification of gig workers</li>
+          <li>Performance management in virtual environments</li>
+        </ul>
+        <div class="tip-box"><strong>🧠 Example:</strong> Zomato uses gig workers for delivery. HR must manage their contracts, ensure minimum pay, and handle grievances — challenging without traditional employment relationship.</div>
+        <div class="keyword-list">
+          <span class="kw">Gig Economy</span><span class="kw">Remote Work</span><span class="kw">Hybrid Work</span><span class="kw">Automation</span><span class="kw">Flexible Work</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOPIC 8 -->
+    <div class="topic-card">
+      <div class="topic-header" onclick="toggle(this)">
+        <h2>8. Workforce &amp; Demographic Trends</h2>
+        <span class="topic-num">Topic 08</span>
+      </div>
+      <div class="topic-body">
+        <div class="def-box"><strong>Workforce Diversity:</strong> The increasing variety in the composition of the workforce in terms of age, gender, ethnicity, skills, and culture.</div>
+        <h3>Key Demographic Trends</h3>
+        <table>
+          <tr><th>Trend</th><th>Impact on HRM</th></tr>
+          <tr><td>Multi-generational workforce</td><td>Managing different values and work styles</td></tr>
+          <tr><td>Aging workforce</td><td>Knowledge retention, succession planning</td></tr>
+          <tr><td>Increasing women in workforce</td><td>Maternity policies, gender pay equity</td></tr>
+          <tr><td>Rising education levels</td><td>Higher employee expectations</td></tr>
+          <tr><td>Diversity (caste, religion, region)</td><td>Inclusion policies in India</td></tr>
+        </table>
+        <h3>Generations in the Workforce</h3>
+        <table>
+          <tr><th>Generation</th><th>Birth Years</th><th>Work Traits</th></tr>
+          <tr><td>Baby Boomers</td><td>1946–1964</td><td>Loyal, work-centric, prefer stability</td></tr>
+          <tr><td>Gen X</td><td>1965–1980</td><td>Independent, balanced, tech-savvy</td></tr>
+          <tr><td>Millennials (Gen Y)</td><td>1981–1996</td><td>Purpose-driven, collaborative, digital</td></tr>
+          <tr><td>Gen Z</td><td>1997–2012</td><td>Entrepreneurial, hyper-connected, values flexibility</td></tr>
+        </table>
+        <h3>Managing Diversity — HR Strategies</h3>
+        <ul>
+          <li>Diversity training programs</li>
+          <li>Inclusive hiring practices</li>
+          <li>Mentoring and sponsorship programs</li>
+          <li>Flexible work arrangements</li>
+          <li>Zero tolerance for discrimination</li>
+        </ul>
+        <div class="exam-box"><strong>⭐ Exam Point:</strong> "Managing a multi-generational workforce" is a popular 10-mark topic. Use the generation table above and explain strategies.</div>
+        <div class="keyword-list">
+          <span class="kw">Diversity</span><span class="kw">Inclusion</span><span class="kw">Multi-generational</span><span class="kw">Baby Boomers</span><span class="kw">Millennials</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOPIC 9 -->
+    <div class="topic-card">
+      <div class="topic-header" onclick="toggle(this)">
+        <h2>9. Economic Challenges</h2>
+        <span class="topic-num">Topic 09</span>
+      </div>
+      <div class="topic-body">
+        <div class="def-box"><strong>Economic Challenges in HRM:</strong> External economic factors that affect how organizations manage their human resources, including recession, inflation, unemployment, and economic reforms.</div>
+        <h3>Major Economic Challenges</h3>
+        <table>
+          <tr><th>Economic Factor</th><th>HR Impact</th><th>HR Response</th></tr>
+          <tr><td>Recession/Economic slowdown</td><td>Layoffs, pay cuts, hiring freeze</td><td>Downsizing, cost optimization</td></tr>
+          <tr><td>Inflation</td><td>Demand for higher wages</td><td>Compensation review, variable pay</td></tr>
+          <tr><td>Unemployment</td><td>Talent availability increases</td><td>Selective hiring, skill assessment</td></tr>
+          <tr><td>Labour shortage</td><td>Difficulty filling roles</td><td>Employer branding, upskilling</td></tr>
+          <tr><td>Economic liberalization</td><td>MNCs entering India</td><td>Competitive pay, global practices</td></tr>
+        </table>
+        <h3>HR Strategies During Economic Downturn</h3>
+        <ul>
+          <li>Downsizing (reducing workforce size)</li>
+          <li>Voluntary retirement schemes (VRS)</li>
+          <li>Freezing increments temporarily</li>
+          <li>Retraining and redeployment of employees</li>
+          <li>Outsourcing non-core activities</li>
+        </ul>
+        <h3>HR Strategies During Economic Growth</h3>
+        <ul>
+          <li>Aggressive talent acquisition</li>
+          <li>Retention programs and competitive pay</li>
+          <li>Succession planning</li>
+          <li>Employee development investments</li>
+        </ul>
+        <div class="tip-box"><strong>🧠 Indian Context:</strong> During COVID-19 (2020), Indian companies used VRS, pay cuts, and remote work to cope. Post-COVID growth saw talent wars and the "Great Resignation" phenomenon.</div>
+        <div class="keyword-list">
+          <span class="kw">Downsizing</span><span class="kw">VRS</span><span class="kw">Recession</span><span class="kw">Labour Market</span><span class="kw">Cost Optimization</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOPIC 10 -->
+    <div class="topic-card">
+      <div class="topic-header" onclick="toggle(this)">
+        <h2>10. High Performance Work Systems (HPWS)</h2>
+        <span class="topic-num">Topic 10</span>
+      </div>
+      <div class="topic-body">
+        <div class="def-box"><strong>HPWS:</strong> A set of HR practices designed to enhance employee skills, motivation, and opportunity to contribute, leading to superior organizational performance.</div>
+        <h3>Components of HPWS (AMO Model)</h3>
+        <table>
+          <tr><th>Element</th><th>Full Form</th><th>HR Practice</th></tr>
+          <tr><td>A</td><td>Ability</td><td>Rigorous selection, training programs</td></tr>
+          <tr><td>M</td><td>Motivation</td><td>Performance-based pay, recognition</td></tr>
+          <tr><td>O</td><td>Opportunity</td><td>Employee involvement, empowerment</td></tr>
+        </table>
+        <h3>Key Practices in HPWS</h3>
+        <ul>
+          <li>Selective hiring (hire the best)</li>
+          <li>Extensive training and development</li>
+          <li>Performance-based compensation</li>
+          <li>Employee empowerment and participation</li>
+          <li>Self-managed teams</li>
+          <li>Open information sharing</li>
+          <li>Clear job descriptions and roles</li>
+          <li>Reduced status distinctions</li>
+        </ul>
+        <h3>Benefits of HPWS</h3>
+        <div class="grid2">
+          <div class="mini-card"><h4>For Organization</h4><ul><li>Higher productivity</li><li>Lower turnover</li><li>Better quality</li><li>Innovation</li></ul></div>
+          <div class="mini-card"><h4>For Employees</h4><ul><li>Greater autonomy</li><li>Skill development</li><li>Higher job satisfaction</li><li>Better pay</li></ul></div>
+        </div>
+        <div class="exam-box"><strong>⭐ Exam Point:</strong> HPWS is a critical topic. Remember AMO = Ability + Motivation + Opportunity. Real-world example: Google's HR practices (hiring top talent, 20% projects, generous benefits) = HPWS.</div>
+        <div class="tip-box"><strong>🧠 Memory Trick:</strong> HPWS practices = <strong>STEP-OCI</strong> — Selection, Training, Empowerment, Pay, Open info, Clear roles, Involvement</div>
+        <div class="keyword-list">
+          <span class="kw">AMO Model</span><span class="kw">Employee Empowerment</span><span class="kw">High Performance</span><span class="kw">Best Practices</span><span class="kw">Performance-based Pay</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOPIC 11 -->
+    <div class="topic-card">
+      <div class="topic-header" onclick="toggle(this)">
+        <h2>11. Labour Legislation in India</h2>
+        <span class="topic-num">Topic 11</span>
+      </div>
+      <div class="topic-body">
+        <div class="def-box"><strong>Labour Legislation:</strong> Laws enacted by the government to regulate the relationship between employers and employees, ensure fair treatment, and maintain industrial peace.</div>
+        <h3>Major Labour Laws in India</h3>
+        <table>
+          <tr><th>Law</th><th>Year</th><th>Key Provision</th></tr>
+          <tr><td>The Factories Act</td><td>1948</td><td>Safety, health, welfare of factory workers; max 48 hrs/week</td></tr>
+          <tr><td>Industrial Disputes Act</td><td>1947</td><td>Regulates strikes, lockouts, layoffs, retrenchment</td></tr>
+          <tr><td>Payment of Wages Act</td><td>1936</td><td>Timely payment of wages, no unauthorized deductions</td></tr>
+          <tr><td>Minimum Wages Act</td><td>1948</td><td>Sets minimum wages for various categories of workers</td></tr>
+          <tr><td>Employees' Provident Fund Act</td><td>1952</td><td>12% of basic salary to PF; social security for workers</td></tr>
+          <tr><td>Payment of Gratuity Act</td><td>1972</td><td>Gratuity after 5 years of service (15 days salary/year)</td></tr>
+          <tr><td>Employees' State Insurance Act</td><td>1948</td><td>Medical &amp; cash benefits for low-wage workers (ESI)</td></tr>
+          <tr><td>Maternity Benefit Act</td><td>1961 (amended 2017)</td><td>26 weeks paid maternity leave for women</td></tr>
+          <tr><td>Payment of Bonus Act</td><td>1965</td><td>Minimum 8.33% bonus; maximum 20% of salary</td></tr>
+          <tr><td>Equal Remuneration Act</td><td>1976</td><td>Equal pay for equal work regardless of gender</td></tr>
+        </table>
+        <h3>Four Labour Codes (2020 Reform)</h3>
+        <p>The Indian government consolidated 29 labour laws into 4 comprehensive codes:</p>
+        <ul>
+          <li><strong>Code on Wages (2019)</strong> — covers minimum wages, payment of wages, bonus</li>
+          <li><strong>Industrial Relations Code (2020)</strong> — covers trade unions, industrial disputes</li>
+          <li><strong>Code on Social Security (2020)</strong> — covers EPF, ESI, gratuity</li>
+          <li><strong>Occupational Safety, Health &amp; Working Conditions Code (2020)</strong> — replaces Factories Act</li>
+        </ul>
+        <div class="exam-box"><strong>⭐ Exam Point:</strong> The table of major Indian labour laws is very important. Memorize the year, act name, and key provision. The 4 new labour codes are also relevant.</div>
+        <div class="tip-box"><strong>🧠 Memory Trick for Years:</strong> Factories=1948, ID Act=1947, Wages=1936, Min Wages=1948, EPF=1952, Gratuity=1972, ESI=1948, Maternity=1961, Bonus=1965, Equal Rem=1976</div>
+        <div class="keyword-list">
+          <span class="kw">Factories Act</span><span class="kw">ID Act</span><span class="kw">EPF</span><span class="kw">Gratuity</span><span class="kw">ESI</span><span class="kw">Labour Codes</span><span class="kw">Maternity Leave</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOPIC 12 -->
+    <div class="topic-card">
+      <div class="topic-header" onclick="toggle(this)">
+        <h2>12. Equal Employment Opportunity (EEO)</h2>
+        <span class="topic-num">Topic 12</span>
+      </div>
+      <div class="topic-body">
+        <div class="def-box"><strong>EEO:</strong> The principle that all employees and job applicants should have equal opportunities in employment without discrimination based on race, caste, gender, religion, disability, or age.</div>
+        <h3>Types of Discrimination</h3>
+        <table>
+          <tr><th>Type</th><th>Definition</th><th>Example</th></tr>
+          <tr><td>Disparate Treatment</td><td>Intentional discrimination against a protected group</td><td>Refusing to hire women for certain roles</td></tr>
+          <tr><td>Disparate Impact</td><td>Neutral policy that unintentionally harms a group</td><td>Height requirement excluding most women</td></tr>
+          <tr><td>Sexual Harassment</td><td>Unwelcome sexual conduct in workplace</td><td>POSH Act in India covers this</td></tr>
+        </table>
+        <h3>EEO in Indian Context</h3>
+        <ul>
+          <li><strong>Article 14, 15, 16</strong> of Constitution — Right to Equality</li>
+          <li><strong>Reservation Policy</strong> — SC/ST/OBC reservations in public sector</li>
+          <li><strong>Equal Remuneration Act (1976)</strong> — Equal pay for equal work</li>
+          <li><strong>POSH Act (2013)</strong> — Prevention, Prohibition and Redressal of Sexual Harassment at Workplace</li>
+          <li><strong>Rights of Persons with Disabilities Act (2016)</strong> — 5% reservation in government jobs</li>
+        </ul>
+        <h3>Affirmative Action</h3>
+        <p>Proactive steps taken by organizations to increase representation of minorities or disadvantaged groups. In India, this means reservations; in the US, it means preferential hiring of minorities.</p>
+        <h3>HR's Role in EEO</h3>
+        <ul>
+          <li>Design bias-free job descriptions</li>
+          <li>Train hiring managers on unconscious bias</li>
+          <li>Maintain diversity metrics</li>
+          <li>Establish grievance redressal mechanisms</li>
+          <li>Implement POSH policy and ICC committee</li>
+        </ul>
+        <div class="exam-box"><strong>⭐ Exam Point:</strong> Explain Disparate Treatment vs. Disparate Impact. Also explain POSH Act 2013 as a mandatory topic for EEO in India.</div>
+        <div class="keyword-list">
+          <span class="kw">EEO</span><span class="kw">Disparate Treatment</span><span class="kw">POSH Act</span><span class="kw">Affirmative Action</span><span class="kw">Reservations</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOPIC 13 -->
+    <div class="topic-card">
+      <div class="topic-header" onclick="toggle(this)">
+        <h2>13. HR Scorecard</h2>
+        <span class="topic-num">Topic 13</span>
+      </div>
+      <div class="topic-body">
+        <div class="def-box"><strong>HR Scorecard:</strong> A measurement tool that links HR activities and outcomes to the organization's strategic goals using key performance indicators (KPIs) — adapted from the Balanced Scorecard (BSC) by Kaplan &amp; Norton.</div>
+        <h3>Origin — Balanced Scorecard (BSC)</h3>
+        <p>Developed by Kaplan &amp; Norton (1992) for measuring overall business performance from four perspectives:</p>
+        <ul>
+          <li>Financial — "How do we look to shareholders?"</li>
+          <li>Customer — "How do customers see us?"</li>
+          <li>Internal Process — "What must we excel at?"</li>
+          <li>Learning &amp; Growth — "How can we improve?"</li>
+        </ul>
+        <h3>HR Scorecard — 4 Perspectives Applied to HR</h3>
+        <table>
+          <tr><th>Perspective</th><th>HR Metric Example</th></tr>
+          <tr><td>Financial</td><td>Cost per hire, Training ROI, Revenue per employee</td></tr>
+          <tr><td>Customer (Internal)</td><td>Employee satisfaction score, manager satisfaction with HR</td></tr>
+          <tr><td>Internal Process</td><td>Time to fill vacancy, onboarding cycle time</td></tr>
+          <tr><td>Learning &amp; Growth</td><td>Training hours per employee, % of succession plan filled</td></tr>
+        </table>
+        <h3>Benefits of HR Scorecard</h3>
+        <ul>
+          <li>Links HR to business strategy</li>
+          <li>Makes HR contribution measurable</li>
+          <li>Helps identify gaps in HR performance</li>
+          <li>Supports data-driven decisions</li>
+          <li>Justifies HR investments to top management</li>
+        </ul>
+        <h3>Steps to Build an HR Scorecard</h3>
+        <ol>
+          <li>Understand organizational strategy</li>
+          <li>Identify critical HR deliverables</li>
+          <li>Create HR system map (activities → outcomes)</li>
+          <li>Design HR metrics for each deliverable</li>
+          <li>Implement measurement and feedback system</li>
+        </ol>
+        <div class="exam-box"><strong>⭐ Exam Point:</strong> "What is HR Scorecard? How is it linked to the Balanced Scorecard?" Very common 10-mark question. Draw the 4-quadrant BSC diagram and map HR metrics to each quadrant.</div>
+        <div class="keyword-list">
+          <span class="kw">Balanced Scorecard</span><span class="kw">KPI</span><span class="kw">HR Metrics</span><span class="kw">Kaplan Norton</span><span class="kw">Strategic HR</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOPIC 14 -->
+    <div class="topic-card">
+      <div class="topic-header" onclick="toggle(this)">
+        <h2>14. Human Resource Information System (HRIS)</h2>
+        <span class="topic-num">Topic 14</span>
+      </div>
+      <div class="topic-body">
+        <div class="def-box"><strong>HRIS:</strong> A software or computerized system used to collect, store, manage, and process employee data and HR information, enabling efficient and data-driven HR management.</div>
+        <h3>Functions of HRIS</h3>
+        <table>
+          <tr><th>Function Area</th><th>HRIS Capabilities</th></tr>
+          <tr><td>Employee Records</td><td>Personal data, employment history, documents</td></tr>
+          <tr><td>Payroll</td><td>Salary calculation, tax deductions, pay slips</td></tr>
+          <tr><td>Recruitment</td><td>Job postings, applicant tracking (ATS)</td></tr>
+          <tr><td>Training</td><td>Learning management systems (LMS)</td></tr>
+          <tr><td>Performance</td><td>Goal setting, appraisal forms, feedback</td></tr>
+          <tr><td>Leave Management</td><td>Leave applications, balance tracking</td></tr>
+          <tr><td>Reporting &amp; Analytics</td><td>Dashboards, HR metrics, compliance reports</td></tr>
+        </table>
+        <h3>Types of HRIS</h3>
+        <ul>
+          <li><strong>Operational HRIS:</strong> Day-to-day employee record keeping</li>
+          <li><strong>Tactical HRIS:</strong> Supports decisions like recruitment and training planning</li>
+          <li><strong>Strategic HRIS:</strong> Links HR data to strategic planning and workforce planning</li>
+        </ul>
+        <h3>Popular HRIS Software</h3>
+        <ul>
+          <li>SAP SuccessFactors (used by large Indian companies)</li>
+          <li>Workday (global enterprises)</li>
+          <li>Darwinbox (India-focused, used by Myntra, Flipkart)</li>
+          <li>Keka HR (popular with Indian SMEs)</li>
+          <li>Zoho People</li>
+        </ul>
+        <h3>Advantages of HRIS</h3>
+        <div class="grid2">
+          <div class="mini-card"><h4>Advantages</h4><ul><li>Reduces paperwork</li><li>Quick data retrieval</li><li>Real-time reporting</li><li>Reduces errors</li><li>Employee self-service</li></ul></div>
+          <div class="mini-card"><h4>Disadvantages</h4><ul><li>High implementation cost</li><li>Data security risks</li><li>Requires training</li><li>System downtime risk</li><li>Resistance from staff</li></ul></div>
+        </div>
+        <div class="exam-box"><strong>⭐ Exam Point:</strong> HRIS is a very important topic. Questions often ask: define HRIS, explain functions, advantages and disadvantages, and name software examples. Also link HRIS to HR Scorecard.</div>
+        <div class="tip-box"><strong>🧠 Memory Trick:</strong> HRIS functions = <strong>EPTLPR</strong> — Employee records, Payroll, Training, Leave, Performance, Reporting</div>
+        <div class="keyword-list">
+          <span class="kw">HRIS</span><span class="kw">HRMS</span><span class="kw">ATS</span><span class="kw">LMS</span><span class="kw">SAP SuccessFactors</span><span class="kw">Darwinbox</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: QUESTIONS -->
+  <div id="sec-questions" class="section">
+    <h2 style="font-size:18px; font-weight:500; margin-bottom:1rem;">Important University Exam Questions</h2>
+
+    <h3 style="margin-bottom:0.5rem; color:var(--color-text-success);">2-Mark Questions (Define / State)</h3>
+
+    <div class="q-block"><div class="q-head" onclick="toggleQ(this)">What is HRM? <span class="q-mark">2 marks</span></div><div class="q-body">HRM (Human Resource Management) is the process of planning, recruiting, selecting, training, appraising, compensating, and maintaining employees to achieve organizational goals effectively and efficiently.</div></div>
+
+    <div class="q-block"><div class="q-head" onclick="toggleQ(this)">Define Line Manager. <span class="q-mark">2 marks</span></div><div class="q-body">A line manager is a person who directly manages and supervises a group of employees to achieve specific organizational goals. They have direct authority over their team members and are accountable for the team's performance.</div></div>
+
+    <div class="q-block"><div class="q-head" onclick="toggleQ(this)">What is HRIS? <span class="q-mark">2 marks</span></div><div class="q-body">HRIS (Human Resource Information System) is a computerized system used to collect, store, manage, and process employee data and HR-related information to support HR decision-making and administrative functions.</div></div>
+
+    <div class="q-block"><div class="q-head" onclick="toggleQ(this)">What is Equal Employment Opportunity (EEO)? <span class="q-mark">2 marks</span></div><div class="q-body">EEO means that all individuals should have equal access to employment opportunities without discrimination based on race, gender, religion, caste, disability, or age. In India, it is supported by Articles 14, 15, and 16 of the Constitution.</div></div>
+
+    <div class="q-block"><div class="q-head" onclick="toggleQ(this)">What is HPWS? <span class="q-mark">2 marks</span></div><div class="q-body">High Performance Work Systems (HPWS) are integrated sets of HR practices designed to maximize employee Ability, Motivation, and Opportunity (AMO model) to contribute, resulting in superior organizational performance.</div></div>
+
+    <div class="q-block"><div class="q-head" onclick="toggleQ(this)">State any two Indian Labour Laws. <span class="q-mark">2 marks</span></div><div class="q-body">1. The Factories Act, 1948 — governs health, safety, and welfare of workers in factories; limits working hours to 48 per week. 2. The Payment of Gratuity Act, 1972 — mandates payment of gratuity to employees after 5 years of continuous service at 15 days' salary per year.</div></div>
+
+    <h3 style="margin-bottom:0.5rem; margin-top:1.5rem; color:var(--color-text-warning);">5-Mark Questions (Explain / Discuss)</h3>
+
+    <div class="q-block"><div class="q-head" onclick="toggleQ(this)">Differentiate between HRM and Personnel Management. <span class="q-mark">5 marks</span></div><div class="q-body"><strong>HRM vs. Personnel Management</strong><br><br>
+Personnel Management (PM) is the traditional, administrative approach to managing employees, while HRM is the modern, strategic approach. Key differences:<br><br>
+1. <strong>Nature:</strong> PM is reactive and administrative; HRM is proactive and strategic.<br>
+2. <strong>Employee view:</strong> PM treats employees as a cost; HRM treats them as assets and human capital.<br>
+3. <strong>Focus:</strong> PM focuses on compliance and control; HRM focuses on employee development and engagement.<br>
+4. <strong>Time horizon:</strong> PM is short-term; HRM is long-term.<br>
+5. <strong>Integration:</strong> PM is a separate department; HRM is integrated with overall business strategy.<br>
+6. <strong>Communication:</strong> PM is indirect, top-down; HRM encourages direct, open communication.<br><br>
+Example: A PM approach would focus on keeping attendance records. An HRM approach would analyze attendance patterns and design flexible work policies to improve engagement.</div></div>
+
+    <div class="q-block"><div class="q-head" onclick="toggleQ(this)">Explain Dave Ulrich's HR Role Model. <span class="q-mark">5 marks</span></div><div class="q-body"><strong>Dave Ulrich's 4-Role Model of HR</strong><br><br>
+Dave Ulrich proposed that HR professionals must play four key roles to add value:<br><br>
+1. <strong>Strategic Partner:</strong> Aligns HR strategies with business goals. Works with senior management on long-term planning. Example: Creating a talent pipeline for the company's 5-year expansion plan.<br><br>
+2. <strong>Administrative Expert:</strong> Ensures HR processes are efficient and cost-effective. Manages payroll, compliance, and routine HR administration. Example: Digitizing leave management system.<br><br>
+3. <strong>Employee Champion:</strong> Listens to employees, addresses their concerns, and ensures their well-being and motivation. Example: Conducting employee engagement surveys and acting on feedback.<br><br>
+4. <strong>Change Agent:</strong> Helps the organization adapt to change by managing transformation programs. Example: Leading the transition to remote work during COVID-19.<br><br>
+These four roles are often shown in a 2×2 matrix with axes: Future/Strategic vs. Day-to-day/Operational, and People vs. Process.</div></div>
+
+    <div class="q-block"><div class="q-head" onclick="toggleQ(this)">Explain the concept of High Performance Work Systems (HPWS). <span class="q-mark">5 marks</span></div><div class="q-body"><strong>High Performance Work Systems (HPWS)</strong><br><br>
+HPWS is a set of integrated HR practices designed to enhance employee performance and organizational effectiveness. It is based on the AMO theory: employees perform well when they have the Ability, Motivation, and Opportunity.<br><br>
+<strong>Key Practices of HPWS:</strong><br>
+1. <strong>Selective Hiring:</strong> Rigorous selection to hire the most capable candidates.<br>
+2. <strong>Extensive Training:</strong> Continuous skill development programs.<br>
+3. <strong>Performance-based Pay:</strong> Bonuses and incentives linked to results.<br>
+4. <strong>Employee Empowerment:</strong> Giving employees authority to make decisions.<br>
+5. <strong>Open Information Sharing:</strong> Transparency in organizational goals and performance.<br>
+6. <strong>Team-based Work:</strong> Use of self-managed or cross-functional teams.<br><br>
+<strong>Benefits:</strong> Higher productivity, lower turnover, better quality, innovation, and employee satisfaction.<br><br>
+<strong>Example:</strong> Google is a classic HPWS example — rigorous hiring (only top 0.5% hired), 20% project time (empowerment), generous benefits (motivation), and transparent OKR system (open information).</div></div>
+
+    <div class="q-block"><div class="q-head" onclick="toggleQ(this)">What is the POSH Act 2013? Explain its significance for EEO. <span class="q-mark">5 marks</span></div><div class="q-body"><strong>POSH Act 2013 — Prevention of Sexual Harassment at Workplace</strong><br><br>
+The Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013, commonly known as the POSH Act, is a landmark Indian law to protect women from sexual harassment at work.<br><br>
+<strong>Key Provisions:</strong><br>
+1. Applies to all workplaces — private, public, organized and unorganized sectors.<br>
+2. Every organization with 10+ employees must have an Internal Complaints Committee (ICC).<br>
+3. ICC must have at least 50% women members and an external member from an NGO.<br>
+4. Complaints must be resolved within 90 days.<br>
+5. Employers must conduct annual awareness training.<br>
+6. Penalties for non-compliance include fines and cancellation of business license.<br><br>
+<strong>Significance for EEO:</strong> POSH Act is a critical tool for ensuring Equal Employment Opportunity by creating a safe and dignified work environment for women, which is essential for them to participate equally in the workforce.<br><br>
+<strong>Example:</strong> Wipro, TCS, and all major Indian companies have ICC committees and mandatory POSH training as part of their HR compliance programs.</div></div>
+
+    <h3 style="margin-bottom:0.5rem; margin-top:1.5rem; color:var(--color-text-danger);">10-Mark Questions (Detailed Essay)</h3>
+
+    <div class="q-block"><div class="q-head" onclick="toggleQ(this)">Explain the nature, objectives, and functions of HRM. <span class="q-mark">10 marks</span></div><div class="q-body"><strong>Introduction:</strong> HRM (Human Resource Management) is the strategic and coherent approach to the management of an organization's most valued assets — the people working there. It involves all decisions and actions that affect the relationship between the organization and its employees.<br><br>
+<strong>Nature of HRM:</strong><br>
+1. Pervasive — present in all organizations regardless of size<br>
+2. People-oriented — centers on human beings as the focus<br>
+3. Action-oriented — emphasizes practical solutions<br>
+4. Future-oriented — plans ahead for human resource needs<br>
+5. Development-oriented — continuously grows employee capabilities<br>
+6. Integrated — aligned with the overall business strategy<br><br>
+<strong>Objectives of HRM:</strong><br>
+1. <em>Organizational:</em> Help achieve corporate goals through effective human capital use<br>
+2. <em>Functional:</em> Ensure HR's contribution matches organizational needs<br>
+3. <em>Societal:</em> Meet social and ethical responsibilities toward employees and society<br>
+4. <em>Personal:</em> Help employees achieve personal goals to retain and motivate them<br><br>
+<strong>Functions of HRM:</strong><br>
+<em>Managerial Functions:</em> Planning (forecasting HR needs), Organizing (structuring HR department), Directing (guiding employees), Controlling (monitoring HR outcomes)<br><br>
+<em>Operative Functions:</em><br>
+1. Job Analysis and Job Design<br>
+2. Recruitment and Selection<br>
+3. Induction and Orientation<br>
+4. Training and Development<br>
+5. Performance Appraisal<br>
+6. Compensation and Benefits Management<br>
+7. Employee Welfare and Safety<br>
+8. Industrial Relations<br>
+9. HR Information Systems<br><br>
+<strong>Importance:</strong> HRM is critical because human resources are the only resources that can think, innovate, and adapt. Organizations that manage their people effectively gain a sustainable competitive advantage.<br><br>
+<strong>Conclusion:</strong> In the modern knowledge economy, HRM has evolved from a support function to a strategic partner. It plays a central role in ensuring that the right people with the right skills are in the right place at the right time.</div></div>
+
+    <div class="q-block"><div class="q-head" onclick="toggleQ(this)">Explain the major Labour Laws in India and their importance. <span class="q-mark">10 marks</span></div><div class="q-body"><strong>Introduction:</strong> Labour legislation in India consists of laws enacted to regulate the employer-employee relationship, protect workers' rights, ensure fair wages, and maintain industrial peace. India has one of the most comprehensive frameworks of labour law globally.<br><br>
+<strong>Major Labour Laws:</strong><br><br>
+1. <strong>The Factories Act, 1948:</strong> Regulates health, safety, and welfare in factories. Limits working hours to 9 hours/day and 48 hours/week. Mandates proper ventilation, sanitation, and safety measures.<br><br>
+2. <strong>The Industrial Disputes Act, 1947:</strong> Regulates strikes, lockouts, layoffs, and retrenchment. Requires prior government permission for layoffs in companies with 100+ workers. Provides for labour courts and tribunals.<br><br>
+3. <strong>Minimum Wages Act, 1948:</strong> Empowers the government to fix minimum wages for different categories of work. Ensures no worker is exploited by paying below subsistence wages.<br><br>
+4. <strong>Payment of Wages Act, 1936:</strong> Ensures timely payment of wages. No unauthorized deductions allowed. Wages must be paid by the 7th or 10th of the following month.<br><br>
+5. <strong>Employees' Provident Fund Act, 1952:</strong> Mandatory for organizations with 20+ employees. Both employer and employee contribute 12% of basic salary. Provides retirement and social security benefits.<br><br>
+6. <strong>Payment of Gratuity Act, 1972:</strong> Applicable after 5 years of continuous service. Calculated as 15 days' salary per year of service. Maximum gratuity is ₹20 lakhs.<br><br>
+7. <strong>Employees' State Insurance Act, 1948:</strong> Covers employees earning up to ₹21,000/month. Provides medical benefits, maternity benefits, and disability benefits. Funded by employer (3.25%) and employee (0.75%) contributions.<br><br>
+8. <strong>Maternity Benefit Act, 1961 (amended 2017):</strong> Provides 26 weeks paid maternity leave for first two children. Mandatory crèche facility for establishments with 50+ employees.<br><br>
+9. <strong>Payment of Bonus Act, 1965:</strong> Minimum bonus = 8.33% of salary; Maximum = 20%. Applicable to employees earning up to ₹21,000/month.<br><br>
+10. <strong>Equal Remuneration Act, 1976:</strong> Equal pay for equal work regardless of gender. Prohibits gender discrimination in recruitment and promotion.<br><br>
+<strong>Recent Reform — Four Labour Codes (2020):</strong> The government consolidated 29 central labour laws into 4 codes: Code on Wages, Industrial Relations Code, Social Security Code, and Occupational Safety Code. This simplifies compliance and improves ease of doing business.<br><br>
+<strong>Conclusion:</strong> Labour laws in India create a framework of rights and obligations that protect workers while also providing a predictable environment for employers. Compliance with these laws is a critical HR responsibility.</div></div>
+
+    <div class="q-block"><div class="q-head" onclick="toggleQ(this)">What is HRIS? Explain its components, types, advantages and disadvantages. <span class="q-mark">10 marks</span></div><div class="q-body"><strong>Introduction:</strong> HRIS (Human Resource Information System) is an integrated software solution that enables an organization to manage its human resources data electronically. It is the digital backbone of modern HRM.<br><br>
+<strong>Definition:</strong> HRIS is a system used to acquire, store, retrieve, and distribute information about an organization's human resources. It automates routine HR tasks while enabling data-driven strategic decisions.<br><br>
+<strong>Components of HRIS:</strong><br>
+1. <em>Employee Database:</em> Personal information, employment history, skills, qualifications<br>
+2. <em>Payroll Module:</em> Salary processing, tax deductions, pay slip generation<br>
+3. <em>Recruitment Module (ATS):</em> Job postings, application tracking, interview scheduling<br>
+4. <em>Training Module (LMS):</em> Course catalog, training schedules, completion tracking<br>
+5. <em>Performance Management Module:</em> Goal setting, appraisal forms, 360-degree feedback<br>
+6. <em>Leave Management:</em> Leave applications, approvals, balance tracking<br>
+7. <em>Analytics &amp; Reporting:</em> HR dashboards, compliance reports, workforce analytics<br><br>
+<strong>Types of HRIS:</strong><br>
+1. <em>Operational HRIS:</em> Supports day-to-day record keeping and transactions<br>
+2. <em>Tactical HRIS:</em> Supports mid-level HR decisions like recruitment planning<br>
+3. <em>Strategic HRIS:</em> Supports strategic decisions like workforce planning and succession<br><br>
+<strong>Advantages of HRIS:</strong><br>
+1. Eliminates paperwork and reduces administrative burden<br>
+2. Fast and accurate data retrieval<br>
+3. Real-time reporting and dashboards<br>
+4. Improved data accuracy — reduces human error<br>
+5. Employee and manager self-service portals<br>
+6. Better regulatory compliance and audit trails<br>
+7. Enables people analytics for strategic decisions<br><br>
+<strong>Disadvantages of HRIS:</strong><br>
+1. High initial implementation costs<br>
+2. Data security and privacy risks<br>
+3. Requires significant training for users<br>
+4. Risk of system downtime affecting operations<br>
+5. Resistance to change from employees and managers<br>
+6. Ongoing maintenance and upgrade costs<br><br>
+<strong>Popular HRIS in India:</strong> SAP SuccessFactors, Darwinbox, Keka HR, Zoho People, Workday<br><br>
+<strong>Conclusion:</strong> HRIS has transformed HRM from a paper-based, reactive function to a digital, proactive, and strategic one. In today's competitive environment, organizations that leverage HRIS effectively gain significant advantages in talent management and decision-making.</div></div>
+  </div>
+
+  <!-- SECTION: QUICK REVISION -->
+  <div id="sec-quick" class="section">
+    <h2 style="font-size:18px; font-weight:500; margin-bottom:1rem;">Quick Revision — All 14 Topics</h2>
+    <div class="night-card">
+      <h3>1. Introduction to HRM</h3>
+      <p>HRM = Recruit + Select + Train + Appraise + Compensate + Maintain employees for organizational goals. <strong>HRM vs PM:</strong> HRM is strategic, proactive, views employees as assets. PM is reactive, administrative, views employees as costs. <strong>Functions:</strong> Managerial (PODC) + Operative (RSTPCE).</p>
+    </div>
+    <div class="night-card">
+      <h3>2. Line Managers</h3>
+      <p>Direct supervisors who implement HR policies. They select, orient, train, appraise, and discipline their own team. <strong>Key point:</strong> HR makes policy, line managers implement it. Line = direct authority. Staff = advisory role.</p>
+    </div>
+    <div class="night-card">
+      <h3>3. HR Roles (Dave Ulrich)</h3>
+      <p>4 Roles: <strong>Strategic Partner</strong> (align HR to strategy) + <strong>Administrative Expert</strong> (efficient processes) + <strong>Employee Champion</strong> (advocate for people) + <strong>Change Agent</strong> (drive transformation). 2×2 matrix: Future-People-Process-Day-to-day.</p>
+    </div>
+    <div class="night-card">
+      <h3>4. New HR Organization</h3>
+      <p>Three-legged stool: <strong>SSC</strong> (Shared Service Centers — routine tasks) + <strong>COE</strong> (Centers of Excellence — specialists) + <strong>HRBP</strong> (Business Partners — strategic). Also: outsourcing, e-HR, Agile HR.</p>
+    </div>
+    <div class="night-card">
+      <h3>5. Globalization Trends</h3>
+      <p>HR must manage multicultural teams, expatriates, cross-cultural training. <strong>EPG Model:</strong> Ethnocentric (home country staff), Polycentric (host country staff), Geocentric (best person globally). Example: TCS, Infosys in 50+ countries.</p>
+    </div>
+    <div class="night-card">
+      <h3>6. Technology Trends</h3>
+      <p>AI (resume screening), Big Data (turnover prediction), Cloud (remote HR access), Social Media (LinkedIn hiring), Blockchain (credential verification), Gamification (training). Challenges: data privacy, cost, resistance, digital divide.</p>
+    </div>
+    <div class="night-card">
+      <h3>7. Nature of Work Trends</h3>
+      <p>Gig economy, Remote work, Hybrid work, Automation, Knowledge work. Worker types: Full-time, Part-time, Contingent/Gig, Outsourced. HR challenge: managing performance virtually, legal classification of gig workers.</p>
+    </div>
+    <div class="night-card">
+      <h3>8. Workforce &amp; Demographics</h3>
+      <p>4 generations: <strong>Boomers</strong> (1946–64, loyal), <strong>Gen X</strong> (1965–80, independent), <strong>Millennials</strong> (1981–96, purpose-driven), <strong>Gen Z</strong> (1997–2012, flexible). Trends: aging workforce, more women, rising education. Strategy: diversity training, inclusive hiring, flexible work.</p>
+    </div>
+    <div class="night-card">
+      <h3>9. Economic Challenges</h3>
+      <p>Recession → layoffs, VRS, pay cuts. Growth → aggressive hiring, retention programs. Inflation → compensation review. Labour shortage → employer branding, upskilling. India example: COVID-19 impact — remote work, pay cuts; Post-COVID: talent wars.</p>
+    </div>
+    <div class="night-card">
+      <h3>10. HPWS</h3>
+      <p><strong>AMO Model:</strong> Ability (training, selection) + Motivation (pay, recognition) + Opportunity (empowerment, participation). Key practices: selective hiring, extensive training, performance pay, self-managed teams, open information. Example: Google's HR = HPWS.</p>
+    </div>
+    <div class="night-card">
+      <h3>11. Labour Legislation India</h3>
+      <p>Key laws: Factories Act (1948), ID Act (1947), Min Wages (1948), EPF (1952), Gratuity (1972), ESI (1948), Maternity (1961/2017 — 26 weeks), Bonus (1965), Equal Remuneration (1976). <strong>New reform:</strong> 29 laws → 4 Labour Codes (2020).</p>
+    </div>
+    <div class="night-card">
+      <h3>12. Equal Employment Opportunity</h3>
+      <p>No discrimination based on gender, caste, religion, disability, age. <strong>Types:</strong> Disparate Treatment (intentional) vs Disparate Impact (neutral policy that harms a group). <strong>India laws:</strong> Articles 14/15/16, Reservation policy, POSH Act 2013 (ICC committee, 90-day resolution), Equal Remuneration Act 1976.</p>
+    </div>
+    <div class="night-card">
+      <h3>13. HR Scorecard</h3>
+      <p>Based on Kaplan &amp; Norton's Balanced Scorecard (1992). 4 perspectives: <strong>Financial</strong> (cost per hire), <strong>Customer</strong> (employee satisfaction), <strong>Process</strong> (time to fill), <strong>Learning &amp; Growth</strong> (training hours). Purpose: link HR to strategy, measure HR contribution with KPIs.</p>
+    </div>
+    <div class="night-card">
+      <h3>14. HRIS</h3>
+      <p>Digital system to manage HR data. Functions: Employee records, Payroll, Recruitment (ATS), Training (LMS), Performance, Leave, Analytics. Types: Operational, Tactical, Strategic. Software: SAP SuccessFactors, Darwinbox, Keka, Workday. Pros: reduces paperwork, fast retrieval. Cons: costly, security risk, resistance.</p>
+    </div>
+  </div>
+
+  <!-- SECTION: NIGHT BEFORE EXAM -->
+  <div id="sec-night" class="section">
+    <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-lg); padding:1.2rem; margin-bottom:1.5rem; border:0.5px solid var(--color-border-tertiary);">
+      <h2 style="font-size:18px; font-weight:500; margin-bottom:0.3rem;">Night Before Exam — Revision Sheet</h2>
+      <p style="font-size:13px; color:var(--color-text-secondary);">Condensed coverage of all 14 topics. Read this in 30 minutes before your exam.</p>
+    </div>
+
+    <div class="topic-card">
+      <div class="topic-header" onclick="toggle(this)"><h2>Must-Remember Definitions (2-mark ready)</h2><span class="topic-num">Flash</span></div>
+      <div class="topic-body open">
+        <ul>
+          <li><strong>HRM:</strong> Strategic management of people to achieve organizational goals</li>
+          <li><strong>Line Manager:</strong> Direct supervisor accountable for team's work</li>
+          <li><strong>HPWS:</strong> Integrated HR practices using AMO model for high performance</li>
+          <li><strong>EEO:</strong> Equal opportunity without discrimination in employment</li>
+          <li><strong>HRIS:</strong> Software system to manage HR data and processes</li>
+          <li><strong>HR Scorecard:</strong> Tool linking HR metrics to business strategy (BSC-based)</li>
+          <li><strong>Gig Economy:</strong> Work done by freelancers/contractors instead of permanent employees</li>
+          <li><strong>Globalization:</strong> Integration of global economies creating multicultural workforces</li>
+          <li><strong>POSH Act 2013:</strong> Law preventing sexual harassment at workplace; requires ICC</li>
+          <li><strong>EPF Act 1952:</strong> 12% salary to provident fund for retirement security</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic-card">
+      <div class="topic-header" onclick="toggle(this)"><h2>Key Models &amp; Frameworks</h2><span class="topic-num">Flash</span></div>
+      <div class="topic-body open">
+        <ul>
+          <li><strong>Dave Ulrich 4 Roles:</strong> Strategic Partner + Admin Expert + Employee Champion + Change Agent</li>
+          <li><strong>AMO Model (HPWS):</strong> Ability + Motivation + Opportunity</li>
+          <li><strong>EPG Model (International HRM):</strong> Ethnocentric + Polycentric + Geocentric</li>
+          <li><strong>Balanced Scorecard (HR Scorecard):</strong> Financial + Customer + Process + Learning &amp; Growth</li>
+          <li><strong>Three-Legged Stool (New HR Org):</strong> SSC + COE + HRBP</li>
+          <li><strong>HRIS Types:</strong> Operational + Tactical + Strategic</li>
+          <li><strong>4 Labour Codes (2020):</strong> Wages + Industrial Relations + Social Security + Occupational Safety</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic-card">
+      <div class="topic-header" onclick="toggle(this)"><h2>Critical Labour Laws — Quick Table</h2><span class="topic-num">Flash</span></div>
+      <div class="topic-body open">
+        <table>
+          <tr><th>Act</th><th>Year</th><th>Key Number to Remember</th></tr>
+          <tr><td>Factories Act</td><td>1948</td><td>48 hrs/week max</td></tr>
+          <tr><td>EPF Act</td><td>1952</td><td>12% of basic salary</td></tr>
+          <tr><td>Gratuity Act</td><td>1972</td><td>5 yrs service, 15 days/year, max ₹20L</td></tr>
+          <tr><td>Maternity Benefit Act</td><td>1961/2017</td><td>26 weeks paid leave</td></tr>
+          <tr><td>Payment of Bonus</td><td>1965</td><td>Min 8.33%, Max 20%</td></tr>
+          <tr><td>POSH Act</td><td>2013</td><td>ICC, 90-day resolution</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="topic-card">
+      <div class="topic-header" onclick="toggle(this)"><h2>Generation Table — Workforce Demographics</h2><span class="topic-num">Flash</span></div>
+      <div class="topic-body open">
+        <table>
+          <tr><th>Generation</th><th>Years</th><th>Key Trait</th></tr>
+          <tr><td>Baby Boomers</td><td>1946–1964</td><td>Loyal, work-centric</td></tr>
+          <tr><td>Gen X</td><td>1965–1980</td><td>Independent, balanced</td></tr>
+          <tr><td>Millennials (Y)</td><td>1981–1996</td><td>Purpose-driven, digital</td></tr>
+          <tr><td>Gen Z</td><td>1997–2012</td><td>Entrepreneurial, flexible</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="topic-card">
+      <div class="topic-header" onclick="toggle(this)"><h2>Memory Tricks — All in One</h2><span class="topic-num">Flash</span></div>
+      <div class="topic-body open">
+        <ul>
+          <li><strong>HRM Functions:</strong> PRSATC — Planning, Recruitment, Selection, Appraisal, Training, Compensation</li>
+          <li><strong>HPWS practices:</strong> STEP-OCI — Selection, Training, Empowerment, Pay, Open info, Clear roles, Involvement</li>
+          <li><strong>HRIS functions:</strong> EPTLPR — Employee records, Payroll, Training, Leave, Performance, Reporting</li>
+          <li><strong>International HRM:</strong> EPG — Ethno (home), Poly (host), Geo (global best)</li>
+          <li><strong>Line Manager duties:</strong> SOPPED — Selection, Orientation, Performance, Planning, Employee relations, Discipline</li>
+          <li><strong>Ulrich Roles:</strong> SAEC — Strategic, Admin, Employee champion, Change agent</li>
+          <li><strong>BSC Perspectives:</strong> FIPL — Financial, Internal process, Perspective (customer), Learning</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic-card">
+      <div class="topic-header" onclick="toggle(this)"><h2>Most Expected 10-Mark Questions</h2><span class="topic-num">Flash</span></div>
+      <div class="topic-body open">
+        <ol>
+          <li>Explain the nature, objectives, and functions of HRM</li>
+          <li>What is HPWS? Explain AMO model with practices and benefits</li>
+          <li>Explain HRIS — components, types, advantages, and disadvantages</li>
+          <li>Discuss major labour legislation in India with recent reforms</li>
+          <li>Explain HR Scorecard and its link to Balanced Scorecard</li>
+          <li>How has technology changed HRM? (AI, Big Data, Cloud, Social Media)</li>
+          <li>Explain globalization's impact on HRM with EPG model</li>
+          <li>Discuss EEO in India — laws, POSH Act, and Affirmative Action</li>
+          <li>Explain Dave Ulrich's 4-role model of HR</li>
+          <li>Discuss emerging trends in the nature of work and their HR implications</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('sec-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+function toggle(header) {
+  const body = header.nextElementSibling;
+  body.classList.toggle('open');
+}
+function toggleQ(header) {
+  const body = header.nextElementSibling;
+  body.classList.toggle('open');
+}
+function expandAll() {
+  document.querySelectorAll('.topic-body').forEach(b => b.classList.add('open'));
+}
+</script>
+</body>
+</html>

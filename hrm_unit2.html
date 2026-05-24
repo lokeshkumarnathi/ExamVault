@@ -1,0 +1,928 @@
+
+
+<div class="container">
+        <a href="index.html" class="back-btn">← Back to Home</a>
+</div>
+<div class="container">
+        <a href="hrm.html" class="back-btn">← Back to HRM units </a>
+</div>
+<style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans,'Segoe UI',sans-serif);background:transparent;color:var(--color-text-primary);font-size:15px;line-height:1.7}
+.wrap{max-width:880px;margin:0 auto;padding:1rem .5rem 4rem}
+.hdr{text-align:center;padding:1.8rem 1rem 1.4rem;border-bottom:.5px solid var(--color-border-tertiary);margin-bottom:1.5rem}
+.hdr h1{font-size:22px;font-weight:500;margin-bottom:.3rem}
+.hdr p{font-size:13px;color:var(--color-text-secondary)}
+.pill{display:inline-block;background:var(--color-background-info);color:var(--color-text-info);font-size:11px;padding:3px 10px;border-radius:12px;margin:2px;font-weight:500}
+.pill-w{background:var(--color-background-warning);color:var(--color-text-warning)}
+.pill-s{background:var(--color-background-success);color:var(--color-text-success)}
+.pill-d{background:var(--color-background-danger);color:var(--color-text-danger)}
+.nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.4rem;padding:.7rem;background:var(--color-background-secondary);border-radius:var(--border-radius-lg);border:.5px solid var(--color-border-tertiary)}
+.nb{font-size:12px;padding:5px 11px;border:.5px solid var(--color-border-secondary);border-radius:6px;cursor:pointer;background:var(--color-background-primary);color:var(--color-text-primary);font-family:inherit;transition:background .15s}
+.nb:hover,.nb.on{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent}
+.sec{display:none}.sec.on{display:block}
+.card{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);margin-bottom:1.2rem;overflow:hidden}
+.ch{padding:.85rem 1.2rem;background:var(--color-background-secondary);border-bottom:.5px solid var(--color-border-tertiary);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.ch h2{font-size:15px;font-weight:500}
+.tnum{font-size:11px;color:var(--color-text-secondary);background:var(--color-background-primary);padding:2px 8px;border-radius:10px;white-space:nowrap}
+.cb{padding:1.2rem;display:none}.cb.op{display:block}
+.def{background:var(--color-background-info);border-left:3px solid #378ADD;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:.7rem 1rem;margin-bottom:.9rem;font-size:14px}
+.def strong{color:var(--color-text-info)}
+.warn{background:var(--color-background-warning);border-left:3px solid #BA7517;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:.7rem 1rem;margin:.8rem 0;font-size:13px}
+.warn strong{color:#633806}
+.ok{background:var(--color-background-success);border-left:3px solid #3B6D11;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:.7rem 1rem;margin:.8rem 0;font-size:13px}
+.ok strong{color:var(--color-text-success)}
+.err{background:var(--color-background-danger);border-left:3px solid #A32D2D;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:.7rem 1rem;margin:.8rem 0;font-size:13px}
+.err strong{color:#791F1F}
+h3{font-size:15px;font-weight:500;margin:1.1rem 0 .45rem}
+h4{font-size:13px;font-weight:500;margin:.7rem 0 .25rem;color:var(--color-text-secondary)}
+ul,ol{padding-left:1.4rem;margin:.4rem 0}
+li{margin-bottom:.2rem;font-size:14px}
+p{font-size:14px;margin-bottom:.55rem}
+table{width:100%;border-collapse:collapse;margin:.7rem 0;font-size:13px}
+th{background:var(--color-background-secondary);padding:7px 10px;text-align:left;font-weight:500;border:.5px solid var(--color-border-tertiary)}
+td{padding:6px 10px;border:.5px solid var(--color-border-tertiary);vertical-align:top}
+tr:nth-child(even) td{background:var(--color-background-secondary)}
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:.7rem 0}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:.7rem 0}
+.mc{background:var(--color-background-secondary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:.65rem .9rem}
+.mc h4{margin-top:0;font-size:13px}
+.kws{display:flex;flex-wrap:wrap;gap:5px;margin:.5rem 0}
+.kw{background:var(--color-background-secondary);border:.5px solid var(--color-border-secondary);border-radius:12px;padding:3px 9px;font-size:11px;color:var(--color-text-secondary)}
+.qb{border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);margin-bottom:.65rem;overflow:hidden}
+.qh{padding:.55rem 1rem;background:var(--color-background-secondary);cursor:pointer;font-size:14px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.qm{font-size:11px;color:var(--color-text-secondary);background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:8px;padding:2px 7px;white-space:nowrap}
+.qa{padding:.9rem 1rem;display:none;font-size:14px;line-height:1.75}
+.qa.op{display:block}
+.nc{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);margin-bottom:.9rem;padding:1rem 1.2rem}
+.nc h3{margin-top:0;font-size:14px}
+.ea{font-size:12px;color:var(--color-text-info);cursor:pointer;text-decoration:underline;background:none;border:none;font-family:inherit;margin-bottom:.8rem}
+.step-flow{display:flex;flex-wrap:wrap;gap:6px;margin:.8rem 0;align-items:center}
+.step{background:var(--color-background-secondary);border:.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:5px 12px;font-size:13px;font-weight:500}
+.arr{font-size:14px;color:var(--color-text-secondary)}
+.ecard{border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:.8rem 1rem;margin-bottom:.7rem}
+.ecard h4{font-size:14px;font-weight:500;margin:0 0 .3rem}
+  
+</style>
+
+    
+
+
+<div class="wrap">
+<div class="hdr">
+  <h1>HRM Unit 2 — Recruitment &amp; Selection</h1>
+  <p>Complete semester exam notes &nbsp;|&nbsp; BBA / MBA</p>
+  <div style="margin-top:.6rem">
+    <span class="pill">17 Topics</span>
+    <span class="pill pill-w">2 / 5 / 10 Mark Q&amp;A</span>
+    <span class="pill pill-s">Interview Errors</span>
+    <span class="pill pill-d">Night Revision</span>
+  </div>
+</div>
+
+<div class="nav">
+  <button class="nb on" onclick="show('notes',this)">Detailed Notes</button>
+  <button class="nb" onclick="show('compare',this)">Comparison Tables</button>
+  <button class="nb" onclick="show('interview',this)">Interview Types &amp; Errors</button>
+  <button class="nb" onclick="show('questions',this)">Exam Questions</button>
+  <button class="nb" onclick="show('quick',this)">Quick Revision</button>
+  <button class="nb" onclick="show('night',this)">Night Before Exam</button>
+</div>
+
+<!-- ===== NOTES ===== -->
+<div id="s-notes" class="sec on">
+<button class="ea" onclick="expandAll()">Expand all topics</button>
+
+<!-- T1 Job Analysis -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>1. Basics of Job Analysis</h2><span class="tnum">Topic 01</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> Job Analysis is the systematic process of collecting and analysing information about the duties, responsibilities, skills, and working conditions of a specific job.</div>
+    <h3>Purpose of Job analysis</h3>
+    <ul>
+      <li>Foundation for all HR activities — recruitment, training, appraisal, compensation</li>
+      <li>Helps write accurate Job Descriptions and Job Specifications</li>
+      <li>Clarifies roles, avoids duplication</li>
+      <li>Basis for legal EEO compliance</li>
+    </ul>
+    <h3>Outcomes of Job Analysis</h3>
+    <div class="g2">
+      <div class="mc"><h4>Job Description</h4><p>What the job involves — duties, responsibilities, reporting lines, working conditions</p></div>
+      <div class="mc"><h4>Job Specification</h4><p>What the person needs — qualifications, experience, skills, personality traits</p></div>
+    </div>
+    <h3>Steps in Job Analysis</h3>
+    <div class="step-flow">
+      <span class="step">1. Identify purpose</span><span class="arr">→</span>
+      <span class="step">2. Review background info</span><span class="arr">→</span>
+      <span class="step">3. Select representative jobs</span><span class="arr">→</span>
+      <span class="step">4. Collect data</span><span class="arr">→</span>
+      <span class="step">5. Verify data</span><span class="arr">→</span>
+      <span class="step">6. Prepare JD &amp; JS</span>
+    </div>
+    <div class="warn"><strong>⭐ Exam Point:</strong> "Job Analysis is the foundation of HRM" — explain this statement with all the HR activities that depend on job analysis.</div>
+    <div class="ok"><strong>Memory trick:</strong> Job Analysis → <strong>DWRWCS</strong> — Duties, Working conditions, Responsibilities, Who reports, Compensation, Skills needed</div>
+    <div class="kws"><span class="kw">Job Analysis</span><span class="kw">Job Description</span><span class="kw">Job Specification</span><span class="kw">Task Inventory</span><span class="kw">Competency Model</span></div>
+  </div>
+</div>
+
+<!-- T2 Talent Management -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>2. Talent Management Process</h2><span class="tnum">Topic 02</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> Talent Management is the integrated process of attracting, identifying, developing, retaining, and deploying high-potential employees to meet current and future organisational needs.</div>
+    <h3>Talent Management Process (7 Steps)</h3>
+    <div class="step-flow">
+      <span class="step">Plan</span><span class="arr">→</span>
+      <span class="step">Attract</span><span class="arr">→</span>
+      <span class="step">Select</span><span class="arr">→</span>
+      <span class="step">Develop</span><span class="arr">→</span>
+      <span class="step">Retain</span><span class="arr">→</span>
+      <span class="step">Deploy</span><span class="arr">→</span>
+      <span class="step">Transition</span>
+    </div>
+    <h3>Components</h3>
+    <ul>
+      <li><strong>Workforce planning</strong> — identifying future talent needs</li>
+      <li><strong>Recruiting</strong> — sourcing candidates from inside and outside</li>
+      <li><strong>Onboarding</strong> — integrating new hires effectively</li>
+      <li><strong>Learning &amp; Development</strong> — building skills</li>
+      <li><strong>Performance Management</strong> — evaluating contribution</li>
+      <li><strong>Succession Planning</strong> — pipeline of future leaders</li>
+      <li><strong>Retention</strong> — keeping top performers engaged</li>
+    </ul>
+    <h3>Importance</h3>
+    <ul>
+      <li>Ensures right person in right role at right time</li>
+      <li>Builds competitive advantage through people</li>
+      <li>Reduces turnover cost</li>
+      <li>Supports business strategy</li>
+    </ul>
+    <p><strong>Real-World Example:</strong> Wipro's "Talent Transformation" program identifies high-potential employees early, gives them accelerated learning paths and global assignments — classic talent management.</p>
+    <div class="kws"><span class="kw">Talent Pipeline</span><span class="kw">Succession Planning</span><span class="kw">High Potential</span><span class="kw">Retention</span><span class="kw">Onboarding</span></div>
+  </div>
+</div>
+
+<!-- T3 Methods for Collecting Job Analysis Info -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>3. Methods for Collecting Job Analysis Information</h2><span class="tnum">Topic 03</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> Methods used to gather data about a job's duties, responsibilities, and requirements from various sources.</div>
+    <table>
+      <tr><th>Method</th><th>How it works</th><th>Best for</th><th>Limitation</th></tr>
+      <tr><td>Interview</td><td>HR interviews job holders and supervisors</td><td>Getting detailed qualitative info</td><td>Time-consuming, bias possible</td></tr>
+      <tr><td>Questionnaire</td><td>Structured form filled by employees</td><td>Large number of jobs quickly</td><td>May not capture full picture</td></tr>
+      <tr><td>Observation</td><td>Analyst watches employee at work</td><td>Manual, visible tasks</td><td>Not suitable for mental/complex work</td></tr>
+      <tr><td>Diary / Log</td><td>Employee records own daily activities</td><td>Jobs with varied tasks</td><td>Distortion possible</td></tr>
+      <tr><td>Position Analysis Questionnaire (PAQ)</td><td>Standardised 194-item questionnaire</td><td>Comparing jobs quantitatively</td><td>Generic, may miss unique aspects</td></tr>
+      <tr><td>Technical Conference</td><td>Experts discuss job requirements</td><td>Complex technical jobs</td><td>Expert availability issue</td></tr>
+    </table>
+    <div class="warn"><strong>⭐ Exam Point:</strong> PAQ (Position Analysis Questionnaire) is a frequently asked concept. It has 194 items grouped into 6 divisions covering information input, mental processes, work output, relationships, job context, and other characteristics.</div>
+    <div class="ok"><strong>Memory Trick:</strong> Methods = <strong>IQODT</strong> — Interview, Questionnaire, Observation, Diary/Log, Technical conference</div>
+    <div class="kws"><span class="kw">PAQ</span><span class="kw">Observation</span><span class="kw">Diary Method</span><span class="kw">Structured Interview</span><span class="kw">Task Analysis</span></div>
+  </div>
+</div>
+
+<!-- T4 JD & JS -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>4. Job Descriptions &amp; Job Specifications</h2><span class="tnum">Topic 04</span></div>
+  <div class="cb">
+    <div class="g2">
+      <div>
+        <div class="def"><strong>Job Description (JD):</strong> A written statement describing the duties, responsibilities, working conditions, and reporting relationships of a specific job.</div>
+        <h4>Contents of JD</h4>
+        <ul>
+          <li>Job title and code</li>
+          <li>Department and location</li>
+          <li>Summary of the job</li>
+          <li>Duties and responsibilities</li>
+          <li>Reporting structure</li>
+          <li>Working conditions</li>
+          <li>Equipment / tools used</li>
+        </ul>
+      </div>
+      <div>
+        <div class="def"><strong>Job Specification (JS):</strong> A statement of the minimum qualifications, skills, knowledge, and personal attributes a person must possess to perform the job successfully.</div>
+        <h4>Contents of JS</h4>
+        <ul>
+          <li>Educational qualifications</li>
+          <li>Experience required</li>
+          <li>Skills and competencies</li>
+          <li>Physical requirements</li>
+          <li>Personality traits</li>
+          <li>Emotional attributes</li>
+        </ul>
+      </div>
+    </div>
+    <table>
+      <tr><th>Basis</th><th>Job Description</th><th>Job Specification</th></tr>
+      <tr><td>Focus</td><td>What the job requires</td><td>What the person requires</td></tr>
+      <tr><td>Nature</td><td>Describes the job</td><td>Describes the ideal candidate</td></tr>
+      <tr><td>Use</td><td>Induction, performance appraisal</td><td>Recruitment, selection</td></tr>
+      <tr><td>Content</td><td>Duties, responsibilities, conditions</td><td>Education, experience, skills</td></tr>
+    </table>
+    <div class="ok"><strong>Memory Trick:</strong> JD = Job's profile. JS = Candidate's profile. JD tells WHAT. JS tells WHO.</div>
+    <div class="kws"><span class="kw">Job Title</span><span class="kw">Duties</span><span class="kw">Responsibilities</span><span class="kw">Qualifications</span><span class="kw">Competencies</span></div>
+  </div>
+</div>
+
+<!-- T5 Job Satisfaction -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>5. Job Satisfaction</h2><span class="tnum">Topic 05</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> Job Satisfaction is the positive emotional state or pleasurable feeling that results from the appraisal of one's job or job experiences (Locke, 1976).</div>
+    <h3>Factors influencing Job Satisfaction</h3>
+    <div class="g2">
+      <div class="mc"><h4>Intrinsic factors</h4><ul><li>Nature of work</li><li>Achievement</li><li>Recognition</li><li>Growth opportunities</li></ul></div>
+      <div class="mc"><h4>Extrinsic factors</h4><ul><li>Pay and benefits</li><li>Working conditions</li><li>Supervision quality</li><li>Co-worker relationships</li></ul></div>
+    </div>
+    <h3>Theories related to Job Satisfaction</h3>
+    <ul>
+      <li><strong>Herzberg's Two-Factor Theory:</strong> Hygiene factors (prevent dissatisfaction) + Motivators (create satisfaction)</li>
+      <li><strong>Maslow's Hierarchy:</strong> Higher needs (esteem, self-actualisation) create job satisfaction</li>
+      <li><strong>Hackman &amp; Oldham's Job Characteristics Model:</strong> Skill variety, task identity, task significance, autonomy, feedback → satisfaction</li>
+    </ul>
+    <h3>Consequences of Job Satisfaction / Dissatisfaction</h3>
+    <table>
+      <tr><th>High Satisfaction</th><th>Low Satisfaction</th></tr>
+      <tr><td>High productivity</td><td>Absenteeism</td></tr>
+      <tr><td>Low turnover</td><td>High turnover</td></tr>
+      <tr><td>Better customer service</td><td>Grievances &amp; conflicts</td></tr>
+      <tr><td>Innovation and creativity</td><td>Poor performance</td></tr>
+    </table>
+    <p><strong>Measurement:</strong> Job Descriptive Index (JDI), Minnesota Satisfaction Questionnaire (MSQ)</p>
+    <div class="kws"><span class="kw">Job Satisfaction</span><span class="kw">Herzberg</span><span class="kw">JDI</span><span class="kw">Intrinsic Motivation</span><span class="kw">Turnover</span></div>
+  </div>
+</div>
+
+<!-- T6 Job Enlargement -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>6. Job Enlargement</h2><span class="tnum">Topic 06</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> Job Enlargement is the horizontal expansion of a job by adding more tasks of a similar nature and skill level, without increasing authority or responsibility.</div>
+    <h3>Key Features</h3>
+    <ul>
+      <li>Horizontal expansion (more tasks, same level)</li>
+      <li>Reduces monotony and boredom</li>
+      <li>Does NOT add more responsibility or authority</li>
+      <li>Also called "job widening" or "horizontal loading"</li>
+    </ul>
+    <h3>Advantages</h3>
+    <ul>
+      <li>Reduces monotony in routine jobs</li>
+      <li>Employee learns multiple skills</li>
+      <li>Greater flexibility in workforce</li>
+    </ul>
+    <h3>Disadvantages</h3>
+    <ul>
+      <li>Not truly motivating — "more of the same"</li>
+      <li>May cause fatigue if too many tasks added</li>
+      <li>Does not address deeper dissatisfaction</li>
+    </ul>
+    <p><strong>Example:</strong> A bank teller who only handles deposits is also given the task of processing withdrawals and currency exchange — same level, more variety.</p>
+    <div class="ok"><strong>Memory Trick:</strong> Enlargement = Wider (horizontal). Think of a river getting WIDER but not DEEPER.</div>
+    <div class="kws"><span class="kw">Horizontal Loading</span><span class="kw">Job Widening</span><span class="kw">Variety</span><span class="kw">Monotony Reduction</span></div>
+  </div>
+</div>
+
+<!-- T7 Job Enrichment -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>7. Job Enrichment</h2><span class="tnum">Topic 07</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> Job Enrichment is the vertical expansion of a job by adding more responsibility, authority, decision-making power, and opportunities for growth (based on Herzberg's motivators).</div>
+    <h3>Key Features</h3>
+    <ul>
+      <li>Vertical expansion (more authority, higher-level tasks)</li>
+      <li>Based on Herzberg's Motivation-Hygiene Theory</li>
+      <li>Also called "vertical loading"</li>
+      <li>Gives employees control over planning, executing, and evaluating work</li>
+    </ul>
+    <h3>Techniques of Job Enrichment</h3>
+    <ul>
+      <li>Giving direct feedback to employees</li>
+      <li>Allowing employees to set their own schedules</li>
+      <li>Assigning complete units of work (not fragmented tasks)</li>
+      <li>Increasing accountability</li>
+      <li>Providing opportunities for personal growth</li>
+    </ul>
+    <h3>Advantages vs. Disadvantages</h3>
+    <table>
+      <tr><th>Advantages</th><th>Disadvantages</th></tr>
+      <tr><td>Higher motivation and satisfaction</td><td>Not suitable for all employees</td></tr>
+      <tr><td>Develops managerial talent</td><td>May increase anxiety in some</td></tr>
+      <tr><td>Reduces absenteeism and turnover</td><td>Costly to implement</td></tr>
+      <tr><td>Builds employee competence</td><td>Needs redesigning of entire job</td></tr>
+    </table>
+    <p><strong>Example:</strong> A sales executive is given the authority to approve small discounts, prepare client proposals, and manage their own client portfolio instead of just making calls.</p>
+    <div class="ok"><strong>Memory Trick:</strong> Enrichment = Deeper (vertical). Think of a river getting DEEPER and more meaningful.</div>
+    <div class="kws"><span class="kw">Vertical Loading</span><span class="kw">Herzberg</span><span class="kw">Autonomy</span><span class="kw">Responsibility</span><span class="kw">Motivation</span></div>
+  </div>
+</div>
+
+<!-- T8 Job Rotation -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>8. Job Rotation</h2><span class="tnum">Topic 08</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> Job Rotation is the systematic movement of employees from one job to another within the organisation at planned intervals to broaden their experience and reduce monotony.</div>
+    <h3>Key Features</h3>
+    <ul>
+      <li>Lateral movement across different jobs/departments</li>
+      <li>Planned and systematic — not random transfers</li>
+      <li>Develops multi-skilled, versatile employees</li>
+      <li>Used extensively in management trainee programs</li>
+    </ul>
+    <h3>Types of Job Rotation</h3>
+    <ul>
+      <li><strong>Within a department:</strong> e.g., accounts clerk moves from billing to payroll</li>
+      <li><strong>Across departments:</strong> e.g., marketing trainee works in sales, then operations</li>
+      <li><strong>Cross-functional:</strong> e.g., engineer spends 6 months in customer service</li>
+    </ul>
+    <h3>Advantages vs. Disadvantages</h3>
+    <table>
+      <tr><th>Advantages</th><th>Disadvantages</th></tr>
+      <tr><td>Develops generalist managers</td><td>Temporary loss of productivity</td></tr>
+      <tr><td>Reduces boredom and monotony</td><td>Training costs increase</td></tr>
+      <tr><td>Succession planning support</td><td>Employees may resist rotation</td></tr>
+      <tr><td>Better team understanding</td><td>Loss of specialisation</td></tr>
+    </table>
+    <p><strong>Example:</strong> In Hindustan Unilever's management trainee program, graduates rotate through sales, supply chain, marketing, and finance over 18 months before taking a final posting.</p>
+    <div class="warn"><strong>⭐ Exam Point:</strong> Differentiate Job Enlargement, Job Enrichment, and Job Rotation — this is a very common 5 or 10 mark question. See Comparison Tables section.</div>
+    <div class="kws"><span class="kw">Job Rotation</span><span class="kw">Cross-training</span><span class="kw">Multi-skilling</span><span class="kw">Management Trainee</span><span class="kw">Lateral Movement</span></div>
+  </div>
+</div>
+
+<!-- T9 HR Planning -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>9. Human Resource Planning (HRP)</h2><span class="tnum">Topic 09</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> HRP is the process of forecasting an organisation's future human resource needs and ensuring that the right number of people with the right skills are available at the right time at the right place.</div>
+    <h3>Importance of HRP</h3>
+    <ul>
+      <li>Prevents overstaffing (excess cost) and understaffing (productivity loss)</li>
+      <li>Ensures smooth succession of leadership</li>
+      <li>Aligns HR strategy with business strategy</li>
+      <li>Helps in budgeting for HR costs</li>
+    </ul>
+    <h3>HRP Process</h3>
+    <div class="step-flow">
+      <span class="step">1. Analyse organisational plans</span><span class="arr">→</span>
+      <span class="step">2. Forecast demand</span><span class="arr">→</span>
+      <span class="step">3. Assess current supply</span><span class="arr">→</span>
+      <span class="step">4. Identify gap</span><span class="arr">→</span>
+      <span class="step">5. Action plan</span><span class="arr">→</span>
+      <span class="step">6. Monitor &amp; review</span>
+    </div>
+    <h3>Forecasting Techniques</h3>
+    <table>
+      <tr><th>Demand Forecasting</th><th>Supply Forecasting</th></tr>
+      <tr><td>Trend Analysis</td><td>Skills Inventory</td></tr>
+      <tr><td>Managerial Judgement</td><td>Replacement Charts</td></tr>
+      <tr><td>Ratio Analysis</td><td>Succession Planning</td></tr>
+      <tr><td>Regression Analysis</td><td>Markov Analysis</td></tr>
+      <tr><td>Work Study Technique</td><td>Internal recruitment pipeline</td></tr>
+    </table>
+    <div class="ok"><strong>Memory Trick:</strong> HRP = <strong>RIGHT</strong> — Right people, Right skills, Right place, Right time, Right cost</div>
+    <div class="kws"><span class="kw">Demand Forecasting</span><span class="kw">Supply Forecasting</span><span class="kw">Trend Analysis</span><span class="kw">Succession Planning</span><span class="kw">Skills Inventory</span></div>
+  </div>
+</div>
+
+<!-- T10 Recruitment Process -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>10. Recruitment Process</h2><span class="tnum">Topic 10</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> Recruitment is the process of searching for and attracting a pool of qualified candidates from which suitable candidates can be selected for available job vacancies.</div>
+    <h3>Recruitment Process Steps</h3>
+    <div class="step-flow">
+      <span class="step">1. Identify vacancy</span><span class="arr">→</span>
+      <span class="step">2. Job Analysis</span><span class="arr">→</span>
+      <span class="step">3. Prepare JD &amp; JS</span><span class="arr">→</span>
+      <span class="step">4. Choose source</span><span class="arr">→</span>
+      <span class="step">5. Advertise</span><span class="arr">→</span>
+      <span class="step">6. Receive applications</span><span class="arr">→</span>
+      <span class="step">7. Screening</span><span class="arr">→</span>
+      <span class="step">8. Pass to Selection</span>
+    </div>
+    <h3>Factors affecting Recruitment</h3>
+    <div class="g2">
+      <div class="mc"><h4>Internal Factors</h4><ul><li>Organisational size</li><li>Recruitment policy</li><li>Image/brand</li><li>Budget available</li></ul></div>
+      <div class="mc"><h4>External Factors</h4><ul><li>Labour market conditions</li><li>Government regulations</li><li>Competitors' HR practices</li><li>Economic conditions</li></ul></div>
+    </div>
+    <div class="warn"><strong>⭐ Exam Point:</strong> Recruitment is a POSITIVE process (attract more candidates). Selection is a NEGATIVE process (reject unsuitable ones). This distinction is frequently asked.</div>
+    <div class="kws"><span class="kw">Vacancy</span><span class="kw">Talent Pool</span><span class="kw">Applicant Tracking</span><span class="kw">Employer Branding</span><span class="kw">Screening</span></div>
+  </div>
+</div>
+
+<!-- T11 Selection Process -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>11. Selection Process</h2><span class="tnum">Topic 11</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> Selection is the process of choosing the most suitable candidate from the pool of applicants by eliminating those who do not meet the required qualifications and criteria.</div>
+    <h3>Selection Process Steps</h3>
+    <div class="step-flow">
+      <span class="step">1. Application screening</span><span class="arr">→</span>
+      <span class="step">2. Preliminary interview</span><span class="arr">→</span>
+      <span class="step">3. Written tests</span><span class="arr">→</span>
+      <span class="step">4. Employment interview</span><span class="arr">→</span>
+      <span class="step">5. Medical exam</span><span class="arr">→</span>
+      <span class="step">6. Reference check</span><span class="arr">→</span>
+      <span class="step">7. Final approval</span><span class="arr">→</span>
+      <span class="step">8. Job offer</span>
+    </div>
+    <p><strong>Key concept — Selection Ratio:</strong> Number of candidates selected ÷ Total applicants. Lower ratio = more selective = more rigorous process.</p>
+    <div class="ok"><strong>Memory Trick (Selection steps):</strong> <strong>APWEMRFO</strong> — Application, Preliminary interview, Written test, Employment interview, Medical, Reference check, Final approval, Offer</div>
+    <div class="kws"><span class="kw">Selection Ratio</span><span class="kw">Predictive Validity</span><span class="kw">Reliability</span><span class="kw">Background Check</span><span class="kw">Offer Letter</span></div>
+  </div>
+</div>
+
+<!-- T12 HR Forecasting -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>12. Planning &amp; Forecasting of Human Resources</h2><span class="tnum">Topic 12</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> HR Forecasting is the process of estimating future HR needs (demand) and the availability of HR (supply) to identify gaps and take action.</div>
+    <h3>Demand Forecasting Methods</h3>
+    <table>
+      <tr><th>Method</th><th>Explanation</th></tr>
+      <tr><td>Trend Analysis</td><td>Study past employment levels to project future needs</td></tr>
+      <tr><td>Ratio Analysis</td><td>Ratio of business activity to number of employees (e.g., 1 HR per 50 staff)</td></tr>
+      <tr><td>Scatter Plot</td><td>Graph relating business factor (sales) to staffing level</td></tr>
+      <tr><td>Managerial Judgement</td><td>Managers estimate their department's future HR needs (bottom-up or top-down)</td></tr>
+      <tr><td>Computerised forecasting</td><td>Software models projecting needs based on multiple variables</td></tr>
+    </table>
+    <h3>Supply Forecasting Methods</h3>
+    <table>
+      <tr><th>Method</th><th>Explanation</th></tr>
+      <tr><td>Skills Inventory</td><td>Database of current employees' skills, education, experience</td></tr>
+      <tr><td>Replacement Charts</td><td>Shows who can replace whom at senior levels</td></tr>
+      <tr><td>Succession Planning</td><td>Identifying and grooming specific individuals for future roles</td></tr>
+      <tr><td>Markov Analysis</td><td>Tracks movement of employees (promotions, exits, lateral moves) as probabilities</td></tr>
+    </table>
+    <div class="warn"><strong>⭐ Exam Point:</strong> Trend Analysis and Ratio Analysis are the most frequently tested methods. Also know the difference between Replacement Charts (who replaces whom) and Succession Planning (developing future leaders).</div>
+    <div class="kws"><span class="kw">Trend Analysis</span><span class="kw">Ratio Analysis</span><span class="kw">Markov Analysis</span><span class="kw">Skills Inventory</span><span class="kw">Replacement Charts</span></div>
+  </div>
+</div>
+
+<!-- T13 Sources of Recruitment -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>13. Sources of Recruitment</h2><span class="tnum">Topic 13</span></div>
+  <div class="cb">
+    <div class="g2">
+      <div>
+        <div class="def"><strong>Internal Sources:</strong> Filling vacancies from within the existing workforce of the organisation.</div>
+        <ul>
+          <li><strong>Promotion</strong> — moving up the hierarchy</li>
+          <li><strong>Transfer</strong> — lateral movement to another department</li>
+          <li><strong>Employee referrals</strong> — existing staff recommend candidates</li>
+          <li><strong>Job posting</strong> — internally advertising the vacancy</li>
+          <li><strong>Rehiring</strong> — re-employing former employees (boomerang employees)</li>
+        </ul>
+      </div>
+      <div>
+        <div class="def"><strong>External Sources:</strong> Filling vacancies by attracting candidates from outside the organisation.</div>
+        <ul>
+          <li><strong>Campus recruitment</strong> — colleges and universities</li>
+          <li><strong>Job portals</strong> — Naukri, LinkedIn, Indeed</li>
+          <li><strong>Employment agencies</strong> — TeamLease, Randstad</li>
+          <li><strong>Advertisements</strong> — newspaper, digital</li>
+          <li><strong>Walk-ins / Gate hiring</strong></li>
+          <li><strong>Headhunting</strong> — for senior roles</li>
+          <li><strong>Internship conversion</strong></li>
+        </ul>
+      </div>
+    </div>
+    <table>
+      <tr><th>Basis</th><th>Internal Recruitment</th><th>External Recruitment</th></tr>
+      <tr><td>Cost</td><td>Low</td><td>High</td></tr>
+      <tr><td>Time</td><td>Faster</td><td>Slower</td></tr>
+      <tr><td>New ideas</td><td>Limited</td><td>Fresh perspectives</td></tr>
+      <tr><td>Motivation</td><td>Boosts morale of existing staff</td><td>No direct motivational effect</td></tr>
+      <tr><td>Pool size</td><td>Limited to current employees</td><td>Larger candidate pool</td></tr>
+      <tr><td>Training needed</td><td>Minimal (knows the org)</td><td>More training required</td></tr>
+    </table>
+    <div class="ok"><strong>Memory Trick:</strong> Internal = <strong>PTEJR</strong> (Promotion, Transfer, Employee referral, Job posting, Rehiring). External = <strong>CJEAWH</strong> (Campus, Job portals, Employment agency, Ads, Walk-in, Headhunting)</div>
+    <div class="kws"><span class="kw">Internal Recruitment</span><span class="kw">External Recruitment</span><span class="kw">Campus Hiring</span><span class="kw">Employee Referral</span><span class="kw">Headhunting</span></div>
+  </div>
+</div>
+
+<!-- T14 Diverse Workforce Recruitment -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>14. Recruitment of Diverse Workforce</h2><span class="tnum">Topic 14</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> Diversity recruitment is the intentional effort to attract, hire, and retain employees from a variety of backgrounds — including gender, age, ethnicity, religion, disability, and sexual orientation.</div>
+    <h3>Why Diverse Recruitment Matters</h3>
+    <ul>
+      <li>Brings diverse perspectives → innovation and creativity</li>
+      <li>Reflects customer diversity → better market understanding</li>
+      <li>Legal compliance with EEO and affirmative action</li>
+      <li>Builds employer brand and reputation</li>
+    </ul>
+    <h3>Strategies for Diverse Recruitment</h3>
+    <ul>
+      <li>Bias-free job descriptions (gender-neutral language)</li>
+      <li>Partnering with women's colleges, SC/ST NGOs, disability organisations</li>
+      <li>Blind resume screening (removing names, gender, photos)</li>
+      <li>Diverse interview panels</li>
+      <li>Flexible work options to attract caregivers</li>
+      <li>Internship programs targeting underrepresented groups</li>
+    </ul>
+    <p><strong>Example:</strong> Accenture India publicly commits to achieving 50% gender parity and runs specific recruitment drives for women returning to work ("Back to Work" program).</p>
+    <div class="kws"><span class="kw">Diversity</span><span class="kw">Inclusion</span><span class="kw">Blind Screening</span><span class="kw">EEO</span><span class="kw">Affirmative Action</span></div>
+  </div>
+</div>
+
+<!-- T15 Employee Testing -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>15. Employee Testing &amp; Selection</h2><span class="tnum">Topic 15</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> Employee testing involves the use of standardised tools and tests to objectively measure a candidate's abilities, skills, personality, and suitability for a specific job.</div>
+    <h3>Types of Tests</h3>
+    <table>
+      <tr><th>Test Type</th><th>What it measures</th><th>Example</th></tr>
+      <tr><td>Aptitude / Intelligence Test</td><td>Learning ability, reasoning, IQ</td><td>CAT, GMAT</td></tr>
+      <tr><td>Achievement / Proficiency Test</td><td>Current knowledge and skills</td><td>Typing test, coding test</td></tr>
+      <tr><td>Personality Test</td><td>Traits, behaviour patterns</td><td>Big Five (OCEAN), MBTI</td></tr>
+      <tr><td>Interest Test</td><td>Job/career preferences</td><td>Strong Interest Inventory</td></tr>
+      <tr><td>Situational Judgement Test (SJT)</td><td>Decision-making in work scenarios</td><td>Video-based SJTs</td></tr>
+      <tr><td>Psychometric Test</td><td>Mental ability and personality together</td><td>Hogan Assessments</td></tr>
+      <tr><td>Drug / Medical Test</td><td>Health and fitness</td><td>Pre-employment medical</td></tr>
+    </table>
+    <h3>Key Concepts</h3>
+    <ul>
+      <li><strong>Reliability:</strong> Test gives consistent results over time</li>
+      <li><strong>Validity:</strong> Test actually measures what it claims to measure</li>
+      <li><strong>Predictive Validity:</strong> Test score predicts future job performance</li>
+    </ul>
+    <div class="warn"><strong>⭐ Exam Point:</strong> Reliability vs. Validity distinction is frequently asked. A reliable test may not be valid, but a valid test must also be reliable.</div>
+    <div class="ok"><strong>Memory Trick (Personality OCEAN):</strong> Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism</div>
+    <div class="kws"><span class="kw">Reliability</span><span class="kw">Validity</span><span class="kw">Aptitude Test</span><span class="kw">Personality Test</span><span class="kw">OCEAN Model</span><span class="kw">SJT</span></div>
+  </div>
+</div>
+
+</div>
+
+<!-- ===== COMPARISON TABLES ===== -->
+<div id="s-compare" class="sec">
+  <h2 style="font-size:18px;font-weight:500;margin-bottom:1rem">Key Comparison Tables</h2>
+
+  <div class="card">
+    <div class="ch" onclick="tog(this)"><h2>Recruitment vs. Selection</h2><span class="tnum">Must know</span></div>
+    <div class="cb op">
+      <table>
+        <tr><th>Basis</th><th>Recruitment</th><th>Selection</th></tr>
+        <tr><td>Meaning</td><td>Process of attracting candidates</td><td>Process of choosing the best candidate</td></tr>
+        <tr><td>Nature</td><td>Positive — encourages applications</td><td>Negative — eliminates unsuitable candidates</td></tr>
+        <tr><td>Goal</td><td>Create a large talent pool</td><td>Reduce pool to the best fit</td></tr>
+        <tr><td>Output</td><td>Applications received</td><td>Job offer extended</td></tr>
+        <tr><td>Cost</td><td>Relatively lower cost</td><td>Higher cost (tests, interviews)</td></tr>
+        <tr><td>Sequence</td><td>Comes first</td><td>Comes after recruitment</td></tr>
+        <tr><td>Tools used</td><td>Ads, job portals, campus drives</td><td>Tests, interviews, background checks</td></tr>
+        <tr><td>Legal basis</td><td>EEO compliance in advertising</td><td>Selection criteria must be job-related</td></tr>
+      </table>
+      <div class="ok"><strong>One-line exam answer:</strong> Recruitment is searching and attracting; Selection is screening and choosing. Recruitment is positive; Selection is negative.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ch" onclick="tog(this)"><h2>Job Enlargement vs. Job Enrichment vs. Job Rotation</h2><span class="tnum">Most asked</span></div>
+    <div class="cb op">
+      <table>
+        <tr><th>Basis</th><th>Job Enlargement</th><th>Job Enrichment</th><th>Job Rotation</th></tr>
+        <tr><td>Direction</td><td>Horizontal</td><td>Vertical</td><td>Lateral</td></tr>
+        <tr><td>What changes</td><td>Number of tasks (same level)</td><td>Authority, responsibility</td><td>Job / department itself</td></tr>
+        <tr><td>Basis</td><td>Job widening</td><td>Herzberg's motivators</td><td>Movement across roles</td></tr>
+        <tr><td>Skill development</td><td>Task variety</td><td>Decision-making skills</td><td>Multi-skilling</td></tr>
+        <tr><td>Motivation level</td><td>Moderate</td><td>High</td><td>Moderate</td></tr>
+        <tr><td>Monotony reduction</td><td>Yes (variety)</td><td>Yes (growth)</td><td>Yes (new role)</td></tr>
+        <tr><td>Authority changes</td><td>No</td><td>Yes — increases</td><td>No</td></tr>
+        <tr><td>Example</td><td>Bank teller does deposits + withdrawals</td><td>Sales exec approves discounts</td><td>Trainee rotates across departments</td></tr>
+      </table>
+      <div class="ok"><strong>Memory Trick:</strong> <strong>E-E-R = Wide, Deep, Move</strong>. Enlargement = Wider. Enrichment = Deeper. Rotation = Mover.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ch" onclick="tog(this)"><h2>Internal vs. External Recruitment</h2><span class="tnum">Common 5-mark</span></div>
+    <div class="cb op">
+      <table>
+        <tr><th>Basis</th><th>Internal Recruitment</th><th>External Recruitment</th></tr>
+        <tr><td>Source</td><td>Current employees of organisation</td><td>Candidates from outside</td></tr>
+        <tr><td>Methods</td><td>Promotion, transfer, job posting, referrals</td><td>Ads, agencies, campus, portals</td></tr>
+        <tr><td>Cost</td><td>Low</td><td>High</td></tr>
+        <tr><td>Time</td><td>Faster</td><td>Slower</td></tr>
+        <tr><td>Fresh ideas</td><td>Limited — existing mindset</td><td>High — new perspectives</td></tr>
+        <tr><td>Motivation</td><td>Boosts existing employee morale</td><td>May demotivate internal staff</td></tr>
+        <tr><td>Training needed</td><td>Less (knows the organisation)</td><td>More (new to organisation)</td></tr>
+        <tr><td>Risk</td><td>Creates another vacancy</td><td>Cultural misfit possible</td></tr>
+        <tr><td>Best for</td><td>Senior / specialised positions</td><td>Entry level / specialised skills not available internally</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ch" onclick="tog(this)"><h2>Job Description vs. Job Specification</h2><span class="tnum">2-mark favourite</span></div>
+    <div class="cb op">
+      <table>
+        <tr><th>Basis</th><th>Job Description</th><th>Job Specification</th></tr>
+        <tr><td>Focus</td><td>The Job</td><td>The Person</td></tr>
+        <tr><td>Answers</td><td>What is the job?</td><td>Who should do the job?</td></tr>
+        <tr><td>Contents</td><td>Title, duties, responsibilities, conditions</td><td>Education, experience, skills, traits</td></tr>
+        <tr><td>Nature</td><td>Objective (job-based)</td><td>Subjective (person-based)</td></tr>
+        <tr><td>Used for</td><td>Induction, appraisal, job design</td><td>Recruitment advertising, selection criteria</td></tr>
+        <tr><td>Derived from</td><td>Job Analysis</td><td>Job Description</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ch" onclick="tog(this)"><h2>HRP Demand vs. Supply Forecasting</h2><span class="tnum">5-mark topic</span></div>
+    <div class="cb op">
+      <table>
+        <tr><th>Basis</th><th>Demand Forecasting</th><th>Supply Forecasting</th></tr>
+        <tr><td>Meaning</td><td>Estimating future HR requirements</td><td>Estimating HR availability</td></tr>
+        <tr><td>Focus</td><td>How many and what type of employees needed</td><td>How many employees are available (internal + external)</td></tr>
+        <tr><td>Methods</td><td>Trend analysis, ratio analysis, regression</td><td>Skills inventory, Markov analysis, succession plans</td></tr>
+        <tr><td>Inputs used</td><td>Business plans, production targets</td><td>Current workforce data, turnover rates</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ===== INTERVIEW TYPES & ERRORS ===== -->
+<div id="s-interview" class="sec">
+  <h2 style="font-size:18px;font-weight:500;margin-bottom:1rem">Interview Types &amp; Interview Errors</h2>
+
+  <div class="card">
+    <div class="ch" onclick="tog(this)"><h2>Types of Interviews</h2><span class="tnum">Topic 16</span></div>
+    <div class="cb op">
+      <table>
+        <tr><th>Type</th><th>Description</th><th>Best for</th></tr>
+        <tr><td>Structured Interview</td><td>Pre-planned questions asked to all candidates in the same order. Scored on standardised rating sheet.</td><td>Fair comparison across candidates; legal defensibility</td></tr>
+        <tr><td>Unstructured Interview</td><td>No fixed questions; free-flowing conversation. Interviewer asks based on responses.</td><td>Getting to know personality; senior roles</td></tr>
+        <tr><td>Semi-structured Interview</td><td>Mix of fixed and open-ended questions. Most commonly used.</td><td>Balanced approach — most organisations</td></tr>
+        <tr><td>Panel Interview</td><td>Multiple interviewers assess one candidate simultaneously.</td><td>Senior / executive roles; reduces individual bias</td></tr>
+        <tr><td>Stress Interview</td><td>Deliberately creates pressure through challenging or rude questions to test composure.</td><td>High-pressure roles: defence, customer service leadership</td></tr>
+        <tr><td>Behavioural Interview (BEI)</td><td>Uses STAR method (Situation, Task, Action, Result) to probe past behaviour as predictor of future performance.</td><td>Competency-based hiring; most MNCs</td></tr>
+        <tr><td>Situational Interview</td><td>Presents hypothetical future scenarios and asks how the candidate would respond.</td><td>Testing problem-solving and judgement</td></tr>
+        <tr><td>Group Interview</td><td>Multiple candidates assessed together in a group discussion or activity.</td><td>Mass hiring; testing teamwork and leadership</td></tr>
+        <tr><td>Telephone / Video Interview</td><td>Remote interviews via phone or video platforms (Zoom, Teams).</td><td>Initial screening; geographically dispersed candidates</td></tr>
+        <tr><td>Depth / Exit Interview</td><td>In-depth probing of career history (depth) or reasons for leaving (exit).</td><td>Understanding turnover drivers</td></tr>
+      </table>
+      <div class="warn"><strong>⭐ Exam Point:</strong> STAR method in Behavioural Interviews — Situation, Task, Action, Result. Very frequently asked. Also know that Structured interviews have highest validity and legal defensibility.</div>
+      <div class="ok"><strong>Memory Trick (interview types):</strong> <strong>SUPSBSGT</strong> — Structured, Unstructured, Panel, Stress, Behavioural, Situational, Group, Telephone/Video</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ch" onclick="tog(this)"><h2>Errors in Interviews</h2><span class="tnum">Topic 17 — Very Important</span></div>
+    <div class="cb op">
+      <p>Interview errors are biases that distort an interviewer's judgement, leading to incorrect hiring decisions. Knowing and avoiding them improves selection quality.</p>
+
+      <div class="ecard">
+        <h4>1. Halo Effect</h4>
+        <p>The interviewer allows one positive trait to overshadow all other attributes. A well-dressed candidate is assumed to be competent, hardworking, and intelligent — without proper evidence.</p>
+        <p><strong>Example:</strong> A good-looking, confident candidate is rated highly even though their technical skills are weak.</p>
+      </div>
+      <div class="ecard">
+        <h4>2. Horn Effect (Reverse Halo)</h4>
+        <p>One negative trait creates an overall negative impression. The opposite of the Halo Effect.</p>
+        <p><strong>Example:</strong> A candidate who arrives 5 minutes late is judged as irresponsible and disorganised throughout the interview.</p>
+      </div>
+      <div class="ecard">
+        <h4>3. First Impression Error (Primacy Effect)</h4>
+        <p>The interviewer forms a judgement in the first 3–5 minutes and spends the rest of the interview confirming it. Early positive impression = favourable rating; early negative = unfavourable.</p>
+        <p><strong>Example:</strong> A candidate gives a strong confident handshake and introduction, and the interviewer positively interprets all subsequent answers.</p>
+      </div>
+      <div class="ecard">
+        <h4>4. Contrast Error</h4>
+        <p>Rating a candidate relative to the previous candidate rather than against the job standard. A good candidate after several poor ones seems excellent; a good candidate after an exceptional one seems average.</p>
+        <p><strong>Example:</strong> Candidate 4 is only average but after three very poor candidates, they seem outstanding.</p>
+      </div>
+      <div class="ecard">
+        <h4>5. Similarity Bias (Similar-to-Me Effect)</h4>
+        <p>Interviewers rate candidates higher if they share similar backgrounds, hobbies, schools, or interests — regardless of job-related qualifications.</p>
+        <p><strong>Example:</strong> An interviewer from IIT rates an IIT alumnus candidate higher than a better-qualified candidate from another college.</p>
+      </div>
+      <div class="ecard">
+        <h4>6. Non-verbal Bias</h4>
+        <p>Judgements made based on body language, eye contact, tone of voice, or physical appearance rather than actual competence.</p>
+        <p><strong>Example:</strong> A highly capable introvert who does not make direct eye contact is rated poorly while an extrovert with weaker skills is rated highly.</p>
+      </div>
+      <div class="ecard">
+        <h4>7. Stereotyping</h4>
+        <p>Making generalisations about a group and applying them to an individual — based on gender, age, caste, religion, or region.</p>
+        <p><strong>Example:</strong> "Women are not suitable for field sales roles" — rejecting a highly qualified female candidate based on this assumption.</p>
+      </div>
+      <div class="ecard">
+        <h4>8. Central Tendency Error</h4>
+        <p>Rating all candidates as "average" to avoid controversy, resulting in ratings clustered around the midpoint and no differentiation.</p>
+      </div>
+      <div class="ecard">
+        <h4>9. Leniency / Strictness Error</h4>
+        <p>Leniency: Rating everyone too positively. Strictness: Rating everyone too negatively. Both prevent accurate differentiation.</p>
+      </div>
+      <div class="ecard">
+        <h4>10. Recency Effect</h4>
+        <p>Last-heard information is weighted more than earlier information. The interviewer remembers the end of the conversation most vividly.</p>
+      </div>
+
+      <div class="warn"><strong>⭐ Exam Point:</strong> Halo Effect, Horn Effect, Contrast Error, First Impression, and Similarity Bias are the 5 most frequently asked interview errors. Know definitions AND examples for each.</div>
+      <div class="ok"><strong>Memory Trick (6 main errors):</strong> <strong>HH-FCS-N</strong> — Halo, Horn, First impression, Contrast, Similarity, Non-verbal bias</div>
+
+      <h3>How to Reduce Interview Errors</h3>
+      <ul>
+        <li>Use structured interviews with standardised questions</li>
+        <li>Train interviewers in bias awareness</li>
+        <li>Use panel interviews (multiple perspectives)</li>
+        <li>Use scoring rubrics and rating scales</li>
+        <li>Focus strictly on job-related criteria</li>
+        <li>Record interviews (where legally permitted)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+<div id="s-questions" class="sec">
+  <h2 style="font-size:18px;font-weight:500;margin-bottom:1rem">Exam Questions &amp; Model Answers</h2>
+
+  <h3 style="color:var(--color-text-success);margin-bottom:.5rem">2-Mark Questions</h3>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">Define Job Analysis.<span class="qm">2 marks</span></div><div class="qa">Job Analysis is the systematic process of collecting, analysing, and interpreting information about the duties, responsibilities, skills required, and working conditions of a job. It results in two key documents: the Job Description and Job Specification.</div></div>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">What is Job Enrichment?<span class="qm">2 marks</span></div><div class="qa">Job Enrichment is the vertical expansion of a job by adding more authority, responsibility, and decision-making opportunities to an existing job. It is based on Herzberg's Motivation-Hygiene Theory and is also called vertical loading. Example: A sales executive who is also given authority to approve discounts and manage client portfolios.</div></div>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">What is the Halo Effect in interviews?<span class="qm">2 marks</span></div><div class="qa">The Halo Effect is an interview error where one positive quality of a candidate influences the interviewer to rate all other qualities positively as well. For example, a well-dressed and confident candidate may be rated highly on technical skills even without adequate evidence.</div></div>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">Distinguish between Recruitment and Selection in one sentence each.<span class="qm">2 marks</span></div><div class="qa">Recruitment is a positive process of searching for and attracting a pool of qualified candidates to apply for a job vacancy. Selection is a negative process of evaluating and eliminating candidates to identify the single most suitable person for the job.</div></div>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">What is a Job Specification?<span class="qm">2 marks</span></div><div class="qa">A Job Specification is a written statement describing the minimum qualifications, skills, education, experience, and personal attributes that a candidate must possess to perform the job successfully. It focuses on the person, while the Job Description focuses on the job.</div></div>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">What is Talent Management?<span class="qm">2 marks</span></div><div class="qa">Talent Management is the integrated HR process of attracting, identifying, developing, engaging, and retaining high-potential employees to meet current and future organisational goals. It includes workforce planning, succession planning, L&amp;D, and retention strategies.</div></div>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">What is HRP (Human Resource Planning)?<span class="qm">2 marks</span></div><div class="qa">HRP is the process of forecasting an organisation's future HR needs (demand) and ensuring that the right number of people with the right skills are available at the right time. It involves both demand forecasting and supply forecasting to identify and fill HR gaps.</div></div>
+
+  <h3 style="color:var(--color-text-warning);margin-bottom:.5rem;margin-top:1.5rem">5-Mark Questions</h3>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">Differentiate between Job Enlargement, Job Enrichment, and Job Rotation with examples.<span class="qm">5 marks</span></div><div class="qa"><strong>Job Enlargement</strong> is the horizontal expansion of a job by adding more tasks of similar nature and skill level. It reduces monotony but does not add responsibility. Example: A bank teller who handles deposits is also assigned withdrawals and currency exchange.<br><br><strong>Job Enrichment</strong> is the vertical expansion of a job by adding greater authority, responsibility, and decision-making power. Based on Herzberg's theory. It creates intrinsic motivation. Example: A sales executive given authority to approve discounts and manage their own client portfolio.<br><br><strong>Job Rotation</strong> is the systematic lateral movement of employees across different jobs or departments at planned intervals. It develops multi-skilled employees. Example: Management trainees at HUL rotate across marketing, sales, and supply chain for 18 months.<br><br><strong>Key Differences:</strong><br>
+Direction: Enlargement = Horizontal | Enrichment = Vertical | Rotation = Lateral<br>
+Change in authority: Enlargement = No | Enrichment = Yes | Rotation = No<br>
+Motivation level: Enrichment is highest because it addresses Herzberg's motivators.<br>
+Skill development: Rotation develops the broadest range of skills.</div></div>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">Explain any five types of interviews used in the selection process.<span class="qm">5 marks</span></div><div class="qa"><strong>1. Structured Interview:</strong> Uses pre-planned, standardised questions asked to all candidates in the same order. Scores are based on a rating rubric. It has the highest predictive validity and is legally defensible.<br><br><strong>2. Unstructured Interview:</strong> A free-flowing conversation without fixed questions. The interviewer adapts based on responses. Good for assessing personality but highly subjective.<br><br><strong>3. Behavioural Interview (BEI):</strong> Based on the principle that past behaviour predicts future performance. Uses the STAR method — Situation, Task, Action, Result. Most commonly used by MNCs today.<br><br><strong>4. Stress Interview:</strong> Deliberately creates pressure through challenging, aggressive, or unexpected questions to observe how the candidate reacts under stress. Used for high-pressure roles.<br><br><strong>5. Panel Interview:</strong> Multiple interviewers (typically 3–5) simultaneously assess one candidate. Reduces individual bias and provides a more balanced assessment. Common in government and senior executive selection.</div></div>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">Explain the sources of recruitment — internal and external.<span class="qm">5 marks</span></div><div class="qa"><strong>Introduction:</strong> Sources of recruitment are the channels through which organisations attract candidates for job vacancies. They are broadly classified into internal and external sources.<br><br><strong>Internal Sources:</strong><br>1. Promotion — moving deserving employees to higher positions<br>2. Transfer — lateral movement to fill vacancies in another department<br>3. Job Posting — internally advertising vacancies on notice boards or intranet<br>4. Employee Referrals — existing employees recommend suitable candidates<br>5. Rehiring — re-employing former employees (boomerang hires)<br><br><strong>Advantages of internal recruitment:</strong> Low cost, fast, boosts employee morale, candidate knows the culture.<br><br><strong>External Sources:</strong><br>1. Campus Recruitment — hiring fresh graduates from colleges<br>2. Job Portals — Naukri.com, LinkedIn, Indeed<br>3. Employment Agencies — TeamLease, Randstad<br>4. Advertisements — digital, newspaper, social media<br>5. Headhunting — executive search firms for senior roles<br><br><strong>Advantages of external recruitment:</strong> Fresh perspectives, larger talent pool, new skills not available internally.<br><br><strong>Conclusion:</strong> A balanced mix of internal and external sources is most effective. Internal sources maintain morale; external sources bring innovation and fresh talent.</div></div>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">Explain the errors/biases that occur in interviews and how to overcome them.<span class="qm">5 marks</span></div><div class="qa"><strong>Introduction:</strong> Interview errors are systematic biases that affect an interviewer's judgement, leading to poor hiring decisions. The major errors are:<br><br><strong>1. Halo Effect:</strong> One good quality influences overall positive rating. Solution: Focus on each dimension separately.<br><br><strong>2. Horn Effect:</strong> One negative trait creates overall negative impression. Solution: Structured evaluation forms.<br><br><strong>3. First Impression Error:</strong> Decision made in first 3–5 minutes and confirmed thereafter. Solution: Delay finalising assessment until the end.<br><br><strong>4. Contrast Error:</strong> Candidate rated relative to previous candidate rather than job standard. Solution: Evaluate each candidate against the job specification, not against each other.<br><br><strong>5. Similarity Bias:</strong> Preference for candidates who resemble the interviewer in background or interests. Solution: Diverse panel interviews, blind screening.<br><br><strong>6. Non-verbal Bias:</strong> Judgements based on appearance, eye contact, or tone rather than content. Solution: Use structured scoring rubrics focused on answers.<br><br><strong>How to reduce errors:</strong> Use structured interviews, train interviewers, use panel interviews, use rating scales anchored to job criteria, separate scoring from selection decision.</div></div>
+
+  <h3 style="color:var(--color-text-danger);margin-bottom:.5rem;margin-top:1.5rem">10-Mark Essay Questions</h3>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">Explain the Recruitment and Selection process in detail. How do they differ?<span class="qm">10 marks</span></div><div class="qa"><strong>Introduction:</strong> Recruitment and Selection are two sequential but distinct HR processes for filling job vacancies with the right candidates. Together they form the "staffing" function of HRM.<br><br><strong>RECRUITMENT</strong><br>Definition: Recruitment is the process of searching for and attracting a pool of qualified candidates from which the most suitable can be selected.<br><br>Nature: It is a positive process — it encourages as many suitable candidates as possible to apply.<br><br>Process of Recruitment:<br>1. Identify the vacancy (due to resignation, expansion, or new role)<br>2. Conduct Job Analysis → prepare JD and JS<br>3. Choose appropriate source (internal or external)<br>4. Create and publish job advertisement<br>5. Receive and acknowledge applications<br>6. Initial screening of applications<br>7. Shortlisting candidates for selection process<br><br>Sources: Internal (promotion, transfer, job posting, referrals) and External (campus, portals, agencies, ads, headhunting).<br><br><strong>SELECTION</strong><br>Definition: Selection is the process of evaluating and choosing the most suitable candidate from the pool of applicants by systematically eliminating unsuitable ones.<br><br>Nature: It is a negative process — it eliminates candidates who do not meet the required criteria.<br><br>Process of Selection:<br>1. Application form review and screening<br>2. Preliminary / telephonic interview<br>3. Written / psychometric tests<br>4. Detailed employment interview (structured, panel, behavioural)<br>5. Background and reference check<br>6. Medical / physical examination<br>7. Final selection decision by HR and line manager<br>8. Job offer letter extended<br><br>Key Selection Concepts: Selection Ratio (candidates selected/total applicants), Test Reliability and Validity, Predictive Validity.<br><br><strong>Key Differences (Recruitment vs. Selection):</strong><br>
+Recruitment = Positive | Selection = Negative<br>
+Recruitment = Attract applicants | Selection = Eliminate unsuitable<br>
+Recruitment comes first | Selection comes after<br>
+Recruitment tools = Ads, portals | Selection tools = Tests, interviews<br>
+Recruitment = Lower cost | Selection = Higher cost<br><br><strong>Conclusion:</strong> Recruitment and selection are complementary processes. Effective recruitment creates a strong talent pool; effective selection ensures the best fit is chosen, reducing turnover and improving organisational performance. Both must be aligned with EEO principles to ensure fairness and legal compliance.</div></div>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">Explain Human Resource Planning — its process, importance, and forecasting methods.<span class="qm">10 marks</span></div><div class="qa"><strong>Introduction:</strong> Human Resource Planning (HRP) is the process of systematically forecasting the future supply and demand for human resources in an organisation to ensure that the right people with the right skills are available at the right time. It is the foundation of all HR activities.<br><br><strong>Objectives of HRP:</strong><br>1. Avoid surplus (overstaffing) and shortage (understaffing) of employees<br>2. Ensure smooth succession of leadership<br>3. Plan for training and development needs<br>4. Align HR strategy with business strategy<br>5. Control manpower costs effectively<br><br><strong>HRP Process (6 Steps):</strong><br>Step 1: Analyse organisational plans and objectives — understand business growth plans, new products, expansions<br>Step 2: Forecast HR Demand — estimate how many and what type of employees are needed in the future<br>Step 3: Assess Current HR Supply — analyse current workforce (skills, experience, potential)<br>Step 4: Identify the HR Gap — compare demand with supply; determine surplus or deficit<br>Step 5: Develop Action Plans — if deficit: recruit, train, promote; if surplus: redeploy, VRS, retrench<br>Step 6: Monitor and Review — compare actual vs. planned HR outcomes and revise<br><br><strong>Demand Forecasting Methods:</strong><br>1. Trend Analysis — study past data on employment levels, project future needs<br>2. Ratio Analysis — relationship between business factor (e.g., sales revenue) and number of employees needed<br>3. Scatter Plot — graphically plots relationship between activity and staffing level<br>4. Managerial Judgement — managers at each level estimate their team's future needs (bottom-up: aggregated upward; top-down: senior management estimates, divided downward)<br>5. Computerised Forecasting — uses regression and other statistical models<br><br><strong>Supply Forecasting Methods:</strong><br>1. Skills Inventory — computerised database of every employee's skills, education, and work history<br>2. Replacement Charts — show who is ready to replace each key position holder; highlights readiness levels<br>3. Succession Planning — identifying high-potential individuals and developing them for future senior roles<br>4. Markov Analysis — tracks historical movement patterns (promotion, lateral, exit rates) to predict future supply<br><br><strong>Importance of HRP:</strong><br>1. Prevents unexpected talent shortages during business growth<br>2. Reduces costs from last-minute hiring<br>3. Ensures training is planned in advance<br>4. Supports diversity and EEO planning<br>5. Facilitates international expansion planning<br><br><strong>Conclusion:</strong> HRP is the backbone of strategic HRM. Without it, organisations react to HR problems rather than anticipating them. In today's fast-changing environment, organisations like TCS, Infosys, and Reliance invest heavily in HRP to sustain competitive advantage through their people.</div></div>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">Explain the concept of Job Analysis. How is it conducted? What are its uses?<span class="qm">10 marks</span></div><div class="qa"><strong>Introduction:</strong> Job Analysis is the systematic process of collecting, analysing, and interpreting information about a job's duties, responsibilities, required skills, outcomes, and working conditions. It is often called the "cornerstone of HRM" because virtually every HR function depends on it.<br><br><strong>Definition (Edwin Flippo):</strong> "Job Analysis is the process of studying and collecting information relating to the operations and responsibilities of a specific job."<br><br><strong>Purpose of Job Analysis:</strong><br>Job Analysis produces two key outputs:<br>1. Job Description (JD) — what the job involves<br>2. Job Specification (JS) — what the person needs<br><br><strong>Process of Job Analysis:</strong><br>Step 1: Identify the purpose — why is the job analysis being done? (Recruitment? Appraisal? Compensation?)<br>Step 2: Review existing information — review org charts, previous JDs, industry benchmarks<br>Step 3: Select representative positions — analyse a sample of similar jobs rather than all<br>Step 4: Collect job data — using interviews, questionnaires, observation, diaries, or PAQ<br>Step 5: Verify information — with job holder and supervisor to ensure accuracy<br>Step 6: Prepare JD and JS — final written documents used in HR decisions<br><br><strong>Methods of Collecting Job Analysis Information:</strong><br>1. Interview — direct conversation with job holders and supervisors<br>2. Observation — watching employees perform their job<br>3. Questionnaire — structured forms (e.g., PAQ — Position Analysis Questionnaire with 194 items)<br>4. Diary / Work Log — employees record their daily activities<br>5. Technical Conference — panel of subject matter experts discuss job requirements<br><br><strong>Uses / Importance of Job Analysis:</strong><br>1. Recruitment — JD and JS form the basis of job advertisements and selection criteria<br>2. Selection — tests and interview questions are designed based on job requirements<br>3. Training — identifies skills gaps and training needs<br>4. Performance Appraisal — sets performance standards based on job duties<br>5. Compensation — job evaluation for fair pay relies on job analysis data<br>6. Job Design — used to redesign jobs (enlargement, enrichment, rotation)<br>7. Legal Compliance — ensures selection criteria are job-related (EEO)<br>8. Career Planning — helps employees understand growth paths<br><br><strong>Conclusion:</strong> Job Analysis is the foundation of the entire HR system. Without accurate job analysis, organisations cannot recruit effectively, train meaningfully, appraise fairly, or compensate equitably. It is an investment that pays dividends across all HR functions.</div></div>
+</div>
+
+<!-- ===== QUICK REVISION ===== -->
+<div id="s-quick" class="sec">
+  <h2 style="font-size:18px;font-weight:500;margin-bottom:1rem">Quick Revision Cards — All Topics</h2>
+  <div class="g2">
+    <div class="nc"><h3>Job Analysis</h3><p>Systematic process of collecting info about a job. Output = JD (what the job is) + JS (who should do it). Methods = IQODT. Foundation of all HR functions.</p></div>
+    <div class="nc"><h3>Talent Management</h3><p>Attracting, developing, retaining high-potential employees. 7 steps: Plan → Attract → Select → Develop → Retain → Deploy → Transition. Used by Wipro, TCS.</p></div>
+    <div class="nc"><h3>JD vs JS</h3><p>JD = Job profile (duties, conditions). JS = Candidate profile (education, skills). JD answers WHAT. JS answers WHO. Both derived from Job Analysis.</p></div>
+    <div class="nc"><h3>Job Satisfaction</h3><p>Positive emotional state from one's job experience (Locke). Influenced by intrinsic (nature of work, growth) and extrinsic (pay, supervision) factors. Measured by JDI, MSQ.</p></div>
+    <div class="nc"><h3>Job Enlargement</h3><p>HORIZONTAL expansion. More tasks, same level. Reduces monotony. No new authority. Also called job widening / horizontal loading. River gets WIDER.</p></div>
+    <div class="nc"><h3>Job Enrichment</h3><p>VERTICAL expansion. More authority, responsibility, decision-making. Based on Herzberg. Highest motivation. Also called vertical loading. River gets DEEPER.</p></div>
+    <div class="nc"><h3>Job Rotation</h3><p>LATERAL movement across jobs/departments. Develops multi-skilled employees. Used in management trainee programs. HUL example. River changes COURSE.</p></div>
+    <div class="nc"><h3>HRP</h3><p>Right people, right skills, right place, right time. Process: Org plan → Demand forecast → Supply assess → Gap → Action → Monitor. Demand methods: Trend, Ratio, Scatter. Supply: Skills inventory, Markov, Succession.</p></div>
+    <div class="nc"><h3>Recruitment</h3><p>POSITIVE process. Attracting applicants. Sources: Internal (PTEJR) + External (CJEAWH). Comes before selection. Lower cost. Tools: Ads, portals, campus.</p></div>
+    <div class="nc"><h3>Selection</h3><p>NEGATIVE process. Choosing best candidate. Steps: APWEMRFO. Selection ratio = selected/total. Key: Reliability + Validity of tests.</p></div>
+    <div class="nc"><h3>Sources of Recruitment</h3><p>Internal: Promotion, Transfer, Referrals, Job posting, Rehiring. External: Campus, Portals, Agencies, Ads, Walk-in, Headhunting. Internal = cheaper, faster. External = fresher, wider pool.</p></div>
+    <div class="nc"><h3>Employee Testing</h3><p>Types: Aptitude, Achievement, Personality (OCEAN), Interest, SJT, Psychometric. Key concepts: Reliability (consistency) + Validity (accuracy) + Predictive Validity.</p></div>
+    <div class="nc"><h3>Interview Types</h3><p>Structured (standardised, most valid), Unstructured (free-flowing), Behavioural (STAR method), Panel (multiple interviewers), Stress (pressure-testing), Situational (hypothetical scenarios), Group.</p></div>
+    <div class="nc"><h3>Interview Errors</h3><p>HH-FCS-N: Halo (one good → all good), Horn (one bad → all bad), First Impression (first 3 min decides), Contrast (compared to prev candidate), Similarity (like-me bias), Non-verbal bias. Reduce with structured interviews + training.</p></div>
+    <div class="nc"><h3>Diverse Workforce Recruitment</h3><p>Bias-free JDs, blind screening, diverse panels, partnerships with NGOs and women's colleges, flexible work options. Accenture example — 50% gender parity goal.</p></div>
+    <div class="nc"><h3>HR Forecasting Methods</h3><p>Demand: Trend analysis, Ratio analysis, Scatter plot, Managerial judgement, Regression. Supply: Skills inventory, Replacement charts, Succession planning, Markov analysis.</p></div>
+  </div>
+</div>
+
+<!-- ===== NIGHT BEFORE ===== -->
+<div id="s-night" class="sec">
+  <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:1.2rem;margin-bottom:1.4rem;border:.5px solid var(--color-border-tertiary)">
+    <h2 style="font-size:18px;font-weight:500;margin-bottom:.25rem">Night Before Exam — Master Revision Sheet</h2>
+    <p style="font-size:13px;color:var(--color-text-secondary)">Read in 30 minutes. Covers everything examiners look for.</p>
+  </div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Must-Know Definitions (2-mark ready)</h2><span class="tnum">Flash</span></div>
+  <div class="cb op">
+    <ul>
+      <li><strong>Job Analysis:</strong> Systematic process of collecting info about a job's duties, skills, and conditions → produces JD and JS</li>
+      <li><strong>Job Description:</strong> Written statement of what a job involves (duties, responsibilities, conditions) — focuses on the JOB</li>
+      <li><strong>Job Specification:</strong> Written statement of qualifications, skills, and traits needed for the job — focuses on the PERSON</li>
+      <li><strong>Job Enlargement:</strong> Horizontal expansion of a job — more tasks, same level, no new authority</li>
+      <li><strong>Job Enrichment:</strong> Vertical expansion — more responsibility, authority, and decision-making power</li>
+      <li><strong>Job Rotation:</strong> Systematic lateral movement of employees across jobs at planned intervals</li>
+      <li><strong>HRP:</strong> Forecasting future HR needs and ensuring right people are available at the right time</li>
+      <li><strong>Recruitment:</strong> Positive process of attracting qualified candidates to apply</li>
+      <li><strong>Selection:</strong> Negative process of evaluating and choosing the most suitable candidate</li>
+      <li><strong>Talent Management:</strong> Integrated process of attracting, developing, and retaining high-potential employees</li>
+      <li><strong>Halo Effect:</strong> One good trait influences overall positive rating in an interview</li>
+      <li><strong>Contrast Error:</strong> Rating candidate relative to previous candidates, not job standard</li>
+      <li><strong>STAR Method:</strong> Situation, Task, Action, Result — used in Behavioural Interviews</li>
+      <li><strong>Reliability:</strong> Consistency of a test across time and settings</li>
+      <li><strong>Validity:</strong> Accuracy — does the test measure what it claims to measure?</li>
+    </ul>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>All Key Differences at a Glance</h2><span class="tnum">Flash</span></div>
+  <div class="cb op">
+    <table>
+      <tr><th>Pair</th><th>Key Difference</th></tr>
+      <tr><td>JD vs JS</td><td>JD = Job's profile (What). JS = Person's profile (Who)</td></tr>
+      <tr><td>Recruitment vs Selection</td><td>Recruitment = Positive (attract). Selection = Negative (eliminate)</td></tr>
+      <tr><td>Internal vs External</td><td>Internal = Cheaper, faster, known. External = Fresh, wider pool, costly</td></tr>
+      <tr><td>Enlargement vs Enrichment</td><td>Enlargement = Horizontal (more tasks). Enrichment = Vertical (more authority)</td></tr>
+      <tr><td>Enrichment vs Rotation</td><td>Enrichment = deeper responsibility. Rotation = lateral movement across roles</td></tr>
+      <tr><td>Halo vs Horn</td><td>Halo = positive bias from one good trait. Horn = negative bias from one bad trait</td></tr>
+      <tr><td>Reliability vs Validity</td><td>Reliability = consistency. Validity = accuracy. Valid test must be reliable; reliable test may not be valid.</td></tr>
+      <tr><td>Demand vs Supply forecast</td><td>Demand = How many needed. Supply = How many available</td></tr>
+      <tr><td>Structured vs Unstructured interview</td><td>Structured = Fixed Qs, scored. Unstructured = Free-flowing, flexible</td></tr>
+    </table>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>All Memory Tricks — One Place</h2><span class="tnum">Flash</span></div>
+  <div class="cb op">
+    <ul>
+      <li><strong>Job Analysis output:</strong> JD = WHAT. JS = WHO.</li>
+      <li><strong>E-E-R Jobs:</strong> Enlargement = Wider (river). Enrichment = Deeper (river). Rotation = Moves (river).</li>
+      <li><strong>HRP = RIGHT:</strong> Right people, Right skills, Right place, Right time, Right cost</li>
+      <li><strong>Selection steps:</strong> APWEMRFO — Application, Preliminary, Written test, Employment interview, Medical, Reference, Final approval, Offer</li>
+      <li><strong>Internal sources:</strong> PTEJR — Promotion, Transfer, Employee referral, Job posting, Rehiring</li>
+      <li><strong>External sources:</strong> CJEAWH — Campus, Job portals, Employment agency, Ads, Walk-in, Headhunting</li>
+      <li><strong>Interview errors:</strong> HH-FCS-N — Halo, Horn, First impression, Contrast, Similarity, Non-verbal</li>
+      <li><strong>Personality test:</strong> OCEAN — Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism</li>
+      <li><strong>Behavioural Interview:</strong> STAR — Situation, Task, Action, Result</li>
+      <li><strong>Methods of Job Analysis:</strong> IQODT — Interview, Questionnaire, Observation, Diary, Technical conference</li>
+      <li><strong>Talent Management steps:</strong> Plan → Attract → Select → Develop → Retain → Deploy → Transition</li>
+    </ul>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Top 12 Expected Exam Questions</h2><span class="tnum">Flash</span></div>
+  <div class="cb op">
+    <ol>
+      <li>Explain Job Analysis — process, methods, and importance</li>
+      <li>Differentiate Job Enlargement, Job Enrichment, and Job Rotation with examples</li>
+      <li>Explain Recruitment and Selection process — differences between them</li>
+      <li>Discuss the sources of recruitment — internal and external with advantages</li>
+      <li>What is Human Resource Planning? Explain its process and forecasting methods</li>
+      <li>Explain the types of interviews used in the selection process</li>
+      <li>What are the errors/biases in interviews? How can they be reduced?</li>
+      <li>Explain Job Description and Job Specification with differences</li>
+      <li>What is Talent Management? Explain the talent management process</li>
+      <li>Explain employee testing and selection — types of tests, reliability, and validity</li>
+      <li>Discuss the methods of collecting job analysis information</li>
+      <li>What is Job Satisfaction? Explain the factors and consequences</li>
+    </ol>
+    <div class="ok"><strong>Pro Tip:</strong> Questions 1, 2, 3, 5, 6, and 7 are almost certain to appear. Prepare detailed 10-mark model answers for all of them.</div>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Labour Laws &amp; Tests Quick Reference</h2><span class="tnum">Flash</span></div>
+  <div class="cb op">
+    <table>
+      <tr><th>Test / Concept</th><th>What to Remember</th></tr>
+      <tr><td>PAQ</td><td>Position Analysis Questionnaire — 194 items, 6 divisions, used for job analysis</td></tr>
+      <tr><td>Selection Ratio</td><td>Candidates selected ÷ Total applicants. Lower = more selective</td></tr>
+      <tr><td>Reliability</td><td>Test gives consistent results over time</td></tr>
+      <tr><td>Validity</td><td>Test measures what it claims. Predictive validity = predicts job performance</td></tr>
+      <tr><td>OCEAN Model</td><td>Big Five personality: Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism</td></tr>
+      <tr><td>STAR</td><td>Behavioural Interview method: Situation, Task, Action, Result</td></tr>
+      <tr><td>JDI</td><td>Job Descriptive Index — measures job satisfaction across 5 dimensions</td></tr>
+      <tr><td>Markov Analysis</td><td>Tracks employee movement probabilities (promotions, exits) for supply forecasting</td></tr>
+    </table>
+  </div></div>
+</div>
+
+</div>
+
+<script>
+function show(id,btn){
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));
+  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('on'));
+  document.getElementById('s-'+id).classList.add('on');
+  btn.classList.add('on');
+}
+function tog(header){
+  header.nextElementSibling.classList.toggle('op');
+}
+function togQ(header){
+  header.nextElementSibling.classList.toggle('op');
+}
+function expandAll(){
+  document.querySelectorAll('.cb').forEach(b=>b.classList.add('op'));
+}
+</script>
