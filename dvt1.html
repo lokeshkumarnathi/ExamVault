@@ -1,0 +1,928 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans,'Segoe UI',sans-serif);background:transparent;color:var(--color-text-primary);font-size:15px;line-height:1.7}
+.wrap{max-width:880px;margin:0 auto;padding:1rem .5rem 4rem}
+.hdr{text-align:center;padding:1.8rem 1rem 1.4rem;border-bottom:.5px solid var(--color-border-tertiary);margin-bottom:1.5rem}
+.hdr h1{font-size:22px;font-weight:500;margin-bottom:.3rem}
+.hdr p{font-size:13px;color:var(--color-text-secondary)}
+.pill{display:inline-block;font-size:11px;padding:3px 10px;border-radius:12px;margin:2px;font-weight:500}
+.pi{background:var(--color-background-info);color:var(--color-text-info)}
+.pw{background:var(--color-background-warning);color:var(--color-text-warning)}
+.ps{background:var(--color-background-success);color:var(--color-text-success)}
+.pd{background:var(--color-background-danger);color:var(--color-text-danger)}
+.nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.4rem;padding:.7rem;background:var(--color-background-secondary);border-radius:var(--border-radius-lg);border:.5px solid var(--color-border-tertiary)}
+.nb{font-size:12px;padding:5px 11px;border:.5px solid var(--color-border-secondary);border-radius:6px;cursor:pointer;background:var(--color-background-primary);color:var(--color-text-primary);font-family:inherit;transition:background .15s}
+.nb:hover,.nb.on{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent}
+.sec{display:none}.sec.on{display:block}
+.card{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);margin-bottom:1.2rem;overflow:hidden}
+.ch{padding:.85rem 1.2rem;background:var(--color-background-secondary);border-bottom:.5px solid var(--color-border-tertiary);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.ch h2{font-size:15px;font-weight:500}
+.tnum{font-size:11px;color:var(--color-text-secondary);background:var(--color-background-primary);padding:2px 8px;border-radius:10px;white-space:nowrap}
+.cb{padding:1.2rem;display:none}.cb.op{display:block}
+.def{background:var(--color-background-info);border-left:3px solid #378ADD;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:.7rem 1rem;margin-bottom:.9rem;font-size:14px}
+.def strong{color:var(--color-text-info)}
+.warn{background:var(--color-background-warning);border-left:3px solid #BA7517;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:.7rem 1rem;margin:.8rem 0;font-size:13px}
+.warn strong{color:#633806}
+.ok{background:var(--color-background-success);border-left:3px solid #3B6D11;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:.7rem 1rem;margin:.8rem 0;font-size:13px}
+.ok strong{color:var(--color-text-success)}
+.err{background:var(--color-background-danger);border-left:3px solid #A32D2D;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:.7rem 1rem;margin:.8rem 0;font-size:13px}
+.err strong{color:#791F1F}
+h3{font-size:15px;font-weight:500;margin:1.1rem 0 .45rem}
+h4{font-size:13px;font-weight:500;margin:.7rem 0 .25rem;color:var(--color-text-secondary)}
+ul,ol{padding-left:1.4rem;margin:.4rem 0}
+li{margin-bottom:.2rem;font-size:14px}
+p{font-size:14px;margin-bottom:.55rem}
+table{width:100%;border-collapse:collapse;margin:.7rem 0;font-size:13px}
+th{background:var(--color-background-secondary);padding:7px 10px;text-align:left;font-weight:500;border:.5px solid var(--color-border-tertiary)}
+td{padding:6px 10px;border:.5px solid var(--color-border-tertiary);vertical-align:top}
+tr:nth-child(even) td{background:var(--color-background-secondary)}
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:.7rem 0}
+.mc{background:var(--color-background-secondary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:.65rem .9rem}
+.mc h4{margin-top:0}
+.kws{display:flex;flex-wrap:wrap;gap:5px;margin:.5rem 0}
+.kw{background:var(--color-background-secondary);border:.5px solid var(--color-border-secondary);border-radius:12px;padding:3px 9px;font-size:11px;color:var(--color-text-secondary)}
+.qb{border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);margin-bottom:.65rem;overflow:hidden}
+.qh{padding:.55rem 1rem;background:var(--color-background-secondary);cursor:pointer;font-size:14px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.qm{font-size:11px;color:var(--color-text-secondary);background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:8px;padding:2px 7px;white-space:nowrap}
+.qa{padding:.9rem 1rem;display:none;font-size:14px;line-height:1.75}
+.qa.op{display:block}
+.nc{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);margin-bottom:.9rem;padding:1rem 1.2rem}
+.nc h3{margin-top:0;font-size:14px}
+.ea{font-size:12px;color:var(--color-text-info);cursor:pointer;text-decoration:underline;background:none;border:none;font-family:inherit;margin-bottom:.8rem}
+pre{background:var(--color-background-secondary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:.8rem 1rem;font-size:12px;font-family:var(--font-mono,monospace);overflow-x:auto;margin:.6rem 0;color:var(--color-text-primary);white-space:pre}
+.chart-wrap{position:relative;width:100%;margin:.8rem 0}
+.legend{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:8px;font-size:12px;color:var(--color-text-secondary)}
+.leg-item{display:flex;align-items:center;gap:4px}
+.leg-sq{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+</style>
+<div class="container">
+        <a href="index.html" class="back-btn">← Back to Home</a>
+</div>
+<div class="container">
+        <a href="dvt.html" class="back-btn">← Back to DVT units </a>
+<div class="container">
+<div class="wrap">
+<div class="hdr">
+  <h1>Data Visualization — Unit I</h1>
+  <p>Complete B.Tech / B.Sc CS Semester Exam Notes</p>
+  <div style="margin-top:.6rem">
+    <span class="pill pi">4 Topics</span>
+    <span class="pill pw">History Timeline</span>
+    <span class="pill ps">Interactive Charts</span>
+    <span class="pill pd">Night Revision</span>
+  </div>
+</div>
+
+<div class="nav">
+  <button class="nb on" onclick="show('notes',this)">Detailed Notes</button>
+  <button class="nb" onclick="show('diagrams',this)">Diagrams &amp; Charts</button>
+  <button class="nb" onclick="show('compare',this)">Comparison Tables</button>
+  <button class="nb" onclick="show('questions',this)">Exam Q&amp;A</button>
+  <button class="nb" onclick="show('quick',this)">Quick Revision</button>
+  <button class="nb" onclick="show('night',this)">Night Before Exam</button>
+</div>
+
+<!-- ======= NOTES ======= -->
+<div id="s-notes" class="sec on">
+<button class="ea" onclick="expandAll()">Expand all topics</button>
+
+<!-- T1: Introduction -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>Topic 1: Introduction to Data Visualization</h2><span class="tnum">Topic 01</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> Data Visualization is the graphical representation of information and data using visual elements such as charts, graphs, maps, and infographics to help people understand trends, outliers, and patterns in data.</div>
+
+    <h3>Why Data Visualization?</h3>
+    <p>The human brain processes visuals 60,000 times faster than text. When data is represented visually, complex patterns and insights become instantly understandable. A table of 1,000 rows tells you nothing at a glance — a bar chart of the same data shows the trend immediately.</p>
+
+    <h3>Core Objectives of Data Visualization</h3>
+    <ul>
+      <li>Transform raw data into understandable visual form</li>
+      <li>Reveal patterns, trends, and correlations hidden in data</li>
+      <li>Support decision-making with evidence</li>
+      <li>Communicate complex information quickly and clearly</li>
+      <li>Enable exploration and discovery in large datasets</li>
+      <li>Reduce cognitive load — make data easy to digest</li>
+    </ul>
+
+    <h3>The Data Visualization Pipeline</h3>
+    <pre>Raw Data → Data Cleaning → Data Analysis → Visual Encoding → Rendering → Interpretation
+  [Collect]    [Filter/Fix]    [Find patterns]  [Map to visuals]  [Draw]     [Understand]</pre>
+
+    <h3>Types of Data Visualization</h3>
+    <table>
+      <tr><th>Type</th><th>Examples</th><th>Best for</th></tr>
+      <tr><td>Temporal</td><td>Line charts, area charts</td><td>Changes over time</td></tr>
+      <tr><td>Categorical</td><td>Bar charts, pie charts</td><td>Comparing groups</td></tr>
+      <tr><td>Relational</td><td>Scatter plots, bubble charts</td><td>Correlations between variables</td></tr>
+      <tr><td>Hierarchical</td><td>Tree maps, sunburst charts</td><td>Part-whole relationships</td></tr>
+      <tr><td>Geospatial</td><td>Choropleth maps, heat maps</td><td>Location-based data</td></tr>
+      <tr><td>Network</td><td>Node-link diagrams, force graphs</td><td>Relationships between entities</td></tr>
+    </table>
+
+    <h3>Key Terms and Concepts</h3>
+    <div class="g2">
+      <div class="mc"><h4>Visual Variable</h4><p>Any graphical property used to encode data: position, size, color, shape, orientation, texture</p></div>
+      <div class="mc"><h4>Encoding</h4><p>Mapping data values to visual properties (e.g., mapping sales figures to bar heights)</p></div>
+      <div class="mc"><h4>Decoding</h4><p>The viewer's process of reading and interpreting the visual encoding to extract meaning</p></div>
+      <div class="mc"><h4>Data-Ink</h4><p>The ink (pixels) used to represent actual data, as opposed to decorative elements</p></div>
+    </div>
+
+    <h3>Applications of Data Visualization</h3>
+    <ul>
+      <li><strong>Business:</strong> Sales dashboards, KPI tracking, financial reports (Tableau, Power BI)</li>
+      <li><strong>Healthcare:</strong> Patient monitoring, disease spread maps (COVID-19 dashboards)</li>
+      <li><strong>Social Media:</strong> Engagement analytics, follower growth trends (Instagram Insights, Twitter Analytics)</li>
+      <li><strong>Sports:</strong> Player performance heatmaps, shot charts (NBA statistics, cricket wagon wheels)</li>
+      <li><strong>Weather:</strong> Temperature maps, rainfall charts, storm tracking</li>
+      <li><strong>Science:</strong> Genome visualization, astronomical data, climate change charts</li>
+      <li><strong>Government:</strong> Census data visualization, election result maps</li>
+    </ul>
+
+    <h3>Advantages and Disadvantages</h3>
+    <table>
+      <tr><th>Advantages</th><th>Disadvantages</th></tr>
+      <tr><td>Faster understanding of complex data</td><td>Poor design can be misleading</td></tr>
+      <tr><td>Reveals hidden patterns and trends</td><td>Oversimplification of nuanced data</td></tr>
+      <tr><td>Supports better decision-making</td><td>High cost of sophisticated tools</td></tr>
+      <tr><td>Universal — crosses language barriers</td><td>Requires skill in choosing right chart type</td></tr>
+      <tr><td>Engaging and memorable</td><td>Color blindness accessibility issues</td></tr>
+      <tr><td>Enables real-time monitoring</td><td>Large datasets may overwhelm viewers</td></tr>
+    </table>
+
+    <div class="warn"><strong>⭐ Exam Point:</strong> "What is Data Visualization and why is it important?" is a classic 10-mark question. Always include the pipeline, types of visualization, and real-world examples.</div>
+    <div class="ok"><strong>Memory Trick:</strong> Data Viz = <strong>CREED</strong> — Communicate, Reveal patterns, Enable decisions, Explore data, Display clearly</div>
+    <div class="kws"><span class="kw">Data Visualization</span><span class="kw">Visual Encoding</span><span class="kw">Data-Ink Ratio</span><span class="kw">Infographic</span><span class="kw">Dashboard</span><span class="kw">Pattern Recognition</span></div>
+  </div>
+</div>
+
+<!-- T2: History -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>Topic 2: A Brief History of Data Visualization</h2><span class="tnum">Topic 02</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> The history of data visualization traces the evolution from ancient cave paintings and early maps to modern interactive digital dashboards, showing how humans have always sought to represent data visually.</div>
+
+    <h3>Timeline of Major Milestones</h3>
+    <pre>
+17000 BCE  Cave paintings (Lascaux) — early visual communication
+ 2700 BCE  Egyptian maps — first geographic data viz
+  600 BCE  Babylonian world map on clay tablet
+ 1350 AD   First known graph (Bishop Nicole d'Oresme) — latitude vs. speed
+ 1644      Michael van Langren — first statistical graph (distances to Rome)
+ 1686      Edmund Halley — first weather map (trade winds)
+ 1760      Johann Lambert — first time series chart and scatter plot
+ 1786      William Playfair — invented bar chart, line chart, pie chart
+ 1801      William Playfair — introduced pie chart (statistical breviary)
+ 1854      John Snow — dot map tracking cholera outbreak (London)
+ 1858      Florence Nightingale — polar area diagram (crimean war deaths)
+ 1869      Charles Minard — Napoleon's Russian campaign flow map
+ 1914      Willard Cope Brinton — "Graphic Methods for Presenting Facts"
+ 1967      Jacques Bertin — "Semiology of Graphics" (visual variables theory)
+ 1977      John Tukey — "Exploratory Data Analysis" (EDA, box plots, stem-leaf)
+ 1983      Edward Tufte — "The Visual Display of Quantitative Information"
+ 1986      AT&amp;T Bell Labs — first interactive computer graphics for data
+ 1990s     Internet era — web-based charts begin
+ 2005      Google Maps launches — interactive geospatial visualization
+ 2008      Tableau — democratizes business data visualization
+ 2010s     D3.js, Plotly — open-source interactive viz libraries
+ 2020s     AI-generated visualizations, real-time big data dashboards</pre>
+
+    <h3>Key Pioneers and Their Contributions</h3>
+    <table>
+      <tr><th>Pioneer</th><th>Year</th><th>Contribution</th><th>Significance</th></tr>
+      <tr><td>William Playfair</td><td>1786</td><td>Bar chart, line chart, pie chart</td><td>"Father of Statistical Graphics"</td></tr>
+      <tr><td>John Snow</td><td>1854</td><td>Cholera dot map</td><td>First use of data viz in epidemiology</td></tr>
+      <tr><td>Florence Nightingale</td><td>1858</td><td>Polar area diagram (coxcomb)</td><td>Used viz to save lives, influence policy</td></tr>
+      <tr><td>Charles Minard</td><td>1869</td><td>Napoleon's march flow map</td><td>Called "best statistical graphic ever drawn"</td></tr>
+      <tr><td>Jacques Bertin</td><td>1967</td><td>Visual variables theory</td><td>Scientific foundation for visual encoding</td></tr>
+      <tr><td>John Tukey</td><td>1977</td><td>EDA, box plots, stem-leaf plots</td><td>Made exploratory analysis systematic</td></tr>
+      <tr><td>Edward Tufte</td><td>1983</td><td>Data-ink ratio, sparklines</td><td>Gold standard for visualization design</td></tr>
+    </table>
+
+    <h3>Jacques Bertin's Visual Variables (1967)</h3>
+    <pre>
+Visual Variables:
+┌─────────────┬────────────────────────────────────────┐
+│ Variable    │ Example use                            │
+├─────────────┼────────────────────────────────────────┤
+│ Position    │ X and Y axis placement                 │
+│ Size        │ Bubble radius = population             │
+│ Shape       │ Triangle = male, circle = female       │
+│ Color hue   │ Category distinction                   │
+│ Color value │ Light to dark = low to high value      │
+│ Orientation │ Angle of line = direction              │
+│ Texture     │ Dot pattern density = intensity        │
+└─────────────┴────────────────────────────────────────┘</pre>
+
+    <h3>Three Major Eras of Data Visualization</h3>
+    <div class="g2">
+      <div class="mc"><h4>Pre-digital era (before 1950)</h4><p>Hand-drawn maps, charts on paper. Focus: geographic and statistical data. Tools: pen, ink, compass.</p></div>
+      <div class="mc"><h4>Computer era (1950–1990)</h4><p>First computer-generated charts. FORTRAN plots, statistical software. Tools: mainframes, terminals.</p></div>
+      <div class="mc"><h4>Interactive era (1990–present)</h4><p>Web-based, real-time, interactive dashboards. AI-generated viz. Tools: D3.js, Tableau, Power BI, Python.</p></div>
+    </div>
+
+    <div class="warn"><strong>⭐ Exam Point:</strong> William Playfair, Florence Nightingale, and Edward Tufte are the three most frequently asked historical figures. Know each person's specific contribution and year.</div>
+    <div class="ok"><strong>Memory Trick for key pioneers:</strong> <strong>PSNBTT</strong> — Playfair (charts), Snow (cholera map), Nightingale (polar diagram), Bertin (visual variables), Tukey (EDA), Tufte (data-ink)</div>
+    <div class="kws"><span class="kw">William Playfair</span><span class="kw">Florence Nightingale</span><span class="kw">Edward Tufte</span><span class="kw">Visual Variables</span><span class="kw">EDA</span><span class="kw">Coxcomb Chart</span></div>
+  </div>
+</div>
+
+<!-- T3: Good Graphics -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>Topic 3: Good Graphics</h2><span class="tnum">Topic 03</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> Good graphics (effective visualizations) are those that accurately, clearly, and efficiently represent data to help viewers understand the intended message without confusion, distortion, or unnecessary complexity.</div>
+
+    <h3>Principles of Good Graphics (Edward Tufte's Framework)</h3>
+
+    <h4>1. Data-Ink Ratio</h4>
+    <div class="def"><strong>Data-Ink Ratio = Data Ink / Total Ink Used</strong><br>Maximize the proportion of ink devoted to actual data. Remove everything that does not contribute to the data story.</div>
+    <pre>
+BAD chart (low data-ink ratio):     GOOD chart (high data-ink ratio):
+┌────────────────────────┐          Sales by Month
+│ ░░░░░░░ SALES ░░░░░░░  │          Jan ████████████ 120
+│ ████████████ Jan: 120  │          Feb ████████ 80
+│ ████████ Feb: 80       │          Mar ██████████ 100
+│ ████████████ Mar: 100  │
+│ (heavy gridlines)      │          [No 3D, no heavy borders]
+│ (3D effects, shadow)   │
+└────────────────────────┘</pre>
+
+    <h4>2. Chartjunk — What to Avoid</h4>
+    <ul>
+      <li>Unnecessary 3D effects</li>
+      <li>Decorative backgrounds or images</li>
+      <li>Heavy grid lines</li>
+      <li>Meaningless color variations</li>
+      <li>Shadows, gradient fills</li>
+      <li>Legends when labels suffice</li>
+    </ul>
+
+    <h4>3. Clarity</h4>
+    <ul>
+      <li>One clear message per visualization</li>
+      <li>Clear axis labels with units</li>
+      <li>Descriptive title that states the finding</li>
+      <li>Appropriate font size — readable at any distance</li>
+      <li>Logical data ordering (ascending, descending, or temporal)</li>
+    </ul>
+
+    <h4>4. Accuracy</h4>
+    <ul>
+      <li>Y-axis should always start at zero for bar charts</li>
+      <li>Scale should be consistent and proportional</li>
+      <li>No truncated axes that exaggerate small differences</li>
+      <li>Area must be proportional to values (in pie/bubble charts)</li>
+      <li>Sample size and data source should be cited</li>
+    </ul>
+
+    <h4>5. Simplicity (Less is More)</h4>
+    <ul>
+      <li>Remove unnecessary elements — every pixel must earn its place</li>
+      <li>Use white space effectively</li>
+      <li>Limit number of colors (max 5–7 distinguishable colors)</li>
+      <li>Avoid dual axes unless absolutely necessary</li>
+    </ul>
+
+    <h4>6. Gestalt Principles in Visualization</h4>
+    <table>
+      <tr><th>Principle</th><th>Meaning</th><th>Application</th></tr>
+      <tr><td>Proximity</td><td>Items close together seem related</td><td>Group related chart elements</td></tr>
+      <tr><td>Similarity</td><td>Items that look alike seem related</td><td>Same color for same category</td></tr>
+      <tr><td>Continuity</td><td>Lines are followed to their end</td><td>Line charts suggest trends</td></tr>
+      <tr><td>Enclosure</td><td>Items within a boundary are grouped</td><td>Use borders to group data</td></tr>
+      <tr><td>Figure-ground</td><td>Distinguish foreground from background</td><td>Highlight key data points</td></tr>
+    </table>
+
+    <h4>7. Avoiding Misleading Graphics</h4>
+    <pre>
+MISLEADING TECHNIQUES TO AVOID:
+══════════════════════════════════════════════════
+ Truncated Y-axis: Starting at 95 instead of 0
+   → makes tiny differences look huge
+
+ 3D charts: Depth distorts relative values
+   → always use 2D for accurate comparison
+
+ Dual Y-axis without clear labeling
+   → suggests false correlation
+
+ Pie chart with too many slices
+   → human eye cannot compare angles accurately
+
+ Area chart misuse: area vs. height confusion
+   → circle area = πr², doubling radius = 4x area
+
+ Cherry-picking time range
+   → shows only the favorable period
+══════════════════════════════════════════════════</pre>
+
+    <h3>Good vs. Bad Visualization — Quick Checklist</h3>
+    <table>
+      <tr><th>Criterion</th><th>Good Visualization</th><th>Bad Visualization</th></tr>
+      <tr><td>Y-axis</td><td>Starts at zero (bar charts)</td><td>Truncated to exaggerate</td></tr>
+      <tr><td>Color</td><td>Meaningful, accessible, max 7</td><td>Random, clashing, inaccessible</td></tr>
+      <tr><td>Title</td><td>States the insight clearly</td><td>Vague or missing</td></tr>
+      <tr><td>Labels</td><td>Clear axis labels with units</td><td>Missing or unclear labels</td></tr>
+      <tr><td>Chartjunk</td><td>Minimal — data speaks for itself</td><td>3D, shadows, heavy gridlines</td></tr>
+      <tr><td>Chart type</td><td>Matches the data and question</td><td>Wrong type for the data</td></tr>
+      <tr><td>Context</td><td>Includes source, date, n-value</td><td>No context or source</td></tr>
+    </table>
+
+    <div class="warn"><strong>⭐ Exam Point:</strong> Edward Tufte's "Data-Ink Ratio" and "Chartjunk" are among the most frequently tested concepts. Always define them with the formula and give examples of what constitutes chartjunk.</div>
+    <div class="ok"><strong>Memory Trick:</strong> Good Graphics = <strong>CASDA</strong> — Clarity, Accuracy, Simplicity, Data-ink ratio, Avoid misleading elements</div>
+    <div class="kws"><span class="kw">Data-Ink Ratio</span><span class="kw">Chartjunk</span><span class="kw">Edward Tufte</span><span class="kw">Gestalt Principles</span><span class="kw">Truncated Axis</span><span class="kw">Visual Lie Factor</span></div>
+  </div>
+</div>
+
+<!-- T4: Static Graphics -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>Topic 4: Static Graphics</h2><span class="tnum">Topic 04</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> Static graphics are fixed, non-interactive visual representations of data that do not change with user input. They present a snapshot of data at a given point in time — printed charts, report graphics, textbook figures.</div>
+
+    <h3>Types of Static Graphics</h3>
+
+    <h4>1. Bar Chart</h4>
+    <div class="def">Uses rectangular bars whose length is proportional to the data value. Best for comparing quantities across categories.</div>
+    <pre>
+Sales by Region (Bar Chart):
+North  ████████████████████ 200K
+South  ████████████ 120K
+East   ████████████████ 160K
+West   ████████ 80K
+       └──────────────────── Value axis →</pre>
+    <p>Variants: Grouped bar (multiple categories), Stacked bar (part-whole), Horizontal bar (long category names)</p>
+    <p>Use when: Comparing 2–15 discrete categories</p>
+
+    <h4>2. Pie Chart</h4>
+    <div class="def">A circular chart divided into slices, where each slice's angle is proportional to its value. Shows part-to-whole relationships.</div>
+    <pre>
+Market Share (Pie Chart):
+        ____
+      /  A   \
+     | 40%    |    A: 40%  ████
+     |    ____|    B: 30%  ███
+      \  B C /     C: 20%  ██
+       \___/        D: 10%  █
+    (D=10% thin slice)</pre>
+    <p>Limitation: Difficult to compare when more than 5 slices. Humans are poor at judging angles. Use a bar chart instead when precision matters.</p>
+
+    <h4>3. Histogram</h4>
+    <div class="def">Shows the frequency distribution of continuous data by dividing data into bins (intervals) and counting how many values fall in each bin.</div>
+    <pre>
+Age Distribution (Histogram):
+Freq
+ 50 │    ██
+ 40 │   ████
+ 30 │  ██████
+ 20 │ ████████
+ 10 │██████████
+    └──────────────
+     10 20 30 40 50  Age →</pre>
+    <p>Key difference from bar chart: bars touch each other (continuous data). No gap between bars.</p>
+
+    <h4>4. Scatter Plot</h4>
+    <div class="def">Uses dots to represent the values of two different variables. The position of each dot on the horizontal and vertical axis indicates values. Reveals correlations.</div>
+    <pre>
+Height vs. Weight (Scatter Plot):
+Weight
+ 90 │         · ·
+ 80 │       · ·  ·
+ 70 │     · · ·
+ 60 │   · ·
+ 50 │  ·
+    └──────────────
+    150 160 170 180  Height →
+    (Positive correlation visible)</pre>
+    <p>Reveals: Positive/Negative/No correlation, Outliers, Clusters</p>
+
+    <h4>5. Line Chart</h4>
+    <div class="def">Displays information as a series of data points connected by straight lines. Best for showing trends over time.</div>
+    <pre>
+Stock Price Over Time (Line Chart):
+Price
+ 120 │    /\
+ 110 │   /  \  /\
+ 100 │  /    \/  \
+  90 │ /          \
+  80 │/
+     └────────────────
+     Jan Feb Mar Apr May  →</pre>
+    <p>Use when: Data has a natural time order or continuous sequence</p>
+
+    <h4>6. Box Plot (Box-and-Whisker)</h4>
+    <div class="def">Shows the distribution of data through five statistical summaries: minimum, Q1, median, Q3, maximum.</div>
+    <pre>
+Box Plot Structure:
+Min    Q1   Median  Q3     Max
+ |──────[====|=====]──────|
+         Interquartile
+            Range (IQR)</pre>
+
+    <h4>7. Heatmap</h4>
+    <div class="def">Uses color intensity to represent data values in a matrix format. Color encodes magnitude.</div>
+    <pre>
+Website Clicks by Day &amp; Hour (Heatmap):
+      Mon  Tue  Wed  Thu  Fri
+9am  [low][med][low][med][low]
+12pm [MED][HIG][MED][HIG][MED]
+6pm  [HIG][HIG][HIG][HIG][HIG]
+Light=low  Dark=high</pre>
+
+    <h3>Choosing the Right Chart</h3>
+    <table>
+      <tr><th>Question to Answer</th><th>Best Chart</th></tr>
+      <tr><td>Compare quantities across categories</td><td>Bar chart</td></tr>
+      <tr><td>Show part of a whole</td><td>Pie chart / stacked bar</td></tr>
+      <tr><td>Show change over time</td><td>Line chart / area chart</td></tr>
+      <tr><td>Show distribution of data</td><td>Histogram / box plot</td></tr>
+      <tr><td>Show correlation between two variables</td><td>Scatter plot</td></tr>
+      <tr><td>Show data intensity in a matrix</td><td>Heatmap</td></tr>
+      <tr><td>Show ranking</td><td>Horizontal bar chart</td></tr>
+      <tr><td>Show flow between stages</td><td>Sankey diagram</td></tr>
+    </table>
+
+    <h3>Static vs. Interactive Graphics</h3>
+    <table>
+      <tr><th>Feature</th><th>Static Graphics</th><th>Interactive Graphics</th></tr>
+      <tr><td>User interaction</td><td>None</td><td>Zoom, filter, hover, click</td></tr>
+      <tr><td>Medium</td><td>Print, PDF, reports</td><td>Web, dashboards, applications</td></tr>
+      <tr><td>Complexity</td><td>Simpler, focused</td><td>Richer, multi-layered</td></tr>
+      <tr><td>Update</td><td>Fixed at creation time</td><td>Real-time data updates</td></tr>
+      <tr><td>Tools</td><td>Excel, SPSS, R (ggplot2)</td><td>Tableau, D3.js, Plotly, Power BI</td></tr>
+      <tr><td>Accessibility</td><td>Easy to print and share</td><td>Requires digital device</td></tr>
+    </table>
+
+    <div class="warn"><strong>⭐ Exam Point:</strong> "Difference between bar chart and histogram" is a very common 2-mark question. Bar chart = discrete categories, gaps between bars. Histogram = continuous data, no gaps between bars.</div>
+    <div class="ok"><strong>Memory Trick (chart selection):</strong> <strong>CTDCS</strong> — Compare→Bar, Trend→Line, Distribution→Histogram, Correlation→Scatter, Share→Pie</div>
+    <div class="kws"><span class="kw">Bar Chart</span><span class="kw">Histogram</span><span class="kw">Scatter Plot</span><span class="kw">Line Chart</span><span class="kw">Box Plot</span><span class="kw">Heatmap</span><span class="kw">Continuous Data</span></div>
+  </div>
+</div>
+</div>
+
+<!-- ======= DIAGRAMS ======= -->
+<div id="s-diagrams" class="sec">
+  <h2 style="font-size:18px;font-weight:500;margin-bottom:1rem">Interactive Chart Explorer</h2>
+  <p style="font-size:13px;color:var(--color-text-secondary);margin-bottom:1rem">Click each chart type below to see an example with real data. These represent the static graphics you need to know for exams.</p>
+
+  <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1rem">
+    <button class="nb on" onclick="showChart('bar',this)">Bar Chart</button>
+    <button class="nb" onclick="showChart('line',this)">Line Chart</button>
+    <button class="nb" onclick="showChart('pie',this)">Pie Chart</button>
+    <button class="nb" onclick="showChart('scatter',this)">Scatter Plot</button>
+    <button class="nb" onclick="showChart('histogram',this)">Histogram</button>
+  </div>
+
+  <div id="chart-info" style="background:var(--color-background-secondary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:.8rem 1rem;margin-bottom:.8rem;font-size:13px"></div>
+
+  <div class="legend" id="chart-legend"></div>
+  <div class="chart-wrap" style="height:300px"><canvas id="mainChart" role="img" aria-label="Data visualization chart example"></canvas></div>
+
+  <div class="card" style="margin-top:1.2rem">
+    <div class="ch" onclick="tog(this)"><h2>Exam Diagram: Data Visualization Pipeline</h2><span class="tnum">Draw in exam</span></div>
+    <div class="cb">
+<pre>
+DATA VISUALIZATION PIPELINE
+═══════════════════════════════════════════════════════════════
+
+  ┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┐
+  │   RAW    │    │  DATA    │    │  DATA    │    │ VISUAL   │
+  │  DATA    │───▶│PROCESSING│───▶│ANALYSIS  │───▶│ENCODING  │
+  │          │    │          │    │          │    │          │
+  │ CSV,DB,  │    │ Clean,   │    │ Stats,   │    │ Map to   │
+  │ API,logs │    │ Filter,  │    │ Patterns,│    │ charts,  │
+  │          │    │ Aggregate│    │ Trends   │    │ colors   │
+  └──────────┘    └──────────┘    └──────────┘    └──────────┘
+                                                       │
+  ┌──────────┐    ┌──────────┐    ┌──────────┐         │
+  │ INSIGHTS │    │INTERPRETA│    │ RENDERING│◀────────┘
+  │ DECISION │◀───│  TION    │◀───│          │
+  │          │    │          │    │ Browser, │
+  │ Action,  │    │ Context, │    │ Print,   │
+  │ Strategy │    │ Narrative│    │ Screen   │
+  └──────────┘    └──────────┘    └──────────┘
+
+═══════════════════════════════════════════════════════════════</pre>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ch" onclick="tog(this)"><h2>Exam Diagram: Visual Variables (Bertin, 1967)</h2><span class="tnum">Draw in exam</span></div>
+    <div class="cb">
+<pre>
+BERTIN'S VISUAL VARIABLES
+══════════════════════════════════════════════════
+
+  VARIABLE      VISUAL REPRESENTATION     DATA TYPE
+  ─────────────────────────────────────────────────
+  Position    │ ·   ·      ·   │ Quantitative
+              │      ·   ·     │ (strongest!)
+
+  Size        │ ●  ●●  ●●●    │ Quantitative
+              │ (small→large)  │
+
+  Color Hue   │ ■  ■  ■  ■    │ Categorical
+              │(red blue grn)  │
+
+  Color Value │ □  ▤  ▦  ■    │ Quantitative
+              │(light → dark)  │
+
+  Shape       │ ●  ■  ▲  ★    │ Categorical
+
+  Orientation │ — /  |  \     │ Categorical
+
+  Texture     │ ::: ... ---   │ Categorical
+══════════════════════════════════════════════════
+NOTE: Position is most accurately perceived by humans</pre>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ch" onclick="tog(this)"><h2>Exam Diagram: Good vs. Bad Bar Chart</h2><span class="tnum">Most asked</span></div>
+    <div class="cb">
+<pre>
+BAD VISUALIZATION                  GOOD VISUALIZATION
+(Low Data-Ink Ratio)              (High Data-Ink Ratio)
+────────────────────────────────────────────────────────
+
+  Sales Dashboard 2024               Sales by Product (2024)
+  ╔══════════════════╗
+  ║ ░░░░░░░░░░░░░░░░ ║               Product A  ████████ 80
+  ║ ░ 3D BARS WITH ░ ║               Product B  ████████████ 120
+  ║ ░  SHADOWS AND ░ ║               Product C  ██████ 60
+  ║ ░  GRADIENTS   ░ ║               Product D  ████████████████ 160
+  ║ ░░░░░░░░░░░░░░░░ ║
+  ║ Heavy grid lines ║              Values in thousands (₹K)
+  ║ Fancy background ║              Source: Internal Sales Report Q4 2024
+  ╚══════════════════╝
+  
+  PROBLEMS:                          IMPROVEMENTS:
+  ✗ 3D distorts values              ✓ 2D bars, clean
+  ✗ Heavy unnecessary gridlines     ✓ Minimal grid/no grid
+  ✗ No axis labels                  ✓ Clear axis labels with units
+  ✗ Decorative background           ✓ White/plain background
+  ✗ No data source                  ✓ Source cited
+  ✗ Y-axis truncated at 50          ✓ Y-axis starts at 0
+────────────────────────────────────────────────────────</pre>
+    </div>
+  </div>
+</div>
+
+<!-- ======= COMPARISON TABLES ======= -->
+<div id="s-compare" class="sec">
+  <h2 style="font-size:18px;font-weight:500;margin-bottom:1rem">Comparison Tables</h2>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Bar Chart vs. Histogram</h2><span class="tnum">2-mark favourite</span></div>
+  <div class="cb op">
+    <table>
+      <tr><th>Feature</th><th>Bar Chart</th><th>Histogram</th></tr>
+      <tr><td>Data type</td><td>Categorical / discrete data</td><td>Continuous / numerical data</td></tr>
+      <tr><td>Bars touching</td><td>No — gaps between bars</td><td>Yes — bars touch (continuous range)</td></tr>
+      <tr><td>X-axis</td><td>Categories (names, groups)</td><td>Numerical intervals (bins)</td></tr>
+      <tr><td>Y-axis</td><td>Count, value, percentage</td><td>Frequency / count</td></tr>
+      <tr><td>Reordering</td><td>Bars can be reordered</td><td>Bars must maintain order</td></tr>
+      <tr><td>Purpose</td><td>Compare different categories</td><td>Show data distribution</td></tr>
+      <tr><td>Example</td><td>Sales by state</td><td>Distribution of student ages</td></tr>
+    </table>
+    <div class="ok"><strong>One-line exam answer:</strong> Bar chart = discrete categories with gaps; Histogram = continuous data distribution with no gaps between bars.</div>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Static vs. Interactive Graphics</h2><span class="tnum">5-mark topic</span></div>
+  <div class="cb op">
+    <table>
+      <tr><th>Feature</th><th>Static Graphics</th><th>Interactive Graphics</th></tr>
+      <tr><td>Definition</td><td>Fixed, non-changeable visual</td><td>User can interact, filter, explore</td></tr>
+      <tr><td>User interaction</td><td>None — read-only</td><td>Zoom, hover, click, filter, drill-down</td></tr>
+      <tr><td>Medium</td><td>Print, PDF, newspaper, textbook</td><td>Web browser, dashboard apps</td></tr>
+      <tr><td>Data update</td><td>Fixed at creation time</td><td>Can update in real-time</td></tr>
+      <tr><td>Complexity</td><td>Simpler, focused on one message</td><td>Multi-layered, exploratory</td></tr>
+      <tr><td>File format</td><td>PNG, JPEG, SVG, PDF</td><td>HTML, JavaScript, JSON</td></tr>
+      <tr><td>Tools</td><td>Excel, R (ggplot2), Matplotlib</td><td>Tableau, D3.js, Plotly, Power BI</td></tr>
+      <tr><td>Accessibility</td><td>Easy for all users</td><td>Needs digital device + skills</td></tr>
+      <tr><td>Best use</td><td>Reports, publications, papers</td><td>Business dashboards, analytics</td></tr>
+      <tr><td>Example</td><td>Chart in a research paper</td><td>Google Analytics dashboard</td></tr>
+    </table>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Good vs. Bad Visualization</h2><span class="tnum">10-mark topic</span></div>
+  <div class="cb op">
+    <table>
+      <tr><th>Criterion</th><th>Good Visualization</th><th>Bad Visualization</th></tr>
+      <tr><td>Y-axis origin</td><td>Starts at 0 for bar charts</td><td>Truncated — misleads scale</td></tr>
+      <tr><td>Chart type</td><td>Appropriate for the data type</td><td>Wrong type (pie for trends)</td></tr>
+      <tr><td>Color</td><td>Meaningful, colorblind-safe, max 7</td><td>Random, clashing, excessive</td></tr>
+      <tr><td>Title</td><td>States the key insight</td><td>Vague, missing, or misleading</td></tr>
+      <tr><td>Labels</td><td>Axis labels with units and source</td><td>Missing or ambiguous labels</td></tr>
+      <tr><td>Chartjunk</td><td>Removed — minimal decoration</td><td>3D, shadows, backgrounds</td></tr>
+      <tr><td>Data-ink ratio</td><td>High — every pixel encodes data</td><td>Low — wasted ink on decoration</td></tr>
+      <tr><td>Gridlines</td><td>Light, minimal, helpful only</td><td>Heavy, distracting gridlines</td></tr>
+      <tr><td>Context</td><td>Source, date, n-value shown</td><td>No context or provenance</td></tr>
+      <tr><td>Scale</td><td>Consistent and proportional</td><td>Inconsistent — misrepresents data</td></tr>
+    </table>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Chart Type Selection Guide</h2><span class="tnum">Must memorise</span></div>
+  <div class="cb op">
+    <table>
+      <tr><th>If you want to show…</th><th>Use this chart</th><th>Avoid</th></tr>
+      <tr><td>Compare values across categories</td><td>Bar chart</td><td>Pie chart</td></tr>
+      <tr><td>Part of a whole (&lt;6 parts)</td><td>Pie chart / donut chart</td><td>3D pie chart</td></tr>
+      <tr><td>Trend over time</td><td>Line chart</td><td>Bar chart for long time series</td></tr>
+      <tr><td>Distribution of one variable</td><td>Histogram / box plot</td><td>Pie chart</td></tr>
+      <tr><td>Correlation between 2 variables</td><td>Scatter plot</td><td>Line chart</td></tr>
+      <tr><td>Three variables simultaneously</td><td>Bubble chart</td><td>Regular scatter plot</td></tr>
+      <tr><td>Data intensity in a matrix</td><td>Heatmap</td><td>Bar chart</td></tr>
+      <tr><td>Ranking</td><td>Horizontal bar chart (sorted)</td><td>Unsorted bar chart</td></tr>
+      <tr><td>Flow between stages</td><td>Sankey diagram</td><td>Pie chart</td></tr>
+      <tr><td>Geographic distribution</td><td>Choropleth map</td><td>Bar chart</td></tr>
+    </table>
+  </div></div>
+</div>
+
+<!-- ======= QUESTIONS ======= -->
+<div id="s-questions" class="sec">
+  <h2 style="font-size:18px;font-weight:500;margin-bottom:1rem">Exam Questions &amp; Model Answers</h2>
+
+  <h3 style="color:var(--color-text-success);margin-bottom:.5rem">2-Mark Questions</h3>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">Define Data Visualization.<span class="qm">2 marks</span></div>
+  <div class="qa">Data Visualization is the graphical representation of information and data using visual elements such as charts, graphs, maps, and infographics, enabling humans to identify patterns, trends, and outliers in data quickly and intuitively. It converts raw, complex data into visual form that the human brain can process more efficiently than textual or numerical formats.</div></div>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">What is Data-Ink Ratio? Who introduced it?<span class="qm">2 marks</span></div>
+  <div class="qa">Data-Ink Ratio was introduced by Edward Tufte in his 1983 book "The Visual Display of Quantitative Information." It is defined as: Data-Ink Ratio = Data Ink / Total Ink Used in the Graphic. The principle states that the proportion of a graphic's ink devoted to the non-redundant display of data should be maximized. All non-data ink (decorations, unnecessary gridlines, 3D effects) should be eliminated to improve clarity and honesty.</div></div>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">Differentiate between a bar chart and a histogram.<span class="qm">2 marks</span></div>
+  <div class="qa">A bar chart is used to compare discrete/categorical data where bars have gaps between them. Example: sales by product. A histogram is used to show the frequency distribution of continuous numerical data where bars touch each other with no gaps. Example: distribution of student test scores. In a histogram, the x-axis represents numerical ranges (bins), while in a bar chart, it represents distinct categories.</div></div>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">Who is William Playfair and what is his contribution?<span class="qm">2 marks</span></div>
+  <div class="qa">William Playfair (1759–1823) is known as the "Father of Statistical Graphics." In 1786, he invented three of the most widely used chart types still in use today: the bar chart, line chart, and circle graph (pie chart). In 1801, he introduced the pie chart in his "Statistical Breviary." His work established the foundation for modern quantitative graphics and data visualization.</div></div>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">What is Chartjunk? Give two examples.<span class="qm">2 marks</span></div>
+  <div class="qa">Chartjunk, coined by Edward Tufte, refers to all visual elements in charts and graphs that are not necessary to comprehend the information represented and may actually distort or confuse the viewer. Examples: (1) Unnecessary 3D effects on bar or pie charts that distort perceived values. (2) Decorative background images or patterns that compete with the data. Other examples include heavy grid lines, unnecessary shadows, and gradient fills.</div></div>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">What is a scatter plot used for?<span class="qm">2 marks</span></div>
+  <div class="qa">A scatter plot (also called scatter diagram or scatter graph) is a type of static graphic that uses dots to represent the values of two different variables — one on the horizontal X-axis and one on the vertical Y-axis. It is primarily used to: (1) identify correlations between two variables (positive, negative, or no correlation), (2) detect outliers in data, and (3) identify clusters or groupings in data. Example: showing the correlation between height and weight in a population.</div></div>
+
+  <h3 style="color:var(--color-text-warning);margin-bottom:.5rem;margin-top:1.5rem">5-Mark Questions</h3>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">Explain the principles of good graphics with examples.<span class="qm">5 marks</span></div>
+  <div class="qa"><strong>Introduction:</strong> Good graphics are visualizations that accurately and clearly communicate data insights. Edward Tufte's framework provides the most widely accepted principles for effective visualization.<br><br><strong>1. Clarity:</strong> A good visualization must have a single, clear message. Each chart should have a descriptive title, clear axis labels with units, and logical data ordering. Example: A line chart titled "India's GDP Growth Rate 2010–2023 (%)" is clear; a chart titled "Data" is not.<br><br><strong>2. Accuracy:</strong> Data must be represented truthfully. Bar chart Y-axes must start at zero. Areas in pie/bubble charts must be proportional to values. Avoid truncated axes that exaggerate small differences.<br><br><strong>3. Simplicity (Less is More):</strong> Every visual element must earn its place. Remove heavy gridlines, decorative backgrounds, 3D effects, and unnecessary color. White space is a design tool, not wasted space.<br><br><strong>4. High Data-Ink Ratio:</strong> Introduced by Edward Tufte. The formula is: Data-Ink Ratio = Data Ink / Total Ink. Maximize ink devoted to data; eliminate chartjunk (unnecessary decoration). A clean bar chart uses only the bars and essential labels — nothing else.<br><br><strong>5. Avoiding Misleading Elements:</strong> Truncated Y-axes, 3D charts, dual axes, and selective time ranges are common ways visualizations mislead. The "lie factor" (Tufte) measures the ratio of apparent graphical effect to actual data effect — a perfect visualization has a lie factor of 1.0.<br><br><strong>Conclusion:</strong> Following these principles ensures visualizations are honest, efficient, and effective communication tools.</div></div>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">Explain static graphics with five types and examples.<span class="qm">5 marks</span></div>
+  <div class="qa"><strong>Introduction:</strong> Static graphics are fixed, non-interactive visual representations of data that present a snapshot of information at a point in time. They are used in reports, textbooks, newspapers, and research papers.<br><br><strong>1. Bar Chart:</strong> Uses rectangular bars whose length represents a value. Used to compare discrete categories. Example: Monthly rainfall comparison across Indian cities. Variants: grouped bar, stacked bar, horizontal bar.<br><br><strong>2. Line Chart:</strong> Displays data points connected by lines, showing changes over time. Best for temporal trends. Example: Stock market price movement over six months. The slope of the line conveys the rate of change.<br><br><strong>3. Histogram:</strong> Shows the frequency distribution of continuous numerical data. Bars touch each other (no gaps). Example: Distribution of exam scores in a class of 60 students. The X-axis shows score ranges (bins), Y-axis shows frequency.<br><br><strong>4. Scatter Plot:</strong> Uses dots to show the relationship between two continuous variables. Example: Plotting temperature (X-axis) against ice cream sales (Y-axis) reveals a positive correlation. Also detects outliers.<br><br><strong>5. Pie Chart:</strong> A circular chart divided into slices proportional to each category's share. Best for part-whole relationships with fewer than 6 categories. Example: Market share distribution among smartphone brands.<br><br><strong>Conclusion:</strong> Choosing the right static graphic type depends on the data type and the question being answered. Each type has specific strengths and appropriate use cases.</div></div>
+
+  <h3 style="color:var(--color-text-danger);margin-bottom:.5rem;margin-top:1.5rem">10-Mark Essay Questions</h3>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">Explain the history of data visualization with major milestones and contributors.<span class="qm">10 marks</span></div>
+  <div class="qa"><strong>Introduction:</strong> The history of data visualization spans thousands of years — from ancient cave paintings to modern AI-generated interactive dashboards. Throughout history, humans have instinctively sought to represent complex information through visual means.<br><br><strong>Ancient Era (Before 1500 AD):</strong> The earliest known visual representations date to 17,000 BCE — cave paintings at Lascaux, France recorded animal observations using visual marks. Around 2700 BCE, Egyptians created geographic maps, making them among the first geographic data visualizations. The Babylonian World Map (600 BCE) on a clay tablet showed the known world in diagram form.<br><br><strong>Early Statistical Era (1600–1800):</strong> Bishop Nicole d'Oresme (1350 AD) drew the first known graph plotting two variables against each other. Michael van Langren (1644) created the first known statistical graph showing distances. Edmund Halley (1686) produced the first weather map showing trade wind patterns. Johann Lambert (1760) created the first documented time-series chart and scatter plot.<br><br><strong>The Playfair Revolution (1786):</strong> William Playfair is considered the "Father of Statistical Graphics." In 1786, he single-handedly invented the bar chart, line chart, and circle graph in his "Commercial and Political Atlas." In 1801, he introduced the pie chart in his "Statistical Breviary." These three chart types remain the most widely used visualization forms today.<br><br><strong>19th Century Breakthroughs:</strong> John Snow (1854) plotted cholera deaths on a London street map, discovering the Broad Street water pump as the outbreak's source — the first use of visualization in epidemiological research. Florence Nightingale (1858) designed her famous "coxcomb" (polar area diagram) to show causes of British soldier deaths in the Crimean War, using visualization to successfully lobby parliament for improved sanitary conditions — proof that data viz can directly save lives. Charles Minard (1869) created what Edward Tufte called "the best statistical graphic ever drawn" — a flow map of Napoleon's Russian campaign showing army size, geographic position, temperature, and time simultaneously.<br><br><strong>20th Century — Theoretical Foundations:</strong> Jacques Bertin (1967) published "Semiology of Graphics," establishing the scientific theory of visual variables: position, size, shape, color hue, color value, orientation, and texture. John Tukey (1977) pioneered Exploratory Data Analysis (EDA) and invented the box plot and stem-and-leaf plot. Edward Tufte (1983) published "The Visual Display of Quantitative Information," introducing the concepts of data-ink ratio, chartjunk, lie factor, and small multiples — the gold standard for visualization design principles.<br><br><strong>Digital Era (1990–Present):</strong> Computer-generated charts began replacing hand-drawn graphics. The internet era brought web-based visualization. Google Maps (2005) revolutionized geospatial visualization. Tableau (2003) democratized business analytics. Open-source libraries — D3.js, Plotly, Matplotlib, ggplot2 — enabled anyone to create interactive visualizations. Today, AI-generated visualizations and real-time big data dashboards represent the cutting edge.<br><br><strong>Conclusion:</strong> Data visualization has evolved from simple cave markings to complex interactive systems. Each era built upon the previous, with key innovators advancing both the theoretical foundations and practical tools. The field continues to evolve rapidly with AI and big data driving new forms of visual representation.</div></div>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">What is Data Visualization? Explain its importance, types, and applications with examples.<span class="qm">10 marks</span></div>
+  <div class="qa"><strong>Introduction:</strong> Data Visualization is the graphical representation of data and information using visual elements like charts, graphs, maps, and infographics. The human brain processes visual information approximately 60,000 times faster than text, making visualization one of the most powerful tools for understanding and communicating data insights.<br><br><strong>Definition (formal):</strong> Data Visualization is the process of transforming raw data into a visual context — such as a chart or map — to make data easier for the human brain to understand and to pull insights from. (Source: Tableau)<br><br><strong>The Data Visualization Pipeline:</strong> Raw Data → Data Collection → Data Cleaning & Processing → Data Analysis → Visual Encoding → Rendering → Interpretation & Decision-Making. This pipeline transforms unstructured raw data into actionable insights.<br><br><strong>Importance of Data Visualization:</strong><br>1. Speed: Humans understand patterns in a graph in seconds vs. minutes in tabular form<br>2. Pattern Discovery: Reveals trends, correlations, and outliers invisible in raw data<br>3. Decision Support: Provides evidence-based insights for management decisions<br>4. Communication: A universal language — charts transcend linguistic barriers<br>5. Monitoring: Enables real-time tracking of business, health, or system metrics<br>6. Storytelling: Creates a compelling data narrative for stakeholders<br><br><strong>Types of Data Visualization:</strong><br>1. Temporal — Line charts, area charts (time-series data, stock prices)<br>2. Categorical — Bar charts, pie charts (comparing groups, market share)<br>3. Relational — Scatter plots, bubble charts (correlations, distributions)<br>4. Hierarchical — Tree maps, sunburst charts (file systems, org charts)<br>5. Geospatial — Choropleth maps, heat maps (election results, disease spread)<br>6. Network — Node-link diagrams (social networks, supply chains)<br><br><strong>Real-World Applications:</strong><br>1. Business Intelligence: Tableau and Power BI dashboards for sales, revenue, and KPI tracking<br>2. Healthcare: COVID-19 global spread maps (Johns Hopkins Dashboard), patient monitoring systems<br>3. Social Media: Instagram Insights showing reach, impressions, and engagement over time<br>4. Sports Analytics: NBA shot charts, cricket wagon wheel diagrams, football heat maps<br>5. Weather: IMD (India Meteorological Department) rainfall distribution maps, temperature forecasts<br>6. Finance: Stock candlestick charts, portfolio performance dashboards<br>7. Science: Genome sequence visualization, climate change temperature anomaly charts<br><br><strong>Key Tools:</strong> Tableau, Microsoft Power BI, D3.js, Matplotlib (Python), ggplot2 (R), Plotly, Google Data Studio<br><br><strong>Conclusion:</strong> In the age of big data, data visualization is not merely a convenience — it is a necessity. Organizations that effectively visualize their data gain a significant competitive advantage, enabling faster, better-informed decisions. As data volumes continue to grow exponentially, the importance of effective visualization will only increase.</div></div>
+</div>
+
+<!-- ======= QUICK REVISION ======= -->
+<div id="s-quick" class="sec">
+  <h2 style="font-size:18px;font-weight:500;margin-bottom:1rem">Quick Revision — All 4 Topics</h2>
+  <div class="g2">
+    <div class="nc"><h3>Introduction to Data Visualization</h3><p>Graphical representation of data using charts, graphs, maps. Brain processes visuals 60,000x faster than text. Pipeline: Raw Data → Processing → Analysis → Encoding → Rendering → Interpretation. Types: Temporal, Categorical, Relational, Hierarchical, Geospatial, Network. Memory: CREED.</p></div>
+    <div class="nc"><h3>History of Data Visualization</h3><p>Key pioneers: Playfair (1786, bar/line/pie charts), Snow (1854, cholera map), Nightingale (1858, polar diagram), Bertin (1967, visual variables), Tukey (1977, EDA/box plots), Tufte (1983, data-ink ratio). Three eras: Pre-digital, Computer, Interactive. Memory: PSNBTT.</p></div>
+    <div class="nc"><h3>Good Graphics</h3><p>Edward Tufte's principles: (1) Clarity — clear title, labels, units. (2) Accuracy — zero-based Y-axis, proportional areas. (3) Simplicity — remove chartjunk. (4) Data-Ink Ratio = Data Ink / Total Ink (maximize). (5) Avoid misleading — no truncated axes, no 3D, no cherry-picked ranges. Memory: CASDA.</p></div>
+    <div class="nc"><h3>Static Graphics</h3><p>Fixed, non-interactive visuals. Types: Bar chart (compare categories), Line chart (trends over time), Histogram (data distribution — bars touch), Scatter plot (correlation), Pie chart (part-whole). Key difference: Bar chart = gaps, Histogram = no gaps. Chart selection: CTDCS — Compare→Bar, Trend→Line, Distribution→Histogram, Correlation→Scatter, Share→Pie.</p></div>
+  </div>
+
+  <div class="nc"><h3>Bertin's 7 Visual Variables (memorise these)</h3>
+    <p>Position, Size, Color Hue, Color Value, Shape, Orientation, Texture. Position is the most accurately perceived by humans. Color hue best for categorical data; color value (light-dark) best for quantitative data.</p>
+  </div>
+
+  <div class="nc"><h3>Important Definitions for 2-Mark Questions</h3>
+    <ul>
+      <li><strong>Data Visualization:</strong> Graphical representation of data using visual elements to reveal patterns and insights</li>
+      <li><strong>Data-Ink Ratio:</strong> Data Ink / Total Ink — maximize proportion of ink encoding data (Tufte, 1983)</li>
+      <li><strong>Chartjunk:</strong> All non-data ink that does not communicate data — 3D effects, decorative backgrounds, heavy gridlines</li>
+      <li><strong>Histogram:</strong> Bar chart for continuous data distribution — bars touch, x-axis = numerical bins</li>
+      <li><strong>Scatter Plot:</strong> Dots showing relationship between two variables; reveals correlation and outliers</li>
+      <li><strong>Static Graphic:</strong> Fixed, non-interactive visualization — printed chart, PDF figure</li>
+      <li><strong>Visual Variable:</strong> Any graphical property (position, size, color) used to encode data values</li>
+      <li><strong>EDA:</strong> Exploratory Data Analysis — systematic approach to discovering patterns in data (John Tukey, 1977)</li>
+    </ul>
+  </div>
+
+  <div class="nc"><h3>Memory Tricks — All in One</h3>
+    <ul>
+      <li><strong>Data Viz purpose:</strong> CREED — Communicate, Reveal patterns, Enable decisions, Explore data, Display clearly</li>
+      <li><strong>History pioneers:</strong> PSNBTT — Playfair, Snow, Nightingale, Bertin, Tukey, Tufte</li>
+      <li><strong>Good graphics:</strong> CASDA — Clarity, Accuracy, Simplicity, Data-ink, Avoid misleading</li>
+      <li><strong>Chart selection:</strong> CTDCS — Compare→Bar, Trend→Line, Distribution→Histogram, Correlation→Scatter, Share→Pie</li>
+      <li><strong>Bertin's variables:</strong> PS-CC-SOT — Position, Size, Color hue, Color value, Shape, Orientation, Texture</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ======= NIGHT BEFORE ======= -->
+<div id="s-night" class="sec">
+  <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:1.2rem;margin-bottom:1.4rem;border:.5px solid var(--color-border-tertiary)">
+    <h2 style="font-size:18px;font-weight:500;margin-bottom:.25rem">Night Before Exam — Complete Revision Sheet</h2>
+    <p style="font-size:13px;color:var(--color-text-secondary)">Covers all 4 topics of Unit 1. Read in 25–30 minutes.</p>
+  </div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Topic 1: Introduction — Must-Know Points</h2><span class="tnum">Flash</span></div>
+  <div class="cb op">
+    <ul>
+      <li>Data Visualization = converting raw data into visual form (charts, graphs, maps)</li>
+      <li>Human brain processes visuals 60,000× faster than text</li>
+      <li>Pipeline: Raw Data → Processing → Analysis → Encoding → Rendering → Interpretation</li>
+      <li>Visual Encoding = mapping data values to visual properties (position, size, color)</li>
+      <li>6 types: Temporal, Categorical, Relational, Hierarchical, Geospatial, Network</li>
+      <li>Applications: Business (Tableau), Healthcare (COVID dashboards), Sports (shot charts), Weather (temperature maps), Social Media (Instagram Insights)</li>
+      <li>Pros: fast understanding, reveals patterns, supports decisions. Cons: can mislead, oversimplify</li>
+    </ul>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Topic 2: History — Key Names and Dates</h2><span class="tnum">Flash</span></div>
+  <div class="cb op">
+    <table>
+      <tr><th>Who</th><th>When</th><th>What</th></tr>
+      <tr><td>William Playfair</td><td>1786</td><td>Invented bar chart, line chart, pie chart — "Father of Statistical Graphics"</td></tr>
+      <tr><td>John Snow</td><td>1854</td><td>Cholera dot map — first epidemiological data visualization</td></tr>
+      <tr><td>Florence Nightingale</td><td>1858</td><td>Polar area diagram (coxcomb) — used data to change health policy</td></tr>
+      <tr><td>Charles Minard</td><td>1869</td><td>Napoleon's march — "best statistical graphic ever drawn" (Tufte)</td></tr>
+      <tr><td>Jacques Bertin</td><td>1967</td><td>Semiology of Graphics — 7 visual variables (Position, Size, Shape, Color hue, Color value, Orientation, Texture)</td></tr>
+      <tr><td>John Tukey</td><td>1977</td><td>EDA, box plots, stem-and-leaf plots</td></tr>
+      <tr><td>Edward Tufte</td><td>1983</td><td>Data-ink ratio, chartjunk, sparklines — "The Visual Display of Quantitative Information"</td></tr>
+    </table>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Topic 3: Good Graphics — Must-Know Formulas and Rules</h2><span class="tnum">Flash</span></div>
+  <div class="cb op">
+    <ul>
+      <li><strong>Data-Ink Ratio</strong> (Tufte) = Data Ink ÷ Total Ink. Maximize this value.</li>
+      <li><strong>Chartjunk</strong> = 3D effects, decorative backgrounds, heavy gridlines, unnecessary shadows, gradient fills. All should be removed.</li>
+      <li><strong>Lie Factor</strong> = Size of effect shown / Size of effect in data. A good visualization has a Lie Factor = 1.0</li>
+      <li><strong>Clarity:</strong> One clear message, descriptive title, labelled axes with units</li>
+      <li><strong>Accuracy:</strong> Y-axis starts at 0 (bar charts), proportional areas, no truncation</li>
+      <li><strong>Simplicity:</strong> Remove all non-essential elements</li>
+      <li><strong>Misleading techniques:</strong> Truncated Y-axis, 3D charts, dual axes, cherry-picked time range, disproportionate areas</li>
+      <li><strong>Gestalt Principles:</strong> Proximity, Similarity, Continuity, Enclosure, Figure-ground</li>
+      <li><strong>Memory:</strong> CASDA — Clarity, Accuracy, Simplicity, Data-ink, Avoid misleading</li>
+    </ul>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Topic 4: Static Graphics — Chart Types Quick Reference</h2><span class="tnum">Flash</span></div>
+  <div class="cb op">
+    <table>
+      <tr><th>Chart Type</th><th>Best for</th><th>Key Characteristic</th></tr>
+      <tr><td>Bar Chart</td><td>Comparing discrete categories</td><td>Gaps between bars; Y-axis from 0</td></tr>
+      <tr><td>Histogram</td><td>Distribution of continuous data</td><td>NO gaps between bars; X = bins</td></tr>
+      <tr><td>Line Chart</td><td>Trends over time</td><td>Data points connected; X = time</td></tr>
+      <tr><td>Scatter Plot</td><td>Correlation between 2 variables</td><td>Each dot = one observation; reveals correlation</td></tr>
+      <tr><td>Pie Chart</td><td>Part-whole (max 6 slices)</td><td>Angles proportional to value; avoid for comparison</td></tr>
+      <tr><td>Box Plot</td><td>Distribution summary</td><td>Shows min, Q1, median, Q3, max</td></tr>
+      <tr><td>Heatmap</td><td>Matrix data intensity</td><td>Color encodes magnitude</td></tr>
+    </table>
+    <div class="ok"><strong>Static vs Interactive:</strong> Static = fixed, print-ready, PDF/PNG. Interactive = web-based, user can filter/zoom/hover, real-time updates (Tableau, D3.js, Power BI).</div>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Top 10 Most Expected Exam Questions</h2><span class="tnum">Flash</span></div>
+  <div class="cb op">
+    <ol>
+      <li>Define Data Visualization. Explain its importance, types, and applications. (10 marks)</li>
+      <li>Explain the history of Data Visualization with major milestones and key contributors. (10 marks)</li>
+      <li>What are Good Graphics? Explain the principles of effective data visualization with Edward Tufte's framework. (10 marks)</li>
+      <li>Explain static graphics with five types and examples. (5 marks)</li>
+      <li>Differentiate between static and interactive graphics. (5 marks)</li>
+      <li>What is Data-Ink Ratio? What is Chartjunk? Give examples. (5 marks)</li>
+      <li>What are the visual variables proposed by Jacques Bertin? (5 marks)</li>
+      <li>Differentiate between bar chart and histogram with examples. (2 marks)</li>
+      <li>What is a scatter plot? When is it used? (2 marks)</li>
+      <li>Who is William Playfair? What is his contribution to data visualization? (2 marks)</li>
+    </ol>
+  </div></div>
+</div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+var chartInstance = null;
+var currentChartBtns = null;
+
+var chartDefs = {
+  bar: {
+    info: 'Bar Chart — Compares discrete categories. Bars have gaps between them. Y-axis starts at 0. Best for: comparing 2–15 categories.',
+    type: 'bar',
+    data: {
+      labels: ['Mumbai','Delhi','Bangalore','Chennai','Kolkata'],
+      datasets:[{
+        label:'Population (millions)',
+        data:[20.7,16.8,12.5,10.9,14.8],
+        backgroundColor:['#3B8BD4','#378ADD','#185FA5','#0C447C','#85B7EB'],
+        borderWidth:0
+      }]
+    },
+    opts:{plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,grid:{color:'rgba(0,0,0,0.05)'},title:{display:true,text:'Population (millions)'}},x:{grid:{display:false}}}}
+  },
+  line: {
+    info: 'Line Chart — Shows trends over time. Data points connected by lines. Best for: temporal data, stock prices, temperatures over time.',
+    type: 'line',
+    data: {
+      labels:['Jan','Feb','Mar','Apr','May','Jun'],
+      datasets:[{
+        label:'Temperature (°C)',
+        data:[22,24,28,34,38,35],
+        borderColor:'#D85A30',
+        backgroundColor:'rgba(216,90,48,0.1)',
+        tension:0.4,
+        borderWidth:2,
+        pointRadius:4,
+        fill:true
+      }]
+    },
+    opts:{plugins:{legend:{display:false}},scales:{y:{beginAtZero:false,title:{display:true,text:'°C'}},x:{grid:{display:false}}}}
+  },
+  pie: {
+    info: 'Pie Chart — Shows part-to-whole relationships. Best for fewer than 6 slices. Each slice angle is proportional to its value.',
+    type: 'pie',
+    data: {
+      labels:['Android','iOS','Windows','Others'],
+      datasets:[{
+        data:[72,27,0.8,0.2],
+        backgroundColor:['#3B6D11','#185FA5','#854F0B','#888780'],
+        borderWidth:0
+      }]
+    },
+    opts:{plugins:{legend:{display:false}}}
+  },
+  scatter: {
+    info: 'Scatter Plot — Shows correlation between two variables. Each dot = one data point. Reveals positive/negative/no correlation and outliers.',
+    type: 'scatter',
+    data: {
+      datasets:[{
+        label:'Height vs Weight',
+        data:[{x:155,y:55},{x:160,y:60},{x:162,y:58},{x:165,y:65},{x:168,y:70},{x:170,y:68},{x:172,y:72},{x:175,y:75},{x:178,y:80},{x:180,y:85},{x:182,y:82},{x:185,y:90}],
+        backgroundColor:'#7F77DD',
+        pointRadius:6
+      }]
+    },
+    opts:{plugins:{legend:{display:false}},scales:{x:{title:{display:true,text:'Height (cm)'}},y:{title:{display:true,text:'Weight (kg)'}}}}
+  },
+  histogram: {
+    info: 'Histogram — Shows frequency distribution of continuous data. Bars touch each other (no gaps). X-axis = numerical bins/ranges, not categories.',
+    type: 'bar',
+    data: {
+      labels:['40–50','50–60','60–70','70–80','80–90','90–100'],
+      datasets:[{
+        label:'Number of students',
+        data:[3,8,15,22,18,6],
+        backgroundColor:'#1D9E75',
+        borderWidth:0,
+        barPercentage:1.0,
+        categoryPercentage:1.0
+      }]
+    },
+    opts:{plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,title:{display:true,text:'Frequency'}},x:{title:{display:true,text:'Score Range'},grid:{display:false}}}}
+  }
+};
+
+var legends = {
+  bar:['#3B8BD4|Mumbai','#378ADD|Delhi','#185FA5|Bangalore','#0C447C|Chennai','#85B7EB|Kolkata'],
+  line:['#D85A30|Temperature (°C)'],
+  pie:['#3B6D11|Android 72%','#185FA5|iOS 27%','#854F0B|Windows 0.8%','#888780|Others 0.2%'],
+  scatter:['#7F77DD|Height vs Weight'],
+  histogram:['#1D9E75|Student score distribution']
+};
+
+function showChart(id, btn) {
+  document.querySelectorAll('.nav button').forEach(b => b.classList.remove('on'));
+  if(btn){ btn.classList.add('on'); }
+
+  document.getElementById('chart-info').textContent = chartDefs[id].info;
+
+  var legDiv = document.getElementById('chart-legend');
+  legDiv.innerHTML = (legends[id]||[]).map(function(s){
+    var parts = s.split('|');
+    return '<span class="leg-item"><span class="leg-sq" style="background:'+parts[0]+'"></span>'+parts[1]+'</span>';
+  }).join('');
+
+  if(chartInstance){ chartInstance.destroy(); }
+  var def = chartDefs[id];
+  chartInstance = new Chart(document.getElementById('mainChart'), {
+    type: def.type,
+    data: def.data,
+    options: Object.assign({responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}}}, def.opts)
+  });
+}
+
+function show(id, btn) {
+  document.querySelectorAll('.sec').forEach(function(s){ s.classList.remove('on'); });
+  document.querySelectorAll('.nb').forEach(function(b){ b.classList.remove('on'); });
+  document.getElementById('s-'+id).classList.add('on');
+  if(btn) btn.classList.add('on');
+}
+function tog(header) { header.nextElementSibling.classList.toggle('op'); }
+function togQ(header) { header.nextElementSibling.classList.toggle('op'); }
+function expandAll() { document.querySelectorAll('.cb').forEach(function(b){ b.classList.add('op'); }); }
+
+window.addEventListener('load', function(){ showChart('bar', null); });
+</script>

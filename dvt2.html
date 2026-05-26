@@ -1,0 +1,1028 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans,'Segoe UI',sans-serif);background:transparent;color:var(--color-text-primary);font-size:15px;line-height:1.7}
+.wrap{max-width:900px;margin:0 auto;padding:1rem .5rem 4rem}
+.hdr{text-align:center;padding:1.8rem 1rem 1.4rem;border-bottom:.5px solid var(--color-border-tertiary);margin-bottom:1.5rem}
+.hdr h1{font-size:22px;font-weight:500;margin-bottom:.3rem}
+.hdr p{font-size:13px;color:var(--color-text-secondary)}
+.pill{display:inline-block;font-size:11px;padding:3px 10px;border-radius:12px;margin:2px;font-weight:500}
+.pi{background:var(--color-background-info);color:var(--color-text-info)}
+.pw{background:var(--color-background-warning);color:var(--color-text-warning)}
+.ps{background:var(--color-background-success);color:var(--color-text-success)}
+.pd{background:var(--color-background-danger);color:var(--color-text-danger)}
+.nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.4rem;padding:.7rem;background:var(--color-background-secondary);border-radius:var(--border-radius-lg);border:.5px solid var(--color-border-tertiary)}
+.nb{font-size:12px;padding:5px 11px;border:.5px solid var(--color-border-secondary);border-radius:6px;cursor:pointer;background:var(--color-background-primary);color:var(--color-text-primary);font-family:inherit;transition:background .15s}
+.nb:hover,.nb.on{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent}
+.sec{display:none}.sec.on{display:block}
+.card{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);margin-bottom:1.2rem;overflow:hidden}
+.ch{padding:.85rem 1.2rem;background:var(--color-background-secondary);border-bottom:.5px solid var(--color-border-tertiary);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.ch h2{font-size:15px;font-weight:500}
+.tnum{font-size:11px;color:var(--color-text-secondary);background:var(--color-background-primary);padding:2px 8px;border-radius:10px;white-space:nowrap}
+.cb{padding:1.2rem;display:none}.cb.op{display:block}
+.def{background:var(--color-background-info);border-left:3px solid #378ADD;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:.7rem 1rem;margin-bottom:.9rem;font-size:14px}
+.def strong{color:var(--color-text-info)}
+.warn{background:var(--color-background-warning);border-left:3px solid #BA7517;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:.7rem 1rem;margin:.8rem 0;font-size:13px}
+.warn strong{color:#633806}
+.ok{background:var(--color-background-success);border-left:3px solid #3B6D11;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:.7rem 1rem;margin:.8rem 0;font-size:13px}
+.ok strong{color:var(--color-text-success)}
+h3{font-size:15px;font-weight:500;margin:1.1rem 0 .45rem}
+h4{font-size:13px;font-weight:500;margin:.7rem 0 .25rem;color:var(--color-text-secondary)}
+ul,ol{padding-left:1.4rem;margin:.4rem 0}
+li{margin-bottom:.2rem;font-size:14px}
+p{font-size:14px;margin-bottom:.55rem}
+table{width:100%;border-collapse:collapse;margin:.7rem 0;font-size:13px}
+th{background:var(--color-background-secondary);padding:7px 10px;text-align:left;font-weight:500;border:.5px solid var(--color-border-tertiary)}
+td{padding:6px 10px;border:.5px solid var(--color-border-tertiary);vertical-align:top}
+tr:nth-child(even) td{background:var(--color-background-secondary)}
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:.7rem 0}
+.mc{background:var(--color-background-secondary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:.65rem .9rem}
+.mc h4{margin-top:0}
+.kws{display:flex;flex-wrap:wrap;gap:5px;margin:.5rem 0}
+.kw{background:var(--color-background-secondary);border:.5px solid var(--color-border-secondary);border-radius:12px;padding:3px 9px;font-size:11px;color:var(--color-text-secondary)}
+.qb{border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);margin-bottom:.65rem;overflow:hidden}
+.qh{padding:.55rem 1rem;background:var(--color-background-secondary);cursor:pointer;font-size:14px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.qm{font-size:11px;color:var(--color-text-secondary);background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:8px;padding:2px 7px;white-space:nowrap}
+.qa{padding:.9rem 1rem;display:none;font-size:14px;line-height:1.75}
+.qa.op{display:block}
+.nc{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);margin-bottom:.9rem;padding:1rem 1.2rem}
+.nc h3{margin-top:0;font-size:14px}
+.ea{font-size:12px;color:var(--color-text-info);cursor:pointer;text-decoration:underline;background:none;border:none;font-family:inherit;margin-bottom:.8rem}
+pre{background:var(--color-background-secondary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:.8rem 1rem;font-size:12px;font-family:var(--font-mono,monospace);overflow-x:auto;margin:.6rem 0;color:var(--color-text-primary);white-space:pre}
+.viz-demo{background:var(--color-background-secondary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:1rem;margin:.8rem 0;overflow-x:auto}
+</style>
+<div class="container">
+        <a href="index.html" class="back-btn">← Back to Home</a>
+</div>
+<div class="container">
+        <a href="dvt.html" class="back-btn">← Back to DVT units </a>
+<div class="container">
+<div class="wrap">
+<div class="hdr">
+  <h1>Data Visualization — Unit II</h1>
+  <p>Graphs, High-dimensional Data, Glyphs, Linked Views &amp; Trees</p>
+  <div style="margin-top:.6rem">
+    <span class="pill pi">7 Topics</span>
+    <span class="pill pw">Interactive Diagrams</span>
+    <span class="pill ps">Exam Q&amp;A</span>
+    <span class="pill pd">Night Revision</span>
+  </div>
+</div>
+
+<div class="nav">
+  <button class="nb on" onclick="show('notes',this)">Detailed Notes</button>
+  <button class="nb" onclick="show('diagrams',this)">Exam Diagrams</button>
+  <button class="nb" onclick="show('compare',this)">Comparison Tables</button>
+  <button class="nb" onclick="show('questions',this)">Exam Q&amp;A</button>
+  <button class="nb" onclick="show('quick',this)">Quick Revision</button>
+  <button class="nb" onclick="show('night',this)">Night Before Exam</button>
+</div>
+
+<!-- ===== NOTES ===== -->
+<div id="s-notes" class="sec on">
+<button class="ea" onclick="expandAll()">Expand all topics</button>
+
+<!-- T1: Graph Representations -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>Topic 1: Data Visualization Through Graph Representations</h2><span class="tnum">Topic 01</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> Graph representations are visual structures that use nodes (vertices) and edges (connections) to represent relationships, dependencies, and connectivity between data entities.</div>
+
+    <h3>Core Components</h3>
+    <div class="g2">
+      <div class="mc"><h4>Node (Vertex)</h4><p>A single entity or data point in the graph. Represented as a circle or rectangle. Example: a person in a social network, a city on a map.</p></div>
+      <div class="mc"><h4>Edge (Link)</h4><p>A connection between two nodes. Can be directed (with arrow) or undirected (plain line). Example: friendship between two people.</p></div>
+      <div class="mc"><h4>Weight</h4><p>A numeric value assigned to an edge representing strength, distance, or cost. Example: road distance between cities.</p></div>
+      <div class="mc"><h4>Degree</h4><p>Number of edges connected to a node. High degree = highly connected hub node. Example: a celebrity with many followers.</p></div>
+    </div>
+
+    <h3>Types of Graphs</h3>
+    <table>
+      <tr><th>Type</th><th>Description</th><th>Example</th></tr>
+      <tr><td>Undirected Graph</td><td>Edges have no direction — relationship is mutual</td><td>Facebook friendship (A friends B = B friends A)</td></tr>
+      <tr><td>Directed Graph (Digraph)</td><td>Edges have direction — relationship is one-way</td><td>Twitter follow (A follows B ≠ B follows A)</td></tr>
+      <tr><td>Weighted Graph</td><td>Each edge has a numeric weight/cost</td><td>Road map with distances, airline routes with prices</td></tr>
+      <tr><td>Unweighted Graph</td><td>All edges treated equally</td><td>Simple friend network</td></tr>
+      <tr><td>Cyclic Graph</td><td>Contains cycles (loops back to start)</td><td>Road network with roundabouts</td></tr>
+      <tr><td>Acyclic Graph</td><td>No cycles — one path between any two nodes</td><td>Family tree, file directory</td></tr>
+      <tr><td>Bipartite Graph</td><td>Nodes split into two groups; edges only between groups</td><td>Movie-actor relationships</td></tr>
+    </table>
+
+    <h3>Graph Layouts</h3>
+    <ul>
+      <li><strong>Circular layout:</strong> Nodes placed on a circle. Good for showing all connections symmetrically.</li>
+      <li><strong>Grid layout:</strong> Nodes placed in a regular grid. Good for geographic or matrix data.</li>
+      <li><strong>Hierarchical layout:</strong> Nodes arranged in levels (top-down). Good for org charts, trees.</li>
+      <li><strong>Force-directed layout:</strong> Nodes repel each other; edges attract connected nodes. Best for large complex networks.</li>
+      <li><strong>Geographic layout:</strong> Nodes positioned using real-world coordinates (latitude/longitude). Maps.</li>
+    </ul>
+
+    <h3>Graph Representation in Code</h3>
+    <pre>
+Undirected Graph:        Directed Graph:
+(A)---(B)               (A)--->(B)
+ |     |                         |
+ |     |                         v
+(C)---(D)               (C)<---(D)
+
+Weighted Graph:          Adjacency Matrix:
+(A)--5--(B)                A  B  C  D
+  \     /                A [0, 5, 3, 0]
+   3   2                 B [5, 0, 0, 2]
+    \ /                  C [3, 0, 0, 4]
+    (C)                  D [0, 2, 4, 0]</pre>
+
+    <h3>Real-World Applications</h3>
+    <ul>
+      <li><strong>Social networks:</strong> Facebook (friend graph), LinkedIn (professional connections), Instagram (follower/following)</li>
+      <li><strong>Web graph:</strong> Web pages as nodes, hyperlinks as directed edges (basis of Google PageRank)</li>
+      <li><strong>Transportation:</strong> Cities as nodes, roads/flights as weighted edges (GPS routing)</li>
+      <li><strong>Recommendation systems:</strong> Users and items as nodes, ratings as edges (Netflix, Amazon)</li>
+      <li><strong>Biological networks:</strong> Protein-protein interaction networks, gene regulatory networks</li>
+    </ul>
+
+    <div class="warn"><strong>⭐ Exam Point:</strong> "Explain directed vs. undirected graphs with examples" is a frequent 5-mark question. Use the Twitter vs. Facebook distinction — this contrast is memorable and precise.</div>
+    <div class="ok"><strong>Memory Trick:</strong> NEED for graph components — Nodes, Edges, Edge-direction, Degree (node connections)</div>
+    <div class="kws"><span class="kw">Node</span><span class="kw">Edge</span><span class="kw">Directed Graph</span><span class="kw">Undirected Graph</span><span class="kw">Weighted Graph</span><span class="kw">Adjacency Matrix</span><span class="kw">Degree</span></div>
+  </div>
+</div>
+
+<!-- T2: Graph-theoretic Graphics -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>Topic 2: Graph-theoretic Graphics</h2><span class="tnum">Topic 02</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> Graph-theoretic graphics are visualizations rooted in graph theory — mathematical structures used to model pairwise relations between objects. They go beyond simple node-link diagrams to apply graph algorithms for layout, clustering, and analysis.</div>
+
+    <h3>Force-Directed Layout</h3>
+    <div class="def"><strong>Force-Directed Layout:</strong> An algorithm that positions graph nodes by simulating physical forces — nodes repel each other like charged particles, while edges act like springs pulling connected nodes together. The system reaches equilibrium producing a natural, readable layout.</div>
+    <ul>
+      <li>Nodes repel: F = k / d² (repulsive force inversely proportional to distance squared)</li>
+      <li>Edges attract: F = k × d (spring force proportional to displacement)</li>
+      <li>Iteratively computed until forces balance</li>
+      <li>Result: closely connected nodes cluster together, distant nodes spread apart</li>
+      <li>Used by: Gephi, D3.js forceSimulation, Cytoscape</li>
+    </ul>
+
+    <h3>Network Visualization</h3>
+    <p>Network visualization represents complex systems of interconnected entities. Key metrics visualized include:</p>
+    <ul>
+      <li><strong>Centrality:</strong> Which nodes are most important? (PageRank, betweenness centrality)</li>
+      <li><strong>Clustering:</strong> Which nodes form communities? (community detection)</li>
+      <li><strong>Path length:</strong> Shortest path between nodes (Six degrees of separation)</li>
+      <li><strong>Hub nodes:</strong> Highly connected nodes shown larger in visualization</li>
+    </ul>
+
+    <h3>Dependency Graphs</h3>
+    <p>A directed graph showing dependencies between components. Widely used in software engineering:</p>
+    <pre>
+Module Dependency Graph:
+  [App.js]
+     │
+     ├──► [Router.js]
+     │        │
+     │        ├──► [Auth.js]
+     │        └──► [Products.js]
+     │
+     └──► [Database.js]
+              │
+              └──► [Config.js]
+
+(Arrows mean "depends on")</pre>
+
+    <h3>Graph-theoretic Concepts in Visualization</h3>
+    <table>
+      <tr><th>Concept</th><th>Visualization</th><th>Real-world use</th></tr>
+      <tr><td>Spanning Tree</td><td>Minimum connections to reach all nodes</td><td>Network cable routing</td></tr>
+      <tr><td>Shortest Path</td><td>Highlighted path between two nodes</td><td>GPS navigation, routing</td></tr>
+      <tr><td>Clustering Coefficient</td><td>Node color/size by cluster</td><td>Community detection in social nets</td></tr>
+      <tr><td>Planarity</td><td>Drawing graph without crossing edges</td><td>Circuit board design</td></tr>
+      <tr><td>Bipartite Structure</td><td>Two-column layout</td><td>Job matching, recommendation</td></tr>
+    </table>
+
+    <div class="warn"><strong>⭐ Exam Point:</strong> "Explain force-directed layout in graph visualization" — understand both the physical analogy (springs and repulsion) and the visual outcome (clusters reveal naturally).</div>
+    <div class="ok"><strong>Memory Trick:</strong> Force-Directed = <strong>RACE</strong> — Repulsion (nodes push apart), Attraction (edges pull together), Converge (reach equilibrium), Expose (clusters become visible)</div>
+    <div class="kws"><span class="kw">Force-Directed Layout</span><span class="kw">Network Visualization</span><span class="kw">Centrality</span><span class="kw">Dependency Graph</span><span class="kw">Clustering</span><span class="kw">Gephi</span></div>
+  </div>
+</div>
+
+<!-- T3: High-dimensional Visualization -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>Topic 3: High-dimensional Data Visualization</h2><span class="tnum">Topic 03</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> High-dimensional data visualization is the process of representing data that has many attributes (dimensions) — often 5, 10, or even thousands — in 2D or 3D visual space where humans can perceive patterns.</div>
+
+    <h3>The Curse of Dimensionality</h3>
+    <div class="def"><strong>Curse of Dimensionality:</strong> As the number of dimensions increases, data becomes increasingly sparse and distances between points become meaningless. Patterns that are clear in 2D become impossible to see in 100D.</div>
+    <ul>
+      <li>In 1D: 10 data points cover space adequately</li>
+      <li>In 2D: need 100 points for same density</li>
+      <li>In 10D: need 10 billion points for same density</li>
+      <li>Visual impact: data appears uniformly spread — no clusters visible</li>
+    </ul>
+
+    <h3>Technique 1: Parallel Coordinates</h3>
+    <div class="def">Multiple parallel vertical axes, each representing one dimension. Each data item is drawn as a polyline crossing all axes at its value for each dimension.</div>
+    <pre>
+Parallel Coordinates Plot (3 data records, 4 attributes):
+
+Age  Income  Education  Health
+ |      |        |         |
+ |      |        |         |
+50─────80K──────Masters────Good     ← Person 1
+ |      |        |         |
+25─────40K──────Bachelor───Fair     ← Person 2
+ |      |        |         |
+35─────60K──────PhD────────Excellent← Person 3
+ |      |        |         |
+
+Each line = one person; crossing lines = negative correlation</pre>
+    <p>Clusters of parallel lines = similar records. Crossing lines between axes = negative correlation between those two dimensions.</p>
+
+    <h3>Technique 2: Scatter Plot Matrix (SPLOM)</h3>
+    <div class="def">A grid of scatter plots where each cell shows a 2D scatter plot for every pair of dimensions. An n-dimension dataset produces an n×n matrix.</div>
+    <pre>
+Scatter Plot Matrix (3 dimensions: X, Y, Z):
+
+     X          Y          Z
+  ┌──────┐  ┌──────┐  ┌──────┐
+X │ diag │  │ X vs │  │ X vs │
+  │(hist)│  │  Y   │  │  Z   │
+  └──────┘  └──────┘  └──────┘
+  ┌──────┐  ┌──────┐  ┌──────┐
+Y │ Y vs │  │ diag │  │ Y vs │
+  │  X   │  │(hist)│  │  Z   │
+  └──────┘  └──────┘  └──────┘
+  ┌──────┐  ┌──────┐  ┌──────┐
+Z │ Z vs │  │ Z vs │  │ diag │
+  │  X   │  │  Y   │  │(hist)│
+  └──────┘  └──────┘  └──────┘</pre>
+
+    <h3>Technique 3: Dimensionality Reduction</h3>
+    <table>
+      <tr><th>Method</th><th>Full Name</th><th>How it works</th><th>Best for</th></tr>
+      <tr><td>PCA</td><td>Principal Component Analysis</td><td>Finds directions of maximum variance; projects to lower dimensions</td><td>Linear relationships; exploratory analysis</td></tr>
+      <tr><td>t-SNE</td><td>t-Distributed Stochastic Neighbor Embedding</td><td>Preserves local neighborhood structure; reveals clusters</td><td>Visualizing clusters in high-dim data (ML, genomics)</td></tr>
+      <tr><td>UMAP</td><td>Uniform Manifold Approximation and Projection</td><td>Preserves both local and global structure; faster than t-SNE</td><td>Large datasets; NLP embeddings</td></tr>
+      <tr><td>MDS</td><td>Multidimensional Scaling</td><td>Preserves pairwise distances between points</td><td>Similarity/distance data (survey responses)</td></tr>
+    </table>
+
+    <h3>Other Techniques</h3>
+    <ul>
+      <li><strong>Heatmap with clustering:</strong> Color-coded matrix; similar rows/columns grouped by hierarchical clustering</li>
+      <li><strong>Radar/Spider charts:</strong> Multiple axes radiating from center; area shows multivariate profile</li>
+      <li><strong>Grand tour:</strong> Animated rotation through random 2D projections of high-dimensional data</li>
+    </ul>
+
+    <div class="warn"><strong>⭐ Exam Point:</strong> "Explain parallel coordinates with a diagram" is highly frequent. Draw 4 parallel axes, connect 3 data points as polylines, label each axis. Mention: crossing lines = negative correlation, parallel lines = positive correlation.</div>
+    <div class="ok"><strong>Memory Trick:</strong> Techniques = <strong>PSDG</strong> — Parallel coordinates, Scatter plot matrix, Dimensionality reduction, Grand tour</div>
+    <div class="kws"><span class="kw">Curse of Dimensionality</span><span class="kw">Parallel Coordinates</span><span class="kw">SPLOM</span><span class="kw">PCA</span><span class="kw">t-SNE</span><span class="kw">UMAP</span><span class="kw">Dimensionality Reduction</span></div>
+  </div>
+</div>
+
+<!-- T4: Multivariate Data Glyphs -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>Topic 4: Multivariate Data Glyphs — Principles &amp; Practice</h2><span class="tnum">Topic 04</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> A glyph is a visual symbol or icon that encodes multiple data attributes simultaneously using visual properties such as size, shape, orientation, color, and texture. Each glyph represents one multivariate data record.</div>
+
+    <h3>Why Glyphs?</h3>
+    <p>When data has many attributes per record (e.g., a patient's age, blood pressure, cholesterol, BMI, glucose level), a simple bar chart can only show one attribute at a time. Glyphs encode ALL attributes into a single visual symbol, enabling comparison of entire profiles at a glance.</p>
+
+    <h3>Types of Glyphs</h3>
+
+    <h4>1. Star Glyph (Radar / Spider Glyph)</h4>
+    <pre>
+Star Glyph (5 attributes):
+          Speed
+            |
+         ___*___
+        /   |   \
+Memory-*----+----*-CPU
+        \   |   /
+         \  |  /
+          \ | /
+       RAM-*-*-Disk I/O
+              |
+           Graphics
+
+Each axis = one attribute
+Length from center = value (longer = higher)
+Shape reveals the "profile" of the data record</pre>
+
+    <h4>2. Chernoff Faces</h4>
+    <div class="def"><strong>Chernoff Faces (1973):</strong> Multivariate data glyphs where each face feature encodes one data attribute. Introduced by Herman Chernoff. Humans are extremely good at recognizing and comparing faces, making this technique leverage natural cognitive ability.</div>
+    <pre>
+Chernoff Face Attribute Mapping:
+┌──────────────────────────────────┐
+│  Feature         → Data Attribute│
+│  Face shape      → Variable 1    │
+│  Eye size        → Variable 2    │
+│  Eye slope       → Variable 3    │
+│  Nose length     → Variable 4    │
+│  Mouth curvature → Variable 5    │
+│  Mouth width     → Variable 6    │
+│  Pupil position  → Variable 7    │
+│  Eyebrow angle   → Variable 8    │
+└──────────────────────────────────┘
+Happy face = high values; Sad face = low values</pre>
+    <p>Limitation: encoding is arbitrary — different feature-to-variable mappings give very different impressions. Features differ in perceptual salience (eyes more noticeable than ear size).</p>
+
+    <h4>3. Other Glyph Types</h4>
+    <table>
+      <tr><th>Glyph Type</th><th>How it works</th><th>Best for</th></tr>
+      <tr><td>Stick figure glyph</td><td>Body part angles/lengths encode variables</td><td>Motion data, biomechanics</td></tr>
+      <tr><td>Color icon glyph</td><td>Color channels (R,G,B) encode 3 attributes</td><td>Image-like compact display</td></tr>
+      <tr><td>Tufteboxplot / sparkline</td><td>Miniature chart embedded inline</td><td>Time-series in tables</td></tr>
+      <tr><td>Pie chart glyph</td><td>Small pie at each data point encodes composition</td><td>Geographic composition maps</td></tr>
+      <tr><td>Box glyph</td><td>Box dimensions (width, height, color) = 3 variables</td><td>Simple 3-variable comparison</td></tr>
+    </table>
+
+    <h3>Principles of Glyph Design</h3>
+    <ol>
+      <li><strong>Perceptual accuracy:</strong> Use visual channels (position, size) that humans read most accurately</li>
+      <li><strong>Discriminability:</strong> Different data values must look perceptibly different</li>
+      <li><strong>Integral vs. separable:</strong> Choose encodings where attributes can be read independently</li>
+      <li><strong>Scalability:</strong> Glyph must remain readable at small sizes for large datasets</li>
+      <li><strong>Ordering:</strong> Place the most important attribute in the most salient visual channel</li>
+    </ol>
+
+    <h3>Applications</h3>
+    <ul>
+      <li><strong>Healthcare:</strong> Patient health profile glyphs (blood pressure, BMI, cholesterol, glucose)</li>
+      <li><strong>Financial analytics:</strong> Stock/portfolio glyphs showing price, volume, volatility, trend</li>
+      <li><strong>Weather visualization:</strong> Wind rose glyphs showing speed, direction, and temperature</li>
+      <li><strong>Sports analytics:</strong> Player performance glyphs showing speed, accuracy, endurance, passes, goals</li>
+    </ul>
+
+    <div class="warn"><strong>⭐ Exam Point:</strong> Chernoff Faces are very frequently asked. Know: inventor (Herman Chernoff, 1973), the concept (facial features encode data variables), advantage (humans good at face recognition), and limitation (arbitrary mapping, varying salience of features).</div>
+    <div class="ok"><strong>Memory Trick:</strong> Glyph types = <strong>SCSPB</strong> — Star glyph, Chernoff faces, Stick figure, Pie glyph, Box glyph. "Stars and Chernoff See Pretty Boxes."</div>
+    <div class="kws"><span class="kw">Glyph</span><span class="kw">Star Glyph</span><span class="kw">Chernoff Faces</span><span class="kw">Multivariate</span><span class="kw">Radar Chart</span><span class="kw">Visual Encoding</span></div>
+  </div>
+</div>
+
+<!-- T5+6: Linked Views -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>Topics 5 &amp; 6: Linked Views &amp; Linked Data Views</h2><span class="tnum">Topics 05 &amp; 06</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> Linked Views (also called Coordinated Multiple Views or CMV) are interactive visualization systems where multiple views of the same dataset are simultaneously displayed and coordinated — a user action in one view (such as selecting data points) automatically updates all other views.</div>
+
+    <h3>Why Linked Views?</h3>
+    <p>No single visualization can show all aspects of complex data. A scatter plot shows correlations but not geographic distribution. A map shows locations but not statistical distributions. Linking multiple views allows analysts to see the same data from multiple perspectives simultaneously.</p>
+
+    <h3>Core Mechanisms</h3>
+
+    <h4>1. Data Brushing</h4>
+    <div class="def"><strong>Data Brushing:</strong> The user selects (brushes) a subset of data points in one view by drawing a selection box or lasso. The selected points are immediately highlighted in all linked views.</div>
+    <pre>
+Brushing Example:
+View 1 (Scatter plot)     View 2 (Bar chart)     View 3 (Map)
+    ·  · ·                 █ █ █ █               . . . .
+   [·  · ·] ← brush       [█ █] ← highlighted   [. .] ← shown
+    · ·  ·                  █ █ █                 . . .
+
+Points selected in scatter → highlighted in bar → shown on map</pre>
+
+    <h4>2. Cross-Filtering</h4>
+    <div class="def"><strong>Cross-Filtering:</strong> Selecting a range or category in one view filters the data shown in all other views. Reducing the visible dataset in one chart automatically reduces it in all linked charts.</div>
+    <pre>
+Cross-Filtering Example:
+Filter applied: "Year = 2023" in timeline view
+
+View 1 (Timeline): [2020][2021][2022][2023]
+                                        ▲ selected
+View 2 (Bar):      Shows only 2023 sales data
+View 3 (Map):      Shows only 2023 geographic data
+View 4 (Table):    Shows only 2023 records</pre>
+
+    <h4>3. Coordinated Multiple Views (CMV)</h4>
+    <ul>
+      <li>Multiple synchronized panels showing the same dataset differently</li>
+      <li>Interaction propagates through shared data model</li>
+      <li>Views can include: bar chart, line chart, scatter plot, map, table, heatmap</li>
+      <li>Real-time synchronization — no manual refresh needed</li>
+    </ul>
+
+    <h3>Linked Data Views Architecture</h3>
+    <pre>
+CMV Architecture:
+                    ┌─────────────────┐
+                    │  Shared Data    │
+                    │     Model       │
+                    │  (single source │
+                    │   of truth)     │
+                    └────────┬────────┘
+              ┌──────────────┼──────────────┐
+              │              │              │
+         ┌────▼────┐   ┌─────▼───┐   ┌─────▼───┐
+         │ View 1  │   │ View 2  │   │ View 3  │
+         │ Scatter │   │  Map    │   │  Bar    │
+         │  Plot   │   │         │   │  Chart  │
+         └────┬────┘   └─────┬───┘   └─────┬───┘
+              │              │              │
+              └──────────────┴──────────────┘
+                    Selection events
+                    propagate to all views</pre>
+
+    <h3>Types of Linkage</h3>
+    <table>
+      <tr><th>Linkage Type</th><th>Description</th><th>Example</th></tr>
+      <tr><td>Full linkage</td><td>All interactions propagate to all views</td><td>Brushing in one view highlights all others</td></tr>
+      <tr><td>Selective linkage</td><td>Only certain interactions are linked</td><td>Zoom linked but color not linked</td></tr>
+      <tr><td>Directional linkage</td><td>Changes flow in one direction only</td><td>Timeline filters map but not vice versa</td></tr>
+    </table>
+
+    <h3>Real-World Examples</h3>
+    <ul>
+      <li><strong>Tableau:</strong> Dashboard with bar chart + map + time series all linked by filter</li>
+      <li><strong>Power BI:</strong> Cross-filtering between all visuals on a page</li>
+      <li><strong>DC.js:</strong> Open-source library for linked D3.js charts with cross-filtering</li>
+      <li><strong>Gapminder:</strong> Linked scatter plot + map + bar chart of world development data</li>
+      <li><strong>Healthcare dashboard:</strong> Patient list + vital signs chart + medication history + lab results — all linked by patient selection</li>
+    </ul>
+
+    <div class="warn"><strong>⭐ Exam Point:</strong> "Explain Coordinated Multiple Views with a diagram" and "What is data brushing?" are both frequently asked. Draw the architecture diagram showing shared data model with multiple views linked to it.</div>
+    <div class="ok"><strong>Memory Trick:</strong> CMV = <strong>BCSL</strong> — Brush (select), Cross-filter, Synchronize, Link (all views). "Big Cars Sync Lanes."</div>
+    <div class="kws"><span class="kw">Linked Views</span><span class="kw">CMV</span><span class="kw">Data Brushing</span><span class="kw">Cross-Filtering</span><span class="kw">Dashboard</span><span class="kw">Coordinated Multiple Views</span></div>
+  </div>
+</div>
+
+<!-- T7: Trees and Forests -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>Topic 7: Visualizing Trees and Forests</h2><span class="tnum">Topic 07</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> A tree is a hierarchical data structure with a root node and child nodes arranged in parent-child relationships, with no cycles. A forest is a collection of disjoint trees. Tree visualization makes hierarchical relationships visually comprehensible.</div>
+
+    <h3>Tree vs. Graph</h3>
+    <table>
+      <tr><th>Feature</th><th>Tree</th><th>Graph</th></tr>
+      <tr><td>Cycles</td><td>No cycles allowed</td><td>Cycles allowed</td></tr>
+      <tr><td>Hierarchy</td><td>Strictly hierarchical</td><td>Not necessarily hierarchical</td></tr>
+      <tr><td>Root</td><td>Has exactly one root</td><td>No root concept</td></tr>
+      <tr><td>Path</td><td>Exactly one path between nodes</td><td>Multiple paths possible</td></tr>
+      <tr><td>Edges</td><td>N nodes → N-1 edges</td><td>N nodes → variable edges</td></tr>
+      <tr><td>Direction</td><td>Top-down or child-parent</td><td>Any direction</td></tr>
+    </table>
+
+    <h3>Tree Diagram (ASCII)</h3>
+    <pre>
+Company Organization Tree:
+CEO
+├── CTO
+│   ├── Lead Engineer
+│   │   ├── Frontend Dev
+│   │   └── Backend Dev
+│   └── DevOps
+│       └── SRE
+├── CFO
+│   ├── Accounting
+│   └── Auditing
+└── CMO
+    ├── Marketing Team
+    └── PR Team
+
+Root = CEO; Leaf nodes = Individual contributors</pre>
+
+    <h3>Types of Tree Visualizations</h3>
+
+    <h4>1. Node-Link Diagram (Traditional Tree)</h4>
+    <p>Classic tree drawn with nodes and connecting lines. Easy to understand. Scales poorly with very large trees (space wasted on white space).</p>
+
+    <h4>2. Dendrogram</h4>
+    <div class="def"><strong>Dendrogram:</strong> A tree diagram used to show hierarchical clustering results. Horizontal lines connect clusters; the height of the connection shows the distance at which clusters merged. Used extensively in biology, genomics, and data mining.</div>
+    <pre>
+Dendrogram (Hierarchical Clustering):
+Height
+  4 │         ┌───────────────┐
+    │         │               │
+  3 │    ┌────┴──┐         ┌──┴────┐
+    │    │       │         │       │
+  2 │  ┌─┴─┐  ┌─┴─┐     ┌─┴─┐  ┌─┴─┐
+    │  │   │  │   │     │   │  │   │
+  0 │  A   B  C   D     E   F  G   H
+       └────────── Similar items cluster first ──────────┘</pre>
+
+    <h4>3. Treemap</h4>
+    <div class="def"><strong>Treemap:</strong> Hierarchical data displayed as nested rectangles. The area of each rectangle encodes a quantitative value (e.g., file size, market cap, population). Color can encode a second variable (e.g., change percentage).</div>
+    <pre>
+Treemap (File System):
+┌──────────────────────────────────────┐
+│         /home directory              │
+│ ┌────────────┐  ┌──────────────────┐ │
+│ │  Documents │  │      Videos      │ │
+│ │  (large)   │  │   (very large)   │ │
+│ └────────────┘  └──────────────────┘ │
+│ ┌──────┐  ┌─────────────────────────┐│
+│ │Music │  │        Photos           ││
+│ │(med) │  │      (medium-large)     ││
+│ └──────┘  └─────────────────────────┘│
+└──────────────────────────────────────┘
+Area = file size. Larger area = larger folder/file.</pre>
+
+    <h4>4. Radial/Sunburst Tree</h4>
+    <p>Hierarchical data displayed in concentric circles. Root at center; children expand outward. Excellent for showing proportions at each level of the hierarchy. Used in file system visualizers (WinDirStat, disk usage apps).</p>
+
+    <h4>5. Icicle Plot (Flame Graph)</h4>
+    <p>Hierarchical data displayed as horizontal bars stacked top-down (or bottom-up for flame graphs). Width represents size/value. Used in performance profiling to show call stack duration.</p>
+
+    <h3>Visualizing Forests</h3>
+    <p>A forest = multiple trees. Visualized by displaying trees side by side or as a combined network where forest-level relationships are shown.</p>
+    <pre>
+Forest = Collection of independent trees:
+Tree 1        Tree 2        Tree 3
+  A             E             I
+ / \           / \             \
+B   C         F   G             J
+   / \             \
+  D   E             H</pre>
+
+    <h3>Applications of Tree Visualization</h3>
+    <ul>
+      <li><strong>File systems:</strong> Folder hierarchy (Windows Explorer tree panel)</li>
+      <li><strong>Organizational charts:</strong> Company reporting structure</li>
+      <li><strong>Biological taxonomy:</strong> Species classification (Kingdom → Phylum → Class → Order)</li>
+      <li><strong>Decision trees:</strong> Machine learning model explanation</li>
+      <li><strong>XML/JSON structure:</strong> Data schema visualization</li>
+      <li><strong>Genealogy:</strong> Family trees, ancestral charts</li>
+      <li><strong>Network routing:</strong> Spanning tree of network topology</li>
+    </ul>
+
+    <div class="warn"><strong>⭐ Exam Point:</strong> Treemap and Dendrogram are the two most frequently asked tree visualization types. Know Treemap: nested rectangles, area = value. Know Dendrogram: height = cluster distance, merges bottom-up.</div>
+    <div class="ok"><strong>Memory Trick:</strong> Tree viz types = <strong>NDTRI</strong> — Node-link, Dendrogram, Treemap, Radial/sunburst, Icicle/flame. "Nice Diagrams Tell Real Insights."</div>
+    <div class="kws"><span class="kw">Tree</span><span class="kw">Forest</span><span class="kw">Dendrogram</span><span class="kw">Treemap</span><span class="kw">Hierarchical Data</span><span class="kw">Sunburst</span><span class="kw">Flame Graph</span></div>
+  </div>
+</div>
+</div>
+
+<!-- ===== DIAGRAMS ===== -->
+<div id="s-diagrams" class="sec">
+  <h2 style="font-size:18px;font-weight:500;margin-bottom:1rem">Important Exam Diagrams</h2>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Diagram 1: Graph Types — Draw in Exam</h2><span class="tnum">2/5-mark</span></div>
+  <div class="cb op">
+<pre>
+UNDIRECTED GRAPH          DIRECTED GRAPH (Digraph)
+(Facebook friends)        (Twitter follows)
+
+    A ─── B                  A ──► B
+    │     │                  │     │
+    │     │                  ▼     ▼
+    C ─── D                  C ◄── D
+
+Edges: no arrows            Edges: have arrows
+Symmetric relationship      Asymmetric relationship
+A-B means B-A               A→B does not mean B→A
+
+──────────────────────────────────────────────────
+
+WEIGHTED GRAPH            BIPARTITE GRAPH
+(Road distances km)       (Users & Movies)
+
+    A ─5── B              Users:   Movies:
+     \   /                  U1 ───── M1
+      3─2                   U1 ───── M2
+       C                    U2 ───── M2
+                            U2 ───── M3
+
+Numbers on edges = weights  Two disjoint node sets
+──────────────────────────────────────────────────</pre>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Diagram 2: Parallel Coordinates — Draw in Exam</h2><span class="tnum">5/10-mark</span></div>
+  <div class="cb op">
+<pre>
+PARALLEL COORDINATES PLOT
+(Student data: 3 students, 4 attributes)
+
+Age    Score   Study_hrs   Sleep_hrs
+ |       |         |           |
+ |       |         |           |
+22──────85──────────7───────────7    ← Student A
+ |       |         |           |
+ |       |         |           |
+20──────60──────────4───────────9    ← Student B
+ |       |         |           |
+ |       |         |           |
+24──────90──────────8───────────6    ← Student C
+ |       |         |           |
+
+How to read:
+→ Each vertical line = one attribute (dimension)
+→ Each horizontal polyline = one data record
+→ Lines staying parallel = positive correlation
+→ Lines crossing = negative correlation
+→ Example: Score and Study_hrs lines = parallel → positive correlation
+→ Example: Score and Sleep_hrs lines = slightly crossing → negative correlation
+
+Use in exams:
+✓ Draw 4 vertical axes with labels at top
+✓ Draw 2-3 data lines connecting all axes
+✓ Mark values at each axis crossing
+✓ Mention: cluster of parallel lines = similar records</pre>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Diagram 3: Star Glyph &amp; Chernoff Face — Draw in Exam</h2><span class="tnum">5-mark</span></div>
+  <div class="cb op">
+<pre>
+STAR GLYPH (5 attributes):           CHERNOFF FACE (5 attributes):
+
+      Speed                           Variable → Feature:
+        ↑                             V1 → Eye size
+        │                             V2 → Mouth curve
+    ────*────                         V3 → Nose length
+   /    │    \                        V4 → Face width
+CPU─*   │   *─Memory                 V5 → Eyebrow angle
+   \    │    /
+    ────*────                              .─────.
+        │                               ,'  oOo  '.
+        ↓                              |   _─_   |    ← Happy face
+    Disk I/O                           |  ╰─┬─╯  |      (high values)
+                                        \   ╰─╯  /
+Legend:                                   '─────'
+━━ = high value
+── = low value                           .─────.
+Area shape = data profile             ,'  o─o  '.
+                                     |    ─┬─   |    ← Sad face
+                                     |   ╮─┴─╭  |      (low values)
+                                      \   ╰─╯  /
+                                        '─────'
+
+Chernoff: Invented by Herman Chernoff (1973)
+Advantage: Humans expert at face recognition
+Limitation: Arbitrary mapping; some features more salient than others</pre>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Diagram 4: Coordinated Multiple Views — Draw in Exam</h2><span class="tnum">10-mark</span></div>
+  <div class="cb op">
+<pre>
+COORDINATED MULTIPLE VIEWS (CMV) ARCHITECTURE
+
+                ┌───────────────────────┐
+                │     Data Repository   │
+                │    (Shared Model)     │
+                │  ┌─────────────────┐  │
+                │  │ Selected: 2023  │  │
+                │  │ Region: North   │  │
+                │  └─────────────────┘  │
+                └──────────┬────────────┘
+                           │ Selection events
+          ┌────────────────┼────────────────┐
+          │                │                │
+    ┌─────▼──────┐   ┌─────▼──────┐  ┌─────▼──────┐
+    │  View 1:   │   │  View 2:   │  │  View 3:   │
+    │ Bar Chart  │   │    Map     │  │ Line Chart  │
+    │ [█ █  █]  │   │ . [●] .   │  │  /\  /\    │
+    │Sales by    │   │ . . . .   │  │ /  \/  \   │
+    │ Region     │   │Geographic │  │ Trends     │
+    │            │   │   View    │  │ Over Time  │
+    └────────────┘   └──────────┘  └────────────┘
+
+Key mechanisms:
+→ DATA BRUSHING: Select points in one view → highlighted in all
+→ CROSS-FILTERING: Filter year in one view → filters all views
+→ ZOOM LINKING: Zoom timeline → rescales all time-based views
+
+Real examples: Tableau, Power BI, DC.js, Gapminder</pre>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Diagram 5: Tree Visualization Types — Draw in Exam</h2><span class="tnum">10-mark</span></div>
+  <div class="cb op">
+<pre>
+1. NODE-LINK TREE              2. DENDROGRAM
+   (Organization)                (Hierarchical Clustering)
+
+        CEO                  Height
+       /    \                  3│      ┌─────┐
+     CTO    CFO                 │   ┌──┘     └──┐
+    / \    / \                  2│ ┌─┘         └─┐
+  Eng DevOps Acc Aud            │ │               │
+                                1│ A  B       C   D
+
+3. TREEMAP                    4. SUNBURST/RADIAL TREE
+   (File System Sizes)
+
+ ┌─────────────────────┐           ┌────┐
+ │     Videos (40%)    │         ┌─┤Root├─┐
+ ├──────────┬──────────┤         A ┘    └ B
+ │ Docs(30%)│Photos(20)│       ┌─┘A1    B1└─┐
+ ├──────────┴──────────┤      A1              B1
+ │      Music (10%)    │
+ └─────────────────────┘     Center = Root
+ Area ∝ file size             Rings = depth levels
+
+5. FOREST = Multiple Trees
+
+Tree 1:  Tree 2:  Tree 3:
+  R1       R2       R3
+ /  \     /  \       \
+A    B   C    D       E
+
+Three separate trees = one forest</pre>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Diagram 6: Force-Directed Layout Process</h2><span class="tnum">5-mark</span></div>
+  <div class="cb op">
+<pre>
+FORCE-DIRECTED LAYOUT — HOW IT WORKS:
+
+Step 1 — Initial (random placement):    Step 2 — Forces applied:
+    B   A                               Repulsion: all nodes push apart
+  D                                     Attraction: edges pull connected nodes
+      C   E                             F_repel = k / d²
+                                        F_attract = k × displacement
+
+Step 3 — Converging:                    Step 4 — Equilibrium (final layout):
+    A─────B                               A───B
+    │     │                             ╱│   │╲
+    D     C                            D │   │ C
+     ╲   ╱                              ╲│   │╱
+       E                                  E
+
+Result: Tightly connected nodes cluster together
+        Loosely connected nodes spread apart
+        Community structure becomes visible
+
+Tools: Gephi, D3.js forceSimulation, Cytoscape, NetworkX</pre>
+  </div></div>
+</div>
+
+<!-- ===== COMPARE ===== -->
+<div id="s-compare" class="sec">
+  <h2 style="font-size:18px;font-weight:500;margin-bottom:1rem">Comparison Tables</h2>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Trees vs. Graphs</h2><span class="tnum">Must know</span></div>
+  <div class="cb op">
+    <table>
+      <tr><th>Feature</th><th>Tree</th><th>Graph</th></tr>
+      <tr><td>Structure</td><td>Hierarchical with root</td><td>General network, no required root</td></tr>
+      <tr><td>Cycles</td><td>No cycles (acyclic)</td><td>May contain cycles</td></tr>
+      <tr><td>Edges (N nodes)</td><td>Always N-1 edges</td><td>0 to N(N-1)/2 edges</td></tr>
+      <tr><td>Path</td><td>Exactly one path between any two nodes</td><td>Zero or more paths between nodes</td></tr>
+      <tr><td>Parent-child</td><td>Yes — strict hierarchy</td><td>No parent-child relationship</td></tr>
+      <tr><td>Connectivity</td><td>Always connected</td><td>May be disconnected</td></tr>
+      <tr><td>Direction</td><td>Usually top-down or rooted</td><td>Directed or undirected</td></tr>
+      <tr><td>Visualization</td><td>Treemap, dendrogram, sunburst</td><td>Force-directed, circular, geographic</td></tr>
+      <tr><td>Examples</td><td>File system, org chart, taxonomy</td><td>Social network, road map, web graph</td></tr>
+    </table>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Low-dimensional vs. High-dimensional Visualization</h2><span class="tnum">5-mark topic</span></div>
+  <div class="cb op">
+    <table>
+      <tr><th>Aspect</th><th>Low-dimensional (2D/3D)</th><th>High-dimensional (4D+)</th></tr>
+      <tr><td>Number of attributes</td><td>1–3 variables</td><td>4+ variables (often dozens or thousands)</td></tr>
+      <tr><td>Direct display</td><td>Yes — on X, Y, Z axes</td><td>No — must transform or reduce</td></tr>
+      <tr><td>Chart types</td><td>Bar, scatter, line, pie</td><td>Parallel coordinates, SPLOM, glyphs, PCA</td></tr>
+      <tr><td>Human perception</td><td>Natural and intuitive</td><td>Requires training to interpret</td></tr>
+      <tr><td>Curse of dimensionality</td><td>Not applicable</td><td>Data becomes sparse; distances meaningless</td></tr>
+      <tr><td>Reduction needed</td><td>No</td><td>Yes — PCA, t-SNE, UMAP</td></tr>
+      <tr><td>Examples</td><td>Height vs. weight scatter</td><td>Gene expression data (20,000 genes), ML features</td></tr>
+    </table>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Static vs. Interactive (Linked) Views</h2><span class="tnum">5-mark topic</span></div>
+  <div class="cb op">
+    <table>
+      <tr><th>Feature</th><th>Static Views</th><th>Linked Interactive Views</th></tr>
+      <tr><td>User interaction</td><td>None — fixed image</td><td>Brush, filter, zoom, click</td></tr>
+      <tr><td>Number of views</td><td>Usually one chart</td><td>Multiple coordinated charts</td></tr>
+      <tr><td>Data exploration</td><td>Limited — shows one perspective</td><td>Rich — multiple perspectives simultaneously</td></tr>
+      <tr><td>Cross-filtering</td><td>Not possible</td><td>Yes — selection in one updates all</td></tr>
+      <tr><td>Updates</td><td>Manual re-creation needed</td><td>Real-time automatic synchronization</td></tr>
+      <tr><td>Medium</td><td>Print, PDF, report</td><td>Web browser, dashboard application</td></tr>
+      <tr><td>Tools</td><td>Excel, matplotlib, ggplot2</td><td>Tableau, Power BI, DC.js, Vega-Lite</td></tr>
+      <tr><td>Best for</td><td>Summary reports, publications</td><td>Exploratory data analysis, dashboards</td></tr>
+    </table>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Dimensionality Reduction Methods Compared</h2><span class="tnum">5-mark topic</span></div>
+  <div class="cb op">
+    <table>
+      <tr><th>Method</th><th>Type</th><th>Preserves</th><th>Speed</th><th>Best for</th></tr>
+      <tr><td>PCA</td><td>Linear</td><td>Global variance structure</td><td>Fast</td><td>Exploratory analysis, preprocessing</td></tr>
+      <tr><td>t-SNE</td><td>Non-linear</td><td>Local neighborhood clusters</td><td>Slow</td><td>Visualizing clusters (NLP, genomics)</td></tr>
+      <tr><td>UMAP</td><td>Non-linear</td><td>Local + global structure</td><td>Medium</td><td>Large datasets; NLP word embeddings</td></tr>
+      <tr><td>MDS</td><td>Non-linear</td><td>Pairwise distances</td><td>Medium</td><td>Distance/similarity matrix data</td></tr>
+      <tr><td>LDA</td><td>Linear</td><td>Class separability</td><td>Fast</td><td>Classification; labeled data</td></tr>
+    </table>
+  </div></div>
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+<div id="s-questions" class="sec">
+  <h2 style="font-size:18px;font-weight:500;margin-bottom:1rem">Exam Questions &amp; Model Answers</h2>
+
+  <h3 style="color:var(--color-text-success);margin-bottom:.5rem">2-Mark Questions</h3>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">What is a node and edge in graph visualization?<span class="qm">2 marks</span></div>
+  <div class="qa">A node (also called a vertex) is a fundamental unit of a graph representing an individual entity or data point. In a social network, each person is a node. An edge (also called a link or arc) is a connection between two nodes representing a relationship or interaction between the corresponding entities. In a social network, an edge between two person-nodes represents their friendship or connection. Edges can be directed (one-way, with an arrow) or undirected (two-way, plain line), and can carry weights (numerical values).</div></div>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">What is a Treemap?<span class="qm">2 marks</span></div>
+  <div class="qa">A Treemap is a type of hierarchical data visualization that displays hierarchical data as nested rectangles. Each rectangle represents a node in the hierarchy, and the area of each rectangle is proportional to a quantitative value such as file size, revenue, or population. Color can encode a second variable such as percentage change or category. Treemaps were introduced by Ben Shneiderman in the early 1990s. They are highly space-efficient and widely used for visualizing file systems (disk usage tools), stock market portfolios, and website analytics by section.</div></div>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">Define Chernoff Faces and who invented them.<span class="qm">2 marks</span></div>
+  <div class="qa">Chernoff Faces are a multivariate data glyph technique invented by statistician Herman Chernoff in 1973. Each face feature (such as eye size, mouth curvature, nose length, eyebrow angle, face shape) encodes one attribute of the data. The technique exploits the human brain's exceptional ability to recognize and compare faces — even subtle differences in facial features are immediately noticed. Each face represents one multivariate data record. Advantage: intuitive human perception. Limitation: the mapping of variables to face features is arbitrary and some features (eyes) are more visually salient than others (ear size), creating perceptual bias.</div></div>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">What is the Curse of Dimensionality?<span class="qm">2 marks</span></div>
+  <div class="qa">The Curse of Dimensionality refers to the phenomenon where the volume of the data space increases so rapidly with the number of dimensions that the available data becomes extremely sparse. In low dimensions (1D, 2D), data points are dense and patterns are visible. As dimensions increase, data becomes sparse — distances between points become nearly equal, clusters disappear, and patterns become impossible to detect visually. For example, in 1D you need 10 points for adequate coverage; in 10D you need 10 billion. This is a fundamental challenge in high-dimensional data visualization, motivating dimensionality reduction techniques like PCA, t-SNE, and UMAP.</div></div>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">What is data brushing in linked views?<span class="qm">2 marks</span></div>
+  <div class="qa">Data brushing is an interaction technique used in linked/coordinated multiple view (CMV) systems where the user selects (brushes) a subset of data points in one visualization view — typically by drawing a selection box or lasso around the points of interest. The selected data subset is then immediately highlighted or emphasized in all other linked views simultaneously. For example, in a dashboard with a scatter plot, bar chart, and geographic map all showing the same dataset, brushing a cluster of points in the scatter plot will highlight the corresponding bars in the bar chart and the corresponding locations on the map, enabling multi-perspective exploration of the same data subset.</div></div>
+
+  <h3 style="color:var(--color-text-warning);margin-bottom:.5rem;margin-top:1.5rem">5-Mark Questions</h3>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">Explain parallel coordinates for high-dimensional data visualization with a diagram.<span class="qm">5 marks</span></div>
+  <div class="qa"><strong>Introduction:</strong> Parallel coordinates is a technique for visualizing high-dimensional data by arranging multiple vertical axes side by side, each representing one data dimension. Each data record is represented as a polyline that passes through all axes at the record's value for that dimension.<br><br><strong>Structure:</strong> Each vertical axis represents one attribute. Values are scaled along each axis. Each data item is drawn as a connected polyline crossing all axes at its corresponding values.<br><br><strong>Diagram:</strong><br><pre style="font-size:11px">Age   Score  Study_hrs  Sleep_hrs
+ |      |        |          |
+22─────85─────────7──────────7   ← Student A
+ |      |        |          |
+20─────60─────────4──────────9   ← Student B
+ |      |        |          |
+24─────90─────────8──────────6   ← Student C
+ |      |        |          |</pre><br><strong>Interpretation:</strong><br>1. Lines staying parallel between two axes = positive correlation between those attributes<br>2. Lines crossing between two axes = negative correlation<br>3. A cluster of parallel, closely spaced lines = similar data records<br>4. An outlier line that diverges far from others = anomalous record<br><br><strong>Advantages:</strong> Can handle 10–100+ dimensions simultaneously; reveals correlations; detects outliers.<br><strong>Limitations:</strong> Crossing lines become cluttered with large datasets (overplotting); order of axes affects perceived patterns; difficult for untrained users.<br><br><strong>Real-world use:</strong> Tableau uses parallel coordinates for multivariate exploration; used in bioinformatics for gene expression analysis.</div></div>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">Explain force-directed layout in network visualization.<span class="qm">5 marks</span></div>
+  <div class="qa"><strong>Introduction:</strong> Force-directed layout is an algorithm for automatically positioning nodes in a network graph by simulating physical forces acting on the nodes. It produces visually appealing, meaningful layouts that naturally reveal clusters and community structure.<br><br><strong>Physical Simulation:</strong><br>1. Repulsive force: All pairs of nodes push each other apart. F_repel = k / d² (force inversely proportional to distance squared)<br>2. Attractive force: Edges act like springs, pulling connected nodes toward each other. F_attract = k × displacement<br>3. The algorithm iterates until all forces balance — the system reaches equilibrium.<br><br><strong>Process:</strong><br>Step 1: Place nodes randomly on canvas<br>Step 2: Calculate repulsive force between every pair of nodes<br>Step 3: Calculate attractive force for every edge<br>Step 4: Move nodes proportionally to net force<br>Step 5: Repeat until stable (low energy state)<br><br><strong>Visual outcome:</strong> Densely connected nodes cluster together (communities visible). Loosely connected nodes spread apart. Hub nodes (high degree) naturally emerge at prominent positions.<br><br><strong>Advantages:</strong> No manual positioning needed; reveals community structure automatically; aesthetically pleasing; handles undirected and directed graphs.<br><br><strong>Limitations:</strong> Computationally expensive for large graphs (O(n²) per iteration); non-deterministic — different runs produce different layouts; may have poor convergence.<br><br><strong>Tools:</strong> Gephi, D3.js forceSimulation, Cytoscape, NetworkX with spring_layout</div></div>
+
+  <h3 style="color:var(--color-text-danger);margin-bottom:.5rem;margin-top:1.5rem">10-Mark Essay Questions</h3>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">Explain Coordinated Multiple Views (Linked Views) for visual data exploration with architecture, mechanisms, and examples.<span class="qm">10 marks</span></div>
+  <div class="qa"><strong>Introduction:</strong> Coordinated Multiple Views (CMV), also known as Linked Views, is an advanced interactive visualization paradigm where multiple visualizations of the same dataset are simultaneously displayed and synchronized — any user interaction in one view automatically updates all other views. This enables analysts to explore data from multiple perspectives simultaneously, revealing insights impossible from any single view.<br><br><strong>Motivation:</strong> No single chart type can show all dimensions of complex data simultaneously. A bar chart shows comparisons but not geographic distribution. A map shows location but not statistical trends. A scatter plot shows correlations but not time series. CMV solves this by linking all of these views together.<br><br><strong>Architecture — Shared Data Model:</strong> All views connect to a single shared data model/repository. When a user interacts with any view, the interaction generates a selection event that is broadcast to all other views through the shared model. Each view then re-renders using only the selected/filtered subset. This ensures consistency across all views.<br><br><strong>Core Mechanisms:</strong><br><br>1. Data Brushing: The user draws a selection (brush) over data points in one view. The selected subset is highlighted in all linked views simultaneously. Example: brushing low-income points in a scatter plot highlights those same records in the map and bar chart.<br><br>2. Cross-Filtering: The user filters data in one view (e.g., selecting "Year = 2023" in a time-series view). All other views immediately show only data matching that filter. Unselected data dims rather than disappears. Example used by DC.js library extensively.<br><br>3. Zooming and Panning Linkage: Zooming into a time range in one view proportionally scales all time-based views. Example: zooming Jan–Mar in timeline also zooms all other time-encoded charts.<br><br>4. Hover Tooltips: Hovering over a data point in one view shows its details in a tooltip AND highlights the same record across all views.<br><br><strong>Types of Linkage:</strong><br>- Full linkage: All interactions propagate to all views<br>- Selective linkage: Only specific interactions are linked<br>- Directional linkage: Changes in View A affect View B but not vice versa<br><br><strong>Architecture Diagram:</strong><br><pre style="font-size:11px">         ┌─────────────────────┐
+         │    Shared Data      │
+         │       Model         │
+         └──────────┬──────────┘
+     ┌──────────────┼──────────────┐
+     │              │              │
+┌────▼────┐   ┌─────▼───┐   ┌─────▼───┐
+│Scatter  │   │  Map    │   │  Bar    │
+│  Plot   │   │         │   │  Chart  │
+└────┬────┘   └─────┬───┘   └─────┬───┘
+     └──────────────┴──────────────┘
+          Selection events propagate</pre><br><strong>Real-World Examples:</strong><br>1. Tableau: Full CMV with cross-filtering across all dashboard visuals<br>2. Microsoft Power BI: Click any bar → all other visuals filter by that dimension<br>3. DC.js / Crossfilter.js: Open-source library built specifically for linked chart cross-filtering<br>4. Gapminder: Linked scatter plot + map + bar chart + time-series of world development data<br>5. Healthcare dashboard: Patient list → vital signs chart → medication history → lab results — all linked by patient selection<br>6. Finance: Stock screener with linked price chart, volume histogram, and sector map<br><br><strong>Advantages:</strong><br>- Multiple perspectives simultaneously; faster insight discovery<br>- Supports complex multi-variable hypothesis testing<br>- Reduces cognitive load of switching between charts<br>- Natural workflow: select → filter → explore<br><br><strong>Disadvantages:</strong><br>- Complex to implement; requires sophisticated software<br>- Performance issues with very large datasets<br>- Cognitive overload if too many views are linked<br>- Requires digital medium — not suitable for print<br><br><strong>Conclusion:</strong> CMV represents the most powerful paradigm for exploratory data analysis. By coordinating multiple complementary views, analysts can simultaneously see correlation, distribution, geography, and temporal patterns — transforming data from numbers to narrative.</div></div>
+
+  <div class="qb"><div class="qh" onclick="togQ(this)">Explain tree visualization techniques — node-link diagrams, treemaps, dendrograms, and sunburst charts — with examples and applications.<span class="qm">10 marks</span></div>
+  <div class="qa"><strong>Introduction:</strong> Tree visualization is the graphical representation of hierarchical data structures — data organized in parent-child relationships with a single root. Hierarchical data appears everywhere: file systems, taxonomies, organization charts, decision trees, and evolutionary biology. Different visualization techniques suit different types of hierarchical data and analysis tasks.<br><br><strong>Definition of Tree:</strong> A tree is a connected, acyclic graph with a designated root node. N nodes have exactly N-1 edges. There is exactly one path between any two nodes. A forest is a collection of disjoint trees.<br><br><strong>1. Node-Link Diagram:</strong><br>The classic representation where nodes are drawn as circles/boxes and parent-child relationships as connecting lines. Intuitive and easy to understand. Best for small-to-medium trees where white space is not a concern. Used in: org charts, family trees, decision trees, XML/JSON visualization. Limitation: wastes space; large trees become unreadable.<br><br><strong>2. Treemap:</strong><br>Introduced by Ben Shneiderman (1990s). Hierarchical data displayed as nested rectangles. The area of each rectangle is proportional to a quantitative attribute (file size, revenue). Color encodes a second attribute (growth rate, category). Space-efficient — uses 100% of display area. Best for: file system visualization (WinDirStat), stock portfolio analysis (heatmaps showing market cap), website traffic by section. Limitation: difficult to show deep hierarchies; hard to compare non-adjacent items.<br><br>Diagram:<br><pre style="font-size:11px">┌──────────────────────────────────┐
+│         /home directory          │
+│ ┌──────────────┐  ┌────────────┐ │
+│ │ Videos (40%) │  │Photos(30%) │ │
+│ ├──────┬───────┘  └────────────┤ │
+│ │Docs  │    Music (10%)       │ │
+│ │(20%) │                      │ │
+│ └──────┴──────────────────────┘ │
+└──────────────────────────────────┘
+Area = file size; Color = file type</pre><br><strong>3. Dendrogram:</strong><br>A tree diagram used to show results of hierarchical clustering. Items are arranged at the leaves; branches merge bottom-up as similar items are grouped. The height at which two branches merge indicates the distance/dissimilarity between those clusters. Used in: biology (evolutionary trees/phylogenetics), bioinformatics (gene expression clustering), data mining (customer segmentation), document clustering. Limitation: hard to read with many items; branch height must be carefully labeled.<br><br>Diagram:<br><pre style="font-size:11px">Distance
+    4│          ┌──────────────────┐
+     │          │                  │
+    3│     ┌────┴───┐          ┌───┴───┐
+     │     │        │          │       │
+    2│  ┌──┴─┐    ┌─┴──┐    ┌──┴─┐  ┌─┴─┐
+     │  │    │    │    │    │    │  │   │
+    0│  A    B    C    D    E    F  G   H</pre><br><strong>4. Radial/Sunburst Tree:</strong><br>Hierarchical data displayed in concentric rings. Root node at center; children expand outward in rings. Each ring represents one level of the hierarchy. Angle of each arc represents the relative proportion of that node. Aesthetically pleasing; good for showing proportions at multiple hierarchical levels simultaneously. Used in: file system visualization (disk usage apps), taxonomic classification, website section analysis. Limitation: outer rings get crowded with many small items.<br><br><strong>5. Icicle Plot / Flame Graph:</strong><br>Hierarchical data as horizontal bars stacked top-down (icicle) or bottom-up (flame). Width represents quantitative value. Used in performance profiling to show call stack execution time — the bottom bar (root function) contains all time; wider child bars = more CPU time spent.<br><br><strong>Forest Visualization:</strong> A forest (collection of disjoint trees) is visualized either by placing trees side-by-side or by introducing a virtual root node connecting all tree roots.<br><br><strong>Applications:</strong><br>1. File systems: Windows Explorer folder tree; WinDirStat treemap<br>2. Organization charts: Corporate hierarchy node-link diagrams<br>3. Biology: Phylogenetic trees (evolutionary relationships), dendrograms<br>4. Machine learning: Decision tree visualization (model explanation)<br>5. Web navigation: Breadcrumb trails, site maps as trees<br>6. Data mining: Hierarchical clustering dendrogram<br><br><strong>Conclusion:</strong> Tree visualization encompasses a rich set of techniques — from the intuitive node-link diagram for small hierarchies to the space-efficient treemap for large ones. Choosing the right technique depends on the size of the hierarchy, whether quantitative values need encoding, and whether the primary task is exploring structure or comparing sizes.</div></div>
+</div>
+
+<!-- ===== QUICK REVISION ===== -->
+<div id="s-quick" class="sec">
+  <h2 style="font-size:18px;font-weight:500;margin-bottom:1rem">Quick Revision — All 7 Topics</h2>
+  <div class="g2">
+    <div class="nc"><h3>Topic 1: Graph Representations</h3><p>Node (entity) + Edge (relationship). Types: Undirected (Facebook), Directed (Twitter), Weighted (roads), Bipartite (users-movies). Layouts: circular, grid, hierarchical, force-directed, geographic. Adjacency matrix stores graph. Memory: NEED.</p></div>
+    <div class="nc"><h3>Topic 2: Graph-theoretic Graphics</h3><p>Force-directed layout: repulsion (nodes push) + attraction (edges pull) → equilibrium. Network viz metrics: centrality, clustering, path length. Dependency graphs = directed, software modules. Tools: Gephi, D3.js, Cytoscape. Memory: RACE.</p></div>
+    <div class="nc"><h3>Topic 3: High-dimensional Visualization</h3><p>Curse of Dimensionality: data sparse in high dims. Parallel coordinates: vertical axes + polylines (crossing = negative correlation). SPLOM: scatter plot matrix (n×n grid). Reduction: PCA (linear), t-SNE (clusters), UMAP (fast), MDS (distances). Memory: PSDG.</p></div>
+    <div class="nc"><h3>Topic 4: Multivariate Glyphs</h3><p>Glyph = visual symbol encoding multiple attributes. Star glyph: radar/spider — each axis = one attribute, shape = profile. Chernoff faces: Chernoff 1973, facial features encode data — eyes, mouth, nose, eyebrows. Design: accuracy, discriminability, scalability. Memory: SCSPB.</p></div>
+    <div class="nc"><h3>Topics 5&amp;6: Linked Views</h3><p>CMV = Coordinated Multiple Views. Shared data model → events propagate to all views. Brushing: select in one → highlight all. Cross-filtering: filter in one → filter all. Directional/Full/Selective linkage. Tools: Tableau, Power BI, DC.js, Gapminder. Memory: BCSL.</p></div>
+    <div class="nc"><h3>Topic 7: Trees &amp; Forests</h3><p>Tree = hierarchical, no cycles, N nodes = N-1 edges. Types: Node-link (classic), Treemap (area = size), Dendrogram (clustering), Sunburst (concentric rings), Icicle/Flame (performance). Forest = multiple trees. Memory: NDTRI.</p></div>
+  </div>
+
+  <div class="nc"><h3>All Memory Tricks — Unit II</h3>
+    <ul>
+      <li><strong>Graph components:</strong> NEED — Nodes, Edges, Edge-direction, Degree</li>
+      <li><strong>Force-directed:</strong> RACE — Repulsion, Attraction, Converge, Expose clusters</li>
+      <li><strong>High-dim techniques:</strong> PSDG — Parallel coords, Scatter plot matrix, Dimensionality reduction, Grand tour</li>
+      <li><strong>Glyph types:</strong> SCSPB — Star, Chernoff, Stick figure, Pie glyph, Box glyph ("Stars and Chernoff See Pretty Boxes")</li>
+      <li><strong>CMV mechanisms:</strong> BCSL — Brush, Cross-filter, Synchronize, Link</li>
+      <li><strong>Tree viz types:</strong> NDTRI — Node-link, Dendrogram, Treemap, Radial, Icicle ("Nice Diagrams Tell Real Insights")</li>
+      <li><strong>Dim reduction methods:</strong> PUM = PCA (linear), UMAP (fast), t-SNE (clusters), MDS (distances)</li>
+    </ul>
+  </div>
+
+  <div class="nc"><h3>Important One-Liners for 2-Mark Answers</h3>
+    <ul>
+      <li>Node = entity; Edge = relationship between entities</li>
+      <li>Directed graph = one-way edges (Twitter follow); Undirected = two-way (Facebook friend)</li>
+      <li>Force-directed layout = nodes repel + edges attract → equilibrium reveals clusters</li>
+      <li>Curse of dimensionality = data becomes sparse as dimensions increase</li>
+      <li>Parallel coordinates = polylines across parallel axes; crossing lines = negative correlation</li>
+      <li>Chernoff faces = Herman Chernoff 1973; facial features encode data attributes</li>
+      <li>Data brushing = select points in one view → highlight in all linked views</li>
+      <li>Treemap = nested rectangles; area proportional to quantitative value</li>
+      <li>Dendrogram = hierarchical clustering tree; height = merge distance</li>
+      <li>CMV = Coordinated Multiple Views; shared data model + linked interaction events</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== NIGHT BEFORE ===== -->
+<div id="s-night" class="sec">
+  <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:1.2rem;margin-bottom:1.4rem;border:.5px solid var(--color-border-tertiary)">
+    <h2 style="font-size:18px;font-weight:500;margin-bottom:.25rem">Night Before Exam — Complete Unit II Revision</h2>
+    <p style="font-size:13px;color:var(--color-text-secondary)">All 7 topics condensed. Read in 30 minutes.</p>
+  </div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Topic 1&amp;2: Graphs &amp; Graph-theoretic Graphics</h2><span class="tnum">Flash</span></div>
+  <div class="cb op">
+    <ul>
+      <li>Graph = Nodes (entities) + Edges (relationships)</li>
+      <li>Undirected = mutual (Facebook friend); Directed = one-way (Twitter follow)</li>
+      <li>Weighted graph = edges have numeric values (road distances)</li>
+      <li>Bipartite = two node sets, edges only between sets (users ↔ movies)</li>
+      <li>Graph layouts: Circular, Grid, Hierarchical, Force-directed, Geographic</li>
+      <li>Adjacency Matrix: A[i][j] = 1 if edge between i and j; 0 otherwise</li>
+      <li>Force-directed layout: Repulsion (F=k/d²) + Attraction (F=k×displacement) → equilibrium</li>
+      <li>Network metrics: Centrality (importance), Degree (connections), Clustering</li>
+      <li>Dependency graph: Directed graph showing component dependencies (software modules)</li>
+      <li>Tools: Gephi, D3.js, Cytoscape, NetworkX</li>
+    </ul>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Topic 3: High-dimensional Visualization</h2><span class="tnum">Flash</span></div>
+  <div class="cb op">
+    <ul>
+      <li>Curse of Dimensionality: as dimensions increase, data becomes exponentially sparse</li>
+      <li>Parallel Coordinates: vertical axes per dimension; each record = polyline; crossing lines = negative correlation; parallel lines = positive correlation</li>
+      <li>SPLOM (Scatter Plot Matrix): n×n grid; each cell = scatter plot for 2 dimensions; diagonal = histogram</li>
+      <li>PCA: Principal Component Analysis; linear; finds maximum variance directions; fast</li>
+      <li>t-SNE: Non-linear; preserves local clusters; best for visualizing ML embeddings; slow</li>
+      <li>UMAP: Non-linear; preserves local + global structure; faster than t-SNE; best for large datasets</li>
+      <li>MDS: Preserves pairwise distances between data points</li>
+    </ul>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Topic 4: Multivariate Data Glyphs</h2><span class="tnum">Flash</span></div>
+  <div class="cb op">
+    <ul>
+      <li>Glyph: visual symbol encoding multiple data attributes in a single icon</li>
+      <li>Star Glyph (Radar): n axes from center; length on each axis = attribute value; shape = data profile</li>
+      <li>Chernoff Faces: Herman Chernoff, 1973; facial features encode data variables; leverages human face recognition ability; limitation = arbitrary mapping + unequal feature salience</li>
+      <li>Glyph design principles: Perceptual accuracy, Discriminability, Integral vs. separable, Scalability</li>
+      <li>Applications: Healthcare patient profiles, financial portfolio glyphs, sports analytics, weather wind roses</li>
+    </ul>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Topics 5&amp;6: Linked Views &amp; Linked Data Views</h2><span class="tnum">Flash</span></div>
+  <div class="cb op">
+    <ul>
+      <li>CMV = Coordinated Multiple Views: multiple synchronized visualizations of same data</li>
+      <li>Shared Data Model: single source of truth; interaction events broadcast to all views</li>
+      <li>Data Brushing: select subset in one view → highlighted in all views</li>
+      <li>Cross-Filtering: filter applied in one view → all views show only filtered data</li>
+      <li>Zoom Linking: zoom in one view → scales all linked views accordingly</li>
+      <li>Linkage types: Full (all events), Selective (some events), Directional (A→B only)</li>
+      <li>Tools: Tableau, Power BI, DC.js, Crossfilter.js, Gapminder, Vega-Lite</li>
+    </ul>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Topic 7: Trees &amp; Forests</h2><span class="tnum">Flash</span></div>
+  <div class="cb op">
+    <ul>
+      <li>Tree = hierarchical, connected, acyclic; N nodes → N-1 edges; one root; one path between any nodes</li>
+      <li>Forest = collection of disjoint trees (multiple roots)</li>
+      <li>Node-Link Diagram: classic circles + lines; intuitive but space-inefficient for large trees</li>
+      <li>Treemap: nested rectangles; area = quantitative value (file size, revenue); Ben Shneiderman</li>
+      <li>Dendrogram: hierarchical clustering result; leaves = items; height = merge distance; used in biology, genomics</li>
+      <li>Sunburst/Radial: concentric rings; root at center; rings = hierarchy levels; angle = proportion</li>
+      <li>Flame Graph / Icicle: horizontal bars; width = value; used in performance profiling</li>
+      <li>Applications: File systems, org charts, taxonomy, decision trees, genealogy, clustering</li>
+    </ul>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Top 12 Expected Exam Questions</h2><span class="tnum">Flash</span></div>
+  <div class="cb op">
+    <ol>
+      <li>Explain graph representations — types, components, layouts, and real-world examples (10 marks)</li>
+      <li>Explain Coordinated Multiple Views with architecture, mechanisms, and examples (10 marks)</li>
+      <li>Explain tree visualization techniques — treemap, dendrogram, sunburst, node-link with diagrams (10 marks)</li>
+      <li>Explain high-dimensional data visualization techniques — parallel coordinates, SPLOM, dimensionality reduction (10 marks)</li>
+      <li>Explain force-directed graph layout algorithm (5 marks)</li>
+      <li>Explain multivariate data glyphs — star glyph and Chernoff faces (5 marks)</li>
+      <li>Differentiate directed and undirected graphs with examples (5 marks)</li>
+      <li>Explain data brushing and cross-filtering in linked views (5 marks)</li>
+      <li>What is a treemap? How is it different from a tree? (2 marks)</li>
+      <li>Define Chernoff faces and their inventor (2 marks)</li>
+      <li>What is the curse of dimensionality? (2 marks)</li>
+      <li>What is a dendrogram? Where is it used? (2 marks)</li>
+    </ol>
+    <div class="ok"><strong>Pro Tip:</strong> Questions 1, 2, 3, and 4 are almost certain 10-mark questions. Questions 5–8 are likely 5-mark questions. Prepare full model answers for all of them the night before.</div>
+  </div></div>
+</div>
+
+</div>
+
+<script>
+function show(id,btn){
+  document.querySelectorAll('.sec').forEach(function(s){s.classList.remove('on')});
+  document.querySelectorAll('.nb').forEach(function(b){b.classList.remove('on')});
+  document.getElementById('s-'+id).classList.add('on');
+  if(btn) btn.classList.add('on');
+}
+function tog(h){h.nextElementSibling.classList.toggle('op')}
+function togQ(h){h.nextElementSibling.classList.toggle('op')}
+function expandAll(){document.querySelectorAll('.cb').forEach(function(b){b.classList.add('op')})}
+</script>
