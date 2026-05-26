@@ -85,3 +85,16 @@ footer {
     border-top: 1px solid rgba(165, 180, 252, 0.1);
     margin-top: 60px;
 }
+.contact-btn{
+    position:absolute;
+    top: 20px;
+    left: 20%;
+    transform: translateX(-50%);
+    
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    z-index: 1000;
+}
