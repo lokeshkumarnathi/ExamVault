@@ -1,26 +1,1700 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HRM - ExamVault</title>
-    <link rel="stylesheet" href="notes.css">
-</head>
-<body>
-    <div class="container">
-        <a href="index.html" class="back-btn">← Back to Home</a>
-        
-        <div class="hero">
-            <h1>DVT-unit 4</h1>
-            <p>CSBS/MBA Complete Semester Notes</p>
-            <h2>As per CSBS JNUTH r22 Syllabus</h2>
-            <p>Premium Interactive notes for Semester exams</p>
-            <p>You can click and access the content in this website. The content inside this notes is more than enough for your exams.
-                This notes is completely interactive enjoy it.
-            </p>
-            <p style="font-size:1.1rem; color:#94a3b8;">Made with ❤️ by lokesh</p>
-          <h2> working under process will be uploaded soon</h2>
-            <hr>
-            <hr>
-            <p>Notes will be updated soon </p>
-        </div>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans,'Segoe UI',sans-serif);background:transparent;color:var(--color-text-primary);font-size:15px;line-height:1.7}
+.wrap{max-width:880px;margin:0 auto;padding:1rem .5rem 4rem}
+.hdr{text-align:center;padding:1.8rem 1rem 1.4rem;border-bottom:.5px solid var(--color-border-tertiary);margin-bottom:1.5rem}
+.hdr h1{font-size:22px;font-weight:500;margin-bottom:.3rem}
+.hdr p{font-size:13px;color:var(--color-text-secondary)}
+.pill{display:inline-block;font-size:11px;padding:3px 10px;border-radius:12px;margin:2px;font-weight:500}
+.pi{background:var(--color-background-info);color:var(--color-text-info)}
+.pw{background:var(--color-background-warning);color:var(--color-text-warning)}
+.ps{background:var(--color-background-success);color:var(--color-text-success)}
+.pd{background:var(--color-background-danger);color:var(--color-text-danger)}
+.nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.4rem;padding:.7rem;background:var(--color-background-secondary);border-radius:var(--border-radius-lg);border:.5px solid var(--color-border-tertiary)}
+.nb{font-size:12px;padding:5px 11px;border:.5px solid var(--color-border-secondary);border-radius:6px;cursor:pointer;background:var(--color-background-primary);color:var(--color-text-primary);font-family:inherit;transition:background .15s}
+.nb:hover,.nb.on{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent}
+.sec{display:none}.sec.on{display:block}
+.card{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);margin-bottom:1.2rem;overflow:hidden}
+.ch{padding:.85rem 1.2rem;background:var(--color-background-secondary);border-bottom:.5px solid var(--color-border-tertiary);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.ch h2{font-size:15px;font-weight:500}
+.tnum{font-size:11px;color:var(--color-text-secondary);background:var(--color-background-primary);padding:2px 8px;border-radius:10px;white-space:nowrap}
+.cb{padding:1.2rem;display:none}.cb.op{display:block}
+.def{background:var(--color-background-info);border-left:3px solid #378ADD;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:.7rem 1rem;margin-bottom:.9rem;font-size:14px}
+.def strong{color:var(--color-text-info)}
+.warn{background:var(--color-background-warning);border-left:3px solid #BA7517;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:.7rem 1rem;margin:.8rem 0;font-size:13px}
+.warn strong{color:#633806}
+.ok{background:var(--color-background-success);border-left:3px solid #3B6D11;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:.7rem 1rem;margin:.8rem 0;font-size:13px}
+.ok strong{color:var(--color-text-success)}
+.err{background:var(--color-background-danger);border-left:3px solid #A32D2D;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:.7rem 1rem;margin:.8rem 0;font-size:13px}
+.err strong{color:#791F1F}
+h3{font-size:15px;font-weight:500;margin:1.1rem 0 .45rem}
+h4{font-size:13px;font-weight:500;margin:.7rem 0 .25rem;color:var(--color-text-secondary)}
+ul,ol{padding-left:1.4rem;margin:.4rem 0}
+li{margin-bottom:.2rem;font-size:14px}
+p{font-size:14px;margin-bottom:.55rem}
+table{width:100%;border-collapse:collapse;margin:.7rem 0;font-size:13px}
+th{background:var(--color-background-secondary);padding:7px 10px;text-align:left;font-weight:500;border:.5px solid var(--color-border-tertiary)}
+td{padding:6px 10px;border:.5px solid var(--color-border-tertiary);vertical-align:top}
+tr:nth-child(even) td{background:var(--color-background-secondary)}
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:.7rem 0}
+.mc{background:var(--color-background-secondary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:.65rem .9rem}
+.mc h4{margin-top:0}
+.kws{display:flex;flex-wrap:wrap;gap:5px;margin:.5rem 0}
+.kw{background:var(--color-background-secondary);border:.5px solid var(--color-border-secondary);border-radius:12px;padding:3px 9px;font-size:11px;color:var(--color-text-secondary)}
+.qb{border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);margin-bottom:.65rem;overflow:hidden}
+.qh{padding:.55rem 1rem;background:var(--color-background-secondary);cursor:pointer;font-size:14px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.qm{font-size:11px;color:var(--color-text-secondary);background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:8px;padding:2px 7px;white-space:nowrap}
+.qa{padding:.9rem 1rem;display:none;font-size:14px;line-height:1.75}
+.qa.op{display:block}
+.nc{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);margin-bottom:.9rem;padding:1rem 1.2rem}
+.nc h3{margin-top:0;font-size:14px}
+.ea{font-size:12px;color:var(--color-text-info);cursor:pointer;text-decoration:underline;background:none;border:none;font-family:inherit;margin-bottom:.8rem}
+pre{background:var(--color-background-secondary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:.8rem 1rem;font-size:12px;font-family:var(--font-mono,monospace);overflow-x:auto;margin:.6rem 0;color:var(--color-text-primary);white-space:pre}
+.chart-wrap{position:relative;width:100%;margin:.8rem 0}
+.legend{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:8px;font-size:12px;color:var(--color-text-secondary)}
+.leg-item{display:flex;align-items:center;gap:4px}
+.leg-sq{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+</style>
+<div class="container">
+  <a href="index.html" class="back-btn">← Back to Home</a>
+</div>
+<div class="container">
+  <a href="dvt.html" class="back-btn">← Back to DVT units</a>
+</div>
+<div class="wrap">
+<div class="hdr">
+  <h1>Data Visualization — Unit IV</h1>
+  <p>Complete B.Tech / B.Sc CS Semester Exam Notes</p>
+  <div style="margin-top:.6rem">
+    <span class="pill pi">5 Topics</span>
+    <span class="pill pw">Kernel Machines &amp; Clustering</span>
+    <span class="pill ps">Mosaic Plots &amp; Mixtures</span>
+    <span class="pill pd">Night Revision</span>
+  </div>
+</div>
+
+<div class="nav">
+  <button class="nb on" onclick="show('notes',this)">Detailed Notes</button>
+  <button class="nb" onclick="show('diagrams',this)">Diagrams &amp; Charts</button>
+  <button class="nb" onclick="show('compare',this)">Comparison Tables</button>
+  <button class="nb" onclick="show('questions',this)">Exam Q&amp;A</button>
+  <button class="nb" onclick="show('quick',this)">Quick Revision</button>
+  <button class="nb" onclick="show('night',this)">Night Before Exam</button>
+</div>
+
+<!-- ======= NOTES ======= -->
+<div id="s-notes" class="sec on">
+<button class="ea" onclick="expandAll()">Expand all topics</button>
+
+<!-- T1: Kernel Machines -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>Topic 1: Data Visualization via Kernel Machines</h2><span class="tnum">Topic 01</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> Data Visualization via Kernel Machines refers to using kernel-based mathematical methods to transform and visualize complex, nonlinear, high-dimensional data into lower-dimensional spaces where patterns, clusters, and decision boundaries become visually interpretable. Kernel machines compute similarity between data points without explicitly mapping them to a higher-dimensional space.</div>
+
+    <h3>What is a Kernel? — Simple Explanation</h3>
+    <p>A kernel is a function that computes the similarity between two data points. Instead of transforming data into higher dimensions (which is computationally expensive), kernels compute the "inner product" in a high-dimensional space implicitly. This is called the <strong>kernel trick</strong>.</p>
+    <pre>
+KERNEL INTUITION:
+  Two points: x and y
+  Kernel K(x, y) = similarity between x and y in feature space
+
+  HIGH value of K(x,y) → x and y are SIMILAR → close together
+  LOW  value of K(x,y) → x and y are DIFFERENT → far apart
+
+  Without kernel: need to explicitly compute φ(x) and φ(y)
+  With kernel:    K(x,y) = φ(x)·φ(y)  → computed directly, no φ needed!</pre>
+
+    <h3>The Kernel Trick — Core Idea</h3>
+    <div class="def"><strong>Kernel Trick:</strong> The ability to operate in a high-dimensional feature space without ever explicitly computing the coordinates in that space — by using a kernel function K(x,y) = φ(x)·φ(y) to compute the inner product directly. This makes nonlinear problems solvable with linear methods.</div>
+    <pre>
+THE KERNEL TRICK — VISUAL:
+
+STEP 1: Data in 2D — NOT linearly separable
+    ○ ○ ○         ● are one class
+  ○       ○       ○ are another class
+ ○   ●●●   ○
+  ○       ○
+    ○ ○ ○
+
+STEP 2: Kernel maps to higher dimension implicitly
+    (We don't compute this, kernel does it for us!)
+    φ: 2D → 3D
+
+STEP 3: In higher dimension, data IS linearly separable
+    ●●● on one side of a flat plane
+    ○○○ on other side
+
+RESULT: We can find a linear decision boundary in high-D space
+        that corresponds to a nonlinear boundary in original 2D space</pre>
+
+    <h3>Common Kernel Functions</h3>
+    <table>
+      <tr><th>Kernel</th><th>Formula</th><th>Use Case</th><th>Shape of Boundary</th></tr>
+      <tr><td>Linear Kernel</td><td>K(x,y) = x·y</td><td>Linearly separable data</td><td>Straight line/hyperplane</td></tr>
+      <tr><td>Polynomial Kernel</td><td>K(x,y) = (x·y + c)^d</td><td>Feature interactions</td><td>Polynomial curve</td></tr>
+      <tr><td>RBF / Gaussian Kernel</td><td>K(x,y) = exp(−γ‖x−y‖²)</td><td>Most common, nonlinear data</td><td>Circular/complex boundary</td></tr>
+      <tr><td>Sigmoid Kernel</td><td>K(x,y) = tanh(αx·y + c)</td><td>Neural network-like</td><td>S-shaped boundary</td></tr>
+    </table>
+
+    <h3>RBF Kernel — Most Important Kernel</h3>
+    <div class="def"><strong>RBF (Radial Basis Function) Kernel:</strong> K(x,y) = exp(−γ‖x−y‖²)<br>
+    γ (gamma) controls the "reach" of each training point.<br>
+    Small γ → wide influence → smooth boundary.<br>
+    Large γ → narrow influence → wiggly, complex boundary.</div>
+    <pre>
+RBF KERNEL EFFECT OF γ:
+
+  Small γ (γ=0.01):          Large γ (γ=10):
+  Decision boundary:          Decision boundary:
+  ────────────────            ╭──╮  ╭──╮  ╭──╮
+  (smooth, underfits)         ╰──╯  ╰──╯  ╰──╯
+                              (complex, overfits)
+
+  Optimal γ: smooth boundary that correctly separates classes</pre>
+
+    <h3>Support Vector Machine (SVM) — Kernel Machine for Visualization</h3>
+    <div class="def"><strong>SVM:</strong> A classification algorithm that finds the optimal hyperplane that maximizes the margin between two classes. With kernel functions, SVM can find nonlinear decision boundaries in the original space.</div>
+    <pre>
+SVM WITH LINEAR KERNEL:
+  Linear data:
+  ● ● ● ● |  ○ ○ ○ ○
+           |
+       Hyperplane (decision boundary)
+       ← margin →
+
+SVM WITH RBF KERNEL (nonlinear data):
+    ○ ○ ○
+  ○       ○
+ ○   ●●●   ○   → RBF kernel maps to 3D
+  ○       ○      → linear hyperplane in 3D
+    ○ ○ ○         → circular boundary in 2D
+
+SUPPORT VECTORS: The data points closest to the boundary
+                 (starred points: ●* and ○*)
+                 Only support vectors determine the boundary!</pre>
+
+    <h3>Kernel PCA — Visualization Tool</h3>
+    <div class="def"><strong>Kernel PCA:</strong> An extension of PCA that uses kernel functions to perform PCA in a high-dimensional feature space — enabling nonlinear dimensionality reduction for visualization. Unlike standard PCA (linear only), Kernel PCA can "unfold" nonlinearly structured data.</div>
+    <pre>
+KERNEL PCA vs STANDARD PCA:
+
+Standard PCA:                    Kernel PCA (RBF):
+  Input: Swiss Roll data          Input: Same Swiss Roll data
+  Output: Compressed, tangled     Output: Properly unrolled
+  (linear projection fails)       (nonlinear structure revealed)
+
+  ●●●●●●●●●  →  ●●●●●●●●●       →  ● ● ● ● ● ● ●
+  (still tangled)                    (nicely spread out)</pre>
+
+    <h3>Similarity Mapping with Kernels</h3>
+    <pre>
+KERNEL SIMILARITY MATRIX (4 points):
+         x1    x2    x3    x4
+  x1  [ 1.00  0.80  0.20  0.10 ]
+  x2  [ 0.80  1.00  0.30  0.15 ]
+  x3  [ 0.20  0.30  1.00  0.90 ]
+  x4  [ 0.10  0.15  0.90  1.00 ]
+
+INTERPRETATION:
+  x1 and x2 are SIMILAR (K=0.80) → will be in same cluster/region
+  x3 and x4 are SIMILAR (K=0.90) → will be in same cluster/region
+  x1 and x4 are DIFFERENT (K=0.10) → will be in different regions
+
+VISUALIZATION:
+  Using this similarity, we can create:
+  → 2D layout (MDS-like) showing groups
+  → Heatmap of the similarity matrix
+  → Cluster visualization</pre>
+
+    <h3>Kernel Methods vs Traditional Methods</h3>
+    <table>
+      <tr><th>Feature</th><th>Traditional (Linear) Methods</th><th>Kernel Methods</th></tr>
+      <tr><td>Data assumption</td><td>Data is linearly separable</td><td>Works with nonlinear data</td></tr>
+      <tr><td>Feature space</td><td>Original feature space</td><td>Implicitly high-dimensional feature space</td></tr>
+      <tr><td>Computation</td><td>Direct — fast</td><td>Kernel trick — can be slower for large n</td></tr>
+      <tr><td>Boundary shape</td><td>Straight lines / hyperplanes</td><td>Curves, circles, complex shapes</td></tr>
+      <tr><td>Examples</td><td>Linear regression, k-NN</td><td>SVM with RBF kernel, Kernel PCA</td></tr>
+      <tr><td>Visualization</td><td>PCA (linear projection)</td><td>Kernel PCA (nonlinear projection)</td></tr>
+      <tr><td>Real-world fit</td><td>Poor on complex data</td><td>Excellent on real-world data</td></tr>
+    </table>
+
+    <h3>Applications of Kernel Machine Visualization</h3>
+    <div class="g2">
+      <div class="mc"><h4>Medical Diagnosis</h4><p>SVM with RBF kernel classifies tumor vs. normal tissue from MRI features. Decision boundary visualized in 2D.</p></div>
+      <div class="mc"><h4>Fraud Detection</h4><p>Kernel methods separate fraudulent transactions from normal ones in high-dimensional feature space.</p></div>
+      <div class="mc"><h4>Image Classification</h4><p>Kernel SVM for handwritten digit recognition (MNIST). Kernel PCA visualizes class clusters.</p></div>
+      <div class="mc"><h4>Recommendation Systems</h4><p>Kernel-based similarity maps group users/items with similar behavior for visual exploration.</p></div>
+      <div class="mc"><h4>Bioinformatics</h4><p>Kernel methods classify gene expression patterns. Kernel PCA reveals disease subtypes visually.</p></div>
+      <div class="mc"><h4>Text Analysis</h4><p>String kernels compute document similarity; kernel PCA creates 2D maps of document clusters.</p></div>
+    </div>
+
+    <h3>Advantages and Disadvantages</h3>
+    <table>
+      <tr><th>Advantages</th><th>Disadvantages</th></tr>
+      <tr><td>Handles nonlinear data effectively</td><td>Choice of kernel and parameters is non-trivial</td></tr>
+      <tr><td>Kernel trick avoids explicit high-D computation</td><td>Computationally expensive for very large datasets (O(n²) or O(n³))</td></tr>
+      <tr><td>Flexible — many kernel types available</td><td>Not easily interpretable (black box)</td></tr>
+      <tr><td>Powerful visualization via Kernel PCA</td><td>Sensitive to γ and C hyperparameters</td></tr>
+      <tr><td>Works well in high-dimensional spaces</td><td>Kernel matrix must fit in memory</td></tr>
+    </table>
+
+    <div class="warn"><strong>⭐ Exam Point:</strong> The Kernel Trick, RBF Kernel formula, and the nonlinear-to-linear transformation concept are very frequently asked. Always include the circular cluster diagram showing nonlinear data and how the kernel resolves it.</div>
+    <div class="ok"><strong>Memory Trick:</strong> Kernel = <strong>SILK</strong> — Similarity computation, Implicit high-D mapping, Linear boundary in high-D, Kernel trick avoids explicit computation</div>
+    <div class="kws"><span class="kw">Kernel Trick</span><span class="kw">RBF Kernel</span><span class="kw">SVM</span><span class="kw">Kernel PCA</span><span class="kw">Feature Space</span><span class="kw">Hyperplane</span><span class="kw">Support Vectors</span><span class="kw">Nonlinear</span></div>
+  </div>
+</div>
+
+<!-- T2: Cluster Analysis -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>Topic 2: Visualizing Cluster Analysis</h2><span class="tnum">Topic 02</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> Cluster Analysis is an unsupervised machine learning technique that groups data points into clusters such that points within a cluster are more similar to each other than to points in other clusters. Visualizing cluster analysis means using charts and diagrams to represent these groups and their structure to reveal natural patterns in the data.</div>
+
+    <h3>What is Clustering? — Simple Explanation</h3>
+    <p>Imagine you have 1000 customer records with no labels. Clustering automatically discovers natural groups — e.g., "budget shoppers", "premium buyers", "occasional shoppers" — without any predefined categories. Visualization makes these groups visually distinct and interpretable.</p>
+    <pre>
+CLUSTERING VISUALIZATION EXAMPLE:
+
+Before clustering:       After clustering:
+  · · · · · · ·          ● ● ●       ▲ ▲ ▲
+  · · · · · · ·           ● ●         ▲ ▲
+  (all points look same)  (Cluster 1) (Cluster 2)
+
+                                  ■ ■ ■
+                                   ■ ■
+                                 (Cluster 3)
+
+Each shape = one cluster. Points same shape are more similar to 
+each other than to points of a different shape.</pre>
+
+    <h3>Types of Clustering Algorithms</h3>
+
+    <h4>1. K-Means Clustering</h4>
+    <div class="def">K-Means partitions n data points into exactly k clusters by iteratively assigning each point to the nearest cluster centroid and then recomputing centroids until convergence.</div>
+    <pre>
+K-MEANS ALGORITHM (Step by Step):
+══════════════════════════════════════════════════════
+
+Step 1: Choose k=3. Place 3 centroids randomly: C1, C2, C3
+
+Step 2: ASSIGN each point to nearest centroid
+        Point x → cluster i where i = argmin dist(x, Cᵢ)
+
+Step 3: RECOMPUTE centroids
+        Cᵢ = mean of all points assigned to cluster i
+
+Step 4: REPEAT Steps 2–3 until centroids don't move
+
+VISUAL ITERATION:
+  Iteration 1:            Iteration 2:            Converged:
+  C1*  ●●●               C1*●●●●                ●●●●C1*
+       C2*  ▲▲▲               C2*▲▲▲             ▲▲▲C2*
+  ■■■     C3*           ■■■■    C3*              ■■■■C3*
+
+K-MEANS OBJECTIVE: Minimize Within-Cluster Sum of Squares (WCSS)
+  WCSS = Σ Σ ‖xᵢ - Cₖ‖²  (for all clusters k, all points i in k)
+  → Lower WCSS = tighter, better-defined clusters</pre>
+
+    <h4>2. Hierarchical Clustering</h4>
+    <div class="def">Hierarchical clustering builds a tree-like structure (dendrogram) showing how data points are merged (agglomerative) or split (divisive) at each level, allowing clusters at any level of granularity to be identified.</div>
+    <pre>
+AGGLOMERATIVE HIERARCHICAL CLUSTERING:
+
+Step 1: Each point = its own cluster
+  [A] [B] [C] [D] [E]
+
+Step 2: Merge the two most similar clusters
+  [A,B] [C] [D] [E]
+
+Step 3: Continue merging
+  [A,B] [C,D] [E]
+
+Step 4: Continue
+  [A,B,C,D] [E]
+
+Step 5: Final
+  [A,B,C,D,E]
+
+DENDROGRAM (the visual tree):
+  Height
+    │        ┌──────────┐
+    │    ┌───┤          │
+    │  ┌─┤   └──┐       │
+    │  │ └─┐    └─┐     │
+    │  │   │      │     │
+    A  B   C      D     E
+
+  Cut the dendrogram at any height → different number of clusters
+  High cut → few clusters (broad groups)
+  Low cut  → many clusters (fine groups)</pre>
+
+    <h4>3. DBSCAN — Density-Based Clustering</h4>
+    <div class="def">DBSCAN (Density-Based Spatial Clustering of Applications with Noise) groups together points that are closely packed (high density) and marks points in low-density regions as outliers (noise). It can find clusters of arbitrary shape.</div>
+    <pre>
+DBSCAN CONCEPTS:
+  ε (epsilon): neighborhood radius — how far to look for neighbors
+  MinPts: minimum points needed to form a dense region
+
+  CORE POINT:    Has ≥ MinPts neighbors within radius ε
+  BORDER POINT:  Within ε of a core point, but fewer than MinPts neighbors
+  NOISE POINT:   Not within ε of any core point (outlier)
+
+DBSCAN CLUSTER VISUALIZATION:
+
+  ● ● ● ●  ← Cluster 1 (dense)
+   ●● ● ●
+   
+         ▲ ▲ ▲ ← Cluster 2 (dense, different shape)
+          ▲ ▲
+
+       ×           ← Noise / Outlier
+
+  ADVANTAGE over K-Means: finds arbitrary shapes, handles noise
+  DISADVANTAGE: sensitive to ε and MinPts parameters</pre>
+
+    <h3>Cluster Visualization Techniques</h3>
+    <table>
+      <tr><th>Technique</th><th>What It Shows</th><th>Best For</th></tr>
+      <tr><td>Scatter Plot (colored)</td><td>Cluster assignments in 2D</td><td>Low-dimensional data (2–3 features)</td></tr>
+      <tr><td>Dendrogram</td><td>Hierarchical merge/split tree</td><td>Hierarchical clustering output</td></tr>
+      <tr><td>Silhouette Plot</td><td>How well each point fits its cluster</td><td>Evaluating cluster quality</td></tr>
+      <tr><td>Elbow Plot</td><td>WCSS vs. k — helps choose optimal k</td><td>Determining k for K-means</td></tr>
+      <tr><td>Heatmap + Dendrogram</td><td>Cluster structure in feature space</td><td>Genomics, market segmentation</td></tr>
+      <tr><td>t-SNE / UMAP plot</td><td>2D projection of high-D cluster data</td><td>High-dimensional clustering visualization</td></tr>
+      <tr><td>Voronoi Diagram</td><td>K-means decision regions</td><td>Cluster boundary visualization</td></tr>
+    </table>
+
+    <h3>Elbow Method — Choosing Optimal k</h3>
+    <pre>
+ELBOW PLOT (WCSS vs k):
+
+  WCSS
+  │
+  │\
+  │ \
+  │  \
+  │   \___
+  │       \____
+  │            \_____
+  └────────────────────── k
+       1  2  3  4  5  6
+
+  The "elbow" point (k=3 here) = optimal number of clusters
+  After the elbow, adding more clusters gives diminishing returns</pre>
+
+    <h3>Silhouette Analysis</h3>
+    <div class="def"><strong>Silhouette Score</strong> measures how similar a point is to its own cluster vs. neighboring clusters.<br>
+    s(i) = (b(i) − a(i)) / max(a(i), b(i))<br>
+    a(i) = mean distance to points in same cluster (cohesion)<br>
+    b(i) = mean distance to points in nearest other cluster (separation)<br>
+    Score ranges: −1 (wrong cluster) to +1 (perfect cluster)</div>
+    <pre>
+SILHOUETTE SCORE INTERPRETATION:
+  +1.0: Point is perfectly in correct cluster
+   0.0: Point is on the boundary between two clusters
+  -1.0: Point is likely in the wrong cluster
+
+SILHOUETTE PLOT:
+  Cluster 1: ████████████  (avg = 0.72, good)
+  Cluster 2: █████████     (avg = 0.65, good)
+  Cluster 3: ████          (avg = 0.35, weak cluster)</pre>
+
+    <h3>K-Means vs Hierarchical Clustering</h3>
+    <table>
+      <tr><th>Feature</th><th>K-Means</th><th>Hierarchical</th></tr>
+      <tr><td>Input required</td><td>Must specify k (number of clusters)</td><td>No k needed — choose after seeing dendrogram</td></tr>
+      <tr><td>Cluster shape</td><td>Spherical / globular only</td><td>Any shape (via different linkage)</td></tr>
+      <tr><td>Output</td><td>Flat cluster assignments</td><td>Tree (dendrogram) of all merges</td></tr>
+      <tr><td>Complexity</td><td>O(nkt) — fast for large data</td><td>O(n² log n) — slow for large data</td></tr>
+      <tr><td>Handles outliers</td><td>Poorly — outliers distort centroids</td><td>Better — outliers form own branch</td></tr>
+      <tr><td>Deterministic?</td><td>No — random initialization varies</td><td>Yes — same result always</td></tr>
+      <tr><td>Best for</td><td>Large datasets, known k</td><td>Small-medium datasets, exploring structure</td></tr>
+    </table>
+
+    <h3>Real-World Clustering Applications</h3>
+    <ul>
+      <li><strong>Customer Segmentation:</strong> Group customers by purchase behavior → visualize segments on 2D scatter plot colored by cluster</li>
+      <li><strong>Document Clustering:</strong> Group news articles by topic → t-SNE plot showing topic clusters</li>
+      <li><strong>Gene Expression:</strong> Cluster genes by expression patterns → heatmap with dendrogram (bioinformatics standard)</li>
+      <li><strong>Anomaly Detection:</strong> Points far from all clusters = potential fraud or system failure</li>
+      <li><strong>Image Segmentation:</strong> K-means clusters pixels by color → segments objects in image</li>
+      <li><strong>Social Network Communities:</strong> DBSCAN finds densely connected friend groups</li>
+    </ul>
+
+    <div class="warn"><strong>⭐ Exam Point:</strong> K-Means algorithm steps, the dendrogram concept, DBSCAN (Core/Border/Noise points), and the Elbow method are all very frequently tested. Draw the dendrogram and the elbow plot in exam answers.</div>
+    <div class="ok"><strong>Memory Trick:</strong> K-Means = <strong>ARCM</strong> — Assign to nearest centroid, Recompute centroids, Continue until Convergence, Minimize WCSS</div>
+    <div class="kws"><span class="kw">K-Means</span><span class="kw">Dendrogram</span><span class="kw">DBSCAN</span><span class="kw">WCSS</span><span class="kw">Elbow Method</span><span class="kw">Silhouette Score</span><span class="kw">Agglomerative</span><span class="kw">Centroid</span></div>
+  </div>
+</div>
+
+<!-- T3: Finite Mixture Models -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>Topic 3: Finite Mixture Models</h2><span class="tnum">Topic 03</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> A Finite Mixture Model is a probabilistic model that assumes the observed data is generated from a mixture of a finite number of underlying probability distributions (components). Each data point belongs to one of the components with some probability, making it a "soft" or probabilistic clustering approach.</div>
+
+    <h3>The Core Idea — Hidden Groups in Data</h3>
+    <p>Real-world data often consists of multiple hidden subpopulations. For example, a height distribution from a university contains both male and female students — two overlapping Gaussian distributions. A Finite Mixture Model detects these hidden groups.</p>
+    <pre>
+MIXTURE MODEL CONCEPT:
+  Observed data:          Hidden components:
+
+  Frequency               Component 1  Component 2
+    │    ___               │   ___
+    │   /   \___           │  /   \    ___
+    │  /        \___  =    │ /     \  /   \
+    │ /             \      │/       \/     \___
+    └─────────────── x     └────────────────── x
+
+  (One bumpy curve)        (Two overlapping Gaussians)
+
+  The mixture model DISCOVERS that the data comes from 2 populations!</pre>
+
+    <h3>Gaussian Mixture Model (GMM) — Most Important Finite Mixture</h3>
+    <div class="def"><strong>GMM:</strong> A finite mixture model where each component is a Gaussian (normal) distribution. Each data point has a probability of belonging to each Gaussian component. GMM performs soft/probabilistic clustering.</div>
+
+    <h4>GMM Formula</h4>
+    <div class="def"><strong>GMM Probability:</strong><br>
+    P(x) = Σₖ πₖ × N(x | μₖ, Σₖ)<br><br>
+    Where: K = number of Gaussian components | πₖ = mixing weight of component k (πₖ ≥ 0, Σπₖ = 1) | μₖ = mean of component k | Σₖ = covariance matrix of component k | N(x|μ,Σ) = Gaussian probability density</div>
+
+    <h4>GMM — Step-by-Step (EM Algorithm)</h4>
+    <pre>
+GMM FIT USING EM (Expectation-Maximization) ALGORITHM:
+══════════════════════════════════════════════════════════
+
+INITIALIZE: Guess K Gaussians (random means, covariances, weights)
+
+E-STEP (Expectation):
+  For each data point xᵢ, compute the "responsibility":
+  rᵢₖ = probability that point i belongs to component k
+  rᵢₖ = πₖ × N(xᵢ|μₖ,Σₖ) / Σⱼ πⱼ × N(xᵢ|μⱼ,Σⱼ)
+
+M-STEP (Maximization):
+  Update parameters using responsibilities:
+  πₖ = (1/n) × Σᵢ rᵢₖ     (new mixing weight)
+  μₖ = Σᵢ rᵢₖxᵢ / Σᵢ rᵢₖ  (new mean)
+  Σₖ = (update covariance)
+
+REPEAT E-step and M-step until log-likelihood converges
+
+RESULT: Each point has soft membership: [r₁=0.8, r₂=0.2]
+        (80% in cluster 1, 20% in cluster 2)</pre>
+
+    <h3>Soft vs Hard Clustering — Key Difference</h3>
+    <pre>
+HARD CLUSTERING (K-Means):             SOFT CLUSTERING (GMM):
+  Point A → Cluster 1 (100%)            Point A → Cluster 1: 80%
+  Point B → Cluster 2 (100%)                     Cluster 2: 20%
+  Point C → Cluster 1 (100%)            Point B → Cluster 1: 10%
+                                                  Cluster 2: 90%
+
+  Binary assignment (0 or 1)            Probabilistic assignment (0 to 1)
+
+VISUALIZATION:
+  Hard:  ●●●   ▲▲▲    (solid colors — hard boundary)
+  Soft:  Gradient colors showing membership probabilities
+         deep-blue=100% cluster1 → purple=50/50 → deep-red=100% cluster2</pre>
+
+    <h3>GMM Visualization</h3>
+    <pre>
+GMM WITH 3 COMPONENTS (2D):
+
+  y
+  │    ╭──────╮
+  │  ╭─╯  G1  ╰─╮        G1: μ=(2,3), σ=1.0  (weight: 0.4)
+  │  │   ●●●●   │
+  │  ╰─╮       ╭╯   ╭──────╮
+  │    ╰───────╯   ╭╯  G2  ╰╮   G2: μ=(6,5), σ=1.5  (weight: 0.35)
+  │                │ ▲▲▲▲▲  │
+  │                ╰╮       ╭╯
+  │          ╭──────╰───────╯──╮
+  │          │     ■■■■■       │  G3: μ=(4,1), σ=0.8  (weight: 0.25)
+  │          ╰────────────────╯
+  └─────────────────────────────── x
+
+Ellipses = Gaussian contours (1σ and 2σ)
+Colored points = cluster assignments
+Overlap region = points with uncertain membership (soft)</pre>
+
+    <h3>Choosing Number of Components K</h3>
+    <table>
+      <tr><th>Method</th><th>Criterion</th><th>Rule</th></tr>
+      <tr><td>BIC (Bayesian Information Criterion)</td><td>BIC = −2 log L + k log n</td><td>Choose K with lowest BIC</td></tr>
+      <tr><td>AIC (Akaike Information Criterion)</td><td>AIC = −2 log L + 2k</td><td>Choose K with lowest AIC</td></tr>
+      <tr><td>Elbow on log-likelihood</td><td>Plot log-likelihood vs K</td><td>Choose K at elbow point</td></tr>
+      <tr><td>Domain knowledge</td><td>Prior information about data</td><td>Use known number of subgroups</td></tr>
+    </table>
+
+    <h3>K-Means vs GMM</h3>
+    <table>
+      <tr><th>Feature</th><th>K-Means</th><th>GMM (Finite Mixture)</th></tr>
+      <tr><td>Cluster type</td><td>Hard — each point in exactly 1 cluster</td><td>Soft — probabilities across all clusters</td></tr>
+      <tr><td>Cluster shape</td><td>Spherical only (equal-size)</td><td>Elliptical (flexible shape and size)</td></tr>
+      <tr><td>Probabilistic?</td><td>No</td><td>Yes — full probability model</td></tr>
+      <tr><td>Output</td><td>Cluster labels (0, 1, 2, ...)</td><td>Probability vector per point</td></tr>
+      <tr><td>Algorithm</td><td>Assign-then-recompute</td><td>EM (E-step + M-step)</td></tr>
+      <tr><td>Handles overlapping clusters?</td><td>Poorly</td><td>Well — soft membership handles overlap</td></tr>
+      <tr><td>Model selection</td><td>Elbow method for k</td><td>BIC/AIC for K</td></tr>
+      <tr><td>Interpretability</td><td>Simple — centroid positions</td><td>Richer — mean, covariance, mixing weights</td></tr>
+    </table>
+
+    <h3>Applications of Finite Mixture Models</h3>
+    <ul>
+      <li><strong>Medical:</strong> Modeling patient subpopulations with different disease risk profiles</li>
+      <li><strong>Marketing:</strong> Identifying hidden customer segments from purchase behavior data</li>
+      <li><strong>Finance:</strong> Modeling stock return distributions (mixture of bull/bear market states)</li>
+      <li><strong>Computer Vision:</strong> Background subtraction (GMM models background pixel distribution)</li>
+      <li><strong>NLP:</strong> Topic modeling (Latent Dirichlet Allocation is a mixture model)</li>
+      <li><strong>Genomics:</strong> Modeling gene expression patterns from multiple cell types</li>
+    </ul>
+
+    <div class="warn"><strong>⭐ Exam Point:</strong> GMM formula, the EM algorithm steps (E-step/M-step), soft vs hard clustering comparison, and K-Means vs GMM table are all very likely exam questions. Always draw the overlapping Gaussians diagram.</div>
+    <div class="ok"><strong>Memory Trick:</strong> GMM = <strong>PEWS</strong> — Probabilistic, EM algorithm, Weights (π) for each component, Soft clustering. K-Means is Hard; GMM is Soft.</div>
+    <div class="kws"><span class="kw">GMM</span><span class="kw">EM Algorithm</span><span class="kw">Soft Clustering</span><span class="kw">Mixing Weights</span><span class="kw">BIC</span><span class="kw">E-step</span><span class="kw">M-step</span><span class="kw">Finite Mixture</span></div>
+  </div>
+</div>
+
+<!-- T4: Contingency Tables -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>Topic 4: Visualizing Contingency Tables</h2><span class="tnum">Topic 04</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> A Contingency Table (also called a cross-tabulation or crosstab) is a type of table that displays the frequency distribution of two or more categorical variables simultaneously, showing how the categories of one variable are distributed across the categories of another variable.</div>
+
+    <h3>What is a Contingency Table? — Simple Explanation</h3>
+    <p>Imagine a survey with 90 students asking Gender (Male/Female) and Result (Pass/Fail). A contingency table arranges this information in a grid — rows = one variable, columns = another, cells = counts. This reveals whether the two variables are related (associated) or independent.</p>
+    <pre>
+CONTINGENCY TABLE EXAMPLE (Student Survey):
+
+              Male    Female   TOTAL
+  Pass          40      35      75
+  Fail          10       5      15
+  TOTAL         50      40      90
+
+  Row marginals: Pass=75, Fail=15
+  Column marginals: Male=50, Female=40
+  Grand total: 90
+
+READING THE TABLE:
+  → 40 males passed, 10 males failed
+  → 35 females passed, 5 females failed
+  → Are gender and result related? Chi-square test tells us!</pre>
+
+    <h3>Types of Contingency Tables</h3>
+    <table>
+      <tr><th>Type</th><th>Variables</th><th>Example</th></tr>
+      <tr><td>2×2 Table</td><td>2 variables, 2 categories each</td><td>Gender (M/F) × Disease (Yes/No)</td></tr>
+      <tr><td>r×c Table</td><td>2 variables, r and c categories</td><td>Age group × Satisfaction level</td></tr>
+      <tr><td>Multi-way Table</td><td>3+ variables</td><td>Gender × Region × Purchase (Yes/No)</td></tr>
+    </table>
+
+    <h3>Cross-Tabulation</h3>
+    <div class="def">Cross-tabulation is the process of creating a contingency table — counting how many observations fall into each combination of categories of two or more variables. It is the foundation for all categorical data analysis.</div>
+    <pre>
+CROSS-TABULATION EXAMPLE (Marketing Survey):
+
+Satisfaction vs. Product Type (n=200):
+              Product A  Product B  Product C  TOTAL
+  Satisfied       45         30         25     100
+  Neutral         20         25         15      60
+  Dissatisfied    10         15         15      40
+  TOTAL           75         70         55     200
+
+PERCENTAGE TABLE (row %):
+              Product A  Product B  Product C
+  Satisfied    45%        30%        25%
+  Neutral      33%        42%        25%
+  Dissatisfied 25%        38%        38%
+
+→ Product A has the highest satisfaction (45%)
+→ Product C has the highest dissatisfaction (38%)</pre>
+
+    <h3>Chi-Square Test — Testing Association</h3>
+    <div class="def"><strong>Chi-Square Formula:</strong> χ² = Σ (Observed − Expected)² / Expected<br>
+    Expected count = (Row total × Column total) / Grand total<br>
+    If χ² is large → strong association between variables<br>
+    If χ² is small → variables are independent</div>
+    <pre>
+CHI-SQUARE CALCULATION EXAMPLE:
+  Table:         Male  Female
+  Pass            40     35
+  Fail            10      5
+
+  Expected(Pass, Male) = (75 × 50) / 90 = 41.7
+  Expected(Pass, Female) = (75 × 40) / 90 = 33.3
+  Expected(Fail, Male)  = (15 × 50) / 90 = 8.3
+  Expected(Fail, Female)= (15 × 40) / 90 = 6.7
+
+  χ² = (40-41.7)²/41.7 + (35-33.3)²/33.3 
+       + (10-8.3)²/8.3 + (5-6.7)²/6.7
+     = 0.07 + 0.09 + 0.35 + 0.43 = 0.94
+
+  Small χ² → Gender and Result are likely INDEPENDENT</pre>
+
+    <h3>Visualizing Contingency Tables</h3>
+
+    <h4>1. Heatmap of Contingency Table</h4>
+    <pre>
+HEATMAP (Counts):                  HEATMAP (Row %):
+           Male  Female               Male   Female
+  Pass    [████] [███]              [████]  [███]
+  Fail    [█]    [▌]                [█]     [▌]
+
+  Dark = high count   Light = low count
+  Reveals pattern instantly: Pass rows dominate both genders</pre>
+
+    <h4>2. Grouped Bar Chart</h4>
+    <pre>
+GROUPED BAR CHART (Counts by Gender):
+
+  Count
+   40 │ ██             (Male Pass=40)
+   35 │ ██  ██         (Female Pass=35)
+   30 │ ██  ██
+   10 │ ██  ██  ██     (Male Fail=10)
+    5 │ ██  ██  ██  ██ (Female Fail=5)
+      └─────────────────────────────
+           Pass        Fail
+        Male  Female  Male  Female</pre>
+
+    <h4>3. Stacked Bar Chart</h4>
+    <pre>
+STACKED BAR CHART (% composition):
+
+  %
+ 100 │████████████████████  ← Pass
+     │████████████████████
+  50 │▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  ← Fail
+     │▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+   0 └─────────────────────
+         Male          Female
+
+  Male: 80% Pass, 20% Fail
+  Female: 87.5% Pass, 12.5% Fail</pre>
+
+    <h4>4. Balloon Plot</h4>
+    <pre>
+BALLOON PLOT:
+  Each cell = circle, size proportional to frequency
+
+              Male    Female
+  Pass         ●●●      ●●     (large circles = high count)
+  Fail          ●        ▪     (small circles = low count)
+
+  → Instantly shows which cell has most observations</pre>
+
+    <h3>Advantages and Disadvantages of Contingency Tables</h3>
+    <table>
+      <tr><th>Advantages</th><th>Disadvantages</th></tr>
+      <tr><td>Simple to construct and understand</td><td>Only for categorical data</td></tr>
+      <tr><td>Reveals associations between variables</td><td>Hard to read with many categories</td></tr>
+      <tr><td>Foundation for chi-square test</td><td>Does not show continuous relationships</td></tr>
+      <tr><td>Can handle multiple variables</td><td>Multi-way tables become complex quickly</td></tr>
+      <tr><td>Easy to compute marginal totals</td><td>Small cell counts reduce chi-square reliability</td></tr>
+    </table>
+
+    <h3>Real-World Applications</h3>
+    <ul>
+      <li><strong>Medical Research:</strong> Drug treatment (Yes/No) vs Recovery (Yes/No) — 2×2 contingency table</li>
+      <li><strong>Marketing:</strong> Customer segment vs. product purchased — r×c table to find which segment buys which product</li>
+      <li><strong>Survey Analysis:</strong> Political party preference vs. age group — association analysis</li>
+      <li><strong>Quality Control:</strong> Defect type vs. production shift — find which shift produces which defect</li>
+      <li><strong>Education:</strong> Attendance category vs. grade — do regular attenders get better grades?</li>
+      <li><strong>Insurance:</strong> Risk category vs. claim filed — fraud pattern detection</li>
+    </ul>
+
+    <div class="warn"><strong>⭐ Exam Point:</strong> Constructing a contingency table, computing chi-square expected values, and explaining visualization methods (heatmap, grouped bar, mosaic plot) are all high-frequency questions. The 2×2 table example with male/female pass/fail is the standard exam example.</div>
+    <div class="ok"><strong>Memory Trick:</strong> Contingency Table = <strong>FACE</strong> — Frequency of combined categories, Association test (chi-square), Categorical variables only, Every cell = one combination</div>
+    <div class="kws"><span class="kw">Contingency Table</span><span class="kw">Cross-tabulation</span><span class="kw">Chi-Square Test</span><span class="kw">Marginal Totals</span><span class="kw">Expected Count</span><span class="kw">Categorical Data</span><span class="kw">Heatmap</span><span class="kw">Grouped Bar</span></div>
+  </div>
+</div>
+
+<!-- T5: Mosaic Plots -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>Topic 5: Mosaic Plots and Their Variants</h2><span class="tnum">Topic 05</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> A Mosaic Plot is an area-based visualization of a contingency table where the total area of the plot represents all observations, and each rectangular tile (mosaic piece) has area proportional to the frequency (count) of the corresponding combination of categorical variable values. It simultaneously shows the marginal distributions and the joint distribution of all variables.</div>
+
+    <h3>What is a Mosaic Plot? — Simple Explanation</h3>
+    <p>Think of a mosaic plot as a fancy contingency table where the <strong>size of each cell = the count in that cell</strong>. A large cell = many observations. A small cell = few observations. The entire rectangle = 100% of all data. This makes patterns visually immediate without needing to read numbers.</p>
+
+    <h3>Structure of a Mosaic Plot</h3>
+    <pre>
+MOSAIC PLOT CONSTRUCTION (Gender × Result):
+
+Step 1: Divide total width by first variable (Gender):
+  Male occupies 50/90 = 55.6% of width
+  Female occupies 40/90 = 44.4% of width
+
+  ┌──────────────┬───────────┐
+  │     Male     │  Female   │
+  │    (55.6%)   │  (44.4%)  │
+  └──────────────┴───────────┘
+
+Step 2: Within each gender column, divide by Result:
+  Male: Pass=40/50=80%, Fail=10/50=20%
+  Female: Pass=35/40=87.5%, Fail=12.5%
+
+  ┌──────────────┬───────────┐
+  │              │           │
+  │  Male Pass   │  Female   │   (taller = more)
+  │  (80%)       │  Pass     │
+  │              │  (87.5%)  │
+  │──────────────│───────────│
+  │ Male Fail    │ Fem. Fail │
+  │ (20%)        │ (12.5%)   │
+  └──────────────┴───────────┘
+
+FULL MOSAIC PLOT:
++────────────────+──────────+
+|                |          |
+|   Male Pass    | Female   |
+|    40 obs      | Pass     |
+|                |  35 obs  |
+|                |          |
++────────────────+──────────+
+| Male Fail      |Fem. Fail |
+|   10 obs       |  5 obs   |
++────────────────+──────────+
+   Male (55.6%)   Female (44.4%)
+
+READING: Taller rectangle = higher proportion within that gender
+         Wider column = more observations of that gender
+         Area of each tile = actual count / total count</pre>
+
+    <h3>Residual Coloring in Mosaic Plots</h3>
+    <div class="def">When independence is assumed, each cell has an expected count. If the actual count differs from expected, the tile is colored — <strong>blue = more than expected</strong> (positive residual), <strong>red = fewer than expected</strong> (negative residual), <strong>white/neutral = as expected</strong>.</div>
+    <pre>
+RESIDUAL-COLORED MOSAIC PLOT:
+
++────────────────+──────────+
+|   ████████████ | ████████ |   ← Blue = more than expected
+|   Male Pass    | Female   |
+|                |   Pass   |
++────────────────+──────────+
+| ░░░░░░░░░░░░░░ | ░░░░░░░░ |   ← White = as expected
+| Male Fail      | Fem. Fail|
++────────────────+──────────+
+
+(If Male Pass tile was RED → fewer males passing than expected
+ given independence → significant gender effect on results)</pre>
+
+    <h3>Three-Variable Mosaic Plot</h3>
+    <pre>
+MOSAIC PLOT: Gender × Result × Department (3 variables)
+
+          Male                    Female
+    ┌──────────┬──────┬──────────┬──────┐
+    │   CS     │ ECE  │   CS     │ ECE  │
+    ├──────────┼──────┼──────────┼──────┤
+    │ Pass CS M│Pass  │ Pass CS F│Pass  │
+    │          │ECE M │          │ECE F │
+    │          │      │          │      │
+    ├──────────┼──────┼──────────┼──────┤
+    │ Fail CS M│Fail  │ Fail CS F│Fail  │
+    │          │ECE M │          │ECE F │
+    └──────────┴──────┴──────────┴──────┘
+    CS=Computer Science, ECE=Electronics
+    Each tile area = fraction of all 90 students</pre>
+
+    <h3>Variants of Mosaic Plots</h3>
+
+    <h4>1. Standard Mosaic Plot</h4>
+    <p>Basic contingency table → proportional rectangles. Width = marginal frequency of first variable. Height within each column = conditional frequency of second variable.</p>
+
+    <h4>2. Treemap (Mosaic for Hierarchical Data)</h4>
+    <pre>
+TREEMAP (Nested Mosaic):
+  ┌─────────────────┬───────────────┐
+  │    Electronics  │   Clothing    │
+  │  ┌──────┬──────┤ ┌──────┬─────┤
+  │  │Phone │ TV   │ │ Men  │Women│
+  │  │      │      │ │      │     │
+  │  └──────┴──────┘ └──────┴─────┘
+  └─────────────────┴───────────────┘
+  Area = sales value. Colors = category. Nested = subcategory.</pre>
+
+    <h4>3. Spine Plot</h4>
+    <pre>
+SPINE PLOT (variant of mosaic):
+  Equal-width columns (one per category of variable 1)
+  Height of segment = proportion of variable 2
+
+  Male        Female
+  ┌──────┐   ┌──────┐
+  │ Fail │   │ Fail │  (12.5%)
+  │ 20%  │   │      │
+  ├──────┤   ├──────┤
+  │      │   │      │
+  │ Pass │   │ Pass │  (87.5%)
+  │ 80%  │   │      │
+  └──────┘   └──────┘
+  (columns equal width → focuses on proportions, not marginal frequency)</pre>
+
+    <h4>4. Double Decker Plot</h4>
+    <pre>
+DOUBLE DECKER (Response variable on top):
+
+  Survival (1=Yes, 0=No)
+  ┌────────────────────┬─────────────────┐
+  │  Survived (Yes)    │  Died (No)      │
+  ├──────┬──────┬──────┼──────┬──────────┤
+  │Class1│Class2│Class3│Class1│Class2..  │
+  └──────┴──────┴──────┴──────┴──────────┘
+  Width = size of each group × survival rate
+  Used in: Titanic survival analysis (classic example)</pre>
+
+    <h4>5. Fluctuation Diagram</h4>
+    <pre>
+FLUCTUATION DIAGRAM:
+  Each cell = square, size proportional to count
+
+              Male    Female
+  Pass         ■■■     ■■     (large squares = high count)
+  Neutral       ■       ■
+  Fail          ▪       ▪     (small squares = low count)
+
+  Similar to balloon plot but uses squares instead of circles</pre>
+
+    <h3>Mosaic Plot vs Contingency Table</h3>
+    <table>
+      <tr><th>Feature</th><th>Contingency Table</th><th>Mosaic Plot</th></tr>
+      <tr><td>Format</td><td>Numbers in cells</td><td>Proportional rectangles</td></tr>
+      <tr><td>Pattern detection</td><td>Requires reading numbers</td><td>Instant visual pattern</td></tr>
+      <tr><td>Variables supported</td><td>2+ (but hard to read beyond 2)</td><td>3+ variables naturally</td></tr>
+      <tr><td>Shows marginals?</td><td>Yes (row/column totals)</td><td>Yes (encoded in tile width/height)</td></tr>
+      <tr><td>Independence test</td><td>Chi-square (numeric)</td><td>Color residuals (visual)</td></tr>
+      <tr><td>Best for</td><td>Precise counts, reporting</td><td>Pattern exploration, presentation</td></tr>
+      <tr><td>Tools</td><td>Excel, any spreadsheet</td><td>R (vcd package), Python (statsmodels)</td></tr>
+    </table>
+
+    <h3>Advantages and Disadvantages of Mosaic Plots</h3>
+    <table>
+      <tr><th>Advantages</th><th>Disadvantages</th></tr>
+      <tr><td>Area directly encodes frequency — intuitive</td><td>Hard to read with many categories</td></tr>
+      <tr><td>Shows marginal and conditional distributions simultaneously</td><td>Small cells become hard to label</td></tr>
+      <tr><td>Residual coloring reveals departures from independence</td><td>Not suitable for continuous variables</td></tr>
+      <tr><td>Extends naturally to 3+ variables</td><td>Complex multi-variable plots can be confusing</td></tr>
+      <tr><td>Better than bar chart for proportion comparisons</td><td>Less familiar to general audiences than bar charts</td></tr>
+    </table>
+
+    <h3>Real-World Applications of Mosaic Plots</h3>
+    <ul>
+      <li><strong>Healthcare:</strong> Treatment type × Recovery outcome — which treatment works best for which patient group</li>
+      <li><strong>Education:</strong> Department × Grade × Gender — gender gap in academic performance across departments</li>
+      <li><strong>Marketing:</strong> Customer segment × Product category × Satisfaction — segment-product-satisfaction visualization</li>
+      <li><strong>History/Social Science:</strong> Titanic survival by passenger class and gender (double decker mosaic plot)</li>
+      <li><strong>Quality Control:</strong> Production line × Defect type × Shift — mosaic reveals interaction patterns</li>
+      <li><strong>Survey Analysis:</strong> Political views × Region × Age — visualizing opinion distributions</li>
+    </ul>
+
+    <div class="warn"><strong>⭐ Exam Point:</strong> How to construct a mosaic plot (step-by-step width then height division), what residual coloring means (blue=more/red=less than expected), and the variants (treemap, spine plot, double decker) are all frequently asked. Always draw the 2×2 mosaic plot in exam answers.</div>
+    <div class="ok"><strong>Memory Trick:</strong> Mosaic Plot = <strong>WARP</strong> — Width = first variable marginal, Area = cell frequency, Residuals shown by color, Proportional tiles = the key idea</div>
+    <div class="kws"><span class="kw">Mosaic Plot</span><span class="kw">Area-based Visualization</span><span class="kw">Residual Coloring</span><span class="kw">Spine Plot</span><span class="kw">Treemap</span><span class="kw">Double Decker</span><span class="kw">Proportional Rectangle</span><span class="kw">Categorical Variables</span></div>
+  </div>
+</div>
+</div><!-- end notes -->
+
+<!-- ======= DIAGRAMS ======= -->
+<div id="s-diagrams" class="sec">
+  <h2 style="font-size:18px;font-weight:500;margin-bottom:1rem">Important Exam Diagrams — Unit IV</h2>
+  <p style="font-size:13px;color:var(--color-text-secondary);margin-bottom:1rem">All diagrams below are directly drawable in semester examinations. Study each with its labels and explanation.</p>
+
+  <div class="card">
+    <div class="ch" onclick="tog(this)"><h2>Exam Diagram 1: Kernel Trick — Linear vs Nonlinear Data</h2><span class="tnum">Draw in exam</span></div>
+    <div class="cb op">
+<pre>
+KERNEL TRICK — COMPLETE EXAM DIAGRAM
+═══════════════════════════════════════════════════════════════════
+
+PROBLEM: Data in 2D NOT linearly separable
+
+  2D Original Space:
+  y
+  │    ○ ○ ○
+  │  ○       ○
+  │ ○   ●●●   ○      ● = Class 1 (inner circle)
+  │  ○       ○       ○ = Class 2 (outer ring)
+  │    ○ ○ ○
+  └──────────────── x
+  
+  No straight line can separate ● from ○ !
+
+KERNEL TRICK: K(x,y) = φ(x)·φ(y)  [No explicit φ computation needed]
+
+  3D Feature Space (after kernel mapping):
+  z
+  │       ● ● ●           ← Class 1 lifted UP by kernel
+  │      ●●●●●●
+  │
+  │   ○ ○ ○ ○ ○ ○ ○       ← Class 2 stays at base
+  └────────────────── x,y
+
+  A FLAT PLANE (hyperplane) now separates ● from ○ !
+
+DECISION BOUNDARY:
+  In 3D: flat hyperplane (linear)
+  In 2D: circular boundary (nonlinear)
+
+KERNEL FUNCTIONS:
+  Linear:      K(x,y) = x·y              → straight line
+  Polynomial:  K(x,y) = (x·y + 1)^d     → polynomial curve  
+  RBF:         K(x,y) = exp(−γ‖x−y‖²)   → circle/complex
+═══════════════════════════════════════════════════════════════════</pre>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ch" onclick="tog(this)"><h2>Exam Diagram 2: K-Means Clustering + Elbow Plot</h2><span class="tnum">Draw in exam</span></div>
+    <div class="cb op">
+<pre>
+K-MEANS CLUSTERING — COMPLETE EXAM DIAGRAM
+═══════════════════════════════════════════════════════════════════
+
+ALGORITHM STEPS (k=3):
+
+  STEP 1: Initial random centroids C1*, C2*, C3*
+
+    C1*         ·  ·  ·
+        ·  ·         C2*
+       ·  ·
+                  ·    C3*
+                 ·  ·
+
+  STEP 2: Assign each point to nearest centroid
+
+    ● ● ●        ▲  ▲  ▲
+     ● ●C1         ▲ C2
+     ● ●
+                ■    C3
+               ■  ■
+
+  STEP 3: Recompute centroids (move to mean of each cluster)
+
+    ● ● ●        ▲  ▲  ▲
+     ●C1●          ▲C2
+     ● ●
+                ■C3
+               ■  ■
+
+  STEP 4: Repeat until centroids stop moving → CONVERGED
+
+ELBOW PLOT (Choosing optimal k):
+
+  WCSS
+  │\
+  │ \
+  │  \
+  │   *  ← ELBOW (k=3, optimal)
+  │    \____
+  │         \___________
+  └─────────────────────── k
+       1  2  3  4  5  6
+
+  Rule: Choose k at the "elbow" — beyond this, WCSS barely decreases
+═══════════════════════════════════════════════════════════════════</pre>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ch" onclick="tog(this)"><h2>Exam Diagram 3: Dendrogram (Hierarchical Clustering)</h2><span class="tnum">Draw in exam</span></div>
+    <div class="cb op">
+<pre>
+DENDROGRAM — HIERARCHICAL CLUSTERING EXAM DIAGRAM
+═══════════════════════════════════════════════════════════════════
+
+DATA: 5 items: A, B, C, D, E
+Distance matrix:
+       A    B    C    D    E
+  A  [ 0    1    5    6    8 ]
+  B  [ 1    0    4    5    7 ]
+  C  [ 5    4    0    2    6 ]
+  D  [ 6    5    2    0    5 ]
+  E  [ 8    7    6    5    0 ]
+
+MERGE SEQUENCE:
+  Step 1: Merge A+B (distance=1, smallest)
+  Step 2: Merge C+D (distance=2)
+  Step 3: Merge (A,B)+(C,D) (distance=4)
+  Step 4: Merge all + E (distance=5)
+
+DENDROGRAM:
+  Height
+   8 │              ┌──────────────────────────┐
+   6 │              │                          │
+   5 │         ┌────┤                          │
+   4 │    ┌────┤    │                          │
+   2 │    │    │  ┌─┤                          │
+   1 │  ┌─┤    │  │ │                          │
+   0 │  │ │    │  │ │                          │
+      A  B  C  D  E
+      └──┘  └──┘
+      AB    CD    → [AB,CD] → [AB,CD,E]
+
+CUT AT DIFFERENT HEIGHTS:
+  Cut at h=4.5 → 3 clusters: {A,B}, {C,D}, {E}
+  Cut at h=5.5 → 2 clusters: {A,B,C,D}, {E}
+  Cut at h=9   → 1 cluster:  {A,B,C,D,E}
+═══════════════════════════════════════════════════════════════════</pre>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ch" onclick="tog(this)"><h2>Exam Diagram 4: GMM — Gaussian Mixture Model</h2><span class="tnum">Draw in exam</span></div>
+    <div class="cb op">
+<pre>
+GAUSSIAN MIXTURE MODEL — EXAM DIAGRAM
+═══════════════════════════════════════════════════════════════════
+
+OBSERVED DATA:             MIXTURE COMPONENTS:
+  Freq                       Freq
+    │   ____                   │   __        ___
+    │  /    \___               │  /  \      /   \
+    │ /         \___    =      │ /    \    /     \
+    │/              \          │/   G1 \  /  G2   \
+    └─────────────── x         └────────\/──────── x
+
+  (One bumpy distribution)    (Two overlapping Gaussians)
+
+GMM FORMULA: P(x) = π₁ × N(x|μ₁,σ₁) + π₂ × N(x|μ₂,σ₂)
+  π₁ = 0.6 (60% of data from G1)
+  π₂ = 0.4 (40% of data from G2)
+
+EM ALGORITHM:
+  E-step: r(i,k) = πₖ×N(xᵢ|μₖ,σₖ) / Σ πⱼ×N(xᵢ|μⱼ,σⱼ)
+           (how much does each Gaussian "claim" each point?)
+  M-step: Update μₖ, σₖ, πₖ using responsibilities
+  Repeat → converge
+
+SOFT CLUSTERING OUTPUT:
+  Point x₁: [G1=0.95, G2=0.05] → mostly in G1
+  Point x₂: [G1=0.50, G2=0.50] → on boundary → uncertain!
+  Point x₃: [G1=0.08, G2=0.92] → mostly in G2
+
+2D GMM VISUALIZATION:
+  y
+  │    ╭────────╮         ╭────────╮
+  │  ╭─╯ G1:●● ╰─╮     ╭─╯ G2:▲▲ ╰─╮
+  │  │   mean=(2,3)│     │  mean=(7,5) │
+  │  ╰─╮         ╭╯     ╰─╮          ╭╯
+  │    ╰──────────╯         ╰──────────╯
+  │   (ellipse = 1σ contour)
+  └────────────────────────────── x
+═══════════════════════════════════════════════════════════════════</pre>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ch" onclick="tog(this)"><h2>Exam Diagram 5: Contingency Table + Heatmap</h2><span class="tnum">Draw in exam</span></div>
+    <div class="cb op">
+<pre>
+CONTINGENCY TABLE AND VISUALIZATIONS — EXAM DIAGRAM
+═══════════════════════════════════════════════════════════════════
+
+CONTINGENCY TABLE:
+              Male    Female   TOTAL
+  Pass          40      35      75
+  Fail          10       5      15
+  TOTAL         50      40      90
+
+HEATMAP (Color intensity = count):
+              Male      Female
+  Pass       [████]    [███ ]   Dark = high count (40, 35)
+  Fail       [█   ]    [▌   ]   Light = low count  (10, 5)
+
+GROUPED BAR CHART:
+  Count
+   40 │ ██
+   35 │ ██  ██
+   10 │ ██  ██  ██
+    5 │ ██  ██  ██  ██
+      └────────────────────────
+       M-Pass F-Pass M-Fail F-Fail
+
+STACKED BAR (Proportional):
+  % 100 ┌──────────────┬──────────────┐
+        │  Pass (80%)  │  Pass(87.5%) │
+   50   │──────────────│──────────────│
+        │  Fail (20%)  │  Fail(12.5%) │
+     0  └──────────────┴──────────────┘
+              Male           Female
+
+BALLOON PLOT:
+             Male      Female
+  Pass        ●●●       ●●      (circle size = count)
+  Fail         ●         ▪
+═══════════════════════════════════════════════════════════════════</pre>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ch" onclick="tog(this)"><h2>Exam Diagram 6: Mosaic Plot — Construction and Variants</h2><span class="tnum">Most asked</span></div>
+    <div class="cb op">
+<pre>
+MOSAIC PLOT — COMPLETE EXAM DIAGRAM
+═══════════════════════════════════════════════════════════════════
+
+DATA: Gender × Result (n=90, Male=50, Female=40, Pass=75, Fail=15)
+
+STEP 1: Divide width by Gender marginals
+  Male = 50/90 = 55.6%     Female = 40/90 = 44.4%
+
+STEP 2: Divide height by Result (within each gender)
+  Male:   Pass=40/50=80%,  Fail=10/50=20%
+  Female: Pass=35/40=87.5%, Fail=12.5%
+
+FINAL MOSAIC PLOT:
+┌──────────────────────┬─────────────────┐
+│                      │                 │
+│    Male Pass         │  Female Pass    │
+│      40 obs          │    35 obs       │ ← 80% and 87.5% height
+│    (55.6% wide)      │  (44.4% wide)   │
+│                      │                 │
+├──────────────────────┼─────────────────┤
+│ Male Fail (20%)      │ F. Fail (12.5%) │
+│    10 obs            │    5 obs        │
+└──────────────────────┴─────────────────┘
+      Male (55.6%)            Female (44.4%)
+
+READING: Tile area ∝ cell count. Taller = higher proportion within column.
+
+RESIDUAL COLORING:
+  Blue tile  = MORE observations than expected (positive residual)
+  Red tile   = FEWER observations than expected (negative residual)
+  White tile = Exactly as expected (independence holds here)
+
+SPINE PLOT VARIANT (equal width columns):
+  Male        Female
+  ┌──────┐   ┌──────┐
+  │Fail  │   │Fail  │  (same width, only height differs)
+  │ 20%  │   │12.5% │
+  ├──────┤   ├──────┤
+  │Pass  │   │Pass  │
+  │ 80%  │   │87.5% │
+  └──────┘   └──────┘
+  (focus: proportions only, not marginal frequency)
+═══════════════════════════════════════════════════════════════════</pre>
+    </div>
+  </div>
+</div>
+
+<!-- ======= COMPARISON TABLES ======= -->
+<div id="s-compare" class="sec">
+  <h2 style="font-size:18px;font-weight:500;margin-bottom:1rem">Comparison Tables — Unit IV</h2>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Kernel Methods vs Traditional Methods</h2><span class="tnum">5-mark favourite</span></div>
+  <div class="cb op">
+    <table>
+      <tr><th>Feature</th><th>Traditional (Linear) Methods</th><th>Kernel Methods</th></tr>
+      <tr><td>Data type</td><td>Linearly separable data</td><td>Nonlinear, complex data</td></tr>
+      <tr><td>Feature space</td><td>Original feature space</td><td>Implicit high-dimensional space via kernel</td></tr>
+      <tr><td>Computation</td><td>Direct matrix operations — fast</td><td>Kernel matrix K(x,y) — can be slow (O(n²))</td></tr>
+      <tr><td>Decision boundary</td><td>Hyperplane (straight line)</td><td>Nonlinear (curves, circles, complex)</td></tr>
+      <tr><td>Visualization</td><td>PCA (linear projection)</td><td>Kernel PCA (nonlinear projection)</td></tr>
+      <tr><td>Examples</td><td>Linear SVM, PCA, linear regression</td><td>RBF-SVM, Kernel PCA, Kernel Ridge Regression</td></tr>
+      <tr><td>When to use</td><td>Data is naturally linearly separable</td><td>Data has complex nonlinear structure</td></tr>
+    </table>
+    <div class="ok"><strong>One-line exam answer:</strong> Kernel methods use the kernel trick to implicitly map data to high-dimensional space, enabling linear methods to find nonlinear decision boundaries in the original space.</div>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>K-Means vs Hierarchical Clustering</h2><span class="tnum">5-mark favourite</span></div>
+  <div class="cb op">
+    <table>
+      <tr><th>Feature</th><th>K-Means</th><th>Hierarchical Clustering</th></tr>
+      <tr><td>k required?</td><td>Yes — must specify k upfront</td><td>No — choose after viewing dendrogram</td></tr>
+      <tr><td>Output</td><td>Flat partition (k cluster labels)</td><td>Dendrogram (tree of all merges)</td></tr>
+      <tr><td>Cluster shape</td><td>Spherical (globular) only</td><td>Any shape depending on linkage used</td></tr>
+      <tr><td>Time complexity</td><td>O(nkt) — fast and scalable</td><td>O(n² log n) — slow for large datasets</td></tr>
+      <tr><td>Memory</td><td>O(n) — efficient</td><td>O(n²) for distance matrix</td></tr>
+      <tr><td>Outlier handling</td><td>Poor — outliers distort centroids</td><td>Better — outliers form isolated branches</td></tr>
+      <tr><td>Deterministic?</td><td>No — depends on random initialization</td><td>Yes — same result every time</td></tr>
+      <tr><td>Best for</td><td>Large n, when k is known</td><td>Small n, exploring cluster structure</td></tr>
+      <tr><td>Visualization</td><td>Scatter plot + elbow plot + silhouette</td><td>Dendrogram (cut at desired height)</td></tr>
+    </table>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Hard Clustering (K-Means) vs Soft Clustering (GMM)</h2><span class="tnum">5-mark topic</span></div>
+  <div class="cb op">
+    <table>
+      <tr><th>Feature</th><th>Hard Clustering (K-Means)</th><th>Soft Clustering (GMM)</th></tr>
+      <tr><td>Membership</td><td>Binary — 0 or 1 (one cluster only)</td><td>Probabilistic — 0.0 to 1.0 (all clusters)</td></tr>
+      <tr><td>Cluster shape</td><td>Spherical (uses Euclidean distance)</td><td>Elliptical (uses covariance matrix)</td></tr>
+      <tr><td>Overlapping clusters</td><td>Cannot handle — forces hard boundary</td><td>Handles well via soft membership</td></tr>
+      <tr><td>Probabilistic model</td><td>No</td><td>Yes — full generative model</td></tr>
+      <tr><td>Algorithm</td><td>Assign + Recompute (simple iteration)</td><td>EM: E-step + M-step (complex)</td></tr>
+      <tr><td>Model selection</td><td>Elbow method (WCSS vs k)</td><td>BIC or AIC (vs K)</td></tr>
+      <tr><td>Output per point</td><td>Single integer cluster label</td><td>Probability vector [p₁, p₂, ..., pK]</td></tr>
+      <tr><td>Interpretability</td><td>Centroids are interpretable</td><td>Means, covariances, weights — richer</td></tr>
+    </table>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Contingency Tables vs Mosaic Plots</h2><span class="tnum">2-mark favourite</span></div>
+  <div class="cb op">
+    <table>
+      <tr><th>Feature</th><th>Contingency Table</th><th>Mosaic Plot</th></tr>
+      <tr><td>Format</td><td>Numeric cells (counts)</td><td>Proportional rectangles (area = count)</td></tr>
+      <tr><td>Pattern detection</td><td>Requires reading and comparing numbers</td><td>Immediate visual — large tile = large count</td></tr>
+      <tr><td>Variables</td><td>Handles 2+ (becomes unreadable with many)</td><td>Handles 3+ elegantly (nested tiles)</td></tr>
+      <tr><td>Marginal totals</td><td>Shown as row/column sums</td><td>Encoded in tile width and height</td></tr>
+      <tr><td>Independence test</td><td>Chi-square (numerical test)</td><td>Residual color coding (visual test)</td></tr>
+      <tr><td>Audience</td><td>Analysts, researchers</td><td>Presentations, general audiences</td></tr>
+      <tr><td>Software</td><td>Any spreadsheet, SQL</td><td>R (vcd), Python (statsmodels)</td></tr>
+    </table>
+    <div class="ok"><strong>One-line exam answer:</strong> A contingency table shows frequencies as numbers; a mosaic plot encodes the same data as proportional rectangular tiles where tile area directly represents frequency — enabling instant visual pattern recognition.</div>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>DBSCAN vs K-Means vs GMM</h2><span class="tnum">10-mark topic</span></div>
+  <div class="cb op">
+    <table>
+      <tr><th>Feature</th><th>K-Means</th><th>DBSCAN</th><th>GMM</th></tr>
+      <tr><td>Type</td><td>Centroid-based</td><td>Density-based</td><td>Model-based (probabilistic)</td></tr>
+      <tr><td>k/K required?</td><td>Yes</td><td>No</td><td>Yes</td></tr>
+      <tr><td>Cluster shape</td><td>Spherical only</td><td>Arbitrary shape</td><td>Elliptical</td></tr>
+      <tr><td>Outlier handling</td><td>Poor</td><td>Excellent (noise points)</td><td>Moderate</td></tr>
+      <tr><td>Membership type</td><td>Hard</td><td>Hard</td><td>Soft (probabilistic)</td></tr>
+      <tr><td>Parameters</td><td>k</td><td>ε, MinPts</td><td>K, init parameters</td></tr>
+      <tr><td>Scalability</td><td>Excellent</td><td>Good</td><td>Moderate</td></tr>
+      <tr><td>Best for</td><td>Well-separated globular clusters</td><td>Arbitrary shapes + noise</td><td>Overlapping elliptical clusters</td></tr>
+    </table>
+  </div></div>
+</div>
+
+<!-- ======= EXAM Q&A ======= -->
+<div id="s-questions" class="sec">
+  <h2 style="font-size:18px;font-weight:500;margin-bottom:1rem">Exam Questions &amp; Model Answers</h2>
+
+  <h3 style="margin-bottom:.6rem;font-size:14px;color:var(--color-text-secondary)">2-Mark Questions</h3>
+
+  <div class="qb">
+    <div class="qh" onclick="togQ(this)"><span>Q1. What is the Kernel Trick?</span><span class="qm">2 marks</span></div>
+    <div class="qa">
+      <p><strong>Answer:</strong> The Kernel Trick is a mathematical technique that allows algorithms to operate in a high-dimensional feature space without explicitly computing the coordinates in that space. Instead of computing the mapping φ(x) explicitly, a kernel function K(x,y) = φ(x)·φ(y) computes the inner product in the high-dimensional space directly. This allows linear classifiers to find nonlinear decision boundaries in the original feature space, at much lower computational cost.</p>
+    </div>
+  </div>
+
+  <div class="qb">
+    <div class="qh" onclick="togQ(this)"><span>Q2. Define Contingency Table with an example.</span><span class="qm">2 marks</span></div>
+    <div class="qa">
+      <p><strong>Answer:</strong> A Contingency Table (cross-tabulation) is a table showing the joint frequency distribution of two or more categorical variables. Each cell contains the count of observations that fall in the corresponding combination of categories.</p>
+      <pre>          Male  Female  Total
+  Pass     40     35     75
+  Fail     10      5     15
+  Total    50     40     90</pre>
+      <p>This table shows the relationship between Gender and Exam Result for 90 students.</p>
+    </div>
+  </div>
+
+  <div class="qb">
+    <div class="qh" onclick="togQ(this)"><span>Q3. What is a Mosaic Plot?</span><span class="qm">2 marks</span></div>
+    <div class="qa">
+      <p><strong>Answer:</strong> A Mosaic Plot is an area-based visualization of a contingency table where the plot area is divided into rectangular tiles. The width of each column represents the marginal frequency of the first variable, and the height of each tile within a column represents the conditional frequency of the second variable. The area of each tile is proportional to the cell frequency. Residual coloring (blue=more, red=less than expected) reveals departures from statistical independence.</p>
+    </div>
+  </div>
+
+  <div class="qb">
+    <div class="qh" onclick="togQ(this)"><span>Q4. What is the difference between Hard and Soft Clustering?</span><span class="qm">2 marks</span></div>
+    <div class="qa">
+      <table>
+        <tr><th>Hard Clustering (K-Means)</th><th>Soft Clustering (GMM)</th></tr>
+        <tr><td>Each point assigned to exactly one cluster</td><td>Each point has probability of belonging to each cluster</td></tr>
+        <tr><td>Output: integer label (0, 1, 2)</td><td>Output: probability vector [0.8, 0.2]</td></tr>
+        <tr><td>Cannot handle overlapping clusters</td><td>Handles overlapping clusters naturally</td></tr>
+        <tr><td>Boundary: hard, crisp</td><td>Boundary: soft, gradual</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="qb">
+    <div class="qh" onclick="togQ(this)"><span>Q5. What is DBSCAN? Name the three types of points in DBSCAN.</span><span class="qm">2 marks</span></div>
+    <div class="qa">
+      <p><strong>Answer:</strong> DBSCAN (Density-Based Spatial Clustering of Applications with Noise) is a clustering algorithm that groups together points in high-density regions and marks isolated points as noise. It does not require specifying the number of clusters and can find clusters of arbitrary shapes.</p>
+      <p><strong>Three types of points:</strong></p>
+      <ol>
+        <li><strong>Core Point:</strong> Has at least MinPts neighbors within radius ε</li>
+        <li><strong>Border Point:</strong> Within ε of a core point but has fewer than MinPts neighbors itself</li>
+        <li><strong>Noise Point:</strong> Not within ε of any core point — treated as an outlier</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="qb">
+    <div class="qh" onclick="togQ(this)"><span>Q6. What is the RBF Kernel? Write its formula.</span><span class="qm">2 marks</span></div>
+    <div class="qa">
+      <p><strong>Answer:</strong> The RBF (Radial Basis Function) Kernel, also called the Gaussian Kernel, is the most widely used kernel function in machine learning. It measures similarity between two points based on their Euclidean distance.</p>
+      <p><strong>Formula:</strong> K(x, y) = exp(−γ ‖x − y‖²)</p>
+      <p>Where γ (gamma) is a parameter controlling the "reach" of each training point. Small γ → wide smooth influence. Large γ → narrow influence → complex decision boundary.</p>
+    </div>
+  </div>
+
+  <h3 style="margin:.9rem 0 .6rem;font-size:14px;color:var(--color-text-secondary)">5-Mark Questions</h3>
+
+  <div class="qb">
+    <div class="qh" onclick="togQ(this)"><span>Q7. Explain K-Means Clustering algorithm with steps and diagram.</span><span class="qm">5 marks</span></div>
+    <div class="qa">
+      <p><strong>Answer:</strong></p>
+      <p><strong>K-Means Clustering</strong> is an unsupervised algorithm that partitions n data points into exactly k clusters by iteratively assigning points to the nearest centroid and updating centroids.</p>
+      <p><strong>Algorithm Steps:</strong></p>
+      <ol>
+        <li><strong>Initialize:</strong> Randomly place k centroids C₁, C₂, ..., Cₖ in the data space</li>
+        <li><strong>Assignment:</strong> Assign each data point to the cluster whose centroid is closest: cluster(xᵢ) = argmin_k dist(xᵢ, Cₖ)</li>
+        <li><strong>Update:</strong> Recompute each centroid as the mean of all points assigned to it: Cₖ = (1/|Sₖ|) × Σ xᵢ for xᵢ in Sₖ</li>
+        <li><strong>Convergence check:</strong> If centroids have not moved, stop. Otherwise, go to Step 2.</li>
+      </ol>
+      <p><strong>Objective:</strong> Minimize WCSS = Σₖ Σᵢ∈Sₖ ‖xᵢ − Cₖ‖²</p>
+      <pre>  Before:  · · · · ·    After (k=2): ● ● ●   ▲ ▲
+           · · · · ·                  ● C₁     ▲ C₂</pre>
+      <p><strong>Choosing k:</strong> Use the Elbow Method — plot WCSS vs k and choose k at the "elbow" where improvement becomes marginal.</p>
+      <p><strong>Applications:</strong> Customer segmentation, image compression, document clustering, anomaly detection.</p>
+    </div>
+  </div>
+
+  <div class="qb">
+    <div class="qh" onclick="togQ(this)"><span>Q8. Explain Gaussian Mixture Models (GMM) and the EM algorithm.</span><span class="qm">5 marks</span></div>
+    <div class="qa">
+      <p><strong>Answer:</strong></p>
+      <p><strong>Gaussian Mixture Model (GMM)</strong> is a probabilistic model that assumes data is generated from a mixture of K Gaussian distributions, each with its own mean, covariance, and mixing weight.</p>
+      <p><strong>GMM Formula:</strong> P(x) = Σₖ πₖ × N(x|μₖ, Σₖ)<br>
+      πₖ = mixing weight (Σπₖ=1), μₖ = mean, Σₖ = covariance of component k.</p>
+      <p><strong>EM Algorithm to fit GMM:</strong></p>
+      <p><strong>E-Step (Expectation):</strong> Compute responsibilities rᵢₖ — the probability that point xᵢ was generated by component k:<br>
+      rᵢₖ = πₖ × N(xᵢ|μₖ,Σₖ) / Σⱼ πⱼ × N(xᵢ|μⱼ,Σⱼ)</p>
+      <p><strong>M-Step (Maximization):</strong> Update parameters using responsibilities:<br>
+      πₖ = (1/n) × Σᵢ rᵢₖ<br>
+      μₖ = Σᵢ rᵢₖxᵢ / Σᵢ rᵢₖ</p>
+      <p><strong>Repeat</strong> E and M steps until log-likelihood converges.</p>
+      <p><strong>Key advantage over K-Means:</strong> Soft membership — point x₂ could be [G1=0.6, G2=0.4] instead of forced into one cluster. Handles overlapping, elliptical clusters. Choose K using BIC (lowest BIC = best K).</p>
+    </div>
+  </div>
+
+  <div class="qb">
+    <div class="qh" onclick="togQ(this)"><span>Q9. Explain Mosaic Plots — construction, residual coloring, and variants.</span><span class="qm">5 marks</span></div>
+    <div class="qa">
+      <p><strong>Answer:</strong></p>
+      <p><strong>Mosaic Plot</strong> is an area-based visualization of a contingency table where each tile's area is proportional to the corresponding cell frequency.</p>
+      <p><strong>Construction (Gender × Result, n=90):</strong></p>
+      <ol>
+        <li>Divide total width by Gender marginals: Male=55.6%, Female=44.4%</li>
+        <li>Within each column, divide height by Result: Male Pass=80%, Fail=20%; Female Pass=87.5%, Fail=12.5%</li>
+        <li>Result: 4 rectangular tiles whose areas = 40/90, 35/90, 10/90, 5/90 respectively</li>
+      </ol>
+      <pre>  +──────────────────+──────────+
+  │  Male Pass (80%) │ F. Pass  │ (87.5%)
+  +──────────────────+──────────+
+  │ Male Fail (20%)  │ F. Fail  │ (12.5%)
+  +──────────────────+──────────+
+     Male (55.6%)    Female (44.4%)</pre>
+      <p><strong>Residual Coloring:</strong> Compare actual vs expected counts (under independence). Blue = more than expected; Red = fewer than expected; White = as expected. This visually tests independence.</p>
+      <p><strong>Variants:</strong> (1) Spine Plot — equal-width columns, only height encodes proportions. (2) Treemap — nested mosaic for hierarchical data. (3) Double Decker — response variable on top tier. (4) Fluctuation Diagram — squares instead of proportional tiles.</p>
+    </div>
+  </div>
+
+  <h3 style="margin:.9rem 0 .6rem;font-size:14px;color:var(--color-text-secondary)">10-Mark Essay Questions</h3>
+
+  <div class="qb">
+    <div class="qh" onclick="togQ(this)"><span>Q10. Explain Data Visualization via Kernel Machines — kernel trick, SVM, kernel PCA with diagrams.</span><span class="qm">10 marks</span></div>
+    <div class="qa">
+      <p><strong>Answer:</strong></p>
+      <p><strong>1. Introduction:</strong><br>
+      Kernel machines are algorithms that use kernel functions to compute similarity between data points and perform analysis in high-dimensional feature spaces implicitly. They are particularly powerful for visualizing and classifying nonlinear data — data that cannot be separated or analyzed with simple linear methods.</p>
+      <p><strong>2. The Kernel Function:</strong><br>
+      A kernel function K(x, y) measures the similarity between two data points x and y in a (possibly high-dimensional) feature space without explicitly computing the mapping. Formally, K(x,y) = φ(x)·φ(y) where φ maps the original space to a high-dimensional feature space.</p>
+      <p><strong>3. The Kernel Trick:</strong><br>
+      The kernel trick replaces every dot product φ(x)·φ(y) in an algorithm with K(x,y). This allows algorithms that depend on dot products (like SVM, PCA) to operate in arbitrarily high-dimensional spaces without ever computing φ(x) explicitly — saving enormous computation.</p>
+      <p><strong>4. Common Kernel Functions:</strong></p>
+      <table>
+        <tr><th>Kernel</th><th>Formula</th><th>Use</th></tr>
+        <tr><td>Linear</td><td>K(x,y) = x·y</td><td>Linear data</td></tr>
+        <tr><td>Polynomial</td><td>K(x,y) = (x·y + c)^d</td><td>Feature interactions</td></tr>
+        <tr><td>RBF/Gaussian</td><td>K(x,y) = exp(−γ‖x−y‖²)</td><td>Nonlinear data — most common</td></tr>
+        <tr><td>Sigmoid</td><td>K(x,y) = tanh(αx·y + c)</td><td>Neural-net-like</td></tr>
+      </table>
+      <p><strong>5. SVM with Kernel (Visualization):</strong><br>
+      A Support Vector Machine finds the optimal hyperplane maximizing the margin between classes. With a kernel, it can find a nonlinear boundary:</p>
+      <pre>  2D data (circular):          After RBF kernel:
+    ○ ○ ○                       Linear plane in 3D
+  ○   ●●●   ○      →→→         → Circle in 2D
+    ○ ○ ○
+  (not linearly separable)     (perfectly separated)</pre>
+      <p><strong>6. Kernel PCA for Visualization:</strong><br>
+      Standard PCA performs linear dimensionality reduction. Kernel PCA applies the kernel trick to PCA, enabling nonlinear dimensionality reduction. It can "unroll" Swiss Roll data, separate overlapping classes, and reveal cluster structure invisible to standard PCA.</p>
+      <p><strong>7. Similarity Mapping:</strong><br>
+      The kernel matrix K where K[i,j] = K(xᵢ,xⱼ) encodes all pairwise similarities. High K[i,j] = similar points → visualized close together in the projected space. This similarity matrix can be visualized as a heatmap revealing cluster structure directly.</p>
+      <p><strong>8. Applications:</strong></p>
+      <ul>
+        <li>Medical diagnosis: SVM + RBF kernel classifies cancer from biopsy features</li>
+        <li>Handwriting recognition: Kernel SVM for digit classification (MNIST)</li>
+        <li>Fraud detection: Kernel methods separate normal/fraudulent transactions</li>
+        <li>Gene expression analysis: Kernel PCA reveals disease subtype clusters</li>
+      </ul>
+      <p><strong>Conclusion:</strong> Kernel machines extend traditional linear visualization and classification methods to handle real-world nonlinear data by implicitly working in high-dimensional feature spaces. The kernel trick makes this computationally feasible, and tools like Kernel PCA enable powerful nonlinear visualization of complex datasets.</p>
+    </div>
+  </div>
+
+  <div class="qb">
+    <div class="qh" onclick="togQ(this)"><span>Q11. Explain all types of clustering — K-Means, Hierarchical, DBSCAN — with visualization techniques.</span><span class="qm">10 marks</span></div>
+    <div class="qa">
+      <p><strong>Answer:</strong></p>
+      <p><strong>1. Introduction to Cluster Analysis:</strong><br>
+      Cluster analysis is an unsupervised technique that discovers natural groupings in unlabeled data. The goal is to maximize intra-cluster similarity (points within a cluster are similar) and maximize inter-cluster difference (clusters are distinct).</p>
+      <p><strong>2. K-Means Clustering:</strong><br>
+      Algorithm: (a) Initialize k centroids randomly. (b) Assign each point to nearest centroid. (c) Recompute centroids as means of assigned points. (d) Repeat until convergence. Minimizes WCSS = Σ Σ ‖xᵢ − Cₖ‖². Best for globular, well-separated clusters. Choose k using Elbow Method.</p>
+      <p><strong>3. Hierarchical Clustering:</strong><br>
+      Builds a dendrogram (merge tree). Agglomerative: start with each point as its own cluster, merge nearest two repeatedly. Cut dendrogram at desired height to get k clusters. No need to specify k in advance. Best for small datasets and when exploring cluster structure.</p>
+      <pre>  Dendrogram:
+    Height
+      │        ┌──────────┐
+      │    ┌───┤          │
+      │  ┌─┤   └──┐       │
+      A  B  C      D      E
+    Cut at h=3 → 2 clusters: {A,B,C,D}, {E}</pre>
+      <p><strong>4. DBSCAN:</strong><br>
+      Groups core points with ≥ MinPts neighbors within ε radius. Border points within ε of core but with fewer neighbors. Noise points isolated from all clusters. Can find arbitrary-shaped clusters and naturally handles outliers as noise.</p>
+      <p><strong>5. Cluster Visualization Techniques:</strong></p>
+      <ul>
+        <li><strong>Scatter plot (colored):</strong> 2D data colored by cluster label — direct visual</li>
+        <li><strong>Dendrogram:</strong> Hierarchical merge tree — cut height determines cluster count</li>
+        <li><strong>Elbow Plot:</strong> WCSS vs k → find the elbow = optimal k</li>
+        <li><strong>Silhouette Plot:</strong> Bar per point showing silhouette score — identifies weak assignments</li>
+        <li><strong>t-SNE / UMAP:</strong> Project high-D cluster data to 2D for visualization</li>
+        <li><strong>Heatmap + Dendrogram:</strong> Standard for genomics — genes as rows, samples as columns</li>
+      </ul>
+      <p><strong>6. Comparison:</strong></p>
+      <table>
+        <tr><th>Feature</th><th>K-Means</th><th>Hierarchical</th><th>DBSCAN</th></tr>
+        <tr><td>k required</td><td>Yes</td><td>No</td><td>No</td></tr>
+        <tr><td>Shape</td><td>Spherical</td><td>Any</td><td>Arbitrary</td></tr>
+        <tr><td>Outliers</td><td>Poor</td><td>Moderate</td><td>Excellent</td></tr>
+        <tr><td>Scale</td><td>Large</td><td>Small</td><td>Medium</td></tr>
+      </table>
+      <p><strong>Applications:</strong> Customer segmentation, gene expression, image segmentation, document clustering, anomaly detection.</p>
+    </div>
+  </div>
+
+  <div class="qb">
+    <div class="qh" onclick="togQ(this)"><span>Q12. Explain Finite Mixture Models and compare K-Means with GMM.</span><span class="qm">10 marks</span></div>
+    <div class="qa">
+      <p><strong>Answer:</strong></p>
+      <p><strong>1. Definition:</strong><br>
+      A Finite Mixture Model (FMM) assumes observed data is generated from a mixture of a finite number K of component probability distributions. Each component has its own parameters and mixing weight (proportion of data from that component).</p>
+      <p><strong>2. Core Concept — Hidden Groups:</strong><br>
+      Real-world data often contains hidden subpopulations. Example: heights of men and women in a university form a bimodal distribution. The FMM identifies each hidden group as a component.</p>
+      <p><strong>3. Gaussian Mixture Model (GMM):</strong><br>
+      The most common FMM uses Gaussian (normal) distributions as components.</p>
+      <p><strong>Formula:</strong> P(x) = Σₖ πₖ × N(x|μₖ, Σₖ)<br>
+      πₖ = mixing weight (Σπₖ = 1), μₖ = mean, Σₖ = covariance of component k.</p>
+      <p><strong>4. EM Algorithm for GMM Fitting:</strong></p>
+      <ol>
+        <li>Initialize: set K, random means μₖ, covariances Σₖ, weights πₖ</li>
+        <li>E-Step: rᵢₖ = πₖ × N(xᵢ|μₖ,Σₖ) / Σⱼ πⱼ × N(xᵢ|μⱼ,Σⱼ) (responsibilities)</li>
+        <li>M-Step: update μₖ = Σrᵢₖxᵢ/Σrᵢₖ; πₖ = (1/n)Σrᵢₖ; update Σₖ</li>
+        <li>Repeat until log-likelihood converges</li>
+        <li>Assign each point to component with highest responsibility (or keep soft)</li>
+      </ol>
+      <p><strong>5. Choosing K:</strong> Fit GMM for K=1,2,...,max. Compute BIC for each. Choose K with lowest BIC.</p>
+      <p><strong>6. Visualization of GMM:</strong><br>
+      Plot 2D scatter with elliptical contours (1σ and 2σ of each Gaussian). Color-code each point by its highest-responsibility component. Overlapping ellipses show uncertain regions where soft membership matters.</p>
+      <p><strong>7. K-Means vs GMM (Detailed Comparison):</strong></p>
+      <table>
+        <tr><th>Feature</th><th>K-Means</th><th>GMM</th></tr>
+        <tr><td>Membership</td><td>Hard (binary)</td><td>Soft (probabilistic)</td></tr>
+        <tr><td>Shape</td><td>Spherical</td><td>Elliptical (general)</td></tr>
+        <tr><td>Overlapping</td><td>Cannot handle</td><td>Handles naturally</td></tr>
+        <tr><td>Algorithm</td><td>Assign + Recompute</td><td>EM (E-step + M-step)</td></tr>
+        <tr><td>Model selection</td><td>Elbow (WCSS)</td><td>BIC / AIC</td></tr>
+        <tr><td>Output</td><td>Integer label</td><td>Probability vector</td></tr>
+      </table>
+      <p><strong>Applications:</strong> Background subtraction in video (GMM for background pixels), customer segmentation (hidden purchase behavior groups), finance (bull/bear market state modeling), NLP (topic modeling), genomics (cell-type identification).</p>
+    </div>
+  </div>
+
+  <h3 style="margin:.9rem 0 .6rem;font-size:14px;color:var(--color-text-secondary)">Expected Semester Questions</h3>
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Complete List of Expected University Questions — Unit IV</h2><span class="tnum">All marks</span></div>
+  <div class="cb">
+    <ol>
+      <li>Explain the Kernel Trick with examples and diagrams. (5 marks)</li>
+      <li>What is SVM? How does it use kernel functions for nonlinear classification? (10 marks)</li>
+      <li>Compare Kernel Methods with Traditional Linear Methods. (5 marks)</li>
+      <li>Explain RBF Kernel with formula and the effect of parameter γ. (2 marks)</li>
+      <li>What is Kernel PCA? How does it differ from standard PCA? (5 marks)</li>
+      <li>Explain K-Means clustering algorithm step-by-step with diagram. (10 marks)</li>
+      <li>What is the Elbow Method? How is it used to determine the optimal k? (2 marks)</li>
+      <li>Explain Hierarchical Clustering and Dendrogram with example. (10 marks)</li>
+      <li>What is DBSCAN? Explain Core, Border, and Noise points. (5 marks)</li>
+      <li>Compare K-Means and Hierarchical Clustering. (5 marks)</li>
+      <li>Compare K-Means, DBSCAN, and GMM in a table. (5 marks)</li>
+      <li>Define Finite Mixture Model. Explain GMM with the EM algorithm. (10 marks)</li>
+      <li>Differentiate between Hard Clustering and Soft Clustering with examples. (5 marks)</li>
+      <li>Compare K-Means and GMM. When would you prefer GMM over K-Means? (5 marks)</li>
+      <li>What is a Contingency Table? Construct one with an example and explain its uses. (5 marks)</li>
+      <li>Explain all visualization methods for contingency tables. (5 marks)</li>
+      <li>What is the Chi-Square test? Explain with formula and example. (5 marks)</li>
+      <li>Explain Mosaic Plots — construction, residual coloring, and at least 3 variants. (10 marks)</li>
+      <li>Compare Contingency Tables and Mosaic Plots. (2 marks)</li>
+      <li>What is a Spine Plot? How does it differ from a standard Mosaic Plot? (2 marks)</li>
+    </ol>
+  </div></div>
+</div>
+
+<!-- ======= QUICK REVISION ======= -->
+<div id="s-quick" class="sec">
+  <h2 style="font-size:18px;font-weight:500;margin-bottom:1rem">Quick Revision — All 5 Topics</h2>
+  <div class="g2">
+    <div class="nc"><h3>Topic 1: Kernel Machines</h3><p>Kernel K(x,y) = φ(x)·φ(y) — similarity without explicit mapping. Kernel trick: compute high-D inner product directly. RBF: exp(−γ‖x−y‖²). SVM: maximize margin hyperplane. Kernel PCA: nonlinear dim reduction. Memory: SILK.</p></div>
+    <div class="nc"><h3>Topic 2: Cluster Analysis</h3><p>K-Means: ARCM — Assign, Recompute, Continue, Minimize WCSS. Hierarchical: dendrogram, cut at height for k clusters. DBSCAN: Core/Border/Noise, finds arbitrary shapes. Visualize with: scatter, dendrogram, elbow plot, silhouette, t-SNE. Memory: ARCM.</p></div>
+    <div class="nc"><h3>Topic 3: Finite Mixture Models</h3><p>P(x) = Σπₖ N(x|μₖ,Σₖ). EM: E-step (responsibilities) + M-step (update params). Soft clustering — probability per component. Choose K with BIC. vs K-Means: soft, elliptical, probabilistic. Memory: PEWS.</p></div>
+    <div class="nc"><h3>Topic 4: Contingency Tables</h3><p>Frequency grid for 2+ categorical variables. Chi-square: χ² = Σ(O−E)²/E. E = (row total × col total)/grand total. Visualize: heatmap, grouped bar, stacked bar, balloon plot. Memory: FACE.</p></div>
+    <div class="nc"><h3>Topic 5: Mosaic Plots</h3><p>Width = first variable marginal. Height in column = second variable conditional %. Area ∝ cell count. Residual color: blue=more, red=less than expected. Variants: spine, treemap, double decker, fluctuation. Memory: WARP.</p></div>
+  </div>
+
+  <div class="nc"><h3>Important Definitions for 2-Mark Questions</h3>
+    <ul>
+      <li><strong>Kernel:</strong> Function K(x,y) computing similarity between two points in high-dimensional space</li>
+      <li><strong>Kernel Trick:</strong> Compute inner product in high-D space via K(x,y) without explicit mapping φ(x)</li>
+      <li><strong>RBF Kernel:</strong> K(x,y) = exp(−γ‖x−y‖²) — most common nonlinear kernel</li>
+      <li><strong>Support Vectors:</strong> Data points closest to the SVM decision boundary — only these define the boundary</li>
+      <li><strong>WCSS:</strong> Within-Cluster Sum of Squares — K-Means objective to minimize</li>
+      <li><strong>Dendrogram:</strong> Tree diagram showing hierarchical cluster merges at each distance level</li>
+      <li><strong>Core Point (DBSCAN):</strong> Has ≥ MinPts neighbors within radius ε</li>
+      <li><strong>Soft Clustering:</strong> Probabilistic cluster assignment — each point has probability of belonging to each cluster</li>
+      <li><strong>GMM:</strong> Gaussian Mixture Model — P(x) = Σπₖ N(x|μₖ,Σₖ)</li>
+      <li><strong>Contingency Table:</strong> Frequency table showing joint distribution of 2+ categorical variables</li>
+      <li><strong>Chi-Square:</strong> χ² = Σ(O−E)²/E — tests independence between categorical variables</li>
+      <li><strong>Mosaic Plot:</strong> Area-based visualization where tile area ∝ cell frequency in contingency table</li>
+    </ul>
+  </div>
+
+  <div class="nc"><h3>Memory Tricks — All Unit IV</h3>
+    <ul>
+      <li><strong>Kernel Machines:</strong> SILK — Similarity, Implicit high-D, Linear in high-D, Kernel trick</li>
+      <li><strong>K-Means:</strong> ARCM — Assign, Recompute, Continue, Minimize WCSS</li>
+      <li><strong>GMM/FMM:</strong> PEWS — Probabilistic, EM algorithm, Weights (π), Soft clustering</li>
+      <li><strong>Contingency Table:</strong> FACE — Frequency, Association test, Categorical only, Every cell = one combination</li>
+      <li><strong>Mosaic Plot:</strong> WARP — Width = first variable, Area = count, Residuals = colors, Proportional tiles</li>
+      <li><strong>DBSCAN:</strong> "Core=Dense, Border=Edge, Noise=Isolated"</li>
+      <li><strong>Smoothing comparison:</strong> "K-Means is Hard, GMM is Soft, DBSCAN doesn't care about shape"</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ======= NIGHT BEFORE ======= -->
+<div id="s-night" class="sec">
+  <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:1.2rem;margin-bottom:1.4rem;border:.5px solid var(--color-border-tertiary)">
+    <h2 style="font-size:18px;font-weight:500;margin-bottom:.25rem">Night Before Exam — Complete Revision Sheet — Unit IV</h2>
+    <p style="font-size:13px;color:var(--color-text-secondary)">Covers all 5 topics of Unit IV. Read in 30–35 minutes.</p>
+  </div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Topic 1: Kernel Machines — Must-Know Points</h2><span class="tnum">Flash</span></div>
+  <div class="cb op">
+    <ul>
+      <li>Kernel K(x,y) = φ(x)·φ(y) — measures similarity without explicit high-D mapping</li>
+      <li>Kernel Trick: replace every dot product with K(x,y) → work in high-D space cheaply</li>
+      <li>RBF Kernel: K(x,y) = exp(−γ‖x−y‖²) — most common; small γ = smooth, large γ = complex</li>
+      <li>Polynomial: K(x,y) = (x·y + c)^d; Linear: K(x,y) = x·y</li>
+      <li>SVM: finds optimal hyperplane maximizing margin. Kernel SVM → nonlinear boundary in 2D</li>
+      <li>Support Vectors: points closest to decision boundary (only these define the boundary)</li>
+      <li>Kernel PCA: nonlinear dimensionality reduction using kernel trick — better than standard PCA for curved/nonlinear data</li>
+      <li>Kernel similarity matrix K[i,j] = K(xᵢ,xⱼ): visualize as heatmap — dark = similar, light = different</li>
+      <li>Memory: SILK — Similarity, Implicit high-D, Linear boundary in feature space, Kernel trick</li>
+    </ul>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Topic 2: Cluster Analysis — Key Points</h2><span class="tnum">Flash</span></div>
+  <div class="cb op">
+    <table>
+      <tr><th>Algorithm</th><th>Key Step</th><th>Visualization</th><th>Best For</th></tr>
+      <tr><td>K-Means</td><td>Assign to centroid, recompute, repeat</td><td>Scatter + elbow plot</td><td>Large n, globular clusters</td></tr>
+      <tr><td>Hierarchical</td><td>Merge closest clusters iteratively</td><td>Dendrogram</td><td>Small n, unknown k</td></tr>
+      <tr><td>DBSCAN</td><td>Expand core points by density</td><td>Scatter with noise marked</td><td>Arbitrary shapes, outliers</td></tr>
+    </table>
+    <ul>
+      <li>K-Means WCSS: Σ Σ ‖xᵢ − Cₖ‖² — minimize this</li>
+      <li>Elbow: plot WCSS vs k, choose k at the "elbow" point</li>
+      <li>Silhouette: s(i) = (b−a)/max(a,b). Range: −1 to +1. Higher = better cluster fit</li>
+      <li>DBSCAN: Core (≥MinPts in ε), Border (in ε of core), Noise (isolated)</li>
+      <li>Dendrogram: cut at high h → few clusters; cut at low h → many clusters</li>
+    </ul>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Topic 3: Finite Mixture Models — Must Know</h2><span class="tnum">Flash</span></div>
+  <div class="cb op">
+    <ul>
+      <li>FMM: data comes from K underlying probability distributions (components)</li>
+      <li>GMM formula: P(x) = Σₖ πₖ × N(x|μₖ, Σₖ) where Σπₖ = 1</li>
+      <li>EM Algorithm: E-step = compute responsibilities rᵢₖ; M-step = update μₖ, Σₖ, πₖ; Repeat</li>
+      <li>Soft clustering: each point has probability vector [r₁, r₂, ..., rK] summing to 1</li>
+      <li>Choose K: use BIC (Bayesian Information Criterion) — pick K with lowest BIC</li>
+      <li>GMM handles: overlapping clusters, elliptical shapes, uncertain membership</li>
+      <li>K-Means is special case of GMM with equal spherical covariances and hard assignment</li>
+      <li>Memory: PEWS — Probabilistic, EM, Weights (π), Soft clustering</li>
+    </ul>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Topic 4: Contingency Tables — Key Points</h2><span class="tnum">Flash</span></div>
+  <div class="cb op">
+    <pre>          Male   Female   Total
+  Pass     40      35       75
+  Fail     10       5       15
+  Total    50      40       90</pre>
+    <ul>
+      <li>Row/column marginals: totals at edges. Grand total: bottom-right</li>
+      <li>Chi-square: χ² = Σ(O−E)²/E; E = (row total × col total) / grand total</li>
+      <li>Large χ² → association. Small χ² → independence</li>
+      <li>Visualizations: Heatmap (dark=high count), Grouped bar, Stacked bar (%), Balloon plot (circle size=count)</li>
+      <li>Cross-tabulation = process of creating contingency table (count combinations)</li>
+      <li>Memory: FACE — Frequency, Association test, Categorical, Every cell = one combo</li>
+    </ul>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Topic 5: Mosaic Plots — Quick Reference</h2><span class="tnum">Flash</span></div>
+  <div class="cb op">
+    <ul>
+      <li>Mosaic plot = area-based contingency table visualization. Tile area ∝ cell count</li>
+      <li>Width of column = marginal % of first variable (e.g., Male=55.6%, Female=44.4%)</li>
+      <li>Height within column = conditional % of second variable (e.g., Pass=80% within Male)</li>
+      <li>Residual colors: Blue = more than expected | Red = less than expected | White = as expected</li>
+    </ul>
+    <table>
+      <tr><th>Variant</th><th>Key Feature</th><th>Use Case</th></tr>
+      <tr><td>Standard Mosaic</td><td>Width AND height proportional</td><td>2–3 categorical variables</td></tr>
+      <tr><td>Spine Plot</td><td>Equal-width columns, only height varies</td><td>Focus on proportions only</td></tr>
+      <tr><td>Treemap</td><td>Nested mosaic for hierarchical data</td><td>Hierarchical categorical data</td></tr>
+      <tr><td>Double Decker</td><td>Response variable on top tier</td><td>Titanic analysis, survival data</td></tr>
+      <tr><td>Fluctuation Diagram</td><td>Square tiles (not proportional rectangles)</td><td>Simple frequency comparison</td></tr>
+    </table>
+    <p>Memory: WARP — Width=1st variable, Area=count, Residuals=colors, Proportional tiles</p>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Top 12 Most Expected Exam Questions — Unit IV</h2><span class="tnum">Flash</span></div>
+  <div class="cb op">
+    <ol>
+      <li>Explain the Kernel Trick with nonlinear data diagram and kernel types. (5/10 marks)</li>
+      <li>What is RBF Kernel? Write formula and explain γ parameter effect. (2 marks)</li>
+      <li>Explain SVM with linear and nonlinear (RBF kernel) decision boundaries. (10 marks)</li>
+      <li>Explain K-Means algorithm with all steps, diagram, elbow plot. (10 marks)</li>
+      <li>What is the Silhouette Score? How is it used to evaluate clusters? (2/5 marks)</li>
+      <li>Explain Hierarchical Clustering and draw a dendrogram. (10 marks)</li>
+      <li>What is DBSCAN? Explain Core, Border, Noise with example. (5 marks)</li>
+      <li>Compare K-Means vs Hierarchical vs DBSCAN. (5 marks)</li>
+      <li>Explain Gaussian Mixture Model with EM algorithm. (10 marks)</li>
+      <li>Differentiate Hard Clustering (K-Means) from Soft Clustering (GMM). (5 marks)</li>
+      <li>Explain Contingency Tables and their visualization methods. (5/10 marks)</li>
+      <li>Explain Mosaic Plots — construction, residual coloring, variants. (10 marks)</li>
+    </ol>
+  </div></div>
+</div>
+
+</div><!-- end wrap -->
+
+<script>
+function show(id, btn) {
+  document.querySelectorAll('.sec').forEach(function(s){ s.classList.remove('on'); });
+  document.querySelectorAll('.nb').forEach(function(b){ b.classList.remove('on'); });
+  document.getElementById('s-'+id).classList.add('on');
+  if(btn) btn.classList.add('on');
+}
+function tog(header) { header.nextElementSibling.classList.toggle('op'); }
+function togQ(header) { header.nextElementSibling.classList.toggle('op'); }
+function expandAll() { document.querySelectorAll('.cb').forEach(function(b){ b.classList.add('op'); }); }
+</script>
