@@ -1,26 +1,1835 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HRM - ExamVault</title>
-    <link rel="stylesheet" href="notes.css">
-</head>
-<body>
-    <div class="container">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans,'Segoe UI',sans-serif);background:transparent;color:var(--color-text-primary);font-size:15px;line-height:1.7}
+.wrap{max-width:880px;margin:0 auto;padding:1rem .5rem 4rem}
+.hdr{text-align:center;padding:1.8rem 1rem 1.4rem;border-bottom:.5px solid var(--color-border-tertiary);margin-bottom:1.5rem}
+.hdr h1{font-size:22px;font-weight:500;margin-bottom:.3rem}
+.hdr p{font-size:13px;color:var(--color-text-secondary)}
+.pill{display:inline-block;font-size:11px;padding:3px 10px;border-radius:12px;margin:2px;font-weight:500}
+.pi{background:var(--color-background-info);color:var(--color-text-info)}
+.pw{background:var(--color-background-warning);color:var(--color-text-warning)}
+.ps{background:var(--color-background-success);color:var(--color-text-success)}
+.pd{background:var(--color-background-danger);color:var(--color-text-danger)}
+.nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.4rem;padding:.7rem;background:var(--color-background-secondary);border-radius:var(--border-radius-lg);border:.5px solid var(--color-border-tertiary)}
+.nb{font-size:12px;padding:5px 11px;border:.5px solid var(--color-border-secondary);border-radius:6px;cursor:pointer;background:var(--color-background-primary);color:var(--color-text-primary);font-family:inherit;transition:background .15s}
+.nb:hover,.nb.on{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent}
+.sec{display:none}.sec.on{display:block}
+.card{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);margin-bottom:1.2rem;overflow:hidden}
+.ch{padding:.85rem 1.2rem;background:var(--color-background-secondary);border-bottom:.5px solid var(--color-border-tertiary);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.ch h2{font-size:15px;font-weight:500}
+.tnum{font-size:11px;color:var(--color-text-secondary);background:var(--color-background-primary);padding:2px 8px;border-radius:10px;white-space:nowrap}
+.cb{padding:1.2rem;display:none}.cb.op{display:block}
+.def{background:var(--color-background-info);border-left:3px solid #378ADD;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:.7rem 1rem;margin-bottom:.9rem;font-size:14px}
+.def strong{color:var(--color-text-info)}
+.warn{background:var(--color-background-warning);border-left:3px solid #BA7517;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:.7rem 1rem;margin:.8rem 0;font-size:13px}
+.warn strong{color:#633806}
+.ok{background:var(--color-background-success);border-left:3px solid #3B6D11;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:.7rem 1rem;margin:.8rem 0;font-size:13px}
+.ok strong{color:var(--color-text-success)}
+.err{background:var(--color-background-danger);border-left:3px solid #A32D2D;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:.7rem 1rem;margin:.8rem 0;font-size:13px}
+.err strong{color:#791F1F}
+h3{font-size:15px;font-weight:500;margin:1.1rem 0 .45rem}
+h4{font-size:13px;font-weight:500;margin:.7rem 0 .25rem;color:var(--color-text-secondary)}
+ul,ol{padding-left:1.4rem;margin:.4rem 0}
+li{margin-bottom:.2rem;font-size:14px}
+p{font-size:14px;margin-bottom:.55rem}
+table{width:100%;border-collapse:collapse;margin:.7rem 0;font-size:13px}
+th{background:var(--color-background-secondary);padding:7px 10px;text-align:left;font-weight:500;border:.5px solid var(--color-border-tertiary)}
+td{padding:6px 10px;border:.5px solid var(--color-border-tertiary);vertical-align:top}
+tr:nth-child(even) td{background:var(--color-background-secondary)}
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:.7rem 0}
+.mc{background:var(--color-background-secondary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:.65rem .9rem}
+.mc h4{margin-top:0}
+.kws{display:flex;flex-wrap:wrap;gap:5px;margin:.5rem 0}
+.kw{background:var(--color-background-secondary);border:.5px solid var(--color-border-secondary);border-radius:12px;padding:3px 9px;font-size:11px;color:var(--color-text-secondary)}
+.qb{border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);margin-bottom:.65rem;overflow:hidden}
+.qh{padding:.55rem 1rem;background:var(--color-background-secondary);cursor:pointer;font-size:14px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.qm{font-size:11px;color:var(--color-text-secondary);background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:8px;padding:2px 7px;white-space:nowrap}
+.qa{padding:.9rem 1rem;display:none;font-size:14px;line-height:1.75}
+.qa.op{display:block}
+.nc{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);margin-bottom:.9rem;padding:1rem 1.2rem}
+.nc h3{margin-top:0;font-size:14px}
+.ea{font-size:12px;color:var(--color-text-info);cursor:pointer;text-decoration:underline;background:none;border:none;font-family:inherit;margin-bottom:.8rem}
+pre{background:var(--color-background-secondary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:.8rem 1rem;font-size:12px;font-family:var(--font-mono,monospace);overflow-x:auto;margin:.6rem 0;color:var(--color-text-primary);white-space:pre}
+.chart-wrap{position:relative;width:100%;margin:.8rem 0}
+.legend{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:8px;font-size:12px;color:var(--color-text-secondary)}
+.leg-item{display:flex;align-items:center;gap:4px}
+.leg-sq{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+</style>
+<div class="container">
         <a href="index.html" class="back-btn">← Back to Home</a>
-        
-        <div class="hero">
-            <h1>DVT-unit 3</h1>
-            <p>CSBS/MBA Complete Semester Notes</p>
-            <h2>As per CSBS JNUTH r22 Syllabus</h2>
-            <p>Premium Interactive notes for Semester exams</p>
-            <p>You can click and access the content in this website. The content inside this notes is more than enough for your exams.
-                This notes is completely interactive enjoy it.
-            </p>
-            <p style="font-size:1.1rem; color:#94a3b8;">Made with ❤️ by lokesh</p>
-          <h2> working under process will be uploaded soon</h2>
-            <hr>
-            <hr>
-            <p>Notes will be updated soon </p>
-        </div>
+</div>
+<div class="container">
+        <a href="dvt.html" class="back-btn">← Back to DVT units </a>
+<div class="container">
+<div class="wrap">
+<div class="hdr">
+  <h1>Data Visualization — Unit III</h1>
+  <p>Complete B.Tech / B.Sc CS Semester Exam Notes</p>
+  <div style="margin-top:.6rem">
+    <span class="pill pi">6 Topics</span>
+    <span class="pill pw">MDS &amp; Smoothing</span>
+    <span class="pill ps">Interactive Diagrams</span>
+    <span class="pill pd">Night Revision</span>
+  </div>
+</div>
+
+<div class="nav">
+  <button class="nb on" onclick="show('notes',this)">Detailed Notes</button>
+  <button class="nb" onclick="show('diagrams',this)">Diagrams &amp; Charts</button>
+  <button class="nb" onclick="show('compare',this)">Comparison Tables</button>
+  <button class="nb" onclick="show('questions',this)">Exam Q&amp;A</button>
+  <button class="nb" onclick="show('quick',this)">Quick Revision</button>
+  <button class="nb" onclick="show('night',this)">Night Before Exam</button>
+</div>
+
+<!-- ======= NOTES ======= -->
+<div id="s-notes" class="sec on">
+<button class="ea" onclick="expandAll()">Expand all topics</button>
+
+<!-- T1: MDS -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>Topic 1: Multidimensional Scaling (MDS)</h2><span class="tnum">Topic 01</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> Multidimensional Scaling (MDS) is a dimensionality reduction technique that represents high-dimensional data in a lower-dimensional space (usually 2D or 3D) while preserving the pairwise distances or dissimilarities between data points as closely as possible.</div>
+
+    <h3>What is MDS? — Simple Explanation</h3>
+    <p>Imagine you have a table of distances between 10 cities. MDS can place all 10 cities on a 2D map such that cities far apart in real life appear far apart on the map, and nearby cities appear close. It converts a <strong>distance/dissimilarity matrix</strong> into a set of coordinates in 2D or 3D space.</p>
+
+    <h3>Purpose of MDS</h3>
+    <ul>
+      <li>Reduce high-dimensional data into 2D or 3D for visualization</li>
+      <li>Discover hidden structure and natural groupings in data</li>
+      <li>Explore similarity/dissimilarity between objects</li>
+      <li>Provide intuitive visual representation of complex datasets</li>
+      <li>Complement clustering techniques by visualizing clusters spatially</li>
+    </ul>
+
+    <h3>The MDS Process — Step by Step</h3>
+    <pre>
+MDS PIPELINE:
+══════════════════════════════════════════════════════════
+
+Step 1: Collect high-dimensional data
+        (e.g., 50 features per data point)
+
+Step 2: Compute Dissimilarity/Distance Matrix
+        d(i,j) = Euclidean or other distance between items i and j
+
+Step 3: Initialize random 2D coordinates for each data point
+
+Step 4: Iteratively adjust positions to minimize STRESS
+        (difference between real distances and mapped distances)
+
+Step 5: Final 2D/3D configuration = MDS output
+
+         High-D Data          2D Projection
+         [50 features]  →→→   *  *
+                              *     *
+                                 *
+══════════════════════════════════════════════════════════</pre>
+
+    <h3>Distance / Similarity Matrix</h3>
+    <p>MDS starts with a matrix that shows how similar or different each pair of data points is.</p>
+    <pre>
+SIMILARITY MATRIX EXAMPLE (City distances in km):
+       Delhi  Mumbai  Chennai  Kolkata
+Delhi    0     1400    2200    1500
+Mumbai  1400    0      1338    1960
+Chennai 2200   1338     0      1660
+Kolkata 1500   1960    1660      0
+
+→ MDS maps these cities onto a 2D plane preserving these distances:
+
+         *Kolkata
+                     *Delhi
+  *Chennai
+                   *Mumbai
+
+(Positions are approximate — MDS minimizes total distance distortion)</pre>
+
+    <h3>The Stress Function — Heart of MDS</h3>
+    <div class="def"><strong>Stress Formula:</strong><br>
+    Stress = √[ Σ(d_ij − δ_ij)² / Σ(δ_ij)² ]<br><br>
+    Where: d_ij = distance in original high-D space | δ_ij = distance in the projected 2D/3D space<br>
+    <strong>Goal: Minimize Stress → Better 2D representation</strong></div>
+    <pre>
+STRESS INTERPRETATION:
+═══════════════════════════════════════════
+  Stress Value    Quality of MDS fit
+  ─────────────────────────────────────
+  0.00            Perfect (exact fit)
+  0.00 – 0.05     Excellent
+  0.05 – 0.10     Good
+  0.10 – 0.20     Fair (use carefully)
+  > 0.20          Poor (consider 3D)
+═══════════════════════════════════════════</pre>
+
+    <h3>Types of MDS</h3>
+    <table>
+      <tr><th>Type</th><th>Input</th><th>Assumption</th><th>Use Case</th></tr>
+      <tr><td>Classical MDS (cMDS)</td><td>Euclidean distance matrix</td><td>Metric: preserves actual distances</td><td>Physical distances, gene expression</td></tr>
+      <tr><td>Non-metric MDS (nMDS)</td><td>Rank order of dissimilarities</td><td>Only preserves rank order</td><td>Psychological data, survey rankings</td></tr>
+      <tr><td>Metric MDS</td><td>Any distance matrix</td><td>Preserves proportional distances</td><td>General high-D data</td></tr>
+      <tr><td>Generalized MDS</td><td>Any dissimilarity</td><td>Flexible constraints</td><td>Mixed data types</td></tr>
+    </table>
+
+    <h3>MDS vs. PCA — Key Comparison</h3>
+    <table>
+      <tr><th>Feature</th><th>MDS</th><th>PCA</th></tr>
+      <tr><td>Input</td><td>Distance/dissimilarity matrix</td><td>Raw data matrix</td></tr>
+      <tr><td>Output</td><td>2D/3D coordinate layout</td><td>Principal components (new axes)</td></tr>
+      <tr><td>Objective</td><td>Preserve pairwise distances</td><td>Maximize variance</td></tr>
+      <tr><td>Linear?</td><td>Classical MDS is linear</td><td>Always linear</td></tr>
+      <tr><td>Data requirement</td><td>Only needs distances</td><td>Needs original feature values</td></tr>
+      <tr><td>Interpretability</td><td>Axes have no direct meaning</td><td>Axes = principal components</td></tr>
+      <tr><td>Applications</td><td>Psychology, market research</td><td>Image compression, genomics</td></tr>
+    </table>
+
+    <h3>2D and 3D Projection Concepts</h3>
+    <pre>
+2D PROJECTION (most common):
+  Original data: 100 dimensions (features)
+  After MDS: 2 dimensions (x, y coordinates)
+
+        y
+    4 │  ● City A
+    3 │         ● City B
+    2 │  ● City C
+    1 │             ● City D
+      └─────────────────── x
+
+3D PROJECTION:
+  Adds z-axis — better when 2D stress is too high
+  Useful for complex datasets where 2D loses too much info
+
+DIMENSIONALITY REDUCTION:
+  [d1, d2, d3, ..., d100]  →  [x, y]   (2D)
+  [d1, d2, d3, ..., d100]  →  [x, y, z] (3D)</pre>
+
+    <h3>Applications of MDS</h3>
+    <div class="g2">
+      <div class="mc"><h4>Recommendation Systems</h4><p>Netflix/Amazon: Map movies in 2D space — movies close together are similar. Recommend movies near what user already liked.</p></div>
+      <div class="mc"><h4>Clustering Visualization</h4><p>Project K-means/hierarchical clustering results into 2D for human interpretation. Cluster boundaries become visible.</p></div>
+      <div class="mc"><h4>Market Research</h4><p>Brand perception maps — plot competing brands in 2D based on consumer survey dissimilarity data. Reveals market positioning.</p></div>
+      <div class="mc"><h4>Bioinformatics</h4><p>Visualize gene expression similarity. Genes with similar expression patterns appear close in 2D MDS plot.</p></div>
+      <div class="mc"><h4>Psychology</h4><p>Color perception, smell similarity, facial recognition studies — map perceptual distances in 2D space.</p></div>
+      <div class="mc"><h4>NLP / Text Analysis</h4><p>Visualize document or word similarity — semantically similar documents cluster together in MDS 2D plot.</p></div>
+    </div>
+
+    <h3>Real-World Example — Recommendation System</h3>
+    <pre>
+MOVIE SIMILARITY MATRIX (dissimilarity score 0–10):
+           Action  Comedy  Romance  Thriller
+Action       0       8       9        2
+Comedy       8       0       3        7
+Romance      9       3       0        8
+Thriller     2       7       8        0
+
+MDS 2D Map:
+  High      * Romance
+            * Comedy
+  
+  Low       * Thriller
+            * Action
+  
+  ←Serious         Light-hearted→
+
+→ Recommendation: User watched Action? Suggest Thriller (closest neighbor)</pre>
+
+    <div class="warn"><strong>⭐ Exam Point:</strong> Always define MDS, explain the Stress Function, and give the city distance or movie recommendation example. The Stress formula and interpretation table are very likely to appear in 5-mark and 10-mark questions.</div>
+    <div class="ok"><strong>Memory Trick:</strong> MDS = <strong>DIPS</strong> — Dissimilarity matrix, I(nitial coordinates), Project to 2D, Stress minimization</div>
+    <div class="kws"><span class="kw">MDS</span><span class="kw">Stress Function</span><span class="kw">Distance Matrix</span><span class="kw">Dimensionality Reduction</span><span class="kw">2D Projection</span><span class="kw">Non-metric MDS</span><span class="kw">Classical MDS</span></div>
+  </div>
+</div>
+
+<!-- T2: Huge Multidimensional Data -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>Topic 2: Huge Multidimensional Data Visualization</h2><span class="tnum">Topic 02</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> Huge Multidimensional Data Visualization refers to the techniques and strategies used to visualize datasets that are both very large in size (millions/billions of records) and high in dimensionality (many features/variables), where traditional visualization methods fail due to performance, scalability, and visual clutter challenges.</div>
+
+    <h3>The Big Data Challenge in Visualization</h3>
+    <pre>
+CHALLENGES OF HUGE MULTIDIMENSIONAL DATA:
+══════════════════════════════════════════════════════════
+
+  1. VOLUME: Millions of data points → screen has only ~2 million pixels
+             Plotting all points = complete overlap (overplotting)
+
+  2. VELOCITY: Real-time streaming data → visualization must update constantly
+
+  3. VARIETY: Mixed types: numeric, categorical, text, images, time-series
+
+  4. DIMENSIONALITY: 100+ variables → impossible to show all at once
+
+  5. VISUAL CLUTTER: Too many overlapping marks → no pattern visible
+
+  6. SCALABILITY: Most chart libraries crash or slow down beyond 100K points
+
+Example of Visual Clutter:
+  Bad:  ████████████████████████ (all points overlap → black blob)
+  Good: Use sampling, aggregation, or density → clear patterns emerge
+══════════════════════════════════════════════════════════</pre>
+
+    <h3>Data Reduction Techniques</h3>
+
+    <h4>1. Sampling</h4>
+    <div class="def">Selecting a representative subset of the full dataset for visualization.</div>
+    <pre>
+SAMPLING METHODS:
+  Random Sampling:     Select n% of rows randomly
+                       Fast, simple, may miss rare events
+
+  Stratified Sampling: Maintain proportion of each category
+                       E.g., 10% from each age group
+                       Better representation of subgroups
+
+  Reservoir Sampling:  For streaming data — randomly keep n items
+                       Works without knowing dataset size
+
+Example:
+  Full dataset: 10,000,000 records
+  After 1% random sampling: 100,000 records → visualizable</pre>
+
+    <h4>2. Aggregation</h4>
+    <div class="def">Combining multiple data points into summary statistics for visualization.</div>
+    <pre>
+AGGREGATION EXAMPLE:
+  Raw data: 1 million transaction rows with timestamps
+  After aggregation: daily totals (365 rows)
+
+  BEFORE:  ·····················  (1M dots — unreadable)
+  AFTER:   ████▃▅██▅▃█▅▃▅█▅  (365 bars — readable trend)</pre>
+
+    <h4>3. Binning</h4>
+    <div class="def">Dividing continuous data into discrete bins/intervals, then visualizing bin counts.</div>
+    <pre>
+BINNING:
+  Age values: 23, 24, 25, 26, 27, 28 ... 65 (10,000 values)
+  Bins:       [20-30] → 2300 people
+              [30-40] → 3100 people
+              [40-50] → 2800 people
+  → Histogram with 5 bars replaces 10,000 individual points</pre>
+
+    <h4>4. Dimensionality Reduction</h4>
+    <table>
+      <tr><th>Technique</th><th>How It Works</th><th>Result</th></tr>
+      <tr><td>PCA</td><td>Project onto axes of maximum variance</td><td>2–3 new features from 100+</td></tr>
+      <tr><td>MDS</td><td>Preserve pairwise distances in 2D</td><td>2D layout from distance matrix</td></tr>
+      <tr><td>t-SNE</td><td>Non-linear, preserves local structure</td><td>Cluster-revealing 2D scatter</td></tr>
+      <tr><td>UMAP</td><td>Manifold learning, fast and scalable</td><td>2D/3D, preserves global &amp; local</td></tr>
+    </table>
+
+    <h4>5. Progressive Visualization</h4>
+    <p>Show coarse overview first, then refine as more data loads. Used in Google Maps — tiles load at low resolution, then sharpen as you zoom.</p>
+
+    <h4>6. Level of Detail (LOD)</h4>
+    <pre>
+LEVEL OF DETAIL:
+  Zoom OUT → show aggregated summary (country level)
+  Zoom IN  → show individual data points (city level)
+
+  This is how Google Maps and financial charts work — zoom in to see detail,
+  zoom out to see global pattern.</pre>
+
+    <h3>Scalability Issues and Solutions</h3>
+    <table>
+      <tr><th>Problem</th><th>Solution</th><th>Example</th></tr>
+      <tr><td>Overplotting (too many dots)</td><td>Alpha transparency, jitter, density plot</td><td>Scatter plot with opacity=0.1</td></tr>
+      <tr><td>Slow rendering</td><td>WebGL, GPU rendering, canvas API</td><td>Deck.gl renders millions of points</td></tr>
+      <tr><td>Memory overflow</td><td>Virtual scrolling, data streaming</td><td>Load 1000 rows at a time</td></tr>
+      <tr><td>Too many dimensions</td><td>PCA, t-SNE, parallel coordinates</td><td>Project 100D to 2D</td></tr>
+      <tr><td>Real-time updates</td><td>Incremental rendering, animation</td><td>Live stock chart updates</td></tr>
+    </table>
+
+    <h3>Visualization Techniques for Big Multidimensional Data</h3>
+    <pre>
+PARALLEL COORDINATES PLOT (for multidimensional data):
+
+Feature1  Feature2  Feature3  Feature4  Feature5
+  |         |         |         |         |
+  |----\----|---/-----|-----\---|--/------|  ← data point 1
+  |     \---|--/------|------/--|---------|  ← data point 2
+  |---------|---------|---------|---------|
+
+Each line = one data point. Each vertical axis = one feature.
+Reveals correlations, clusters, and outliers across many dimensions at once.
+
+SCATTERPLOT MATRIX (SPLOM):
+Shows all pairwise scatter plots between features:
+       F1   F2   F3
+  F1 [ -   [·]  [·] ]
+  F2 [·]   [ -  [·] ]
+  F3 [·]  [·]   [ - ]
+
+Reveals which pairs of features are correlated.</pre>
+
+    <h3>Real-World Applications</h3>
+    <ul>
+      <li><strong>Financial Markets:</strong> Visualizing millions of tick-level stock trades per day (Bloomberg Terminal)</li>
+      <li><strong>Healthcare:</strong> Patient electronic health records with 500+ variables per patient</li>
+      <li><strong>Social Networks:</strong> Facebook's social graph — billions of nodes and edges</li>
+      <li><strong>Astronomy:</strong> Sloan Digital Sky Survey — 500 million stars with 100+ measurements each</li>
+      <li><strong>E-commerce:</strong> Amazon — millions of products, user behavior logs, purchase history</li>
+      <li><strong>Climate Science:</strong> Global temperature grid data — billions of sensor readings</li>
+    </ul>
+
+    <div class="warn"><strong>⭐ Exam Point:</strong> Be ready to explain at least 3 data reduction techniques with examples. The "overplotting problem" and its solutions are commonly asked in 5-mark questions.</div>
+    <div class="ok"><strong>Memory Trick:</strong> Big data viz challenges = <strong>VVVDS</strong> — Volume, Velocity, Variety, Dimensionality, Scalability. Solutions = <strong>SABDL</strong> — Sampling, Aggregation, Binning, Dimensionality reduction, Level-of-detail</div>
+    <div class="kws"><span class="kw">Overplotting</span><span class="kw">Sampling</span><span class="kw">Aggregation</span><span class="kw">Dimensionality Reduction</span><span class="kw">t-SNE</span><span class="kw">Parallel Coordinates</span><span class="kw">SPLOM</span><span class="kw">Scalability</span></div>
+  </div>
+</div>
+
+<!-- T3: Density Estimation -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>Topic 3: Multivariate Visualization by Density Estimation</h2><span class="tnum">Topic 03</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> Multivariate Visualization by Density Estimation refers to methods that estimate and visualize the probability density function (PDF) of multivariate data — showing where data points are concentrated (high density) and where they are sparse (low density) — using techniques like Kernel Density Estimation, heatmaps, and contour plots.</div>
+
+    <h3>The Probability Density Concept</h3>
+    <p>When you have many data points, instead of plotting each individual point (which causes overplotting), you estimate a smooth density surface that shows the probability of finding a data point at any given location.</p>
+    <pre>
+DENSITY CONCEPT:
+  Raw scatter:            Density estimate:
+  · · · · · ·            ░░░▒▒▓█▓▒▒░░
+  · · · ·                ░▒▒▒▓███▓▒░░
+  ·   · · ·              ░░▒▒▓▓█▓▒▒░
+  ·     ·                ░░░░▒▒▒░░░░
+
+  (dots hard to interpret)  (density surface is clear)</pre>
+
+    <h3>Kernel Density Estimation (KDE)</h3>
+    <div class="def"><strong>KDE Formula:</strong><br>
+    f̂(x) = (1/nh) × Σ K((x − xᵢ)/h)<br><br>
+    Where: n = number of data points | h = bandwidth (controls smoothness) | K = kernel function (usually Gaussian) | xᵢ = each data point</div>
+
+    <h4>How KDE Works — Simple Steps</h4>
+    <pre>
+KDE STEP-BY-STEP:
+
+Step 1: Place a small smooth "bump" (kernel) at each data point
+
+  Data points:    ·    ·      ·   ·    ·
+
+  Individual
+  kernels:       ∩    ∩      ∩   ∩    ∩
+
+Step 2: Sum all bumps to create smooth density curve
+
+  Final KDE:   __/\__/\______/\/\_
+                (peaks where data is dense)
+
+BANDWIDTH EFFECT:
+  Narrow bandwidth (h small):   /\/\/\/\/\ (too spiky, overfit)
+  Optimal bandwidth:            /\___/\    (just right)
+  Wide bandwidth (h large):     /‾‾‾‾‾\   (too smooth, underfit)</pre>
+
+    <h4>Common Kernel Functions</h4>
+    <table>
+      <tr><th>Kernel</th><th>Shape</th><th>Formula</th><th>Use</th></tr>
+      <tr><td>Gaussian</td><td>Bell curve (normal)</td><td>K(u) = (1/√2π) × e^(−u²/2)</td><td>Most common, smooth everywhere</td></tr>
+      <tr><td>Epanechnikov</td><td>Parabola, compact support</td><td>K(u) = (3/4)(1−u²) for |u|≤1</td><td>Statistically optimal</td></tr>
+      <tr><td>Uniform</td><td>Rectangle (box)</td><td>K(u) = 1/2 for |u|≤1</td><td>Simple, no weights</td></tr>
+      <tr><td>Triangular</td><td>Triangle shape</td><td>K(u) = 1−|u| for |u|≤1</td><td>Linear weighting</td></tr>
+    </table>
+
+    <h3>Heatmaps for Density Visualization</h3>
+    <div class="def">A heatmap encodes the density (count or magnitude) of data at each location using color — darker/warmer colors = higher density, lighter/cooler colors = lower density.</div>
+    <pre>
+2D HEATMAP EXAMPLE (Website Click Density):
+
+          Left    Center   Right
+  Top    ░░░░░    ▓▓▓▓▓    ░░░░░
+  Middle ░░░░░    █████    ▒▒▒▒▒
+  Bottom ▒▒▒▒▒    ▓▓▓▓▓    ░░░░░
+
+  Legend: ░ Low density  ▒ Medium  ▓ High  █ Very High
+
+→ Users click most in Center-Middle (highest density area)
+→ Used in UX research, marketing, gaming analytics
+
+DENSITY BAR VISUALIZATION:
+High Density  ███████████  (many data points here)
+Medium        ████████
+Low           ████
+Very Low      █</pre>
+
+    <h3>Contour Plots (Level Curves)</h3>
+    <div class="def">Contour plots are 2D representations of a 3D density surface — each contour line connects points of equal density, like altitude lines on a topographic map.</div>
+    <pre>
+CONTOUR PLOT CONCEPT:
+  3D Density Surface:        2D Contour Plot:
+       ___                     ┌─────────────┐
+      /   \                    │  ╭──────╮   │
+     /  ↑  \      →            │ ╭╯  ↑   ╰╮  │
+    / peak  \                  │╭╯ center  ╰╮│
+   /   /\   \                  │╰╮         ╭╯│
+  /   /  \   \                 │ ╰──────╯   │
+ ─────────────                 └─────────────┘
+
+Inner circles = higher density (peak)
+Outer circles = lower density (edges)</pre>
+
+    <h3>Density Surfaces in 3D</h3>
+    <pre>
+3D DENSITY SURFACE:
+   Density
+    │    /\
+    │   /  \     /\
+    │  /    \   /  \
+    │ /      \_/    \___
+    └─────────────────── x
+    
+    (Two peaks → two clusters of high-density regions)
+    
+    Used in: Climate modeling (temperature density maps)
+             Medical imaging (organ density scans)
+             Financial risk surfaces (VaR visualization)</pre>
+
+    <h3>Multivariate KDE — 2D Density Estimation</h3>
+    <p>For two variables (x, y), KDE produces a 2D density surface where color or height represents the joint probability density.</p>
+    <pre>
+BIVARIATE KDE EXAMPLE (Height vs. Weight of 1000 people):
+
+Weight
+  90 │  ░░▒▒░░░░
+  80 │  ░▒▓▓▒░░░
+  70 │  ░▒▓█▓▒░░
+  60 │  ░░▒▓▒░░░
+  50 │  ░░░▒░░░░
+     └────────────
+     150  165  180  Height →
+
+  ░ Low   ▒ Medium   ▓ High   █ Peak (most common height-weight combo)</pre>
+
+    <h3>Applications of Density Estimation</h3>
+    <table>
+      <tr><th>Domain</th><th>Application</th><th>Example</th></tr>
+      <tr><td>Healthcare</td><td>Disease hotspot detection</td><td>COVID infection density map by region</td></tr>
+      <tr><td>Weather</td><td>Rainfall probability maps</td><td>KDE of rainfall amounts across India</td></tr>
+      <tr><td>Finance</td><td>Return distribution visualization</td><td>KDE of daily stock returns showing fat tails</td></tr>
+      <tr><td>Astronomy</td><td>Galaxy distribution maps</td><td>Density of galaxies in a sky survey</td></tr>
+      <tr><td>Marketing</td><td>Customer behavior heatmaps</td><td>Website heatmap showing where users click</td></tr>
+      <tr><td>Traffic</td><td>Accident density mapping</td><td>Police identify high-density accident zones</td></tr>
+    </table>
+
+    <h3>Density Estimation vs. Clustering</h3>
+    <table>
+      <tr><th>Feature</th><th>Density Estimation</th><th>Clustering</th></tr>
+      <tr><td>Output</td><td>Continuous density surface</td><td>Discrete cluster labels</td></tr>
+      <tr><td>Interpretation</td><td>Probability of finding data here</td><td>This point belongs to group X</td></tr>
+      <tr><td>Boundary</td><td>Soft — gradual density change</td><td>Hard — sharp cluster boundary</td></tr>
+      <tr><td>Outliers</td><td>Simply low-density regions</td><td>May need special handling</td></tr>
+      <tr><td>Example</td><td>KDE, heatmaps, contour plots</td><td>K-means, DBSCAN, hierarchical</td></tr>
+      <tr><td>Best for</td><td>Understanding data distribution</td><td>Group labeling and segmentation</td></tr>
+    </table>
+
+    <div class="warn"><strong>⭐ Exam Point:</strong> KDE formula, bandwidth concept, and the comparison of density estimation vs. clustering are high-frequency exam topics. Always draw a simple contour plot or density bar diagram in exam answers.</div>
+    <div class="ok"><strong>Memory Trick:</strong> KDE = <strong>BKS</strong> — Bandwidth controls smoothness, Kernel placed at each point, Sum all kernels for final density</div>
+    <div class="kws"><span class="kw">KDE</span><span class="kw">Kernel Density Estimation</span><span class="kw">Bandwidth</span><span class="kw">Heatmap</span><span class="kw">Contour Plot</span><span class="kw">Density Surface</span><span class="kw">Gaussian Kernel</span><span class="kw">Bivariate KDE</span></div>
+  </div>
+</div>
+
+<!-- T4: Structured Sets of Graphs -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>Topic 4: Structured Sets of Graphs</h2><span class="tnum">Topic 04</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> A Structured Set of Graphs refers to a collection of graphs that are organized according to a well-defined structure — such as hierarchical, temporal, clustered, or layered organization — enabling systematic visualization and analysis of complex relational or network data.</div>
+
+    <h3>What Are Structured Sets of Graphs?</h3>
+    <p>In real life, data is often relational — people connected to people, websites linked to websites, genes interacting with genes. A single graph may not be enough. Structured sets of graphs provide an organized way to represent, group, and analyze multiple graphs or a graph with rich internal structure.</p>
+
+    <h3>Hierarchical Graphs</h3>
+    <div class="def">A hierarchical graph (tree) is a directed acyclic graph where nodes are arranged in levels, with a clear parent-child relationship. Each node (except root) has exactly one parent.</div>
+    <pre>
+HIERARCHICAL GRAPH (Company Org Chart):
+
+              [CEO]                     ← Level 0 (root)
+             /     \
+        [CTO]       [CFO]              ← Level 1
+       /     \          \
+   [Dev]   [QA]       [Finance]        ← Level 2
+   /   \
+[Sr.]  [Jr.]                           ← Level 3
+
+Properties:
+  ✓ One root node (CEO)
+  ✓ No cycles
+  ✓ Each non-root has exactly one parent
+  ✓ Depth = maximum level number
+
+TREE VISUALIZATION TYPES:
+  1. Node-link diagram (above)
+  2. Indented list (like file explorer)
+  3. Treemap (nested rectangles by size)
+  4. Sunburst chart (nested rings)</pre>
+
+    <h3>Graph Clustering</h3>
+    <div class="def">Graph clustering (community detection) identifies groups of nodes within a graph that are more densely connected to each other than to the rest of the graph.</div>
+    <pre>
+GRAPH CLUSTERING EXAMPLE:
+
+BEFORE CLUSTERING:                AFTER CLUSTERING:
+  A--B--C--D--E                  [A-B-C] and [D-E-F]
+  |  |  |  |  |          →        are two communities
+  F--G--H--I--J                  [G-H-I] is a third
+
+  (Just a mesh of connections)   (Clear community structure)
+
+VISUALIZATION:
+  Cluster 1:  (A)--(B)--(C)
+                    |
+  Cluster 2:       (D)--(E)    ← Sparse inter-cluster connections
+                        |
+  Cluster 3:           (F)--(G)
+
+Methods: Louvain, Girvan-Newman, spectral clustering
+</pre>
+
+    <h3>Graph Grouping</h3>
+    <div class="def">Graph grouping is the process of aggregating sets of nodes into higher-level super-nodes to simplify a large complex graph into a manageable overview.</div>
+    <pre>
+GRAPH GROUPING (Abstraction):
+  Detailed graph:              Grouped graph:
+  A--B                          [Group 1]
+  A--C          →               (A,B,C)  ──── [Group 2]
+  B--C                                        (D,E,F)
+  D--E
+  D--F
+  E--F
+
+  (6 nodes, 6 edges)           (2 super-nodes, 1 edge)
+
+Purpose: Simplifies visualization of large networks (100s of nodes → 10 super-nodes)</pre>
+
+    <h3>Dynamic Graph Structures</h3>
+    <div class="def">A dynamic graph is one that changes over time — nodes and edges can be added, deleted, or have changing weights as time progresses.</div>
+    <pre>
+DYNAMIC GRAPH — Time Evolution:
+
+  Time T1:        Time T2:         Time T3:
+  A--B            A--B--C          A--B--C
+  |               |    |                |
+  D               D    E               E--F
+
+  (social network grows as new users join and connect)
+
+VISUALIZATION STRATEGIES FOR DYNAMIC GRAPHS:
+  1. Animation: Show graph changing over time as a video
+  2. Timeline slider: User drags to see graph at each time step
+  3. Small multiples: Show multiple snapshots side by side
+  4. Merged graph: Draw all edges, color by time (early=light, late=dark)
+
+APPLICATIONS:
+  - Social network evolution (Twitter follows over 5 years)
+  - Protein interaction networks during cell division
+  - Road traffic network load at different hours of day
+  - Financial transaction networks detecting fraud</pre>
+
+    <h3>Types of Structured Graph Visualizations</h3>
+    <table>
+      <tr><th>Type</th><th>Structure</th><th>Example</th><th>Visualization Method</th></tr>
+      <tr><td>Tree / Hierarchy</td><td>Parent-child, levels</td><td>Org chart, file system</td><td>Node-link, treemap, sunburst</td></tr>
+      <tr><td>DAG (Directed Acyclic Graph)</td><td>Directed, no cycles</td><td>Git commit history, pipeline</td><td>Layered layout (Sugiyama)</td></tr>
+      <tr><td>Clustered Graph</td><td>Communities within graph</td><td>Social network communities</td><td>Force-directed + color coding</td></tr>
+      <tr><td>Compound Graph</td><td>Nodes that contain subgraphs</td><td>Software architecture modules</td><td>Nested rectangles</td></tr>
+      <tr><td>Bipartite Graph</td><td>Two disjoint node sets</td><td>User-Movie ratings, Job matching</td><td>Two-column layout</td></tr>
+      <tr><td>Dynamic Graph</td><td>Changes over time</td><td>Social network growth</td><td>Animation, timeline slider</td></tr>
+    </table>
+
+    <h3>Network Diagram — Visual Example</h3>
+    <pre>
+NETWORK DIAGRAM (3 clusters visualized):
+
+  Cluster A:          Cluster B:        Cluster C:
+   (1)-(2)             (5)-(6)           (9)-(10)
+    |   |               |                   |
+   (3) (4)  ←────────  (7)  ──────────►  (11)
+                         |
+                        (8)
+
+  ─── Intra-cluster (dense)
+  ←── Inter-cluster (sparse)
+
+Community detection algorithm would identify A, B, C as separate communities.</pre>
+
+    <h3>Applications of Structured Graph Visualization</h3>
+    <ul>
+      <li><strong>Software Engineering:</strong> Call graphs, dependency graphs, UML class diagrams</li>
+      <li><strong>Biology:</strong> Protein-protein interaction networks, metabolic pathway graphs</li>
+      <li><strong>Social Media:</strong> Friend-of-friend networks, influencer communities on Twitter/Instagram</li>
+      <li><strong>Finance:</strong> Transaction network graphs for fraud detection</li>
+      <li><strong>Internet:</strong> Web link graph (PageRank), network topology visualization</li>
+      <li><strong>Transport:</strong> Road network hierarchy — highways, state roads, local roads</li>
+    </ul>
+
+    <div class="warn"><strong>⭐ Exam Point:</strong> Know the difference between hierarchical graphs, clustered graphs, and dynamic graphs with examples. Graph clustering example (community detection) and the tree diagram are commonly drawn in exams.</div>
+    <div class="ok"><strong>Memory Trick:</strong> Structured Graphs = <strong>HCGD</strong> — Hierarchical, Clustered, Grouped, Dynamic</div>
+    <div class="kws"><span class="kw">Hierarchical Graph</span><span class="kw">Graph Clustering</span><span class="kw">Community Detection</span><span class="kw">Dynamic Graph</span><span class="kw">DAG</span><span class="kw">Treemap</span><span class="kw">Graph Grouping</span><span class="kw">Bipartite Graph</span></div>
+  </div>
+</div>
+
+<!-- T5: Structural Adaptive Smoothing -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>Topic 5: Structural Adaptive Smoothing by Propagation–Separation Methods</h2><span class="tnum">Topic 05</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> Structural Adaptive Smoothing by Propagation–Separation (PS) methods is an advanced technique for noise reduction in multidimensional data that adaptively smooths data by propagating (spreading) smoothing where data is homogeneous, and separating (stopping) smoothing at structural boundaries — thus preserving edges and features while removing noise.</div>
+
+    <h3>The Core Problem — Noise in Data</h3>
+    <pre>
+NOISE IN DATA:
+  True signal:   ___/‾‾‾\_____/‾‾‾\____
+  With noise:    _/\/\//‾‾\/\___/\/\/\__
+  
+  Challenge: How do we recover the true signal without destroying 
+             the edges and sharp transitions?
+
+NAIVE SMOOTHING PROBLEM:
+  Original:   Step edge:  _______/‾‾‾‾‾‾‾
+  After naive 
+  smoothing:              ______/‾‾‾‾‾‾‾‾  
+             (edge is blurred/destroyed — bad!)
+
+  PS smoothing:           _______/‾‾‾‾‾‾‾
+             (edge is preserved — PS separates at the edge!)</pre>
+
+    <h3>Two Core Mechanisms: Propagation and Separation</h3>
+    <div class="g2">
+      <div class="mc"><h4>Propagation</h4><p>When neighboring data points are statistically similar (homogeneous region), smoothing information is <strong>propagated</strong> (spread) from one location to its neighbors. This reduces noise in flat/uniform regions.</p>
+      <pre>  Region: A B B B A
+  B is similar to B → propagate smooth</pre></div>
+      <div class="mc"><h4>Separation</h4><p>When neighboring data points are significantly different (an edge or boundary is detected), smoothing is <strong>stopped</strong> (separated). This preserves sharp boundaries and structural features.</p>
+      <pre>  Boundary: ___/‾‾‾ 
+  Low→High transition → separate, don't smooth</pre></div>
+    </div>
+
+    <h3>How PS Method Works — Step by Step</h3>
+    <pre>
+PROPAGATION-SEPARATION ALGORITHM:
+══════════════════════════════════════════════════════════
+
+Step 1: START with local estimates at each point
+        (small local window, high variance/noise)
+
+Step 2: For each pair of neighboring locations i and j:
+        Compute similarity statistic: S(i,j)
+
+Step 3: IF S(i,j) > threshold (similar neighbors):
+           PROPAGATE → share smoothing information
+           (average or weight their estimates together)
+
+        IF S(i,j) < threshold (different → edge detected):
+           SEPARATE → keep estimates independent
+           (do NOT share information across this boundary)
+
+Step 4: Iterate — progressively increase the window size
+        (each iteration, propagate further into homogeneous regions)
+
+Step 5: STOP when convergence is reached
+
+Result: Smooth interior regions + preserved structural boundaries
+══════════════════════════════════════════════════════════
+
+VISUAL FLOW:
+  Noisy data → [Test similarity] → Propagate OR Separate
+                                        ↓             ↓
+                                  (smooth region)  (keep edge)
+                                        ↓
+                                  Final: Clean signal + sharp edges</pre>
+
+    <h3>Key Concepts Explained Simply</h3>
+    <table>
+      <tr><th>Concept</th><th>Simple Meaning</th><th>Analogy</th></tr>
+      <tr><td>Propagation</td><td>Spread smoothing to similar neighbors</td><td>Wildfire spreading in dry grass (uniform region)</td></tr>
+      <tr><td>Separation</td><td>Stop smoothing at edges</td><td>Wildfire stops at a river (boundary)</td></tr>
+      <tr><td>Adaptive</td><td>Smoothing amount varies by location</td><td>More smoothing in noisy areas, less at edges</td></tr>
+      <tr><td>Structural</td><td>Respects data structure/features</td><td>Smoothing follows the shape of the data</td></tr>
+      <tr><td>Similarity test</td><td>Statistical test: are these two points similar?</td><td>Are these two pixels the same color range?</td></tr>
+    </table>
+
+    <h3>Importance in Data Visualization Clarity</h3>
+    <pre>
+WITHOUT PS SMOOTHING:        WITH PS SMOOTHING:
+  Image with noise:            Cleaned image:
+  ▒▓█░▓▒▓░█▒░▓▒              ░░░░░███████░░
+  ░▒▓▒▓░▒░▒▓░▒              ░░░░░███████░░
+  █▒░▓░▒░▓▒░▓▒              ░░░░░███████░░
+  (noisy, hard to see shape)   (clear object, sharp edges)
+
+Benefits for Visualization:
+  ✓ Removes measurement noise for cleaner charts
+  ✓ Preserves actual data features (peaks, edges, boundaries)
+  ✓ Better signal-to-noise ratio
+  ✓ Enables correct pattern recognition
+  ✓ Used in medical imaging, satellite imagery, financial signals</pre>
+
+    <h3>Comparison — Traditional vs. Adaptive Smoothing</h3>
+    <table>
+      <tr><th>Feature</th><th>Traditional Smoothing</th><th>PS Adaptive Smoothing</th></tr>
+      <tr><td>Smoothing window</td><td>Fixed size everywhere</td><td>Adapts to local data structure</td></tr>
+      <tr><td>Edge handling</td><td>Blurs edges (bad)</td><td>Preserves edges (good)</td></tr>
+      <tr><td>Noise removal</td><td>Same amount everywhere</td><td>More in uniform, less at edges</td></tr>
+      <tr><td>Complexity</td><td>Simple (low compute)</td><td>Complex (iterative, high compute)</td></tr>
+      <tr><td>Output quality</td><td>Over-smooth, loses features</td><td>Clean + structure-preserving</td></tr>
+      <tr><td>Applications</td><td>Simple time series</td><td>Medical imaging, satellite, dense data</td></tr>
+    </table>
+
+    <h3>Real-World Applications</h3>
+    <ul>
+      <li><strong>Medical Imaging (MRI/CT):</strong> Remove scanner noise while preserving organ boundaries and tumor edges</li>
+      <li><strong>Satellite Imagery:</strong> Denoise remote sensing images while preserving field and road boundaries</li>
+      <li><strong>Financial Signals:</strong> Smooth stock price data adaptively — preserve trend changes (edges) but smooth random noise</li>
+      <li><strong>Climate Science:</strong> Smooth temperature maps while preserving coast and mountain boundaries</li>
+      <li><strong>Neuroscience:</strong> Clean fMRI brain activation maps while preserving region boundaries</li>
+    </ul>
+
+    <div class="warn"><strong>⭐ Exam Point:</strong> The key differentiator of PS methods is edge-preservation. Always contrast PS smoothing with naive/Gaussian smoothing (which destroys edges). The two core mechanisms (Propagation + Separation) must be defined clearly in any answer.</div>
+    <div class="ok"><strong>Memory Trick:</strong> PS = <strong>Preserve Structure</strong>. Propagate where same, Separate where different. Think of a river stopping a wildfire.</div>
+    <div class="kws"><span class="kw">Propagation</span><span class="kw">Separation</span><span class="kw">Adaptive Smoothing</span><span class="kw">Edge Preservation</span><span class="kw">Noise Reduction</span><span class="kw">PS Method</span><span class="kw">Structural Smoothing</span></div>
+  </div>
+</div>
+
+<!-- T6: Smoothing Techniques -->
+<div class="card">
+  <div class="ch" onclick="tog(this)"><h2>Topic 6: Smoothing Techniques for Visualization</h2><span class="tnum">Topic 06</span></div>
+  <div class="cb">
+    <div class="def"><strong>Definition:</strong> Smoothing techniques for visualization are mathematical methods used to reduce noise and random fluctuations in data, producing a cleaner, clearer representation that reveals underlying trends and patterns — making visualizations more interpretable and meaningful.</div>
+
+    <h3>Why Smoothing is Needed</h3>
+    <pre>
+BEFORE SMOOTHING:                 AFTER SMOOTHING:
+  Temperature over 30 days:        Smoothed temperature trend:
+  Temp
+   40 │ ·  ·   ·   ·   ·           40 │
+   35 │   ·  ·   ·                  35 │        _____
+   30 │         ·  ·  ·  ·          30 │  _____/     \____
+   25 │·  ·          ·              25 │
+      └──────────────────              └──────────────────
+         (noisy, chaotic)                (clear trend: summer peak)
+
+Smoothing removes day-to-day variation, reveals seasonal pattern clearly.</pre>
+
+    <h3>Smoothing Technique 1: Moving Average</h3>
+    <div class="def">Moving Average replaces each data point with the average of its neighboring points in a sliding window. Simple and effective for time series data.</div>
+    <pre>
+MOVING AVERAGE (Window size = 3):
+
+Original data:   10  12  8  15  11  14  9  13
+                 ──────────────────────────────
+Window at pos 3: [10, 12,  8] → average = 10.0
+Window at pos 4: [12,  8, 15] → average = 11.7
+Window at pos 5: [ 8, 15, 11] → average = 11.3
+Window at pos 6: [15, 11, 14] → average = 13.3
+
+Smoothed:        10  10  11.3  11.3  13.3  ...
+
+Original:   /\_/\/\_/\
+Smoothed:   /‾‾‾\__/‾
+
+TYPES OF MOVING AVERAGE:
+  Simple MA:      All points in window have equal weight
+  Weighted MA:    More recent points get higher weight
+  Exponential MA: Weight decreases exponentially with age (most responsive)</pre>
+
+    <h3>Smoothing Technique 2: Gaussian Smoothing (Gaussian Filter)</h3>
+    <div class="def">Gaussian smoothing applies a weighted average where weights follow a Gaussian (bell curve) distribution — nearby points get higher weight, distant points get lower weight.</div>
+    <pre>
+GAUSSIAN WEIGHTS:
+
+       σ = bandwidth (controls spread)
+       
+  Gaussian kernel:      _
+                       / \
+                      /   \          (bell curve)
+                  ___/     \___
+
+  Weights: 0.05  0.24  0.40  0.24  0.05  (sum=1.0)
+           (far)        (center)    (far)
+
+Example:
+  Data:    10    12    8    15    11
+  Gaussian
+  weights: 0.05 0.24 0.40 0.24 0.05
+  Smoothed value at center = 0.05×10 + 0.24×12 + 0.40×8 + 0.24×15 + 0.05×11
+                           = 0.5 + 2.88 + 3.2 + 3.6 + 0.55 = 10.73
+
+KEY PROPERTY: Gaussian smoothing preserves areas away from edges better
+              than simple moving average but still blurs sharp edges.</pre>
+
+    <h3>Smoothing Technique 3: LOESS / LOWESS</h3>
+    <div class="def">LOESS (Locally Estimated Scatterplot Smoothing) fits a polynomial regression locally at each point using neighboring data points, producing a smooth curve that follows the data's local shape.</div>
+    <pre>
+LOESS SMOOTHING:
+
+Scatter data:   ·   · ·  ·   · ·  ·  ·
+                  ·   ·   · ·    ·  ·
+
+LOESS curve:    ___/‾\___/‾‾\___
+                (follows local trends without global assumptions)
+
+PARAMETERS:
+  span (α): fraction of data used in each local fit (0.1 to 1.0)
+  Small α → wiggly curve (follows data closely)
+  Large α → smooth curve (more global trend)
+
+USE IN VISUALIZATION:
+  Commonly added to scatter plots as a trend line
+  Used in ggplot2 (R): geom_smooth(method="loess")</pre>
+
+    <h3>Smoothing Technique 4: Spline Interpolation</h3>
+    <div class="def">Spline smoothing fits piecewise polynomial curves (splines) through or near data points, creating a smooth, continuous curve.</div>
+    <pre>
+SPLINE INTERPOLATION:
+
+  Data points: (1,2), (3,5), (5,3), (7,6), (9,4)
+
+  Linear interpolation:   /\  /\  (sharp corners at data points)
+  Cubic spline:          /‾\_/‾\  (smooth, natural-looking curves)
+
+TYPES:
+  Natural Cubic Spline:  Smoothest curve through all data points
+  Smoothing Spline:      Balances fit accuracy vs. smoothness
+  B-Spline:              Controlled by control points (used in graphics)
+  
+APPLICATION: Animating transitions in interactive visualizations,
+             smooth chart lines in D3.js and Plotly</pre>
+
+    <h3>Smoothing Technique 5: Savitzky-Golay Filter</h3>
+    <div class="def">Fits a polynomial of fixed degree to a sliding window of data points using least squares — produces smooth output while better preserving peaks, valleys, and widths than simple moving average.</div>
+    <pre>
+SAVITZKY-GOLAY vs MOVING AVERAGE:
+
+  Raw:          /\    /\
+               /  \  /  \
+
+  Moving avg:  /----\/----\  (peaks flattened — bad!)
+
+  Sav-Golay:   /\    /\      (peaks preserved — good!)
+               /  \  /  \
+
+Used in: Spectroscopy, chromatography, EEG/ECG signal visualization</pre>
+
+    <h3>Smoothing Technique 6: Noise Filtering</h3>
+    <pre>
+TYPES OF NOISE FILTERING:
+  Low-pass filter:  Remove high-frequency noise (rapid fluctuations)
+                    → keeps slow trends (temperature over months)
+  
+  High-pass filter: Remove low-frequency trends
+                    → keeps rapid changes (stock intraday moves)
+  
+  Band-pass filter: Keep only a specific frequency range
+                    → used in EEG (brain waves at specific Hz)
+
+VISUALIZATION EXAMPLE:
+  Original ECG signal:  /\/\/\/\/\/\/\/\/\/\/\
+  After low-pass:       /‾‾‾\/‾‾‾\/‾‾‾\       (clean heartbeat)</pre>
+
+    <h3>Comparison of Smoothing Techniques</h3>
+    <table>
+      <tr><th>Technique</th><th>How it Works</th><th>Preserves Edges?</th><th>Best For</th></tr>
+      <tr><td>Moving Average</td><td>Sliding window average</td><td>No — blurs edges</td><td>Simple time series, stock prices</td></tr>
+      <tr><td>Gaussian Smoothing</td><td>Bell-curve weighted average</td><td>Partially</td><td>Image processing, signal cleanup</td></tr>
+      <tr><td>LOESS</td><td>Local polynomial fit</td><td>Partially</td><td>Scatter plot trend lines</td></tr>
+      <tr><td>Spline</td><td>Piecewise polynomials</td><td>Yes (smooth curves)</td><td>Interpolation, animation</td></tr>
+      <tr><td>Savitzky-Golay</td><td>Least-squares polynomial window</td><td>Better than MA</td><td>Spectroscopy, ECG/EEG signals</td></tr>
+      <tr><td>PS Adaptive</td><td>Propagation + separation</td><td>Yes — best edge preservation</td><td>Images, MRI, satellite data</td></tr>
+    </table>
+
+    <h3>Raw Data vs. Smoothed Data — Visual Comparison</h3>
+    <pre>
+RAW vs SMOOTHED DATA VISUALIZATION:
+
+         RAW DATA                SMOOTHED DATA
+Temp
+ 40 │· · ·  ·                    40 │
+ 35 │     ·  ·    ·               35 │    ____
+ 30 │ ·       · ·   ·   ·         30 │___/    \___
+ 25 │·             ·  ·  ·        25 │
+    └──────────────────               └──────────────────
+    Jan Feb Mar Apr May Jun          Jan Feb Mar Apr May Jun
+
+Insight from smoothed: Temperature rises sharply in Mar-Apr (summer)
+                        then drops in May-Jun (monsoon cooling)</pre>
+
+    <h3>Applications of Smoothing Techniques</h3>
+    <ul>
+      <li><strong>Financial Markets:</strong> 7-day, 30-day, 200-day moving averages of stock prices</li>
+      <li><strong>Weather Forecasting:</strong> Gaussian smoothing of temperature forecasts for cleaner maps</li>
+      <li><strong>Healthcare:</strong> Smoothing ECG, EEG, blood pressure readings for diagnosis</li>
+      <li><strong>Machine Learning:</strong> Learning curve smoothing (loss vs epochs) to see training trend</li>
+      <li><strong>Image Processing:</strong> Gaussian blur to remove camera noise before object detection</li>
+      <li><strong>Climate Science:</strong> Smoothing CO₂ concentration data to show long-term trend</li>
+    </ul>
+
+    <div class="warn"><strong>⭐ Exam Point:</strong> The comparison table of smoothing techniques is very exam-relevant. Always distinguish Moving Average (simplest), Gaussian (bell-curve weights), LOESS (local polynomial), and PS Adaptive (edge-preserving). Include the "Raw vs Smoothed" ASCII diagram in answers.</div>
+    <div class="ok"><strong>Memory Trick:</strong> Smoothing Methods = <strong>MGLSS</strong> — Moving average, Gaussian, LOESS, Spline, Savitzky-Golay. Remember: "My Grandma Loves Smooth Signals."</div>
+    <div class="kws"><span class="kw">Moving Average</span><span class="kw">Gaussian Smoothing</span><span class="kw">LOESS</span><span class="kw">Spline Interpolation</span><span class="kw">Savitzky-Golay</span><span class="kw">Noise Filtering</span><span class="kw">Curve Fitting</span><span class="kw">Low-pass Filter</span></div>
+  </div>
+</div>
+</div>
+<!-- ======= END NOTES ======= -->
+
+<!-- ======= DIAGRAMS ======= -->
+<div id="s-diagrams" class="sec">
+  <h2 style="font-size:18px;font-weight:500;margin-bottom:1rem">Important Exam Diagrams — Unit III</h2>
+  <p style="font-size:13px;color:var(--color-text-secondary);margin-bottom:1rem">All diagrams below are directly drawable in semester examinations. Study each with its label and explanation.</p>
+
+  <div class="card">
+    <div class="ch" onclick="tog(this)"><h2>Exam Diagram 1: MDS Pipeline &amp; 2D Projection</h2><span class="tnum">Draw in exam</span></div>
+    <div class="cb op">
+<pre>
+MULTIDIMENSIONAL SCALING — COMPLETE PIPELINE
+═══════════════════════════════════════════════════════════════════
+
+STEP 1: High-Dimensional Input Data
+        Item A: [f1=2, f2=5, f3=8, f4=1, ..., fn]
+        Item B: [f1=7, f2=2, f3=3, f4=9, ..., fn]
+        Item C: [f1=4, f2=4, f3=6, f4=3, ..., fn]
+
+STEP 2: Compute Dissimilarity Matrix
+              A    B    C
+        A  [  0    5    2  ]
+        B  [  5    0    4  ]
+        C  [  2    4    0  ]
+
+STEP 3: Initialize random 2D coordinates
+
+STEP 4: Minimize Stress Function
+        Stress = √[ Σ(d_ij - δ_ij)² / Σ(δ_ij)² ]
+
+STEP 5: Final 2D Layout
+
+  Y
+  │    * C (close to A — low dissimilarity)
+  │
+  │         * A
+  │
+  │                      * B (far from A — high dissimilarity)
+  └──────────────────────────── X
+
+  ✓ C and A are close  (dissimilarity = 2 → short distance on map)
+  ✓ A and B are far    (dissimilarity = 5 → long distance on map)
+  ✓ Stress close to 0 = good mapping
+
+STRESS QUALITY TABLE:
+  0.00–0.05 → Excellent   0.05–0.10 → Good
+  0.10–0.20 → Fair        > 0.20    → Poor
+═══════════════════════════════════════════════════════════════════</pre>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ch" onclick="tog(this)"><h2>Exam Diagram 2: KDE — Kernel Density Estimation</h2><span class="tnum">Draw in exam</span></div>
+    <div class="cb op">
+<pre>
+KERNEL DENSITY ESTIMATION — STEP BY STEP
+═══════════════════════════════════════════════════════════════════
+
+DATA POINTS:      ·     ·          ·   ·    ·
+                  x1    x2         x3  x4   x5
+
+STEP 1: Place a Gaussian kernel at each data point:
+
+         ∩     ∩          ∩   ∩    ∩
+         x1    x2         x3  x4   x5
+
+STEP 2: Sum all kernels at each location:
+
+  KDE curve:
+  Density
+    │          ___
+    │    _    /   \      ___
+    │   / \  /     \    /   \
+    │  /   \/       \__/     \_
+    └──────────────────────────── x
+         (two density peaks visible)
+
+BANDWIDTH EFFECT ON KDE:
+  h too small:   /\/\/\/\  (spiky — overfitting)
+  h optimal:     /\   /\   (smooth — just right)
+  h too large:   /‾‾‾‾‾\   (flat — underfitting)
+
+DENSITY BAR REPRESENTATION:
+  High  █████████████  (many points here)
+  Med   ████████
+  Low   ████
+  Min   █
+
+FORMULA: f̂(x) = (1/nh) × Σ K((x − xᵢ)/h)
+  n = data points, h = bandwidth, K = kernel function
+═══════════════════════════════════════════════════════════════════</pre>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ch" onclick="tog(this)"><h2>Exam Diagram 3: Structured Graph Types</h2><span class="tnum">Draw in exam</span></div>
+    <div class="cb op">
+<pre>
+STRUCTURED SETS OF GRAPHS — EXAM DIAGRAM
+═══════════════════════════════════════════════════════════════════
+
+1. HIERARCHICAL GRAPH (Tree):
+              [Root]
+             /      \
+          [A]        [B]
+         /   \      /   \
+       [C]  [D]   [E]  [F]
+       
+   Rule: One root, each node has one parent, no cycles
+
+2. CLUSTERED GRAPH (Community Detection):
+   Community 1:      Community 2:    Community 3:
+   (A)--(B)--(C)                     (G)--(H)
+         |          (D)--(E)              |
+        (A)──────── (F) ───────────────(I)
+   [Dense intra-cluster connections, sparse inter-cluster]
+
+3. DYNAMIC GRAPH (Time-evolving):
+   T=1:  (A)─(B)     T=2:  (A)─(B)─(C)    T=3:  (A)─(B)─(C)
+                                                        |
+                                                       (D)
+   [New nodes/edges appear over time]
+
+4. BIPARTITE GRAPH (Two-set):
+   Users:   Movies:
+   U1 ────► M1
+   U1 ────► M2
+   U2 ────► M2
+   U3 ────► M3
+   [Users on left, movies on right, edges = ratings]
+═══════════════════════════════════════════════════════════════════</pre>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ch" onclick="tog(this)"><h2>Exam Diagram 4: Smoothing Techniques Comparison</h2><span class="tnum">Most asked</span></div>
+    <div class="cb op">
+<pre>
+SMOOTHING TECHNIQUES — VISUAL COMPARISON
+═══════════════════════════════════════════════════════════════════
+
+ORIGINAL (noisy) DATA:
+Temp
+ 40│ ·  · ·  ·  ·
+ 35│   ·   ·   ·
+ 30│·  ·     ·   ·
+   └──────────────── Time
+   (Random fluctuations — hard to see trend)
+
+AFTER MOVING AVERAGE (window=3):
+ 40│     __
+ 35│ ___/  \__
+ 30│         \_
+   └──────────────── Time
+   (Smoother — but edges and peaks are blurred)
+
+AFTER GAUSSIAN SMOOTHING:
+ 40│      __
+ 35│ ____/  \___
+ 30│            \_
+   └──────────────── Time
+   (Bell-curve weights — naturally smooth)
+
+AFTER LOESS:
+ 40│      /\
+ 35│ ____/  \___
+ 30│             \_
+   └──────────────── Time
+   (Follows local shape — best for scatter plots)
+
+AFTER PS ADAPTIVE SMOOTHING:
+ 40│· · /‾‾\ · ·
+ 35│___/      \___
+ 30│               \_
+   └──────────────── Time
+   (Noise removed, but edge/step preserved — BEST for structured data)
+
+CONCLUSION:
+  Simple noisy data  → Moving Average
+  Images/signals     → Gaussian
+  Scatter trend      → LOESS
+  Edge-preserve data → PS Adaptive (Propagation-Separation)
+═══════════════════════════════════════════════════════════════════</pre>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ch" onclick="tog(this)"><h2>Exam Diagram 5: Contour Plot (Density Visualization)</h2><span class="tnum">Draw in exam</span></div>
+    <div class="cb op">
+<pre>
+CONTOUR PLOT — 2D DENSITY VISUALIZATION
+═══════════════════════════════════════════════════════════════════
+
+  Y
+  │
+  │       ╭──────────────╮
+  │     ╭─╯              ╰─╮
+  │    ╭╯    ╭──────╮      ╰╮
+  │    │    ╭╯ PEAK ╰╮      │
+  │    │    │ (high  │      │
+  │    │    ╰╮density╭╯      │
+  │    ╰╮    ╰──────╯      ╭╯
+  │     ╰─╮              ╭─╯
+  │       ╰──────────────╯
+  └──────────────────────────── X
+
+EXPLANATION:
+  Innermost contour = HIGHEST density (most data points here)
+  Outermost contour = LOWEST density (fewest data points here)
+  
+  → Like altitude lines on a topographic map:
+    Mountain peak = high density region (data cluster)
+    Valley = low density region (sparse data)
+
+REAL EXAMPLE: Height vs. Weight density contour
+  Inner ring: Most people are 165cm tall, 70kg weight
+  Outer ring: Fewer people at extreme heights/weights
+
+HEATMAP EQUIVALENT:
+  Low  ░░░░░░░░░░░░░░░░░
+  Med  ░░▒▒▒▒▒▒▒▒▒▒░░░░
+  High ░▒▒▓▓▓▓▓▓▓▓▒▒░░░
+  Peak ░▒▓▓█████▓▓▒░░░░
+       ░░▒▒▒▒▒▒▒▒▒▒░░░░
+═══════════════════════════════════════════════════════════════════</pre>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ch" onclick="tog(this)"><h2>Exam Diagram 6: PS Adaptive Smoothing (Propagation-Separation)</h2><span class="tnum">Draw in exam</span></div>
+    <div class="cb op">
+<pre>
+PROPAGATION-SEPARATION METHOD — EXAM DIAGRAM
+═══════════════════════════════════════════════════════════════════
+
+NOISY INPUT DATA (1D example):
+  ___/\/\/\/\_______________/\/\/\___
+  [Low flat]  [noisy edge]  [High flat]
+
+STEP 1: Compute similarity between each pair of neighbors
+
+  Position: A  B  C | D  E  F  G | H  I  J
+  Value:     2  2  3  7  7  8  7   7  7  8
+                     ↑ EDGE (large difference detected here!)
+
+STEP 2: Apply Propagation where similar:
+  A~B~C → PROPAGATE → share smoothing → values become smooth 2,2,2
+  H~I~J → PROPAGATE → share smoothing → values become smooth 7,7,7
+
+STEP 3: Apply Separation at edge:
+  C vs D → very different → SEPARATE → do NOT share info
+                                        preserve the jump!
+
+RESULT:
+  Input:   __/\/\___________/\/\____
+  Output:  _______/‾‾‾‾‾‾‾‾\________
+           [smooth] [edge]  [smooth]
+
+COMPARISON:
+  Naive smoothing:   ___/‾‾‾‾‾\________  (edge blurred — WRONG)
+  PS smoothing:      ____/‾‾‾‾‾‾‾‾‾\___  (edge sharp — CORRECT)
+
+KEY RULE:
+  Similar neighbors  →  PROPAGATE (smooth together)
+  Different neighbors → SEPARATE  (keep boundary)
+═══════════════════════════════════════════════════════════════════</pre>
+    </div>
+  </div>
+</div>
+
+<!-- ======= COMPARISON TABLES ======= -->
+<div id="s-compare" class="sec">
+  <h2 style="font-size:18px;font-weight:500;margin-bottom:1rem">Comparison Tables — Unit III</h2>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>MDS vs PCA</h2><span class="tnum">5-mark favourite</span></div>
+  <div class="cb op">
+    <table>
+      <tr><th>Feature</th><th>MDS</th><th>PCA</th></tr>
+      <tr><td>Full Name</td><td>Multidimensional Scaling</td><td>Principal Component Analysis</td></tr>
+      <tr><td>Input</td><td>Distance / dissimilarity matrix</td><td>Raw data matrix (features × samples)</td></tr>
+      <tr><td>Output</td><td>2D/3D coordinate layout</td><td>Principal component scores + loadings</td></tr>
+      <tr><td>Objective</td><td>Preserve pairwise distances between points</td><td>Maximize variance explained</td></tr>
+      <tr><td>Type</td><td>Can be non-linear (non-metric MDS)</td><td>Always linear</td></tr>
+      <tr><td>Data needed</td><td>Only distances (no original features needed)</td><td>Requires full feature matrix</td></tr>
+      <tr><td>Axis meaning</td><td>Axes have no direct meaning</td><td>Axes = principal components (interpretable)</td></tr>
+      <tr><td>Stress</td><td>Uses Stress function to measure fit quality</td><td>Uses explained variance ratio</td></tr>
+      <tr><td>Best for</td><td>Psychological data, market research, perceptual data</td><td>High-D numeric data, image compression, genomics</td></tr>
+      <tr><td>Classical MDS vs PCA</td><td>Equivalent when using Euclidean distance</td><td>—</td></tr>
+    </table>
+    <div class="ok"><strong>One-line exam answer:</strong> MDS preserves inter-point distances from a dissimilarity matrix; PCA maximizes variance in the original feature space. MDS needs only distances; PCA needs raw data.</div>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Density Estimation vs Clustering</h2><span class="tnum">5-mark topic</span></div>
+  <div class="cb op">
+    <table>
+      <tr><th>Feature</th><th>Density Estimation</th><th>Clustering</th></tr>
+      <tr><td>Output type</td><td>Continuous density surface / function</td><td>Discrete group labels (cluster IDs)</td></tr>
+      <tr><td>Interpretation</td><td>Probability of data at each location</td><td>This point belongs to group X</td></tr>
+      <tr><td>Boundaries</td><td>Soft — gradual density transition</td><td>Hard — sharp cluster boundary</td></tr>
+      <tr><td>Outliers</td><td>Low-density regions (no special handling)</td><td>Outliers may be noise or separate cluster</td></tr>
+      <tr><td>Algorithms</td><td>KDE, histogram, Parzen window</td><td>K-means, DBSCAN, hierarchical, GMM</td></tr>
+      <tr><td>Visualization</td><td>Heatmap, contour plot, density surface</td><td>Color-coded scatter plot, dendrogram</td></tr>
+      <tr><td>Assumption</td><td>No assumption about number of groups</td><td>Usually requires k (number of clusters)</td></tr>
+      <tr><td>Best use</td><td>Understanding distribution, finding modes</td><td>Segmentation, grouping, labeling</td></tr>
+    </table>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Smoothing Techniques Comparison</h2><span class="tnum">10-mark topic</span></div>
+  <div class="cb op">
+    <table>
+      <tr><th>Method</th><th>Principle</th><th>Preserves Edges?</th><th>Complexity</th><th>Best Used For</th></tr>
+      <tr><td>Moving Average</td><td>Sliding window mean</td><td>No</td><td>Low</td><td>Stock prices, simple time series</td></tr>
+      <tr><td>Weighted MA</td><td>Recent values get more weight</td><td>No</td><td>Low</td><td>Financial indicators (EMA)</td></tr>
+      <tr><td>Gaussian Filter</td><td>Bell-curve weighted average</td><td>Partially</td><td>Low-Med</td><td>Image denoising, signal cleanup</td></tr>
+      <tr><td>LOESS</td><td>Local polynomial regression</td><td>Partially</td><td>Medium</td><td>Scatter plot trendlines, regression</td></tr>
+      <tr><td>Spline</td><td>Piecewise polynomial curves</td><td>Yes (smooth curves)</td><td>Medium</td><td>Interpolation, animation curves</td></tr>
+      <tr><td>Savitzky-Golay</td><td>Least-squares polynomial window</td><td>Better than MA</td><td>Medium</td><td>Spectroscopy, ECG/EEG signals</td></tr>
+      <tr><td>PS Adaptive</td><td>Propagation-separation (edge-aware)</td><td>Yes — best</td><td>High</td><td>Medical imaging, MRI, satellite</td></tr>
+    </table>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Raw Data vs Smoothed Data</h2><span class="tnum">2-mark favourite</span></div>
+  <div class="cb op">
+    <table>
+      <tr><th>Aspect</th><th>Raw Data</th><th>Smoothed Data</th></tr>
+      <tr><td>Noise</td><td>Contains measurement noise and random fluctuations</td><td>Noise reduced or removed</td></tr>
+      <tr><td>Trend visibility</td><td>Hidden under fluctuations</td><td>Underlying trend clearly visible</td></tr>
+      <tr><td>Visualization clarity</td><td>Jagged, hard to interpret</td><td>Clean, easy to read</td></tr>
+      <tr><td>Data fidelity</td><td>Exact original values preserved</td><td>Some information lost (trade-off)</td></tr>
+      <tr><td>Best for</td><td>Audit, data integrity checking</td><td>Presentation, pattern detection</td></tr>
+      <tr><td>Example</td><td>Daily stock price (very volatile)</td><td>50-day moving average (smooth trend)</td></tr>
+    </table>
+    <div class="ok"><strong>One-line exam answer:</strong> Raw data shows exact recorded values with noise; smoothed data applies mathematical filtering to remove noise and reveal the underlying trend or pattern.</div>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Traditional Smoothing vs PS Adaptive Smoothing</h2><span class="tnum">5-mark topic</span></div>
+  <div class="cb op">
+    <table>
+      <tr><th>Feature</th><th>Traditional Smoothing</th><th>PS Adaptive Smoothing</th></tr>
+      <tr><td>Window size</td><td>Fixed — same everywhere</td><td>Adaptive — varies by local structure</td></tr>
+      <tr><td>Edge handling</td><td>Blurs edges (destroys features)</td><td>Detects and preserves edges (separation)</td></tr>
+      <tr><td>Homogeneous regions</td><td>Smoothed uniformly</td><td>Strongly smoothed (propagation)</td></tr>
+      <tr><td>Complexity</td><td>Simple, low computation</td><td>Complex, iterative, high computation</td></tr>
+      <tr><td>Output quality</td><td>Over-smoothed, features lost</td><td>Clean + structure-preserving</td></tr>
+      <tr><td>Typical use</td><td>Simple 1D time series</td><td>Medical images, MRI, satellite, fMRI</td></tr>
+    </table>
+  </div></div>
+</div>
+
+<!-- ======= EXAM Q&A ======= -->
+<div id="s-questions" class="sec">
+  <h2 style="font-size:18px;font-weight:500;margin-bottom:1rem">Exam Questions &amp; Model Answers</h2>
+
+  <h3 style="margin-bottom:.6rem;font-size:14px;color:var(--color-text-secondary)">2-Mark Questions</h3>
+
+  <div class="qb">
+    <div class="qh" onclick="togQ(this)"><span>Q1. Define Multidimensional Scaling (MDS).</span><span class="qm">2 marks</span></div>
+    <div class="qa">
+      <p><strong>Answer:</strong> Multidimensional Scaling (MDS) is a dimensionality reduction and visualization technique that represents high-dimensional data in a lower-dimensional space (usually 2D or 3D) while preserving the pairwise distances or dissimilarities between data points as closely as possible. It takes a distance/dissimilarity matrix as input and outputs a set of coordinates in 2D or 3D space such that similar objects appear close together and dissimilar objects appear far apart.</p>
+    </div>
+  </div>
+
+  <div class="qb">
+    <div class="qh" onclick="togQ(this)"><span>Q2. What is the Stress function in MDS?</span><span class="qm">2 marks</span></div>
+    <div class="qa">
+      <p><strong>Answer:</strong> The Stress function measures the quality of the MDS projection — how well the 2D distances match the original high-dimensional distances.</p>
+      <p><strong>Formula:</strong> Stress = √[ Σ(d_ij − δ_ij)² / Σ(δ_ij)² ]</p>
+      <p>Where d_ij = original distance, δ_ij = projected distance. A Stress value near 0 indicates an excellent fit. Values below 0.05 are excellent, below 0.10 are good, and above 0.20 indicate a poor projection.</p>
+    </div>
+  </div>
+
+  <div class="qb">
+    <div class="qh" onclick="togQ(this)"><span>Q3. What is Kernel Density Estimation (KDE)?</span><span class="qm">2 marks</span></div>
+    <div class="qa">
+      <p><strong>Answer:</strong> Kernel Density Estimation (KDE) is a non-parametric method for estimating the probability density function (PDF) of a random variable. It places a smooth kernel function (typically Gaussian) at each data point and sums all kernels to produce a smooth density curve or surface. The bandwidth parameter (h) controls the smoothness — a small bandwidth gives a spiky estimate and a large bandwidth gives an over-smooth estimate.</p>
+      <p><strong>Formula:</strong> f̂(x) = (1/nh) × Σ K((x − xᵢ)/h)</p>
+    </div>
+  </div>
+
+  <div class="qb">
+    <div class="qh" onclick="togQ(this)"><span>Q4. Differentiate between Moving Average and Gaussian Smoothing.</span><span class="qm">2 marks</span></div>
+    <div class="qa">
+      <table>
+        <tr><th>Moving Average</th><th>Gaussian Smoothing</th></tr>
+        <tr><td>All points in window have equal weight</td><td>Bell-curve weights — center point has most weight</td></tr>
+        <tr><td>Simple mean of window</td><td>Weighted mean using Gaussian kernel</td></tr>
+        <tr><td>Can produce artificial flat regions</td><td>Produces naturally smooth curve</td></tr>
+        <tr><td>Best for simple time series</td><td>Best for images and signals</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="qb">
+    <div class="qh" onclick="togQ(this)"><span>Q5. What is a Hierarchical Graph?</span><span class="qm">2 marks</span></div>
+    <div class="qa">
+      <p><strong>Answer:</strong> A hierarchical graph is a directed acyclic graph where nodes are organized into levels or layers with clear parent-child relationships. Every node (except the root) has exactly one parent. It has no cycles. Examples include company organization charts, file system directories, XML/HTML DOM trees, and biological classification systems. Hierarchical graphs are visualized as node-link trees, treemaps, or sunburst charts.</p>
+    </div>
+  </div>
+
+  <div class="qb">
+    <div class="qh" onclick="togQ(this)"><span>Q6. What are the two core mechanisms in PS Adaptive Smoothing?</span><span class="qm">2 marks</span></div>
+    <div class="qa">
+      <p><strong>Answer:</strong> The two core mechanisms in Propagation-Separation (PS) Adaptive Smoothing are:</p>
+      <ol>
+        <li><strong>Propagation:</strong> When neighboring data points are statistically similar (homogeneous region), smoothing information is propagated (spread) between them — effectively averaging out noise in uniform regions.</li>
+        <li><strong>Separation:</strong> When neighboring data points are significantly different (an edge or structural boundary is detected), smoothing is stopped — the edge is preserved without blurring across the boundary.</li>
+      </ol>
+    </div>
+  </div>
+
+  <h3 style="margin:.9rem 0 .6rem;font-size:14px;color:var(--color-text-secondary)">5-Mark Questions</h3>
+
+  <div class="qb">
+    <div class="qh" onclick="togQ(this)"><span>Q7. Explain MDS with the Stress function and a similarity matrix example.</span><span class="qm">5 marks</span></div>
+    <div class="qa">
+      <p><strong>Answer:</strong></p>
+      <p><strong>Multidimensional Scaling (MDS)</strong> is a dimensionality reduction technique that maps high-dimensional data to a lower-dimensional space (2D or 3D) while preserving the pairwise distances between data points.</p>
+      <p><strong>Process:</strong></p>
+      <ol>
+        <li>Compute the dissimilarity matrix between all pairs of data points</li>
+        <li>Initialize random 2D coordinates for each point</li>
+        <li>Iteratively adjust positions to minimize the Stress function</li>
+        <li>The final configuration is the MDS output</li>
+      </ol>
+      <p><strong>Similarity Matrix Example:</strong></p>
+      <pre>       A   B   C
+  A    0   2   5
+  B    2   0   3
+  C    5   3   0</pre>
+      <p><strong>2D Projection:</strong> A and B are placed close (distance=2), B and C are moderately apart (distance=3), A and C are far apart (distance=5).</p>
+      <p><strong>Stress Formula:</strong> Stress = √[ Σ(d_ij − δ_ij)² / Σ(δ_ij)² ]<br>
+      d_ij = original distance, δ_ij = projected distance. Lower Stress = better projection. Stress &lt; 0.05 = Excellent.</p>
+      <p><strong>Application:</strong> Recommendation systems (movie similarity maps), brand perception in market research, bioinformatics (gene expression maps).</p>
+    </div>
+  </div>
+
+  <div class="qb">
+    <div class="qh" onclick="togQ(this)"><span>Q8. Explain the challenges of Huge Multidimensional Data Visualization and methods to address them.</span><span class="qm">5 marks</span></div>
+    <div class="qa">
+      <p><strong>Answer:</strong></p>
+      <p><strong>Challenges:</strong></p>
+      <ol>
+        <li><strong>Overplotting:</strong> Millions of data points overlap, creating an unreadable black blob in scatter plots</li>
+        <li><strong>High Dimensionality:</strong> Cannot visualize 50+ features simultaneously in standard 2D charts</li>
+        <li><strong>Scalability:</strong> Most visualization tools slow down or crash with 1M+ records</li>
+        <li><strong>Visual Clutter:</strong> Too many elements make patterns invisible</li>
+        <li><strong>Real-time updates:</strong> Streaming data must be visualized continuously</li>
+      </ol>
+      <p><strong>Solutions:</strong></p>
+      <ol>
+        <li><strong>Sampling:</strong> Select a representative random or stratified subset (e.g., 1% of 10M records)</li>
+        <li><strong>Aggregation:</strong> Combine many records into summary statistics (daily totals instead of individual transactions)</li>
+        <li><strong>Binning:</strong> Group continuous values into intervals for histogram-style display</li>
+        <li><strong>Dimensionality Reduction:</strong> Use PCA, t-SNE, or MDS to project 50+ dimensions to 2D</li>
+        <li><strong>Level-of-Detail:</strong> Show overview at zoom-out, detail at zoom-in (like Google Maps)</li>
+        <li><strong>Parallel Coordinates:</strong> Visualize all features simultaneously as parallel vertical axes</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="qb">
+    <div class="qh" onclick="togQ(this)"><span>Q9. What is LOESS smoothing? How does it differ from Moving Average?</span><span class="qm">5 marks</span></div>
+    <div class="qa">
+      <p><strong>Answer:</strong></p>
+      <p><strong>LOESS (Locally Estimated Scatterplot Smoothing)</strong> is a non-parametric smoothing technique that fits a polynomial regression model locally at each data point using only neighboring points. It produces a smooth curve that follows the data's local shape without requiring a global function form.</p>
+      <p><strong>How LOESS works:</strong></p>
+      <ol>
+        <li>At each point x₀, select the nearest α fraction of data points (span/bandwidth parameter)</li>
+        <li>Fit a weighted polynomial (typically degree 1 or 2) to those neighbors, with closer points getting higher weights</li>
+        <li>The predicted value at x₀ from this local fit is the LOESS-smoothed value</li>
+        <li>Repeat for every point in the dataset</li>
+      </ol>
+      <p><strong>Comparison with Moving Average:</strong></p>
+      <table>
+        <tr><th>Feature</th><th>Moving Average</th><th>LOESS</th></tr>
+        <tr><td>Model</td><td>Simple mean of window</td><td>Local polynomial regression</td></tr>
+        <tr><td>Handles non-linear trends</td><td>Poorly</td><td>Well</td></tr>
+        <tr><td>Flexibility</td><td>Low</td><td>High (controlled by span)</td></tr>
+        <tr><td>Computation</td><td>Very fast</td><td>Slower</td></tr>
+        <tr><td>Best for</td><td>Regular time series</td><td>Scatter plot trendlines</td></tr>
+      </table>
+      <p><strong>Application:</strong> LOESS is widely used in R (ggplot2's geom_smooth), Python (statsmodels), and in exploratory data analysis to visualize nonlinear trends in scatter plots.</p>
+    </div>
+  </div>
+
+  <h3 style="margin:.9rem 0 .6rem;font-size:14px;color:var(--color-text-secondary)">10-Mark Essay Questions</h3>
+
+  <div class="qb">
+    <div class="qh" onclick="togQ(this)"><span>Q10. Explain Multidimensional Scaling (MDS) in detail — purpose, types, stress function, and applications.</span><span class="qm">10 marks</span></div>
+    <div class="qa">
+      <p><strong>Answer:</strong></p>
+      <p><strong>1. Definition and Purpose:</strong><br>
+      Multidimensional Scaling (MDS) is a dimensionality reduction and data visualization technique that represents objects in a low-dimensional space (2D or 3D) such that the distances between objects in the low-dimensional space closely match their dissimilarities in the original high-dimensional space. The goal is to reveal hidden structure and facilitate visual exploration of complex datasets.</p>
+
+      <p><strong>2. The MDS Pipeline:</strong></p>
+      <ol>
+        <li>Collect high-dimensional data or directly obtain dissimilarity information</li>
+        <li>Construct the dissimilarity matrix D where D[i,j] = dissimilarity between objects i and j</li>
+        <li>Initialize random 2D/3D coordinates for each object</li>
+        <li>Iteratively adjust positions to minimize the Stress function</li>
+        <li>Final coordinate configuration is the MDS map</li>
+      </ol>
+
+      <p><strong>3. Similarity/Dissimilarity Matrix Example:</strong></p>
+      <pre>         A    B    C
+    A  [  0    2    5  ]
+    B  [  2    0    3  ]
+    C  [  5    3    0  ]
+    
+    MDS 2D Output:
+    * A (center)
+          * B (near A — dissimilarity 2)
+                          * C (far from A — dissimilarity 5)</pre>
+
+      <p><strong>4. The Stress Function:</strong><br>
+      Stress = √[ Σ(d_ij − δ_ij)² / Σ(δ_ij)² ]<br>
+      where d_ij = original dissimilarity, δ_ij = distance in projected 2D space.<br>
+      Interpretation: Stress &lt; 0.05 = Excellent; 0.05–0.10 = Good; 0.10–0.20 = Fair; &gt; 0.20 = Poor.</p>
+
+      <p><strong>5. Types of MDS:</strong></p>
+      <ul>
+        <li><strong>Classical MDS (cMDS):</strong> Uses Euclidean distances; equivalent to PCA. Fast and closed-form solution.</li>
+        <li><strong>Metric MDS:</strong> Assumes dissimilarities are proportional to actual distances. Minimizes Stress directly.</li>
+        <li><strong>Non-metric MDS (nMDS):</strong> Only requires rank order of dissimilarities (not actual values). Used when only ordinal information is available (e.g., survey rankings: "A is more similar to B than to C").</li>
+      </ul>
+
+      <p><strong>6. 2D and 3D Projection:</strong><br>
+      When Stress in 2D is acceptable (&lt;0.10), a 2D map is used. When 2D Stress is too high, 3D projection is considered. 3D adds depth (z-axis), capturing more of the original distance structure, but is harder to display and interpret.</p>
+
+      <p><strong>7. Applications:</strong></p>
+      <ul>
+        <li><strong>Recommendation Systems:</strong> Movies or products placed close in MDS space are recommended to users who liked nearby items</li>
+        <li><strong>Market Research:</strong> Brand perception maps — competing brands positioned in 2D based on consumer survey data</li>
+        <li><strong>Bioinformatics:</strong> Gene expression maps — genes with similar expression cluster together</li>
+        <li><strong>NLP:</strong> Document similarity maps — semantically similar documents cluster together</li>
+        <li><strong>Clustering Visualization:</strong> MDS reveals cluster structure visually before applying formal clustering algorithms</li>
+        <li><strong>Psychology:</strong> Color/smell perception studies — perceptual distances mapped in 2D</li>
+      </ul>
+
+      <p><strong>8. MDS vs PCA:</strong><br>
+      MDS inputs a dissimilarity matrix and preserves pairwise distances. PCA inputs raw feature data and maximizes variance. Classical MDS equals PCA when Euclidean distances are used. MDS axes have no inherent meaning; PCA axes are principal components.</p>
+
+      <p><strong>Conclusion:</strong> MDS is a powerful tool for visualizing the similarity structure of complex, high-dimensional data. Its key strength is that it works from dissimilarity information alone, making it applicable in contexts where original features are unavailable or unmeasurable, and it directly produces interpretable 2D visual maps of data similarity.</p>
+    </div>
+  </div>
+
+  <div class="qb">
+    <div class="qh" onclick="togQ(this)"><span>Q11. Explain Smoothing Techniques for Data Visualization — at least 4 methods with diagrams, comparison, and applications.</span><span class="qm">10 marks</span></div>
+    <div class="qa">
+      <p><strong>Answer:</strong></p>
+      <p><strong>1. Introduction:</strong><br>
+      Smoothing techniques are mathematical methods used to reduce random noise and short-term fluctuations in data, making the underlying trend or pattern clearer and easier to visualize. Smoothed data is easier to interpret in charts and dashboards.</p>
+
+      <p><strong>2. Moving Average:</strong><br>
+      Replaces each data point with the average of points in a sliding window.<br>
+      Formula: MA(t) = (1/k) × Σ x(t−i) for i = 0 to k−1<br>
+      Types: Simple MA, Weighted MA (recent data weighted more), Exponential MA (exponentially decreasing weights).<br>
+      Use: Stock market technical analysis (7-day MA, 50-day MA, 200-day MA).<br>
+      Limitation: Blurs peaks and edges; delayed response to sudden changes.</p>
+
+      <p><strong>3. Gaussian Smoothing:</strong><br>
+      Uses a Gaussian (bell-curve) weighted average. Center point gets highest weight, distant points get exponentially lower weights.<br>
+      Controlled by σ (standard deviation) — larger σ = more smoothing.<br>
+      Use: Image denoising, weather forecast map smoothing, signal cleanup.<br>
+      Advantage over MA: More natural smooth curve; less prone to flat regions.</p>
+
+      <p><strong>4. LOESS (Locally Estimated Scatterplot Smoothing):</strong><br>
+      Fits a local polynomial regression at each data point using neighboring points. Span parameter α controls how many neighbors are used.<br>
+      Best for: Scatter plot trendlines, revealing non-linear relationships.<br>
+      Used in: R's ggplot2 (geom_smooth), Python statsmodels.</p>
+
+      <p><strong>5. Spline Interpolation:</strong><br>
+      Fits piecewise polynomial curves (splines) through or near data points. Creates smooth, continuous curves without sharp corners.<br>
+      Types: Natural cubic spline, B-spline, smoothing spline.<br>
+      Use: Animation transitions, smooth chart lines in D3.js, CAD curves.</p>
+
+      <p><strong>6. Comparison Table:</strong></p>
+      <table>
+        <tr><th>Method</th><th>Edge Preservation</th><th>Complexity</th><th>Best For</th></tr>
+        <tr><td>Moving Average</td><td>No</td><td>Low</td><td>Time series, stocks</td></tr>
+        <tr><td>Gaussian</td><td>Partial</td><td>Low</td><td>Images, signals</td></tr>
+        <tr><td>LOESS</td><td>Partial</td><td>Medium</td><td>Scatter trendlines</td></tr>
+        <tr><td>Spline</td><td>Yes (smooth)</td><td>Medium</td><td>Interpolation, animation</td></tr>
+        <tr><td>PS Adaptive</td><td>Yes — best</td><td>High</td><td>Medical images, MRI</td></tr>
+      </table>
+
+      <p><strong>7. ASCII Diagram:</strong></p>
+      <pre>  Original:   /\_/\/\_/\
+  Moving Avg: /‾‾‾\__/‾
+  Gaussian:   /‾‾‾‾\__
+  LOESS:      /\   /\ (local shape preserved)</pre>
+
+      <p><strong>8. Applications:</strong></p>
+      <ul>
+        <li><strong>Financial Markets:</strong> 50-day, 200-day moving averages identify bull/bear trends</li>
+        <li><strong>Healthcare:</strong> ECG and EEG signal smoothing for heart/brain diagnostics</li>
+        <li><strong>Weather:</strong> Gaussian smoothing of temperature forecast maps</li>
+        <li><strong>ML:</strong> Training loss curve smoothing to reveal learning trend</li>
+        <li><strong>Climate:</strong> CO₂ concentration smoothing to show long-term increase</li>
+      </ul>
+
+      <p><strong>Conclusion:</strong> The choice of smoothing technique depends on the data type, whether edge preservation is important, and the required computational efficiency. Moving Average is simplest; Gaussian is most natural; LOESS is best for scatter plots; PS Adaptive is best when structural boundaries must be preserved.</p>
+    </div>
+  </div>
+
+  <div class="qb">
+    <div class="qh" onclick="togQ(this)"><span>Q12. Explain Structural Adaptive Smoothing by Propagation-Separation Methods.</span><span class="qm">10 marks</span></div>
+    <div class="qa">
+      <p><strong>Answer:</strong></p>
+      <p><strong>1. Definition:</strong><br>
+      Structural Adaptive Smoothing by Propagation-Separation (PS) methods is an advanced noise-reduction technique that adaptively smooths multidimensional data by propagating smoothing in homogeneous (similar) regions while stopping (separating) smoothing at structural boundaries, thereby removing noise while preserving important structural features and edges.</p>
+
+      <p><strong>2. The Core Problem:</strong><br>
+      Traditional smoothing methods (Moving Average, Gaussian filter) use a fixed smoothing window that applies equal smoothing everywhere. This is problematic because:</p>
+      <ul>
+        <li>In noisy uniform regions: too little smoothing leaves noise</li>
+        <li>At sharp edges/boundaries: smoothing blurs and destroys the edge (structural information lost)</li>
+      </ul>
+
+      <p><strong>3. The Two Core Mechanisms:</strong></p>
+      <ul>
+        <li><strong>Propagation:</strong> When two neighboring locations are statistically similar (same data distribution), smoothing information is propagated between them — their estimates are pooled and averaged. This aggressively removes noise in homogeneous regions.</li>
+        <li><strong>Separation:</strong> When two neighboring locations are statistically different (an edge or structural boundary is detected via a similarity test), no smoothing is shared across this boundary. The edge is preserved intact.</li>
+      </ul>
+
+      <p><strong>4. Algorithm Steps:</strong></p>
+      <ol>
+        <li>Start with local estimates at each point (high variance, noisy)</li>
+        <li>For each pair of neighbors i and j, compute similarity statistic S(i,j)</li>
+        <li>If S(i,j) above threshold: PROPAGATE — merge their estimates</li>
+        <li>If S(i,j) below threshold: SEPARATE — keep independent</li>
+        <li>Progressively increase the search radius (propagate further in each iteration)</li>
+        <li>Iterate until convergence</li>
+      </ol>
+
+      <p><strong>5. Visual Diagram:</strong></p>
+      <pre>  Input:   ___/\/\/\___________/\/\/\___
+  Output:  _______/‾‾‾‾‾‾‾‾‾‾‾\________
+           (smooth) (edge sharp) (smooth)
+           
+  Naive:   ___/‾‾‾‾‾‾‾‾‾‾‾\________
+           (edge destroyed — WRONG)</pre>
+
+      <p><strong>6. Importance for Data Visualization:</strong></p>
+      <ul>
+        <li>Produces visually clean representations without sacrificing structural information</li>
+        <li>Enables correct pattern detection in noisy multidimensional datasets</li>
+        <li>Critical where boundaries carry meaning (organ vs. tumor boundary in MRI)</li>
+        <li>Improves signal-to-noise ratio for better chart readability</li>
+      </ul>
+
+      <p><strong>7. Real-World Applications:</strong></p>
+      <ul>
+        <li><strong>Medical Imaging:</strong> MRI/CT scan denoising while preserving organ and lesion boundaries</li>
+        <li><strong>Satellite Remote Sensing:</strong> Denoise land-cover maps while preserving field and road boundaries</li>
+        <li><strong>Finance:</strong> Smooth intraday price data adaptively — smooth out microstructure noise, preserve trend reversals</li>
+        <li><strong>Neuroscience:</strong> Clean fMRI brain activation maps while preserving region-of-interest boundaries</li>
+        <li><strong>Climate:</strong> Smooth ocean temperature maps while preserving thermal fronts (sharp boundary between warm and cold currents)</li>
+      </ul>
+
+      <p><strong>8. Comparison with Traditional Methods:</strong></p>
+      <table>
+        <tr><th>Feature</th><th>Traditional</th><th>PS Adaptive</th></tr>
+        <tr><td>Window</td><td>Fixed</td><td>Adaptive</td></tr>
+        <tr><td>Edges</td><td>Blurred</td><td>Preserved</td></tr>
+        <tr><td>Noise removal</td><td>Uniform</td><td>Structure-aware</td></tr>
+        <tr><td>Output</td><td>Over-smoothed</td><td>Clean + sharp features</td></tr>
+      </table>
+
+      <p><strong>Conclusion:</strong> PS Adaptive Smoothing represents the state-of-the-art approach for data denoising in high-dimensional and image-based visualization contexts. Its core innovation — propagate where similar, separate where different — enables it to achieve simultaneously excellent noise reduction and perfect structural feature preservation, which naive smoothing methods cannot achieve.</p>
+    </div>
+  </div>
+
+  <h3 style="margin:.9rem 0 .6rem;font-size:14px;color:var(--color-text-secondary)">Expected Semester Questions</h3>
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Complete List of Expected University Questions — Unit III</h2><span class="tnum">All marks</span></div>
+  <div class="cb">
+    <ol>
+      <li>Define MDS. Explain the purpose, process, and stress function with examples. (10 marks)</li>
+      <li>Compare MDS with PCA in terms of input, output, objective, and applications. (5 marks)</li>
+      <li>What is the Stress function in MDS? What does a Stress value of 0.15 indicate? (2 marks)</li>
+      <li>Explain the challenges of visualizing huge multidimensional data and methods to overcome them. (10 marks)</li>
+      <li>What is overplotting? How can it be addressed in large-scale visualization? (2 marks)</li>
+      <li>Explain Kernel Density Estimation (KDE) with formula, bandwidth concept, and example. (5 marks)</li>
+      <li>Define KDE. What is the effect of bandwidth on the KDE output? (2 marks)</li>
+      <li>Differentiate between density estimation and clustering with examples. (5 marks)</li>
+      <li>What are contour plots? How do they represent 2D density? (2 marks)</li>
+      <li>Explain structured sets of graphs — hierarchical graphs, clustered graphs, and dynamic graphs. (10 marks)</li>
+      <li>What is graph clustering? Explain community detection with a diagram. (5 marks)</li>
+      <li>What is a dynamic graph? How is it visualized? Give two applications. (5 marks)</li>
+      <li>Explain Propagation-Separation (PS) Adaptive Smoothing with algorithm steps and real-world applications. (10 marks)</li>
+      <li>How does PS Adaptive Smoothing differ from traditional Gaussian smoothing? (5 marks)</li>
+      <li>What are the two core mechanisms in PS smoothing? Explain with examples. (2 marks)</li>
+      <li>Explain at least four smoothing techniques for visualization with comparison table. (10 marks)</li>
+      <li>What is LOESS smoothing? How does it differ from Moving Average? (5 marks)</li>
+      <li>Compare Raw Data vs Smoothed Data visualization with examples. (2 marks)</li>
+      <li>What is spline interpolation? How is it used in data visualization? (2 marks)</li>
+      <li>Write short notes on: (a) Parallel Coordinates Plot (b) Scatterplot Matrix (SPLOM). (5 marks)</li>
+    </ol>
+  </div></div>
+</div>
+
+<!-- ======= QUICK REVISION ======= -->
+<div id="s-quick" class="sec">
+  <h2 style="font-size:18px;font-weight:500;margin-bottom:1rem">Quick Revision — All 6 Topics</h2>
+  <div class="g2">
+    <div class="nc"><h3>Topic 1: MDS</h3><p>Dimensionality reduction using dissimilarity matrix → 2D/3D layout. Stress = √[Σ(d_ij−δ_ij)²/Σδ_ij²] — minimize this. Types: Classical (metric), Non-metric. Applications: recommendation systems, brand perception maps, bioinformatics. Memory: DIPS.</p></div>
+    <div class="nc"><h3>Topic 2: Huge Multidimensional Data</h3><p>Challenges: overplotting, high dimensionality, scalability, visual clutter. Solutions: Sampling, Aggregation, Binning, PCA/t-SNE/UMAP, Level-of-Detail, Parallel Coordinates. Memory: VVVDS problems, SABDL solutions.</p></div>
+    <div class="nc"><h3>Topic 3: Density Estimation</h3><p>KDE: place Gaussian kernels at each point, sum them → smooth density. Bandwidth h controls smoothness. Visualization: heatmaps, contour plots, density surfaces. Formula: f̂(x) = (1/nh)×ΣK((x−xᵢ)/h). Memory: BKS.</p></div>
+    <div class="nc"><h3>Topic 4: Structured Graphs</h3><p>Types: Hierarchical (tree, parent-child, no cycles), Clustered (communities inside graph), Grouped (super-nodes), Dynamic (changes over time). Applications: org charts, social networks, biological pathways. Memory: HCGD.</p></div>
+    <div class="nc"><h3>Topic 5: PS Adaptive Smoothing</h3><p>Propagate: smooth similar neighbors. Separate: preserve edges/boundaries. Adaptive window — more smoothing in uniform regions, stops at structural boundaries. Better than naive smoothing. Applications: MRI, satellite, fMRI. Memory: PS = Preserve Structure.</p></div>
+    <div class="nc"><h3>Topic 6: Smoothing Techniques</h3><p>Moving Average: equal-weight sliding window. Gaussian: bell-curve weights. LOESS: local polynomial fit. Spline: piecewise polynomials. Savitzky-Golay: least-squares polynomial window (preserves peaks). Low-pass filter: removes high-frequency noise. Memory: MGLSS — My Grandma Loves Smooth Signals.</p></div>
+  </div>
+
+  <div class="nc"><h3>Important Definitions for 2-Mark Questions</h3>
+    <ul>
+      <li><strong>MDS:</strong> Maps high-D data to 2D/3D preserving pairwise dissimilarities</li>
+      <li><strong>Stress:</strong> √[Σ(d_ij−δ_ij)²/Σδ_ij²] — measures MDS projection quality; minimize it</li>
+      <li><strong>KDE:</strong> Non-parametric density estimate: f̂(x) = (1/nh)×ΣK((x−xᵢ)/h)</li>
+      <li><strong>Bandwidth (h):</strong> KDE smoothness parameter — small h = spiky, large h = over-smooth</li>
+      <li><strong>Hierarchical Graph:</strong> Directed acyclic graph with levels and parent-child relationships</li>
+      <li><strong>Graph Clustering:</strong> Finding groups of densely connected nodes (communities) in a network</li>
+      <li><strong>Propagation:</strong> Spreading smoothing to similar neighboring data points</li>
+      <li><strong>Separation:</strong> Stopping smoothing at detected structural boundaries (edges)</li>
+      <li><strong>Moving Average:</strong> Replace each value with mean of k surrounding values</li>
+      <li><strong>LOESS:</strong> Local polynomial regression fitted at each point using neighboring data</li>
+    </ul>
+  </div>
+
+  <div class="nc"><h3>Memory Tricks — All Unit III</h3>
+    <ul>
+      <li><strong>MDS pipeline:</strong> DIPS — Dissimilarity, Initialize, Project, Stress minimize</li>
+      <li><strong>Big data challenges:</strong> VVVDS — Volume, Velocity, Variety, Dimensionality, Scalability</li>
+      <li><strong>Big data solutions:</strong> SABDL — Sampling, Aggregation, Binning, Dimensionality reduction, Level-of-detail</li>
+      <li><strong>KDE:</strong> BKS — Bandwidth, Kernel at each point, Sum all kernels</li>
+      <li><strong>Graph types:</strong> HCGD — Hierarchical, Clustered, Grouped, Dynamic</li>
+      <li><strong>PS Smoothing:</strong> "Propagate where SAME, Separate where DIFFERENT"</li>
+      <li><strong>Smoothing methods:</strong> MGLSS — Moving avg, Gaussian, LOESS, Spline, Savitzky-Golay</li>
+      <li><strong>Stress quality:</strong> "Excellent 5, Good 10, Fair 20, Poor above" (threshold %)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ======= NIGHT BEFORE ======= -->
+<div id="s-night" class="sec">
+  <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:1.2rem;margin-bottom:1.4rem;border:.5px solid var(--color-border-tertiary)">
+    <h2 style="font-size:18px;font-weight:500;margin-bottom:.25rem">Night Before Exam — Complete Revision Sheet — Unit III</h2>
+    <p style="font-size:13px;color:var(--color-text-secondary)">Covers all 6 topics of Unit III. Read in 30–35 minutes.</p>
+  </div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Topic 1: MDS — Must-Know Points</h2><span class="tnum">Flash</span></div>
+  <div class="cb op">
+    <ul>
+      <li>MDS = maps high-D data to 2D/3D by preserving pairwise dissimilarities</li>
+      <li>Input: dissimilarity matrix. Output: 2D/3D coordinates</li>
+      <li>Stress formula: √[Σ(d_ij−δ_ij)²/Σδ_ij²] — minimize to get best 2D fit</li>
+      <li>Stress quality: &lt;0.05 Excellent, &lt;0.10 Good, &lt;0.20 Fair, &gt;0.20 Poor</li>
+      <li>Classical MDS = Metric; Non-metric MDS = only preserves rank order of distances</li>
+      <li>MDS vs PCA: MDS needs dissimilarity matrix only; PCA needs raw data; MDS preserves distances; PCA maximizes variance</li>
+      <li>Applications: recommendation systems, brand perception maps, gene expression visualization, NLP document similarity</li>
+      <li>Memory: DIPS — Dissimilarity, Initialize, Project, Stress minimize</li>
+    </ul>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Topic 2: Huge Multidimensional Data — Key Points</h2><span class="tnum">Flash</span></div>
+  <div class="cb op">
+    <ul>
+      <li>Challenges: overplotting (too many overlapping points), high dimensionality, scalability, visual clutter</li>
+      <li>Sampling: select representative subset (random, stratified, reservoir)</li>
+      <li>Aggregation: combine rows into summaries (daily totals instead of per-transaction)</li>
+      <li>Binning: group continuous data into intervals → histogram</li>
+      <li>Dimensionality reduction: PCA (linear, variance), t-SNE (non-linear, clusters), UMAP (fast, global+local), MDS (distances)</li>
+      <li>Level-of-Detail (LOD): zoom out = overview, zoom in = detail (like Google Maps)</li>
+      <li>Parallel coordinates: all features as vertical axes, each data point as a line crossing all axes</li>
+      <li>Memory: VVVDS challenges, SABDL solutions</li>
+    </ul>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Topic 3: Density Estimation — Key Points</h2><span class="tnum">Flash</span></div>
+  <div class="cb op">
+    <ul>
+      <li>KDE: places a kernel (usually Gaussian) at each data point; sums all kernels → smooth density estimate</li>
+      <li>Formula: f̂(x) = (1/nh) × Σ K((x−xᵢ)/h) where h = bandwidth, K = kernel</li>
+      <li>Bandwidth (h): small h = spiky overfit; large h = flat underfit; optimal h = smooth and accurate</li>
+      <li>Heatmap: 2D density encoded as color (dark = high density, light = low density)</li>
+      <li>Contour plot: lines connecting equal-density regions (like topographic altitude lines)</li>
+      <li>Density vs. Clustering: density = soft continuous surface; clustering = hard discrete labels</li>
+      <li>Applications: COVID hotspot maps, website click heatmaps, stock return distribution, accident density maps</li>
+      <li>Memory: BKS — Bandwidth, Kernel at each point, Sum</li>
+    </ul>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Topic 4: Structured Graphs — Quick Reference</h2><span class="tnum">Flash</span></div>
+  <div class="cb op">
+    <table>
+      <tr><th>Graph Type</th><th>Structure</th><th>Example</th><th>Visualization</th></tr>
+      <tr><td>Hierarchical</td><td>Levels, parent-child, no cycles</td><td>Org chart, file system</td><td>Node-link tree, treemap</td></tr>
+      <tr><td>Clustered</td><td>Communities inside graph</td><td>Social network communities</td><td>Force-directed + color</td></tr>
+      <tr><td>Grouped</td><td>Super-nodes (aggregated)</td><td>Software modules</td><td>Nested rectangles</td></tr>
+      <tr><td>Dynamic</td><td>Changes over time</td><td>Twitter follows over years</td><td>Animation, timeline slider</td></tr>
+      <tr><td>Bipartite</td><td>Two disjoint node sets</td><td>User-Movie ratings</td><td>Two-column layout</td></tr>
+    </table>
+    <p>Memory: HCGD — Hierarchical, Clustered, Grouped, Dynamic</p>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Topic 5: PS Adaptive Smoothing — Must-Know</h2><span class="tnum">Flash</span></div>
+  <div class="cb op">
+    <ul>
+      <li>PS = Propagation-Separation: adaptive smoothing that preserves structural boundaries</li>
+      <li><strong>Propagation:</strong> Similar neighbors → share smoothing → noise removed in uniform regions</li>
+      <li><strong>Separation:</strong> Different neighbors (edge detected) → stop smoothing → boundary preserved</li>
+      <li>Traditional smoothing uses fixed window → blurs all edges (bad for medical images)</li>
+      <li>PS uses adaptive window → more smoothing in flat regions, stops at edges (best quality)</li>
+      <li>Analogy: wildfire spreads through dry grass (propagation) but stops at a river (separation)</li>
+      <li>Applications: MRI denoising, satellite imagery, fMRI brain maps, financial signal cleaning</li>
+      <li>Memory: PS = Preserve Structure. Propagate=same, Separate=different</li>
+    </ul>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Topic 6: Smoothing Techniques — Quick Reference</h2><span class="tnum">Flash</span></div>
+  <div class="cb op">
+    <table>
+      <tr><th>Method</th><th>Key Feature</th><th>Application</th></tr>
+      <tr><td>Moving Average</td><td>Equal-weight sliding window mean</td><td>Stock prices, simple trends</td></tr>
+      <tr><td>Gaussian</td><td>Bell-curve weights (center most)</td><td>Image denoising, weather maps</td></tr>
+      <tr><td>LOESS</td><td>Local polynomial regression</td><td>Scatter plot trendlines</td></tr>
+      <tr><td>Spline</td><td>Piecewise smooth polynomials</td><td>Curve interpolation, animation</td></tr>
+      <tr><td>Savitzky-Golay</td><td>Least-squares poly, preserves peaks</td><td>ECG, spectroscopy signals</td></tr>
+      <tr><td>PS Adaptive</td><td>Propagation + separation, edge-aware</td><td>MRI, satellite imagery</td></tr>
+    </table>
+    <div class="ok">Memory: <strong>MGLSS</strong> — Moving avg, Gaussian, LOESS, Spline, Savitzky-Golay. "My Grandma Loves Smooth Signals."</div>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="tog(this)"><h2>Top 12 Most Expected Exam Questions — Unit III</h2><span class="tnum">Flash</span></div>
+  <div class="cb op">
+    <ol>
+      <li>Define MDS and explain the Stress function with example. (10 marks)</li>
+      <li>Compare MDS and PCA. (5 marks)</li>
+      <li>Explain challenges and solutions for huge multidimensional data visualization. (10 marks)</li>
+      <li>What is KDE? Explain with formula and bandwidth effect. (5 marks)</li>
+      <li>Differentiate density estimation from clustering. (5 marks)</li>
+      <li>Explain structured sets of graphs — hierarchical, clustered, dynamic. (10 marks)</li>
+      <li>What is graph clustering/community detection? (2 or 5 marks)</li>
+      <li>Explain PS Adaptive Smoothing with propagation and separation. (10 marks)</li>
+      <li>Compare PS smoothing with Gaussian smoothing. (5 marks)</li>
+      <li>Explain 4 smoothing techniques for visualization with comparison. (10 marks)</li>
+      <li>What is LOESS? How does it differ from Moving Average? (5 marks)</li>
+      <li>What is a contour plot? How is it used in density visualization? (2 marks)</li>
+    </ol>
+  </div></div>
+</div>
+
+</div><!-- end wrap -->
+
+<script>
+function show(id, btn) {
+  document.querySelectorAll('.sec').forEach(function(s){ s.classList.remove('on'); });
+  document.querySelectorAll('.nb').forEach(function(b){ b.classList.remove('on'); });
+  document.getElementById('s-'+id).classList.add('on');
+  if(btn) btn.classList.add('on');
+}
+function tog(header) { header.nextElementSibling.classList.toggle('op'); }
+function togQ(header) { header.nextElementSibling.classList.toggle('op'); }
+function expandAll() { document.querySelectorAll('.cb').forEach(function(b){ b.classList.add('op'); }); }
+</script>
